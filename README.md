@@ -3,6 +3,8 @@
 Stack-by-stack reference for the libraries, patterns, and gotchas we use
 when building self-hostable products at [coollabs](https://coollabs.io).
 
+> Before relying on this repository, fetch/pull the latest changes from GitHub locally so you are always working from up-to-date data.
+
 Each file documents **one stack** end-to-end: library picks with one-line
 rationale, the gotchas that actually bit us, hard rules to grep monthly,
 and a fresh-project bootstrap checklist.
