@@ -64,7 +64,7 @@ the server (and the integration tests) consume.
 | Compression | `flate2` (gzip/deflate) + `brotli` + `zstd` | Cover real-world `Content-Encoding`. |
 | UUIDs / hashing | `uuid` v4/v7, `sha2` | Standard. |
 | Frontend embed | **`rust-embed`** + `mime_guess` | Compile-time embed of `frontend/build/` into the binary; SPA fallback to `200.html` for unknown routes. |
-| Build orchestration | `build.rs` running `pnpm install` + `pnpm build` | One `cargo build` produces a working binary including frontend. |
+| Build orchestration | `build.rs` running `bun install` + `bun run build` | One `cargo build` produces a working binary including frontend. |
 | Object storage trait | hand-rolled `BlobStore` | FS impl now, S3 (`aws-sdk-s3`) later — same trait. |
 
 ### Storage pattern
@@ -137,11 +137,11 @@ scripts work; admin actions and the future web UI hit the same code.
 | Styling | **Tailwind v3** | shadcn-svelte still pinned to v3 ecosystem at time of writing. |
 | Components | **shadcn-svelte primitives** (or hand-rolled Tailwind tokens until Svelte 5 runes is fully supported) | Distinctive, owned-in-tree components, no runtime lib. |
 | Compiler mode | `compilerOptions.runes = false` until shadcn-svelte fully supports Svelte 5 runes | Otherwise you hit `Cannot use $$restProps in runes mode`. |
-| Package manager | **`pnpm`** | Fast, deterministic, plays well with monorepos and CI caches. |
+| Package manager + runtime | **`bun`** | Single binary handling install, run, test, bundle. Faster than pnpm/npm; lockfile is `bun.lock` (text). |
 
 ### shadcn-svelte gotcha
 
-- shadcn-svelte CLI install (`pnpm dlx shadcn-svelte@latest init`) is
+- shadcn-svelte CLI install (`bunx shadcn-svelte@latest init`) is
   interactive — annoying for first bootstrap in CI/agent flows. Either
   hand-roll the Tailwind tokens (border / muted / destructive HSL values
   copied from shadcn defaults) or run it locally before committing.
@@ -161,15 +161,16 @@ scripts work; admin actions and the future web UI hit the same code.
 
 ### `build.rs` orchestration gotchas
 
-- `pnpm install` only when `node_modules/` is missing **or** when
-  `package.json` / `pnpm-lock.yaml` mtime > `node_modules` mtime.
-  Otherwise dep upgrades silently miss.
+- `bun install` only when `node_modules/` is missing **or** when
+  `package.json` / `bun.lock` mtime > `node_modules` mtime. Otherwise dep
+  upgrades silently miss.
 - Provide a `<APP>_SKIP_FRONTEND=1` env escape hatch for backend-only
   iteration; create an empty `build/` directory so `rust-embed` still
   compiles when the frontend build is skipped.
 - Emit `cargo:rerun-if-changed=` for `frontend/src`, `package.json`,
-  `pnpm-lock.yaml`. Otherwise touching frontend code doesn't trigger
-  rebuilds.
+  `bun.lock`. Otherwise touching frontend code doesn't trigger rebuilds.
+- Bun must be on PATH in CI. Use `oven-sh/setup-bun@v2` action; it caches
+  by `bun.lock` like `setup-node`.
 
 ---
 
@@ -235,8 +236,8 @@ frontend deps installed before `cargo` so `build.rs` succeeds.
 4. clap multi-subcommand binary, `serve` default, `db migrate/revert/info`.
 5. `frontend/`: SvelteKit + adapter-static (`fallback: '200.html'`,
    `prerender = false`, `ssr = false`, `runes = false`), Tailwind v3,
-   shadcn-svelte primitives.
-6. `build.rs` orchestrating `pnpm install`/`build`; mtime-guarded
+   shadcn-svelte primitives. Use **bun** as the package manager + runtime.
+6. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
    re-install; `<APP>_SKIP_FRONTEND` escape hatch.
 7. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer`.
 8. `test_support::test_app()` helper + first integration test +
