@@ -33,6 +33,18 @@ Signature traits worth knowing before reading:
 - **Inset box-shadow inputs** with 4px left "dirty bar" wired via `wire:dirty.class` — focus + modified state in one indicator.
 - **Sharp 4px radii** everywhere except callouts (8px) and pills (full). No mixed radii per view.
 
+### Validating DESIGN.md
+
+`DESIGN.md` follows the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) spec — YAML frontmatter for machine-readable tokens, Markdown body for rationale. Lint and export with the spec's CLI ([`@google/design.md`](https://www.npmjs.com/package/@google/design.md), exposes `design.md` / `designmd`):
+
+```bash
+bunx @google/design.md lint DESIGN.md
+bunx @google/design.md export DESIGN.md --format tailwind > theme.json
+bunx @google/design.md export DESIGN.md --format dtcg     > tokens.json
+```
+
+Use `bunx` — `npx` chokes on the `.md` suffix in the package name. Spec is alpha; confirm flags via `bunx @google/design.md --help` before wiring into CI.
+
 ## Conventions for new entries
 
 - One file per stack. Cross-stack patterns live in their own doc, not

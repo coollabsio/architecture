@@ -34,11 +34,22 @@ colors:
   border: "#e5e5e5"
   text: "#000000"
   text-muted: "#737373"
+  text-muted-strong: "#595959"
   text-placeholder: "#d4d4d4"
   # Semantic
   success: "#22C55E"
   error: "#dc2626"
-  primary: "{colors.coollabs}"
+  primary: "#6b16ed"
+  # Neutrals & utility (referenced by components)
+  white: "#ffffff"
+  neutral-100: "#f5f5f5"
+  red-50: "#fef2f2"
+  red-300: "#fca5a5"
+  red-800: "#991b1b"
+  blue-50: "#eff6ff"
+  blue-800: "#1e40af"
+  green-50: "#f0fdf4"
+  green-800: "#166534"
 typography:
   h1:
     fontFamily: "'Geist Sans', Inter, sans-serif"
@@ -77,7 +88,6 @@ typography:
     fontWeight: 400
 rounded:
   sm: 0.25rem    # default — inputs, buttons, cards, modals
-  coolbox: 0.25rem  # alias — same radius as default; coolbox identity is ring-hover, not radius
   lg: 0.5rem     # callouts
   full: 9999px   # badges, pills
 spacing:
@@ -101,23 +111,23 @@ components:
     padding: 0 0.5rem
   button-dark:
     backgroundColor: "{colors.coolgray-100}"
-    textColor: "#ffffff"
+    textColor: "{colors.white}"
   button-hover:
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "{colors.neutral-100}"
   button-hover-dark:
     backgroundColor: "{colors.coolgray-200}"
   button-highlighted:
     backgroundColor: "{colors.coollabs-50}"
     textColor: "{colors.coollabs-200}"
   button-highlighted-hover:
-    backgroundColor: "{colors.coollabs}"
-    textColor: "#ffffff"
+    backgroundColor: "{colors.primary}"
+    textColor: "{colors.white}"
   button-error:
-    backgroundColor: "#fef2f2"
-    textColor: "#991b1b"
+    backgroundColor: "{colors.red-50}"
+    textColor: "{colors.red-800}"
   button-error-hover:
-    backgroundColor: "#fca5a5"
-    textColor: "#ffffff"
+    backgroundColor: "{colors.error}"
+    textColor: "{colors.white}"
   input:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.text}"
@@ -125,7 +135,7 @@ components:
     padding: 0.375rem 0.5rem
   input-dark:
     backgroundColor: "{colors.coolgray-100}"
-    textColor: "#ffffff"
+    textColor: "{colors.white}"
   textarea:
     typography: "{typography.mono}"
     backgroundColor: "{colors.surface}"
@@ -138,15 +148,15 @@ components:
     height: "{spacing.card-min-height}"
   box-dark:
     backgroundColor: "{colors.coolgray-100}"
-    textColor: "#ffffff"
+    textColor: "{colors.white}"
   box-hover:
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "{colors.neutral-100}"
   box-hover-dark:
     backgroundColor: "{colors.coollabs-100}"
-    textColor: "#ffffff"
+    textColor: "{colors.white}"
   coolbox:
     backgroundColor: "{colors.surface}"
-    rounded: "{rounded.coolbox}"
+    rounded: "{rounded.sm}"
     padding: "{spacing.sm}"
     height: "{spacing.card-min-height}"
   badge-success:
@@ -162,8 +172,8 @@ components:
     size: 0.75rem
     rounded: "{rounded.full}"
   deprecated-badge:
-    backgroundColor: "rgba(252, 212, 82, 0.15)"
-    textColor: "{colors.warning}"
+    backgroundColor: "{colors.warning-50}"
+    textColor: "{colors.warning-800}"
     rounded: "{rounded.full}"
     padding: 0.125rem 0.5rem
   callout-warning:
@@ -172,18 +182,18 @@ components:
     rounded: "{rounded.lg}"
     padding: "{spacing.md}"
   callout-danger:
-    backgroundColor: "#fef2f2"
-    textColor: "#991b1b"
+    backgroundColor: "{colors.red-50}"
+    textColor: "{colors.red-800}"
     rounded: "{rounded.lg}"
     padding: "{spacing.md}"
   callout-info:
-    backgroundColor: "#eff6ff"
-    textColor: "#1e40af"
+    backgroundColor: "{colors.blue-50}"
+    textColor: "{colors.blue-800}"
     rounded: "{rounded.lg}"
     padding: "{spacing.md}"
   callout-success:
-    backgroundColor: "#f0fdf4"
-    textColor: "#166534"
+    backgroundColor: "{colors.green-50}"
+    textColor: "{colors.green-800}"
     rounded: "{rounded.lg}"
     padding: "{spacing.md}"
   dropdown:
@@ -193,20 +203,20 @@ components:
   dropdown-dark:
     backgroundColor: "{colors.coolgray-200}"
   dropdown-item-hover:
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "{colors.neutral-100}"
   dropdown-item-hover-dark:
     backgroundColor: "{colors.coollabs}"
-    textColor: "#ffffff"
+    textColor: "{colors.white}"
   menu-item-active:
-    backgroundColor: "#e5e5e5"
+    backgroundColor: "{colors.border}"
     textColor: "{colors.text}"
     rounded: "{rounded.sm}"
   menu-item-active-dark:
     backgroundColor: "{colors.coolgray-200}"
     textColor: "{colors.warning}"
   tag:
-    backgroundColor: "#f5f5f5"
-    textColor: "{colors.text-muted}"
+    backgroundColor: "{colors.border}"
+    textColor: "{colors.text-muted-strong}"
     padding: 0.25rem 0.5rem
   kbd:
     rounded: "{rounded.sm}"
@@ -222,7 +232,7 @@ components:
   modal-input-dark:
     backgroundColor: "{colors.base}"
   modal-confirmation:
-    backgroundColor: "#f5f5f5"
+    backgroundColor: "{colors.neutral-100}"
     rounded: "{rounded.sm}"
   modal-confirmation-dark:
     backgroundColor: "{colors.base}"
