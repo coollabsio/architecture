@@ -87,7 +87,8 @@ spacing:
   lg: 1.5rem
   xl: 2rem
   section: 3rem
-  sidebar-width: 14rem
+  sidebar-padding-x-collapsed: 0.25rem  # lg:px-1
+  sidebar-padding-x-expanded: 0.5rem    # px-2
   button-height: 2rem
   card-min-height: 4rem
   input-py: 0.375rem
@@ -125,18 +126,6 @@ components:
   input-dark:
     backgroundColor: "{colors.coolgray-100}"
     textColor: "#ffffff"
-  input-double-border:
-    borderColor: "{colors.border}"
-    borderWidth: 2px
-    rounded: "{rounded.sm}"
-    focusBorderColor: "{colors.coollabs}"
-    focusRingColor: "{colors.coollabs}"
-    ringOffsetColor: "{colors.surface}"
-  input-double-border-dark:
-    borderColor: "{colors.coolgray-300}"
-    focusBorderColor: "{colors.warning}"
-    focusRingColor: "{colors.warning}"
-    ringOffsetColor: "{colors.coolgray-100}"
   textarea:
     typography: "{typography.mono}"
     backgroundColor: "{colors.surface}"
@@ -239,6 +228,113 @@ components:
     backgroundColor: "{colors.base}"
 ---
 
+## AI Review Checklist
+
+> Use this when asked for a **full design review** against this spec. Walk every box. Cite the section link when reporting a violation.
+
+### 1. Foundations
+- [ ] Light-mode accent is `coollabs #6b16ed`; dark-mode accent is `warning #fcd452`. Never purple in dark. ([Overview](#overview))
+- [ ] All `h1`–`h4` and card titles force `dark:text-white`. ([Dark-mode heading rule](#dark-mode-heading-rule-critical))
+- [ ] Default `border` utilities resolve to `coolgray-200` in dark via base-layer override — don't fight it. ([Default border override](#default-border-override))
+- [ ] Fonts: UI uses Geist Sans, code/logs/textareas use Geist Mono. ([Typography](#typography))
+- [ ] Heading hierarchy matches the table (`text-3xl` / `text-xl` / `text-lg` / `text-base`, all `font-bold`). ([Heading hierarchy](#heading-hierarchy-tailwind-utilities))
+- [ ] Max two font weights per screen (typically 400 + 700). ([Don'ts](#dos-and-donts))
+
+### 2. Color & Surfaces
+- [ ] Dark surfaces follow the coolgray ladder: `base → coolgray-100 → -200 → -300 → -400 → -500`. ([Dark tonal ladder](#dark-tonal-ladder))
+- [ ] Light surfaces follow the neutral ladder: `gray-50 → white → neutral-200/100/300`. ([Light tonal ladder](#light-tonal-ladder))
+- [ ] Status colors: `success #22C55E` (running/healthy), `error #dc2626` (stopped/danger), `warning #fcd452` (degraded/restarting). ([Palettes](#palettes))
+- [ ] No gradients except `.bg-coollabs-gradient` upsell strip. ([Don'ts](#dos-and-donts))
+- [ ] WCAG AA contrast (4.5:1 normal text) verified on every text-on-surface pairing. ([Do's](#dos-and-donts))
+
+### 3. Shape & Elevation
+- [ ] Default radius `rounded-sm` (2px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
+- [ ] `rounded` (4px) only on `.coolbox`. ([Shapes](#shapes))
+- [ ] `rounded-lg` (8px) only on callouts. ([Shapes](#shapes))
+- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars. ([Shapes](#shapes))
+- [ ] No mixed radii within the same view. ([Shapes](#shapes))
+- [ ] Shadows reserved for: `shadow-sm` (boxes), toast custom shadow, `shadow-lg` (slide-over), `drop-shadow-sm` (modal-input). Otherwise tonal layers only. ([Shadows](#shadows-used-sparingly))
+
+### 4. Inputs (signature system)
+- [ ] Inputs / selects / textareas use the inset `box-shadow` system, **not** `border`. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
+- [ ] 4px left dirty-bar wired via `wire:dirty.class` with the focus-color shadow string. ([Dirty indicator](#input))
+- [ ] Focus shadow uses `coollabs` (light) / `warning` (dark) on the 4px left bar. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
+- [ ] Disabled / readonly fields drop the box-shadow entirely. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
+- [ ] Password inputs reserve `pr-[2.4rem]` for the eye icon. ([Input](#input))
+- [ ] Select arrow SVG stroke swaps `%23000000` → `%23ffffff` in dark mode. ([Select](#select))
+- [ ] Checkbox uses focus-visible ring (`coollabs` / `warning`) with `ring-offset-2`. ([Checkbox](#checkbox))
+- [ ] Textarea uses `font-mono` and the same dirty-bar wiring as input. ([Textarea](#textarea))
+- [ ] Copy-button only renders in `window.isSecureContext`; copied state shows `text-green-500` for 1s. ([Copy-Button](#copy-button))
+
+### 5. Buttons
+- [ ] Base `.button` height `h-8`, `px-2`, `gap-2`, `text-sm`, `font-medium`, `rounded-sm`. ([Button](#button))
+- [ ] `[isHighlighted]` and `[isError]` variants apply the documented attribute selectors. ([Button](#button))
+- [ ] In-button spinner uses `<x-loading-on-button>` (no light-mode color, inherits text). ([Loading-On-Button](#loading-on-button))
+- [ ] Focus ring follows the non-input pattern (`focus-visible:ring-2 ring-coollabs dark:ring-warning ring-offset-2 dark:ring-offset-base`). ([Focus ring](#focus-ring-buttons-links-checkboxes-non-input))
+
+### 6. Containers
+- [ ] `.box`: `min-h-[4rem]`, `shadow-sm`, `rounded-sm`, dark hover goes purple `coollabs-100`. ([Box](#box))
+- [ ] `.box-title` / `.box-description` flip to contrast on `group-hover` (else description disappears on dark hover). ([Box](#box))
+- [ ] `.coolbox`: `rounded` (4px) + ring-hover (`hover:ring-2 ring-coollabs dark:ring-warning`). ([Coolbox](#coolbox))
+
+### 7. Status & Badges
+- [ ] Badge base size `w-3 h-3`, `rounded-full`, with `border-neutral-200 dark:border-black`. ([Badge base](#badge-base))
+- [ ] Status pattern: badge + `pl-2 pr-1 text-xs font-bold {color}` label. ([Status indicator pattern](#status-indicator-pattern))
+- [ ] `running` / `degraded` / `restarting` / `stopped` use the documented badge + text-color pairs. ([Status indicator pattern](#status-indicator-pattern))
+- [ ] Deprecated badge uses `bg-warning/15 text-warning border-warning/30 rounded-full`. ([Deprecated Badge](#deprecated-badge))
+- [ ] `.tag`: `dark:bg-coolgray-100` / `bg-neutral-100`, hover one shade darker. ([Tag](#tag))
+
+### 8. Overlays
+- [ ] Callouts use the four documented type → bg/border/title/body color quartets. ([Callout](#callout))
+- [ ] Callout icons use `*-600` light / `*-400` dark. ([Callout](#callout))
+- [ ] Modal: `bg-white dark:bg-base`, `border-neutral-200 dark:border-coolgray-300`, `rounded-sm`, `drop-shadow-sm`. Backdrop `bg-black/20 backdrop-blur-xs`. ([Modal](#modal-input-variant))
+- [ ] Modal close button: `w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-coolgray-300`, 24px X icon `stroke-width=1.5`. ([Modal](#modal-input-variant))
+- [ ] Modal-confirmation uses `<x-callout type="danger">` and hides the password step for OAuth users. ([Modal Confirmation](#modal-confirmation))
+- [ ] Popup / Popup-Small fixed bottom-right with documented widths (max-w-4xl / max-w-[46rem]). ([Popup / Popup-Small](#popup--popup-small))
+- [ ] Slide-over: `max-w-xl`, `bg-neutral-50 dark:bg-base`, `border-l shadow-lg`. ([Slide-Over](#slide-over))
+- [ ] Toast: stacks ≤4, auto-dismiss 4s, hover pauses, `window.sanitizeHTML` applied to HTML payloads. ([Toast](#toast))
+- [ ] Toast icon colors match type table (success/info/warning/danger/default). ([Toast](#toast))
+- [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper--tooltip))
+
+### 9. Navigation
+- [ ] Sidebar root: no fixed width; `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for `coolify-logo.svg w-6 h-6`; padding `lg:px-1`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] `.sidebar-collapsed .menu-item` centers icons and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`. ([Structure](#structure))
+- [ ] Alpine state exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`, `collapsed`. Theme persists to `localStorage.theme`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] `.menu-item-active` dark uses `bg-coolgray-200 text-warning`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Breadcrumbs: links `hover:text-warning`; active item `dark:text-warning font-semibold`. ([Breadcrumbs](#breadcrumbs))
+- [ ] External-Link `w-3 h-3` arrow-out icon appended to external anchors. ([External-Link](#external-link))
+- [ ] Banner: `z-999`, `bg-coolgray-100`, `sm:h-14`, `shadow-xs`, dismiss reveals via 100ms transition. ([Banner](#banner))
+
+### 10. Feedback / Text / Chrome
+- [ ] Loading spinner: `w-4 h-4 text-coollabs dark:text-warning animate-spin` with two-opacity SVG. ([Loading Spinner](#loading-spinner))
+- [ ] Highlighted / required asterisk uses `.text-helper` (`font-bold text-coollabs dark:text-warning`). ([Highlighted text](#highlighted-text))
+- [ ] `.kbd-custom` border is dashed, `dark:text-warning`. ([Kbd](#kbd))
+- [ ] Body uses `.scrollbar` (`scrollbar-thumb-coollabs-100`, `scrollbar-thin`). ([Scrollbar](#scrollbar))
+- [ ] Tables use the base-layer rules (`min-w-full`, `divide-y dark:divide-coolgray-200`, `tr:hover dark:bg-coolgray-300 hover:bg-neutral-100`, first-cell `pl-4 sm:pl-6 font-bold`). ([Table](#table))
+- [ ] Dropdown container: `border-neutral-300 dark:border-coolgray-300 bg-white dark:bg-coolgray-200 p-1 shadow-sm`. ([Dropdown](#dropdown))
+- [ ] `.dropdown-item`: `text-xs`, hover `bg-neutral-100 dark:bg-coollabs`. Touch variant `min-h-10 px-3 py-2 text-sm`. ([Dropdown](#dropdown))
+
+### 11. Spacing & Layout
+- [ ] Spacing tokens match the scale table (`p-2`, `p-4`, `py-1.5`, `h-8`, `px-2`, `gap-2`, `gap-3`, `mb-12`, `min-h-[4rem]`). ([Spacing scale](#spacing-scale))
+- [ ] Layout uses flex (no grid system). ([Spacing scale](#spacing-scale))
+- [ ] Main content padding `p-4 sm:px-6 lg:px-8 lg:py-6`. ([Structure](#structure))
+- [ ] Section margin `mb-12`. ([Spacing scale](#spacing-scale))
+
+### 12. Hard Don'ts (zero tolerance)
+- [ ] No purple `coollabs` accent in dark mode.
+- [ ] No mixed corner radii in one view.
+- [ ] No shadow-based elevation in dark mode.
+- [ ] No unexpected color when using `border` utilities (default = `coolgray-200` dark).
+- [ ] No gradients (except the one upsell strip).
+- [ ] No more than two font weights per screen.
+
+---
+
 # Coolify Design System
 
 ## Overview
@@ -318,13 +414,18 @@ Applied via `@theme`:
 
 ## Layout
 
-Fixed left sidebar layout on desktop. Mobile collapses to a sticky top bar with hamburger menu overlay.
+Collapsible left sidebar on desktop. Mobile collapses to a sticky top bar with hamburger menu overlay.
 
 ### Structure
 
-- **Sidebar** — fixed, `w-56` (14rem / 224px), `hidden lg:flex`. Inner `flex flex-col overflow-y-auto gap-y-5 scrollbar`. Nav `bg-white dark:bg-base border-r`.
-- **Main content** — `lg:pl-56` offset. Inner padding `p-4 sm:px-6 lg:px-8 lg:py-6`.
-- **Mobile top bar** — `sticky top-0 z-40 lg:hidden` with `bg-white/95 dark:bg-base/95 backdrop-blur-sm`.
+- **Sidebar** — collapsible, two states persisted via `localStorage` (Alpine `collapsed` boolean):
+  - **Expanded** — full content + labels + wordmark logo + global search button + settings dropdown. Padding `px-2`.
+  - **Collapsed (≥`lg`)** — icons only; menu-item labels hidden via `:class="collapsed && 'lg:hidden'"`; small `/coolify-logo.svg` (`w-6 h-6`) replaces wordmark; search + settings dropdown hidden. Padding `lg:px-1`. Adds `.sidebar-collapsed` class to nav root.
+  - Mobile (<`lg`) always uses `px-2` (collapse is a desktop-only mode).
+  - Width is content-driven (no fixed `w-*` class) — derived from icon size + padding when collapsed; from labels + padding when expanded.
+  - Root: `flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base`.
+- **Main content** — no fixed offset; layout adapts to current sidebar width. Inner padding `p-4 sm:px-6 lg:px-8 lg:py-6`.
+- **Mobile top bar** — `sticky top-0 z-40 lg:hidden` with `bg-white/95 dark:bg-base/95 backdrop-blur-sm` (lives in layout, not the navbar component).
 
 ### Spacing scale
 
@@ -377,7 +478,7 @@ No grid system — flex layouts everywhere.
 
 ### Input inset box-shadow system (distinctive)
 
-Inputs and selects use `box-shadow` instead of `border` — this enables the 4px left dirty-bar indicator:
+Inputs and selects use `box-shadow` instead of `border` — `border-0` + two layered inset shadows. The first inset shadow paints a 4px-wide vertical bar at the left edge (transparent at rest, accent on focus/dirty). The second inset shadow paints a 2px-wide simulated border around the inner edge of the field. Corners are `rounded-sm` (2px).
 
 ```css
 /* default */  box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px #e5e5e5;
@@ -388,50 +489,21 @@ Inputs and selects use `box-shadow` instead of `border` — this enables the 4px
 /* disabled / readonly */  box-shadow: none;
 ```
 
-Variant `input-sticky` uses `1px` outer shadow instead of `2px`.
+**Blade pattern.** Livewire flips the bar color on modified state via `wire:dirty.class`:
 
-### Double-border focus (alternate input style)
-
-Peer to the inset box-shadow system. Symmetric doubled outline. Framework-agnostic — pure CSS / Tailwind utility composition. Use on any input/textarea/select where dirty-state encoding is not needed and a four-sided focus reads better than the asymmetric 4px left bar.
-
-Mechanism: `border-2` (inner) + `ring-2` with `ring-offset-2` (outer) + `outline-0`. Inner solid border, then a 2px gap painted by `ring-offset-*` (which must match parent surface), then a 2px outer ring. On focus, both border and ring become the accent color, producing the doubled-line look.
-
-Tailwind class chain:
-
-```
-border-2 border-neutral-200 dark:border-coolgray-300 outline-0 rounded-sm
-focus:border-coollabs/50 dark:focus:border-warning/50
-focus-visible:outline-none focus-visible:ring-2
-focus-visible:ring-coollabs dark:focus-visible:ring-warning
-focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-coolgray-100
+```blade
+wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
 ```
 
-Token resolution:
+This same dirty-class string is applied across `forms/input.blade.php`, `forms/select.blade.php`, `forms/textarea.blade.php`, `forms/datalist.blade.php`, and `forms/env-var-input.blade.php` — every Livewire-bound input shares the identical pattern.
 
-| State | Light | Dark |
-|---|---|---|
-| Resting border | `#e5e5e5` (neutral-200) | `#242424` (coolgray-300) |
-| Focus inner border | `#6b16ed/50` (coollabs/50) | `#fcd452/50` (warning/50) |
-| Focus outer ring | `#6b16ed` (coollabs) | `#fcd452` (warning) |
-| Ring-offset (gap) | `#ffffff` (white) | `#181818` (coolgray-100) |
+**State summary:**
+- **Resting** — 2px gray `#e5e5e5` (light) / `#242424` (dark) border, 4px transparent left bar.
+- **Focus** — same border, 4px accent left bar (`#6b16ed` light / `#fcd452` dark).
+- **Dirty** — same as focus (purple/yellow 4px left bar).
+- **Read-only / disabled** — `box-shadow: none` strips both layers; field becomes flat with `bg-neutral-200` (light) or `bg-coolgray-100/40` (dark).
 
-Equivalent raw CSS (non-Tailwind contexts):
-
-```css
-/* dark, focus-visible */
-border: 2px solid rgb(252 212 82 / 0.5);
-outline: 2px solid #fcd452;
-outline-offset: 2px;
-/* parent must paint #181818 in the gap */
-```
-
-Constraints:
-
-- `ring-offset-*` color MUST match parent surface — mismatch reads as a visible artifact ring.
-- Pair with `outline-0 focus-visible:outline-none` to suppress UA outline.
-- Do not stack with the inset box-shadow / 4px dirty-bar on the same input — pick one per surface.
-
-Live example: `src/components/NewIdeaDialog.tsx:18` (`inputClass`).
+Variant `input-sticky` uses `1px` outer shadow instead of `2px` for thinner border presence (used in sticky toolbars).
 
 ### Focus ring (buttons, links, checkboxes, non-input)
 
@@ -487,14 +559,18 @@ Variant `.input-sticky` — same shape, `1px` outer shadow (thinner border).
 
 #### Select
 
-Extends `.input-select` + custom SVG dropdown arrow:
+Extends `.input-select` + custom SVG dropdown arrow. Inherits the same focus + dirty behavior as `.input` — `border-0`, layered inset box-shadow border, 4px transparent left bar that flips to `#6b16ed` (light) / `#fcd452` (dark) on `:focus-visible` and on `wire:dirty.class`.
 
 ```css
 background-image: url("data:image/svg+xml,...stroke='%23000000'...");
 padding-right: 2.5rem;
 ```
 
-Dark mode swaps the SVG stroke to `%23ffffff`.
+Dark mode swaps the SVG stroke to `%23ffffff`. Wire dirty pattern identical to `.input`:
+
+```blade
+wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+```
 
 #### Checkbox
 
@@ -510,7 +586,15 @@ form-control flex max-w-full flex-row items-center gap-4 py-1 pr-2 dark:hover:bg
 
 #### Textarea
 
-Uses the same `input` utility + `font-mono` + dirty-bar via `wire:dirty.class` (identical to input). Optional `@keydown.tab=handleKeydown` inserts 2 spaces on Tab.
+Uses the same `.input` utility + `font-mono`. Inherits the inset box-shadow system: `border-0`, 2px box-shadow border (`#e5e5e5` light / `#242424` dark), 4px transparent left bar that flips to `#6b16ed` (light) / `#fcd452` (dark) on `:focus-visible` and on dirty. Read-only / disabled strips both shadow layers (`box-shadow: none`).
+
+Wire dirty pattern identical to `.input`:
+
+```blade
+wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
+```
+
+Optional `@keydown.tab=handleKeydown` inserts 2 spaces on Tab. Password variant of textarea (rare; e.g. multi-line secret) reuses the same chain.
 
 #### Copy-Button
 
@@ -665,9 +749,63 @@ Shown on parent `.group:hover`. Supports rich HTML (links colored `text-coollabs
 
 Component: `resources/views/components/navbar.blade.php`.
 
-Root nav: `flex flex-col flex-1 px-2 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base`
+**Root nav.** Single `<nav>` with conditional padding driven by Alpine `collapsed` state:
 
-Menu list: `flex flex-col flex-1 gap-y-7` → inner `flex flex-col h-full space-y-1.5`.
+```
+flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base
+```
+
+Conditional `:class`: `collapsed ? 'lg:px-1 px-2 sidebar-collapsed' : 'px-2'`.
+
+The `.sidebar-collapsed` class triggers a media-query rule in `utilities.css`:
+
+```css
+@media (min-width: 1024px) {
+  .sidebar-collapsed .menu-item {
+    justify-content: center;
+    padding-left: 0;
+    padding-right: 0;
+    gap: 0;
+  }
+}
+```
+
+This centers icons and removes label-side padding/gap when the sidebar collapses on `lg` breakpoint.
+
+**Alpine state.** The nav exposes:
+- `tooltip: { text, x, y, show }` — hover-positioned tooltip used only when `collapsed`.
+- `setTheme(type)` — `'dark' | 'light' | 'system'` persisted to `localStorage.theme`. Subscribes to `prefers-color-scheme: dark` change events when set to `'system'`.
+- `setZoom(zoom)` — persists `localStorage.zoom`. `'90'` shrinks `html` font-size to 93.75% (mobile) / 87.5% (`lg`).
+- `switchWidth()` — toggles `localStorage.pageWidth` between `'full'` and `'center'`. Reloads page.
+- `init()` — applies theme + zoom on mount; subscribes to color-scheme media query.
+- `collapsed` is set externally (parent layout); persisted via `localStorage`.
+
+**Header (lines 95–126).** Default `flex pt-4 pb-4 pl-2 items-start gap-2`. Conditional: expanded `lg:pt-6`; collapsed `lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-8`.
+
+- **Expanded logo** — wordmark `<a class="text-2xl font-bold tracking-tight dark:text-white hover:opacity-80 transition-opacity">Coolify</a>` + `<x-version />`.
+- **Collapsed logo** — `<img src="/coolify-logo.svg" class="w-6 h-6">` + `<x-version class="text-[10px]" />` inside `<div class="hidden flex-col items-center w-full gap-1" :class="collapsed && 'lg:flex'">`.
+- **Global search button** — hidden when collapsed (`:class="collapsed && 'lg:hidden'"`). Triggers `$dispatch('open-global-search')`. Class:
+  ```
+  flex items-center gap-1.5 px-2.5 py-1.5 bg-neutral-100 dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md hover:bg-neutral-200 dark:hover:bg-coolgray-200 transition-colors
+  ```
+  Inline `<kbd>` shortcut hint: `px-1 py-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-coolgray-200 rounded`. Title says `Search (Press / or ⌘K)`.
+- **Settings dropdown** — `<livewire:settings-dropdown />` hidden when collapsed.
+
+**Team switcher (lines 127–129).** Wrapper `px-2 pt-2 pb-7`; collapsed `lg:px-0 lg:pt-0 lg:pb-4 lg:flex lg:justify-center`. Renders `<livewire:switch-team />`. Always visible (collapsed mode only changes alignment + padding).
+
+**Menu lists (lines 130–432).**
+
+Outer list: `<ul role="list" class="flex flex-col flex-1 gap-y-7">`.
+Inner list: `<ul role="list" class="flex flex-col h-full space-y-1.5">`.
+
+Each link uses `.menu-item` / `.menu-item-active`; icon `.menu-item-icon`; label `<span class="menu-item-label" :class="collapsed && 'lg:hidden'">{Label}</span>`.
+
+A spacer `<div class="flex-1"></div>` (line 368) pushes the bottom group (Sponsor, Feedback, Logout) to the bottom of the nav.
+
+- **Sponsor link** — only colored icon in nav: `text-pink-500 menu-item-icon`. Opens `coolify.io/sponsorships` in new tab.
+- **Admin link** — same `text-pink-500 menu-item-icon`. Visible only to instance admin or impersonating session in cloud/dev.
+- **Feedback** — wrapped in `<x-modal-input title="How can we help?">`; menu-item triggers `wire:click="help"`.
+- **Logout** — `<form action="/logout" method="POST">` containing `<button title="Logout" type="submit" class="gap-2 mb-6 menu-item">`.
 
 Utility `.menu-item`:
 ```
@@ -680,6 +818,20 @@ text-black rounded-sm dark:bg-coolgray-200 dark:text-warning bg-neutral-200 over
 ```
 
 Icon `.menu-item-icon`: `flex-shrink-0 w-6 h-6 dark:hover:text-white`. Sub-items use `gap-2` + `w-4 h-4` icons.
+
+**Tooltip overlay (lines 435–440).** Rendered only in collapsed mode. Fixed-positioned floating tooltip computed from menu-item bounding rect:
+
+```
+fixed z-[100] -translate-y-1/2 px-2 py-1 text-xs font-medium rounded-md
+bg-neutral-900 dark:bg-coolgray-300 text-white whitespace-nowrap
+pointer-events-none shadow-lg border border-neutral-700 dark:border-coolgray-200
+```
+
+Bound with `x-show="collapsed && tooltip.show"`, `x-cloak`, `x-transition.opacity.duration.100ms`, `:style="`left: ${tooltip.x}px; top: ${tooltip.y}px;`"`, and `x-text="tooltip.text"`.
+
+Trigger logic on root `<nav>` `@mouseover`: if `collapsed`, finds the closest `.menu-item`, reads its `title` or `aria-label`, sets `tooltip.x = rect.right + 8`, `tooltip.y = rect.top + rect.height / 2`, shows the tooltip. `@mouseleave` hides it.
+
+Each menu link MUST set a `title="…"` attribute so the tooltip has text to display when collapsed.
 
 #### Breadcrumbs
 
@@ -787,7 +939,6 @@ Touch variant adds `min-h-10 px-3 py-2 text-sm`.
 - **Do** swap the accent: `coollabs` in light, `warning` in dark. For focus rings, active nav, helpers, spinners, highlighted text, scrollbar thumb, helper links.
 - **Do** use the inset box-shadow system on inputs, selects, and textareas — not a border. It enables the 4px left dirty-bar.
 - **Do** wire the dirty indicator via `wire:dirty.class` so Livewire flips the bar color on modified state.
-- **Do** match `ring-offset-*` color to parent surface when using double-border focus, otherwise the gap reads as an artifact ring.
 - **Do** flip `.box-title` and `.box-description` to the contrast color on hover. On dark hover the card goes purple `#7317ff`; `text-neutral-500` description becomes invisible.
 - **Do** maintain WCAG AA contrast (4.5:1 for normal text).
 - **Do** sanitize HTML passed into toasts via `window.sanitizeHTML`.
@@ -798,7 +949,6 @@ Touch variant adds `min-h-10 px-3 py-2 text-sm`.
 - **Don't** set `border` utilities without expecting `coolgray-200` in dark (default override in base layer).
 - **Don't** add gradients. The one exception is the `.bg-coollabs-gradient` upsell strip.
 - **Don't** use more than two font weights on a single screen (typically 400 body + 700 bold).
-- **Don't** stack double-border focus and inset 4px dirty-bar on the same input — pick one per surface.
 
 ---
 
