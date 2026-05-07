@@ -251,12 +251,13 @@ components:
 > Use this when asked for a **full design review** against this spec. Walk every box. Cite the section link when reporting a violation.
 
 ### 1. Foundations
-- [ ] Light-mode accent is `coollabs #6b16ed`; dark-mode accent is `warning #fcd452`. Never purple in dark. ([Overview](#overview))
+- [ ] Light-mode accent is `coollabs #6b16ed`; dark-mode accent is `warning #fcd452` for focus rings, active nav, helpers, spinners, highlighted text, and helper links. Purple in dark mode is allowed only for documented fill/hover exceptions (`.box` hover, highlighted button, dropdown item hover), never as the accent. ([Overview](#overview))
 - [ ] All `h1`–`h4` and card titles force `dark:text-white`. ([Dark-mode heading rule](#dark-mode-heading-rule-critical))
 - [ ] Default `border` utilities resolve to `coolgray-200` in dark via base-layer override — don't fight it. ([Default border override](#default-border-override))
 - [ ] Fonts: UI uses Geist Sans, code/logs/textareas use Geist Mono. ([Typography](#typography))
 - [ ] Heading hierarchy matches the table (`text-3xl` / `text-xl` / `text-lg` / `text-base`, all `font-bold`). ([Heading hierarchy](#heading-hierarchy-tailwind-utilities))
-- [ ] Max two font weights per screen (typically 400 + 700). ([Don'ts](#dos-and-donts))
+- [ ] Use only documented weights (`400`, `500`, `600`, `700`) and avoid introducing extra per-screen weights beyond component requirements. ([Don'ts](#dos-and-donts))
+- [ ] Frontmatter YAML parses and machine-readable tokens stay aligned with the body and source files. ([Source files](#source-files))
 
 ### 2. Color & Surfaces
 - [ ] Dark surfaces follow the coolgray ladder: `base → coolgray-100 → -200 → -300 → -400 → -500`. ([Dark tonal ladder](#dark-tonal-ladder))
@@ -268,20 +269,25 @@ components:
 ### 3. Shape & Elevation
 - [ ] Default radius `rounded-sm` (4px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
 - [ ] `.coolbox` shares the 4px default radius — distinguished by ring-hover, not radius. ([Shapes](#shapes))
-- [ ] `rounded-lg` (8px) only on callouts. ([Shapes](#shapes))
-- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars. ([Shapes](#shapes))
+- [ ] `rounded-lg` (8px) only on callouts; any `rounded-md` usage must be one of the documented chrome exceptions (global search button, collapsed tooltip, breadcrumb dropdown). ([Shapes](#shapes))
+- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars, and the documented modal close button. ([Shapes](#shapes))
+- [ ] `rounded-none` only appears in the documented mobile modal-confirmation shell before `sm:rounded-sm`. ([Modal Confirmation](#modal-confirmation))
 - [ ] No mixed radii within the same view. ([Shapes](#shapes))
 - [ ] Shadows reserved for: `shadow-sm` (boxes), toast custom shadow, `shadow-lg` (slide-over), `drop-shadow-sm` (modal-input). Otherwise tonal layers only. ([Shadows](#shadows-used-sparingly))
+- [ ] In dark mode, no additional shadow-based elevation beyond the documented exceptions. ([Shadows](#shadows-used-sparingly))
 
 ### 4. Inputs (signature system)
 - [ ] Inputs / selects / textareas use the inset `box-shadow` system, **not** `border`. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
 - [ ] 4px left dirty-bar wired via `wire:dirty.class` with the focus-color shadow string. ([Dirty indicator](#input))
 - [ ] Focus shadow uses `coollabs` (light) / `warning` (dark) on the 4px left bar. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
 - [ ] Disabled / readonly fields drop the box-shadow entirely. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
+- [ ] Disabled / readonly backgrounds and text match the documented neutral/coolgray muted states. ([Input](#input))
 - [ ] Password inputs reserve `pr-[2.4rem]` for the eye icon. ([Input](#input))
+- [ ] `.input-sticky` keeps the same shape but uses the documented thinner `1px` shadow border. ([Input](#input))
 - [ ] Select arrow SVG stroke swaps `%23000000` → `%23ffffff` in dark mode. ([Select](#select))
 - [ ] Checkbox uses focus-visible ring (`coollabs` / `warning`) with `ring-offset-2`. ([Checkbox](#checkbox))
-- [ ] Textarea uses `font-mono` and the same dirty-bar wiring as input. ([Textarea](#textarea))
+- [ ] Textarea uses `font-mono`, same dirty-bar wiring as input, and the optional Tab handler only where 2-space insertion is intended. ([Textarea](#textarea))
+- [ ] Datalist and env-var Livewire inputs use the identical dirty-class shadow string as input/select/textarea. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
 - [ ] Copy-button only renders in `window.isSecureContext`; copied state shows `text-green-500` for 1s. ([Copy-Button](#copy-button))
 
 ### 5. Buttons
@@ -294,11 +300,15 @@ components:
 - [ ] `.box`: `min-h-[4rem]`, `shadow-sm`, `rounded-sm`, dark hover goes purple `coollabs-100`. ([Box](#box))
 - [ ] `.box-title` / `.box-description` flip to contrast on `group-hover` (else description disappears on dark hover). ([Box](#box))
 - [ ] `.coolbox`: `rounded` (4px) + ring-hover (`hover:ring-2 ring-coollabs dark:ring-warning`). ([Coolbox](#coolbox))
+- [ ] `.coolbox` hover never changes background; the ring is the entire hover affordance. ([Coolbox](#coolbox))
+- [ ] `.box-title` / `.box-description` stay steady on `.coolbox` hover because `.coolbox` has no fill change. ([Coolbox](#coolbox))
 
 ### 7. Status & Badges
 - [ ] Badge base size `w-3 h-3`, `rounded-full`, with `border-neutral-200 dark:border-black`. ([Badge base](#badge-base))
+- [ ] Dashboard badge variant uses `absolute top-1 right-1 w-2.5 h-2.5`. ([Badge base](#badge-base))
 - [ ] Status pattern: badge + `pl-2 pr-1 text-xs font-bold {color}` label. ([Status indicator pattern](#status-indicator-pattern))
 - [ ] `running` / `degraded` / `restarting` / `stopped` use the documented badge + text-color pairs. ([Status indicator pattern](#status-indicator-pattern))
+- [ ] `running` swaps to `badge-warning` while checking proxy; degraded/restarting/stopped loading states use the documented `<x-loading>` behavior. ([Status indicator pattern](#status-indicator-pattern))
 - [ ] Deprecated badge uses `bg-warning/15 text-warning border-warning/30 rounded-full`. ([Deprecated Badge](#deprecated-badge))
 - [ ] `.tag`: `dark:bg-coolgray-100` / `bg-neutral-100`, hover one shade darker. ([Tag](#tag))
 
@@ -307,35 +317,47 @@ components:
 - [ ] Callout icons use `*-600` light / `*-400` dark. ([Callout](#callout))
 - [ ] Modal: `bg-white dark:bg-base`, `border-neutral-200 dark:border-coolgray-300`, `rounded-sm`, `drop-shadow-sm`. Backdrop `bg-black/20 backdrop-blur-xs`. ([Modal](#modal-input-variant))
 - [ ] Modal close button: `w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-coolgray-300`, 24px X icon `stroke-width=1.5`. ([Modal](#modal-input-variant))
-- [ ] Modal-confirmation uses `<x-callout type="danger">` and hides the password step for OAuth users. ([Modal Confirmation](#modal-confirmation))
-- [ ] Popup / Popup-Small fixed bottom-right with documented widths (max-w-4xl / max-w-[46rem]). ([Popup / Popup-Small](#popup--popup-small))
+- [ ] Modal-confirmation uses `<x-callout type="danger">`, hides the password step for OAuth users, and keeps the documented responsive/mobile geometry. ([Modal Confirmation](#modal-confirmation))
+- [ ] Confirm Modal remains the simpler Livewire-bound confirm dialog, not the destructive multi-step wizard. ([Confirm Modal](#confirm-modal))
+- [ ] Popup / Popup-Small fixed bottom-right with documented widths (max-w-4xl / max-w-[46rem]). ([Popup / Popup-Small](#popup-popup-small))
 - [ ] Slide-over: `max-w-xl`, `bg-neutral-50 dark:bg-base`, `border-l shadow-lg`. ([Slide-Over](#slide-over))
 - [ ] Toast: stacks ≤4, auto-dismiss 4s, hover pauses, `window.sanitizeHTML` applied to HTML payloads. ([Toast](#toast))
+- [ ] Toast supports documented position variants and per-toast copy/close controls. ([Toast](#toast))
 - [ ] Toast icon colors match type table (success/info/warning/danger/default). ([Toast](#toast))
-- [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper--tooltip))
+- [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper-tooltip))
 
 ### 9. Navigation
-- [ ] Sidebar root: no fixed width; `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for `coolify-logo.svg w-6 h-6`; padding `lg:px-1`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] `.sidebar-collapsed .menu-item` centers icons and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Sidebar root: no fixed width; `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for `coolify-logo.svg w-6 h-6`; padding `lg:px-1`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] `.sidebar-collapsed .menu-item` centers icons and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`. ([Structure](#structure))
-- [ ] Alpine state exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`, `collapsed`. Theme persists to `localStorage.theme`. ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar--navbar))
-- [ ] `.menu-item-active` dark uses `bg-coolgray-200 text-warning`. ([Sidebar / Navbar](#sidebar--navbar))
+- [ ] Alpine state exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`, `collapsed`. Theme persists to `localStorage.theme`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Collapsed tooltip reads `title`/`aria-label`, positions at `rect.right + 8`, and only shows while collapsed. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Team switcher remains visible in collapsed mode; only alignment/padding changes. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Bottom spacer pushes Sponsor, Feedback, and Logout to the bottom group. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Feedback opens the documented modal-input flow; Logout remains a POST form button. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] `.menu-item-active` dark uses `bg-coolgray-200 text-warning`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Breadcrumbs: links `hover:text-warning`; active item `dark:text-warning font-semibold`. ([Breadcrumbs](#breadcrumbs))
 - [ ] External-Link `w-3 h-3` arrow-out icon appended to external anchors. ([External-Link](#external-link))
+- [ ] Internal-Link uses the documented `w-4 h-4 text-black dark:text-white` arrow SVG. ([Internal-Link](#internal-link))
 - [ ] Banner: `z-999`, `bg-coolgray-100`, `sm:h-14`, `shadow-xs`, dismiss reveals via 100ms transition. ([Banner](#banner))
+- [ ] Banner close button is `w-6 h-6 rounded-full hover:bg-coolgray-500 text-neutral-200`. ([Banner](#banner))
 
 ### 10. Feedback / Text / Chrome
 - [ ] Loading spinner: `w-4 h-4 text-coollabs dark:text-warning animate-spin` with two-opacity SVG. ([Loading Spinner](#loading-spinner))
+- [ ] Loading-on-button has no light-mode color and inherits button text. ([Loading-On-Button](#loading-on-button))
+- [ ] Page-Loading remains the full-page loader overlay variant. ([Page-Loading](#page-loading))
 - [ ] Highlighted / required asterisk uses `.text-helper` (`font-bold text-coollabs dark:text-warning`). ([Highlighted text](#highlighted-text))
 - [ ] `.kbd-custom` border is dashed, `dark:text-warning`. ([Kbd](#kbd))
 - [ ] Body uses `.scrollbar` (`scrollbar-thumb-coollabs-100`, `scrollbar-thin`). ([Scrollbar](#scrollbar))
 - [ ] Tables use the base-layer rules (`min-w-full`, `divide-y dark:divide-coolgray-200`, `tr:hover dark:bg-coolgray-300 hover:bg-neutral-100`, first-cell `pl-4 sm:pl-6 font-bold`). ([Table](#table))
+- [ ] Table headers keep `thead uppercase`, `th` text colors, and documented `px/py` cell padding. ([Table](#table))
 - [ ] Dropdown container: `border-neutral-300 dark:border-coolgray-300 bg-white dark:bg-coolgray-200 p-1 shadow-sm`. ([Dropdown](#dropdown))
 - [ ] `.dropdown-item`: `text-xs`, hover `bg-neutral-100 dark:bg-coollabs`. Touch variant `min-h-10 px-3 py-2 text-sm`. ([Dropdown](#dropdown))
+- [ ] Dropdown disabled and focus-visible states match documented `data-disabled` and focus background rules. ([Dropdown](#dropdown))
 
 ### 11. Spacing & Layout
 - [ ] Spacing tokens match the scale table (`p-2`, `p-4`, `py-1.5`, `h-8`, `px-2`, `gap-2`, `gap-3`, `mb-12`, `min-h-[4rem]`). ([Spacing scale](#spacing-scale))
@@ -344,12 +366,12 @@ components:
 - [ ] Section margin `mb-12`. ([Spacing scale](#spacing-scale))
 
 ### 12. Hard Don'ts (zero tolerance)
-- [ ] No purple `coollabs` accent in dark mode.
-- [ ] No mixed corner radii in one view.
-- [ ] No shadow-based elevation in dark mode.
+- [ ] No purple `coollabs` as the dark-mode accent; only the documented dark purple fill/hover exceptions are allowed.
+- [ ] No undocumented or mixed corner radii in one view.
+- [ ] No undocumented shadow-based elevation in dark mode.
 - [ ] No unexpected color when using `border` utilities (default = `coolgray-200` dark).
 - [ ] No gradients (except the one upsell strip).
-- [ ] No more than two font weights per screen.
+- [ ] No arbitrary extra font weights beyond the documented component weights.
 
 ---
 
@@ -363,10 +385,10 @@ Brand personality: precise, engineered, no-nonsense. No flourish. No gradients o
 
 Two signature traits define the system:
 
-1. **Purple/Yellow accent swap.** Light mode uses `coollabs` purple `#6b16ed`. Dark mode swaps to `warning` yellow `#fcd452` for focus rings, active nav items, helper icons, loading spinners, highlighted text, helper links. Never use purple as an accent in dark mode.
+1. **Purple/Yellow accent swap.** Light mode uses `coollabs` purple `#6b16ed`. Dark mode swaps to `warning` yellow `#fcd452` for focus rings, active nav items, helper icons, loading spinners, highlighted text, helper links. Never use purple as the dark-mode accent; documented purple fill/hover states (`.box` hover, highlighted button, dropdown item hover) are explicit exceptions.
 2. **Inset box-shadow inputs with a 4px "dirty bar".** Inputs and selects have no border — they use `box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px <border>`. When the field is focused or has unsaved changes (`wire:dirty`), the left 4px becomes the accent color — a live visual indicator of modified state. This is the single most distinctive UI detail in Coolify.
 
-Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px only on callouts. Shadows used sparingly — one `shadow-sm` on boxes, one drop-shadow on toasts. The rest is flat tonal layers.
+Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px primarily on callouts, with small documented chrome exceptions below. Shadows used sparingly — one `shadow-sm` on boxes, one custom shadow on toasts, `shadow-lg` on slide-overs, and `drop-shadow-sm` on modal-input. The rest is flat tonal layers.
 
 ## Colors
 
@@ -531,8 +553,10 @@ Variant `input-sticky` uses `1px` outer shadow instead of `2px` for thinner bord
 
 - **Default** — `rounded-sm` (4px). Everything: inputs, buttons, cards, modals, toasts, dropdowns.
 - **Coolbox** — same 4px radius as default. Alternate card style distinguished by ring-hover, not corner radius.
-- **Callouts** — `rounded-lg` (8px). Only exception to the sharp rule.
-- **Badges / deprecated badge / pills / avatars** — `rounded-full`.
+- **Callouts** — `rounded-lg` (8px). Main exception to the sharp rule.
+- **Chrome exceptions** — `rounded-md` appears only on the documented global search button, collapsed tooltip, and breadcrumb dropdowns.
+- **Badges / deprecated badge / pills / avatars / modal close button / banner close button** — `rounded-full`.
+- **Mobile modal-confirmation shell** — `rounded-none sm:rounded-sm` only for the full-screen mobile confirmation flow.
 
 Never mix radii within the same view.
 
@@ -962,23 +986,24 @@ Touch variant adds `min-h-10 px-3 py-2 text-sm`.
 ## Do's and Don'ts
 
 - **Do** force `dark:text-white` on h1–h4 and card titles. Default body text `#a3a3a3` is unreadable on `coolgray-100`.
-- **Do** swap the accent: `coollabs` in light, `warning` in dark. For focus rings, active nav, helpers, spinners, highlighted text, scrollbar thumb, helper links.
+- **Do** swap the accent: `coollabs` in light, `warning` in dark. For focus rings, active nav, helpers, spinners, highlighted text, helper links. Use documented purple dark-mode fill/hover exceptions only where this spec names them.
 - **Do** use the inset box-shadow system on inputs, selects, and textareas — not a border. It enables the 4px left dirty-bar.
 - **Do** wire the dirty indicator via `wire:dirty.class` so Livewire flips the bar color on modified state.
 - **Do** flip `.box-title` and `.box-description` to the contrast color on hover. On dark hover the card goes purple `#7317ff`; `text-neutral-500` description becomes invisible.
 - **Do** maintain WCAG AA contrast (4.5:1 for normal text).
 - **Do** sanitize HTML passed into toasts via `window.sanitizeHTML`.
-- **Do** use `<x-loading>` for in-button spinners and as `wire:loading.delay.longer` indicators in status components.
-- **Don't** use purple `coollabs` as the dark-mode accent. Always use yellow `warning` in dark.
-- **Don't** mix corner radii — 4px everywhere except callouts (8px) and pills (full).
-- **Don't** use shadows for elevation in dark mode. Use tonal layers from the coolgray ladder.
+- **Do** use `<x-loading-on-button>` for in-button spinners and `<x-loading>` as `wire:loading.delay.longer` indicators in status components.
+- **Don't** use purple `coollabs` as the dark-mode accent. Always use yellow `warning` in dark unless this spec explicitly documents a purple fill/hover exception.
+- **Don't** mix corner radii — 4px everywhere except documented callouts, chrome, full-pill, and modal-confirmation exceptions.
+- **Don't** add undocumented shadows for elevation in dark mode. Use tonal layers from the coolgray ladder.
 - **Don't** set `border` utilities without expecting `coolgray-200` in dark (default override in base layer).
 - **Don't** add gradients. The one exception is the `.bg-coollabs-gradient` upsell strip.
-- **Don't** use more than two font weights on a single screen (typically 400 body + 700 bold).
+- **Don't** add arbitrary extra font weights beyond the documented component weights.
 
 ---
 
-Source files:
+## Source files
+
 - Theme tokens: `resources/css/app.css` (`@theme` block)
 - Fonts: `resources/css/fonts.css`
 - Component utilities: `resources/css/utilities.css`
