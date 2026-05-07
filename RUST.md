@@ -225,6 +225,168 @@ frontend deps installed before `cargo` so `build.rs` succeeds.
 
 ---
 
+## Versioning + GitHub releases
+
+### Source of truth
+
+- **One app version.** Put it in the workspace root `Cargo.toml`:
+
+  ```toml
+  [workspace.package]
+  version = "X.Y.Z"
+  ```
+
+- Every workspace crate inherits it:
+
+  ```toml
+  [package]
+  version.workspace = true
+  ```
+
+- The shipped binary exposes the same version through clap:
+
+  ```rust
+  #[derive(Parser)]
+  #[command(author, version, about)]
+  struct Cli {
+      #[command(subcommand)]
+      command: Option<Commands>,
+  }
+  ```
+
+  So `./app --version` prints the Cargo package version.
+
+- Don't make `frontend/package.json` the source of truth. The frontend is an
+  embedded implementation detail of the app release unless the project ships a
+  standalone frontend package.
+
+### Release policy
+
+- Use SemVer: `X.Y.Z`.
+- GitHub release tags are `vX.Y.Z`.
+- The tag **must match** `[workspace.package].version`. Example:
+  `version = "1.4.2"` → tag `v1.4.2`.
+- Release artifacts are built from tags only, not arbitrary branches.
+- Don't version individual crates independently unless you publish them as
+  separate Rust crates. For one shipped binary, one workspace version is enough.
+
+### GitHub Actions release workflow
+
+Add `.github/workflows/release.yml` to each app repo. Replace
+`<server-package>` and `<bin-name>` with the real package and binary names.
+
+```yaml
+name: release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+env:
+  CARGO_TERM_COLOR: always
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install frontend deps
+        run: bun install --frozen-lockfile
+        working-directory: frontend
+
+      - name: Check tag matches Cargo version
+        run: |
+          VERSION="$(python3 - <<'PY'
+          import tomllib
+          with open("Cargo.toml", "rb") as f:
+              print(tomllib.load(f)["workspace"]["package"]["version"])
+          PY
+          )"
+          TAG="${GITHUB_REF_NAME#v}"
+          test "$VERSION" = "$TAG" || {
+            echo "Cargo version $VERSION does not match tag $GITHUB_REF_NAME"
+            exit 1
+          }
+
+      - name: fmt
+        run: cargo fmt --all -- --check
+
+      - name: clippy
+        run: cargo clippy --all-targets --all-features -- -D warnings
+
+      - name: test
+        run: cargo test --all --all-features
+
+      - name: Build release binary
+        run: cargo build --release -p <server-package>
+
+      - name: Package artifact
+        run: |
+          mkdir -p dist
+          cp target/release/<bin-name> dist/<bin-name>
+          tar -C dist -czf <bin-name>-linux-x86_64.tar.gz <bin-name>
+          sha256sum <bin-name>-linux-x86_64.tar.gz > <bin-name>-linux-x86_64.tar.gz.sha256
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            <bin-name>-linux-x86_64.tar.gz
+            <bin-name>-linux-x86_64.tar.gz.sha256
+          generate_release_notes: true
+```
+
+This is the boring default. Use `cargo-dist` later only when you need a full
+cross-platform installer/update story.
+
+### Manual release checklist
+
+1. Pick the next SemVer (`X.Y.Z`).
+2. Update root `Cargo.toml` `[workspace.package].version`.
+3. Confirm workspace crates use `version.workspace = true`.
+4. Update changelog / release notes if the project has one.
+5. Run local CI equivalents:
+
+   ```bash
+   cargo fmt --all -- --check
+   cargo clippy --all-targets --all-features -- -D warnings
+   cargo test --all --all-features
+   cargo build --release -p <server-package>
+   ```
+
+6. Commit: `chore: release vX.Y.Z`.
+7. Tag: `git tag -a vX.Y.Z -m "vX.Y.Z"`.
+8. Push commit + tag: `git push && git push origin vX.Y.Z`.
+9. Verify the GitHub Release exists and contains the binary + checksum.
+10. Download the artifact and run `./app --version`; it must print `X.Y.Z`.
+
+### Release gotchas
+
+- **Don't tag without bumping Cargo.** CI should fail if tag and Cargo version
+  differ.
+- **Don't version frontend separately** unless it is a separate product.
+- **Don't publish branch-built release artifacts.** Rebuild from immutable tags.
+- **Don't hand-edit GitHub Releases after CI** except for release-note wording;
+  artifacts should be reproducible from the tag.
+
+---
+
 ## New-project checklist
 
 1. `cargo new` → restructure as workspace per layout above.
@@ -243,4 +405,10 @@ frontend deps installed before `cargo` so `build.rs` succeeds.
 8. `test_support::test_app()` helper + first integration test +
    (when wire-compat) first contract test.
 9. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`.
-10. Re-read "Hard rules" once a month. Grep for new violations.
+10. Versioning: root `[workspace.package].version`, member crates with
+    `version.workspace = true`, and clap `#[command(version)]` so
+    `./app --version` works.
+11. Release workflow: `.github/workflows/release.yml` triggered by `vX.Y.Z`
+    tags, with Cargo/tag version check, release binary, checksum, and GitHub
+    Release upload.
+12. Re-read "Hard rules" once a month. Grep for new violations.
