@@ -156,9 +156,17 @@ components:
     textColor: "{colors.white}"
   coolbox:
     backgroundColor: "{colors.surface}"
+    borderColor: "{colors.border}"
     rounded: "{rounded.sm}"
     padding: "{spacing.sm}"
     height: "{spacing.card-min-height}"
+  coolbox-dark:
+    backgroundColor: "{colors.coolgray-100}"
+    borderColor: "{colors.coolgray-400}"
+  coolbox-hover:
+    borderColor: "{colors.coollabs}"
+  coolbox-hover-dark:
+    borderColor: "{colors.warning}"
   badge-success:
     backgroundColor: "{colors.success}"
     size: 0.75rem
@@ -631,6 +639,14 @@ relative flex transition-all duration-150 dark:bg-coolgray-100 bg-white p-2 roun
 ```
 
 Distinguished by **ring-hover** instead of background change. Same 4px radius as default `.box`.
+
+**State breakdown:**
+- **Resting** — 1px static border (`#e5e5e5` light / `#282828` dark via `coolgray-400`); background `bg-white dark:bg-coolgray-100`. No background change anywhere on the box itself in either state.
+- **Hover** — `ring-2` accent ring appears outside the border (`coollabs` light / `warning` dark). Animates over `150ms` via `transition-all`. The 1px static border stays. Background does NOT shift. This is the entire hover affordance — no color fill, no purple sweep.
+
+This is the **dominant card style for project / resource / environment listings** — uses `.coolbox group` paired with `.box-title` + `.box-description` children, plus inline action links (e.g. `+ Add Resource`, `Settings`).
+
+Note: `.box-title` and `.box-description` keep their colors steady on coolbox hover (no flip needed) because the background never changes — unlike `.box` where dark hover goes purple and forces the contrast flip.
 
 ### Status & Badges
 
