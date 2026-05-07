@@ -16,10 +16,22 @@ swap the project name, prune what doesn't apply.
 
 | File | When to use |
 |---|---|
-| [`rust.md`](./rust.md) | Single-binary backend in Rust + embedded SvelteKit + shadcn-svelte SPA. SQLite by default, S3 / Postgres swappable via traits. |
+| [`RUST.md`](./RUST.md) | Single-binary backend in Rust + embedded SvelteKit + shadcn-svelte SPA. SQLite by default, S3 / Postgres swappable via traits. |
 
 More stacks land here as we ship them (Node, PHP/Laravel, Go, Bun, etc.).
 Each gets its own file.
+
+## Design
+
+| File | Scope |
+|---|---|
+| [`DESIGN.md`](./DESIGN.md) | Coolify design system. Tokens, components, AI review checklist. Tailwind v4 / Laravel + Livewire. |
+
+Signature traits worth knowing before reading:
+
+- **Purple/yellow accent swap** — `coollabs #6b16ed` (light) / `warning #fcd452` (dark). Never purple in dark.
+- **Inset box-shadow inputs** with 4px left "dirty bar" wired via `wire:dirty.class` — focus + modified state in one indicator.
+- **Sharp 4px radii** everywhere except callouts (8px) and pills (full). No mixed radii per view.
 
 ## Conventions for new entries
 

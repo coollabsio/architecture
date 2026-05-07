@@ -146,7 +146,7 @@ components:
     textColor: "#ffffff"
   coolbox:
     backgroundColor: "{colors.surface}"
-    rounded: "{rounded.md}"
+    rounded: "{rounded.coolbox}"
     padding: "{spacing.sm}"
     height: "{spacing.card-min-height}"
   badge-success:
