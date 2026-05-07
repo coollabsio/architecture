@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify
-description: Self-hosted PaaS. Dark-first utilitarian UI. Purple (light) / yellow (dark) accent swap. Sharp 2px radii. Inset box-shadow inputs with 4px dirty-bar indicator.
+description: Self-hosted PaaS. Dark-first utilitarian UI. Purple (light) / yellow (dark) accent swap. Sharp 4px radii. Inset box-shadow inputs with 4px dirty-bar indicator.
 colors:
   # Brand
   coollabs: "#6b16ed"
@@ -76,8 +76,8 @@ typography:
     fontSize: 0.875rem
     fontWeight: 400
 rounded:
-  sm: 0.125rem   # default — inputs, buttons, cards, modals
-  md: 0.25rem    # coolbox
+  sm: 0.25rem    # default — inputs, buttons, cards, modals
+  coolbox: 0.25rem  # alias — same radius as default; coolbox identity is ring-hover, not radius
   lg: 0.5rem     # callouts
   full: 9999px   # badges, pills
 spacing:
@@ -248,8 +248,8 @@ components:
 - [ ] WCAG AA contrast (4.5:1 normal text) verified on every text-on-surface pairing. ([Do's](#dos-and-donts))
 
 ### 3. Shape & Elevation
-- [ ] Default radius `rounded-sm` (2px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
-- [ ] `rounded` (4px) only on `.coolbox`. ([Shapes](#shapes))
+- [ ] Default radius `rounded-sm` (4px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
+- [ ] `.coolbox` shares the 4px default radius — distinguished by ring-hover, not radius. ([Shapes](#shapes))
 - [ ] `rounded-lg` (8px) only on callouts. ([Shapes](#shapes))
 - [ ] `rounded-full` only on badges, deprecated badge, pills, avatars. ([Shapes](#shapes))
 - [ ] No mixed radii within the same view. ([Shapes](#shapes))
@@ -348,7 +348,7 @@ Two signature traits define the system:
 1. **Purple/Yellow accent swap.** Light mode uses `coollabs` purple `#6b16ed`. Dark mode swaps to `warning` yellow `#fcd452` for focus rings, active nav items, helper icons, loading spinners, highlighted text, helper links. Never use purple as an accent in dark mode.
 2. **Inset box-shadow inputs with a 4px "dirty bar".** Inputs and selects have no border — they use `box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px <border>`. When the field is focused or has unsaved changes (`wire:dirty`), the left 4px becomes the accent color — a live visual indicator of modified state. This is the single most distinctive UI detail in Coolify.
 
-Sharp geometry everywhere: 2px corner radius by default (`rounded-sm`). 8px only on callouts. Shadows used sparingly — one `shadow-sm` on boxes, one drop-shadow on toasts. The rest is flat tonal layers.
+Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px only on callouts. Shadows used sparingly — one `shadow-sm` on boxes, one drop-shadow on toasts. The rest is flat tonal layers.
 
 ## Colors
 
@@ -478,7 +478,7 @@ No grid system — flex layouts everywhere.
 
 ### Input inset box-shadow system (distinctive)
 
-Inputs and selects use `box-shadow` instead of `border` — `border-0` + two layered inset shadows. The first inset shadow paints a 4px-wide vertical bar at the left edge (transparent at rest, accent on focus/dirty). The second inset shadow paints a 2px-wide simulated border around the inner edge of the field. Corners are `rounded-sm` (2px).
+Inputs and selects use `box-shadow` instead of `border` — `border-0` + two layered inset shadows. The first inset shadow paints a 4px-wide vertical bar at the left edge (transparent at rest, accent on focus/dirty). The second inset shadow paints a 2px-wide simulated border around the inner edge of the field. Corners are `rounded-sm` (4px).
 
 ```css
 /* default */  box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px #e5e5e5;
@@ -511,8 +511,8 @@ Variant `input-sticky` uses `1px` outer shadow instead of `2px` for thinner bord
 
 ## Shapes
 
-- **Default** — `rounded-sm` (2px). Everything: inputs, buttons, cards, modals, toasts, dropdowns.
-- **Coolbox** — `rounded` (4px). Alternate card style with ring-hover.
+- **Default** — `rounded-sm` (4px). Everything: inputs, buttons, cards, modals, toasts, dropdowns.
+- **Coolbox** — same 4px radius as default. Alternate card style distinguished by ring-hover, not corner radius.
 - **Callouts** — `rounded-lg` (8px). Only exception to the sharp rule.
 - **Badges / deprecated badge / pills / avatars** — `rounded-full`.
 
@@ -620,7 +620,7 @@ Utility `.coolbox`:
 relative flex transition-all duration-150 dark:bg-coolgray-100 bg-white p-2 rounded border border-neutral-200 dark:border-coolgray-400 hover:ring-2 dark:hover:ring-warning hover:ring-coollabs cursor-pointer min-h-[4rem]
 ```
 
-Distinguished by `rounded` (4px, not 2px) and **ring-hover** instead of background change.
+Distinguished by **ring-hover** instead of background change. Same 4px radius as default `.box`.
 
 ### Status & Badges
 
@@ -944,7 +944,7 @@ Touch variant adds `min-h-10 px-3 py-2 text-sm`.
 - **Do** sanitize HTML passed into toasts via `window.sanitizeHTML`.
 - **Do** use `<x-loading>` for in-button spinners and as `wire:loading.delay.longer` indicators in status components.
 - **Don't** use purple `coollabs` as the dark-mode accent. Always use yellow `warning` in dark.
-- **Don't** mix corner radii — 2px everywhere except callouts (8px) and pills (full).
+- **Don't** mix corner radii — 4px everywhere except callouts (8px) and pills (full).
 - **Don't** use shadows for elevation in dark mode. Use tonal layers from the coolgray ladder.
 - **Don't** set `border` utilities without expecting `coolgray-200` in dark (default override in base layer).
 - **Don't** add gradients. The one exception is the `.bg-coollabs-gradient` upsell strip.
