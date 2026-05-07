@@ -26,23 +26,26 @@ that bit us.
 
 ## Workspace layout
 
+Cargo workspace with `[workspace.dependencies]` so every crate pins
+versions through the root. Split crates by responsibility, not by layer.
+Example skeleton:
+
 ```
 Cargo.toml               # workspace root
 crates/
-  protocol/              # wire types, no I/O
-  ingest/                # parsing, validation, normalization
-  storage/               # storage traits + impls
+  <domain>/              # one or more domain crates (pure types, no I/O)
+  storage/               # storage traits + concrete impls
   server/                # axum binary + CLI + frontend embed
-frontend/                # SvelteKit SPA, embedded into binary
+frontend/                # SvelteKit SPA, embedded into the binary
 docs/
   plans/                 # one plan per feature (timestamped)
   architecture.md        # this file
-tests/contract/<sdk>/    # real upstream SDK harness
+tests/contract/<client>/ # real upstream client harness (when wire-compat)
 .github/workflows/ci.yml
 ```
 
-Cargo workspace with `[workspace.dependencies]` so every crate pins versions
-through the root.
+The only crate with a `[[bin]]` is `server`. Everything else is a library
+the server (and the integration tests) consume.
 
 ---
 
@@ -101,15 +104,10 @@ So the HTTP layer can map `NotFound → 404` and everything else → 500. Any
 
 ### CLI shape
 
-One binary, multiple subcommands via `clap`:
-
-```
-app                              # default → serve
-app serve [--addr ... --data-dir ...]
-app db migrate | revert | info
-app orgs create|list
-app projects create|list
-```
+One binary, multiple subcommands via `clap` derive. `serve` is the default
+subcommand so `./app` keeps booting the HTTP server even after admin
+commands are added. Add admin subcommands per resource as needed
+(`<resource> create|list`, `db migrate|revert|info`, `users add`, …).
 
 Same pattern as `gitlab-rails`, `discourse-rake`, `nextcloud occ`.
 Operators don't ship a second admin binary; init containers + backup
@@ -121,9 +119,10 @@ scripts work; admin actions and the future web UI hit the same code.
   buffers up to 2 GiB by default.
 - `Read::take(LIMIT + 1)` on every decompressor. A 100 KB gzip can
   decompress to 100 GB.
-- Distinct `NotFound` variants per resource (`ProjectNotFound`,
-  `IssueNotFound`, …) and a separate `BadRequest` variant. Don't reuse
-  `BadEnvelope` for missing JSON fields.
+- Distinct `NotFound` variants per resource in your handler error enum
+  (e.g. `UserNotFound`, `OrderNotFound`). Separate `BadRequest` from
+  parser-level errors so 400s from missing JSON fields don't share a
+  variant with malformed-payload errors.
 
 ---
 
@@ -155,18 +154,19 @@ scripts work; admin actions and the future web UI hit the same code.
 - `rust-embed` has a `#[derive(Embed)] #[folder = "$CARGO_MANIFEST_DIR/../../frontend/build"]`
   pattern — embeds the entire dir into the binary at compile time.
 - axum router gets a `.fallback(...)` handler that serves the matching
-  embedded file with `mime_guess`, falling back to `200.html` so deep
-  links like `/issues/<id>` work on direct load.
-- API routes live under `/api/...`. The `/` and unknown paths serve the
-  SPA shell.
+  embedded file with `mime_guess`, falling back to `200.html` for unknown
+  paths so deep-linked SPA routes work on direct load.
+- Put API routes under `/api/...`. `/` and unknown paths serve the SPA
+  shell, so the client router takes over once the page loads.
 
 ### `build.rs` orchestration gotchas
 
 - `pnpm install` only when `node_modules/` is missing **or** when
   `package.json` / `pnpm-lock.yaml` mtime > `node_modules` mtime.
   Otherwise dep upgrades silently miss.
-- Provide an `AIO_SKIP_FRONTEND=1` env escape hatch for backend-only
-  iteration. Create an empty `build/` so `rust-embed` still compiles.
+- Provide a `<APP>_SKIP_FRONTEND=1` env escape hatch for backend-only
+  iteration; create an empty `build/` directory so `rust-embed` still
+  compiles when the frontend build is skipped.
 - Emit `cargo:rerun-if-changed=` for `frontend/src`, `package.json`,
   `pnpm-lock.yaml`. Otherwise touching frontend code doesn't trigger
   rebuilds.
@@ -213,29 +213,14 @@ frontend deps installed before `cargo` so `build.rs` succeeds.
 
 ---
 
-## Conventions
+## Conventions (opinionated — adjust to taste)
 
 - **Conventional Commits.** Subject under 72 chars, body explains *why*.
 - **`rustfmt` + `clippy --all-targets -- -D warnings` are CI gates.**
-- **AGPL-3.0-or-later** by default for self-host-friendly OSS.
-- `APP_*` env-var prefix for all config. `from_env()` is the single
-  source of truth; CLI flags push into env before config loads.
+- **AGPL-3.0-or-later** for self-host-friendly OSS at coollabs.
+- Single env-var prefix for all config (e.g. `MYAPP_*`). `from_env()` is
+  the single source of truth; CLI flags push into env before config loads.
 - Twelve-factor: no config file, env-driven only.
-
----
-
-## Things deliberately deferred (and why)
-
-| Deferred | Trigger to add |
-|---|---|
-| Auth on `/api/*` | Multi-user / public deployment. |
-| S3 blob backend | Disk full or multi-node. |
-| Columnar event store (DuckDB / ClickHouse-embedded) | Query workload demands it. |
-| Source maps / symbolication | Releases CRUD lands first. |
-| Rate limiting + per-DSN throttling | Real traffic needs it. |
-| Real-time updates (SSE / WebSocket) | Polling-refresh UX complaint. |
-| Playwright E2E | UI gains interactive flows worth scripting. |
-| `shadcn-svelte` CLI install | Svelte 5 runes support stabilizes upstream. |
 
 ---
 
@@ -245,16 +230,16 @@ frontend deps installed before `cargo` so `build.rs` succeeds.
 2. Pin workspace deps: `axum`, `sqlx + sqlite`, `tokio`, `tower-http`,
    `rust-embed`, `mime_guess`, `clap`, `thiserror`, `anyhow`, `tracing`,
    `flate2` + `brotli` + `zstd`.
-3. `crates/storage/migrations/<timestamp>_init.up.sql` + `.down.sql`.
-   Wire `sqlx::migrate!`.
+3. `crates/storage/migrations/<timestamp>_init.up.sql` + `.down.sql`;
+   wire `sqlx::migrate!`.
 4. clap multi-subcommand binary, `serve` default, `db migrate/revert/info`.
 5. `frontend/`: SvelteKit + adapter-static (`fallback: '200.html'`,
    `prerender = false`, `ssr = false`, `runes = false`), Tailwind v3,
    shadcn-svelte primitives.
 6. `build.rs` orchestrating `pnpm install`/`build`; mtime-guarded
-   re-install; `AIO_SKIP_FRONTEND` escape hatch.
+   re-install; `<APP>_SKIP_FRONTEND` escape hatch.
 7. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer`.
-8. `test_support::test_app()` + first integration test + first contract
-   test.
-9. CI: rust + contract jobs, `RUSTFLAGS: "-D warnings"`.
+8. `test_support::test_app()` helper + first integration test +
+   (when wire-compat) first contract test.
+9. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`.
 10. Re-read "Hard rules" once a month. Grep for new violations.
