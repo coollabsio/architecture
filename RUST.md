@@ -57,7 +57,7 @@ the server (and the integration tests) consume.
 | Async runtime | `tokio` (full features) | Default; integrates with sqlx + axum. |
 | SQL | **`sqlx` + SQLite (bundled)** | Async, compile-time-checked queries optional, bundled SQLite means no system lib. |
 | Migrations | **`sqlx::migrate!`** with `.up.sql`/`.down.sql` | See gotcha below. |
-| HTTP middleware | `tower-http` (`RequestBodyLimitLayer`, `TraceLayer`, `CorsLayer`) | Standard. |
+| HTTP middleware | `tower-http` (`RequestBodyLimitLayer`, `TraceLayer`, `SetResponseHeaderLayer`, `CorsLayer`) | Standard hardening + observability. |
 | CLI | **`clap` 4 derive** | Multi-subcommand binary. Default subcommand `serve` keeps `./app` UX. |
 | Errors | `thiserror` (libs) + `anyhow` (glue) | thiserror per typed enum, anyhow `Internal(#[from])` glues unknown errors. |
 | Logging | `tracing` + `tracing-subscriber` (env-filter, fmt) | Industry default. |
@@ -117,6 +117,26 @@ scripts work; admin actions and the future web UI hit the same code.
 
 - `RequestBodyLimitLayer` on the router (e.g. 50 MiB). Otherwise axum
   buffers up to 2 GiB by default.
+- Global response security headers via `tower-http`'s
+  `SetResponseHeaderLayer` (enable the `set-header` feature) or equivalent
+  middleware:
+  - `Content-Security-Policy`
+  - `X-Content-Type-Options: nosniff`
+  - `Referrer-Policy: strict-origin-when-cross-origin`
+  - `X-Frame-Options: DENY` plus CSP `frame-ancestors 'none'`
+  - `Permissions-Policy: camera=(), microphone=(), geolocation=()`
+  - `Strict-Transport-Security` **only** when the public base URL is HTTPS;
+    never emit HSTS on localhost HTTP.
+- Baseline CSP for embedded SvelteKit SPA:
+  `default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; img-src 'self' https: data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; form-action 'self'`.
+  SvelteKit static output can include an inline bootstrap/module script in the
+  generated HTML shell, so `script-src 'self'` alone may break the embedded SPA.
+  Keep `'unsafe-inline'` for scripts until you verify the built `200.html` /
+  `index.html` has no inline scripts or you add a nonce/hash-based CSP. Tighten
+  per app; remove `'unsafe-inline'` for styles if the built frontend allows it.
+- Integration-test headers for at least one API response and one static
+  response. Test HSTS separately: absent for local HTTP config, present for
+  HTTPS production config.
 - `Read::take(LIMIT + 1)` on every decompressor. A 100 KB gzip can
   decompress to 100 GB.
 - Distinct `NotFound` variants per resource in your handler error enum
