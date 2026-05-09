@@ -1,9 +1,19 @@
-# Rust + SvelteKit + shadcn (single-binary)
+# Rust Web App Services + SvelteKit + shadcn (single-binary)
 
-High-level reference for **Rust backend + SvelteKit + shadcn-svelte
-frontend** projects that ship as a single self-hostable binary with the
-frontend embedded into the executable. Library picks, why, and the gotchas
-that bit us.
+High-level reference for **web app based Rust services**: a Rust HTTP/API
+backend plus a SvelteKit + shadcn-svelte frontend, shipped as a single
+self-hostable binary with the frontend embedded into the executable.
+Library picks, why, and the gotchas that bit us. This is not a general Rust
+style guide, CLI-only service template, library template, firmware guide, or
+non-web service architecture.
+
+## Scope
+
+Use this for Rust services that expose a web app or HTTP API, own their
+frontend bundle, and benefit from single-binary self-hosting. Do not use it as
+the default for generic Rust crates, CLI-only tools, workers without a web UI,
+embedded/firmware projects, or services where the frontend is deployed
+separately.
 
 > Copy this file into a new project's `docs/architecture.md`, swap the
 > project name, prune sections that don't apply. Index lives in
