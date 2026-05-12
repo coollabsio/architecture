@@ -86,6 +86,8 @@ Example skeleton:
 
 ```
 Cargo.toml               # workspace root
+package.json             # root dev scripts, including `bun run dev`
+scripts/dev.sh           # one-command frontend + backend dev runner
 crates/
   <domain>/              # one or more domain crates (pure types, no I/O)
   storage/               # storage traits + concrete impls
@@ -313,6 +315,120 @@ deterministic, cache-friendly, offline-aware, and escapable.
   per app instead of relying on floating behavior forever.
 - If CI builds the frontend separately, make `build.rs` detect the existing
   `frontend/build/` artifact and skip package-manager work.
+
+### One-command local dev
+
+Every app repo should expose one root command that starts the SvelteKit dev
+server and the Rust backend together:
+
+```bash
+bun run dev
+```
+
+This command is for development only. It should:
+
+- run Vite/SvelteKit with HMR from `frontend/`;
+- keep Vite on one fixed local URL (`127.0.0.1:5173`) and fail if that port
+  is already in use instead of silently switching ports;
+- print only the one URL developers should open; keep the backend URL out of
+  the startup banner unless it is needed for debugging;
+- run the Rust server under `cargo-watch` so backend changes restart the
+  process;
+- set `SKIP_FRONTEND=1` for the backend watcher so every Rust rebuild does not
+  also rebuild/embed the frontend;
+- clean up both child processes on `Ctrl-C`.
+
+Canonical root `package.json`:
+
+```json
+{
+  "name": "<app-name>",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bash scripts/dev.sh"
+  }
+}
+```
+
+Canonical `frontend/package.json` dev script:
+
+```json
+{
+  "scripts": {
+    "dev": "vite dev --host 127.0.0.1 --port 5173 --strictPort --clearScreen false --logLevel error"
+  }
+}
+```
+
+Canonical `scripts/dev.sh`:
+
+```bash
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT"
+
+command -v bun >/dev/null 2>&1 || {
+  echo "bun is required for frontend dev." >&2
+  exit 1
+}
+
+command -v cargo >/dev/null 2>&1 || {
+  echo "cargo is required for backend dev." >&2
+  exit 1
+}
+
+cargo watch --version >/dev/null 2>&1 || {
+  echo "cargo-watch is required. Install it with: cargo install cargo-watch" >&2
+  exit 1
+}
+
+frontend_pid=""
+backend_pid=""
+
+cleanup() {
+  local status=$?
+  trap - EXIT INT TERM
+  if [[ -n "$frontend_pid" ]]; then kill "$frontend_pid" 2>/dev/null || true; fi
+  if [[ -n "$backend_pid" ]]; then kill "$backend_pid" 2>/dev/null || true; fi
+  wait "$frontend_pid" "$backend_pid" 2>/dev/null || true
+  exit "$status"
+}
+
+trap cleanup EXIT INT TERM
+
+echo "<App> dev mode"
+echo "Open: http://127.0.0.1:5173"
+echo
+
+(
+  cd "$ROOT/frontend"
+  exec bun run dev
+) &
+frontend_pid=$!
+
+(
+  cd "$ROOT"
+  exec env SKIP_FRONTEND=1 cargo watch \
+    -w crates \
+    -w Cargo.toml \
+    -w Cargo.lock \
+    -i target \
+    -x 'run -p <server-package> -- serve'
+) &
+backend_pid=$!
+
+while true; do
+  if ! kill -0 "$frontend_pid" 2>/dev/null; then wait "$frontend_pid"; exit $?; fi
+  if ! kill -0 "$backend_pid" 2>/dev/null; then wait "$backend_pid"; exit $?; fi
+  sleep 1
+done
+```
+
+Keep production-like local testing separate: `bun run build` in `frontend/`,
+then `cargo run -p <server-package> -- serve` with the embedded frontend.
 
 ---
 
@@ -1087,35 +1203,37 @@ cross-platform installer/update story.
     the project chooses a documented replacement.
 12. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
     re-install; existing-artifact detection; `SKIP_FRONTEND` escape hatch.
-13. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer` + security
+13. Add root `package.json` + `scripts/dev.sh` so `bun run dev` starts
+    SvelteKit HMR and the `cargo-watch` backend together.
+14. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer` + security
    headers + static asset cache policy.
-14. Add config/secrets validation, `/healthz`, `/readyz`, graceful shutdown,
+15. Add config/secrets validation, `/healthz`, `/readyz`, graceful shutdown,
     reverse-proxy/trusted-header policy, and backup/restore notes. Test
     `/healthz` and `/readyz` separately, including unready dependencies.
-15. Add first-party browser session auth: cookie policy, server-side session or
+16. Add first-party browser session auth: cookie policy, server-side session or
     signed-cookie decision, CSRF protection for unsafe methods, CORS policy,
     password hashing, logout invalidation, and audit events.
-16. Add a `RateLimiter` trait with in-memory default plus documented Redis/DB
+17. Add a `RateLimiter` trait with in-memory default plus documented Redis/DB
     swap path. Enforce login/reset/import/export/search limits before exposing
     user accounts or public write endpoints.
-17. Add `test_support::test_app()` helper + first integration test +
+18. Add `test_support::test_app()` helper + first integration test +
     (when wire-compat) first contract test. Include auth/CSRF/rate-limit
     regression tests once those routes exist.
-18. Add `Dockerfile` + `.dockerignore`: multi-stage build, non-root runtime,
+19. Add `Dockerfile` + `.dockerignore`: multi-stage build, non-root runtime,
     `/data` volume, `/healthz` health check, and documented distroless/runtime
     base decision.
-19. Add Linux GHCR container CI: PR build/smoke-test without push, `main`
+20. Add Linux GHCR container CI: PR build/smoke-test without push, `main`
     `sha-<shortsha>` images for test deployments, and SemVer tag images for
     releases.
-20. Define upgrade policy: startup auto-migrate default, `AUTO_MIGRATE=0`
+21. Define upgrade policy: startup auto-migrate default, `AUTO_MIGRATE=0`
     escape hatch, backup-before-migrate rule, downgrade stance, and seeded old-DB
     migration tests.
-21. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`, frontend
+22. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`, frontend
     deps installed before `cargo`.
-22. Versioning: root `[workspace.package].version`, member crates with
+23. Versioning: root `[workspace.package].version`, member crates with
     `version.workspace = true`, and clap `#[command(version)]` so
     `./app --version` works.
-23. Release workflow: `.github/workflows/release.yml` triggered by `vX.Y.Z`
+24. Release workflow: `.github/workflows/release.yml` triggered by `vX.Y.Z`
     tags, with Cargo/tag version check, release binary, checksum, and GitHub
     Release upload.
-24. Re-read "Hard rules" once a month. Grep for new violations.
+25. Re-read "Hard rules" once a month. Grep for new violations.
