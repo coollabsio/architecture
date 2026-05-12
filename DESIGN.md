@@ -97,8 +97,8 @@ spacing:
   lg: 1.5rem
   xl: 2rem
   section: 3rem
-  sidebar-padding-x-collapsed: 0.25rem  # lg:px-1
-  sidebar-padding-x-expanded: 0.5rem    # px-2
+  sidebar-padding-x-collapsed: 0.7rem
+  sidebar-padding-x-expanded: 0.7rem
   button-height: 2rem
   card-min-height: 4rem
   input-py: 0.375rem
@@ -327,18 +327,19 @@ components:
 - [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper-tooltip))
 
 ### 9. Navigation
-- [ ] Desktop sidebar shell uses `lg:w-56` expanded / `lg:w-16` collapsed; main content mirrors with `lg:pl-56` / `lg:pl-16`. ([Structure](#structure))
+- [ ] Desktop sidebar shell uses `lg:w-56` expanded / `lg:w-16` collapsed; main content offsets to `16rem` expanded / `6rem` collapsed. ([Structure](#structure))
 - [ ] Sidebar root: `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for `coolify-logo.svg w-6 h-6`; padding `lg:px-1`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for compact app identity (`w-6 h-6` icon or accepted compact `w-8 h-8` first-letter fallback); padding `0.7rem`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Expanded and collapsed app identity both show the app version; collapsed identity uses a real app icon when available, otherwise first app letter, white, no background, centered above version. Product-adapted header spacing is allowed when desktop geometry remains correct. No hardcoded product-logo dependency. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Desktop collapse toggle: `absolute top-8 -right-3`, 24px round bordered button; title flips Expand/Collapse; chevron rotates `180deg` when expanded. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] `.sidebar-collapsed .menu-item` centers icons and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] `.sidebar-collapsed .menu-item` is a compact `w-8 h-8` (`2rem`) background/click target, centers icons, and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`, wordmark + switch-team + hamburger. ([Structure](#structure))
 - [ ] Layout Alpine exposes `open`, `collapsed`, `pageWidth`, `toggleSidebar()`; `collapsed` persists to `localStorage.sidebarCollapsed`. Navbar Alpine exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Navbar menu icons use 14px (`w-3.5 h-3.5`) by default for consistent collapsed/expanded sizing. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Navbar menu icons use `size-4`; sub-item icons use `size-4`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Collapsed tooltip reads `title`/`aria-label`, positions at `rect.right + 8`, and only shows while collapsed. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Team switcher becomes a collapsed 32px initial badge that opens a fixed team menu at `rect.right + 8`, `rect.top`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Team switcher becomes a collapsed 32px initial badge that opens a fixed team menu at `rect.right + 8`, `rect.top`; compact app menus may use `min-w-48`/`12rem`, `max-h-72`/`18rem`, and `py-1`/`0.25rem 0`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Bottom spacer pushes Sponsor, Feedback, and Logout to the bottom group. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Feedback opens the documented modal-input flow; Logout remains a POST form button. ([Sidebar / Navbar](#sidebar-navbar))
@@ -365,7 +366,8 @@ components:
 ### 11. Spacing & Layout
 - [ ] Spacing tokens match the scale table (`p-2`, `p-4`, `py-1.5`, `h-8`, `px-2`, `gap-2`, `gap-3`, `mb-12`, `min-h-[4rem]`). ([Spacing scale](#spacing-scale))
 - [ ] Layout uses flex (no grid system). ([Spacing scale](#spacing-scale))
-- [ ] Main content padding `p-4 sm:px-6 lg:px-8 lg:py-6`. ([Structure](#structure))
+- [ ] Main content padding is `1.5rem`; expanded left offset is `16rem`, collapsed left offset is `6rem`. ([Structure](#structure))
+- [ ] Page topbar `h1` uses `1.8rem` with `line-height: 1.1` for mailbox/settings-style pages. ([Structure](#structure))
 - [ ] Section margin `mb-12`. ([Spacing scale](#spacing-scale))
 
 ### 12. Hard Don'ts (zero tolerance)
@@ -467,11 +469,12 @@ Collapsible left sidebar on desktop. Mobile collapses to a sticky top bar with h
   - Desktop sidebar wrapper: `hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col min-w-0 transition-[width] duration-200`; width is `lg:w-56` expanded / `lg:w-16` collapsed.
   - Desktop collapse button: `absolute top-8 -right-3 z-50 hidden lg:flex items-center justify-center w-6 h-6 rounded-full border ... shadow-sm`; title is `Expand sidebar` or `Collapse sidebar`; chevron `w-3.5 h-3.5` rotates `180deg` when expanded.
 - **Sidebar nav** — root `<nav>` inside the fixed shell:
-  - **Expanded** — full content + labels + wordmark logo + global search button + settings dropdown. Padding `px-2`.
-  - **Collapsed (≥`lg`)** — icons only; menu-item labels hidden via `:class="collapsed && 'lg:hidden'"`; small `/coolify-logo.svg` (`w-6 h-6`) replaces wordmark; search + settings dropdown hidden. Padding `lg:px-1`. Adds `.sidebar-collapsed` class to nav root.
+  - **Expanded** — full content + labels + wordmark/name logo with version + global search button + settings dropdown. Padding `0.7rem`.
+  - **Collapsed (≥`lg`)** — icons only; menu-item labels hidden via `:class="collapsed && 'lg:hidden'"`; compact app icon (`w-6 h-6`) replaces wordmark/name and keeps version underneath. Product-specific first-letter fallbacks may use `w-8 h-8` when the sidebar also uses 32px controls. If no app icon asset exists, use the app's first letter as a white, backgroundless fallback icon. Search + settings dropdown hidden. Padding `0.7rem`. Adds `.sidebar-collapsed` class to nav root.
   - Mobile (<`lg`) always uses `px-2` (collapse is a desktop-only mode).
   - Root: `flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base`.
-- **Main content** — transitions padding; `lg:pl-56` expanded / `lg:pl-16` collapsed. Inner padding `p-4 sm:px-6 lg:px-8 lg:py-6`.
+- **Main content** — transitions left padding; expanded left offset is `16rem`, collapsed left offset is `6rem`. Base content padding is `1.5rem`.
+- **Page topbar** — settings/mailbox-style pages use a compact eyebrow above the page title; `.real-ui-topbar h1` is `1.8rem` with `line-height: 1.1`.
 - **Mobile top bar** — `sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 sm:px-6 lg:hidden bg-white/95 dark:bg-base/95 backdrop-blur-sm border-b border-neutral-300/50 dark:border-coolgray-200/50`; contains wordmark, `<livewire:switch-team />`, hamburger.
 - **Mobile drawer** — right-side overlay only below `lg`: backdrop `fixed inset-0 bg-black/80`; panel `fixed inset-y-0 right-0 h-full flex`; inner width `w-full max-w-56`; close button sits `right-full`.
 
@@ -834,7 +837,7 @@ border-neutral-300 hover:bg-neutral-100 dark:hover:bg-coolgray-200 transition-co
 
 Its title is `Expand sidebar` when collapsed and `Collapse sidebar` when expanded. Icon is `w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300 transition-transform`; expanded state applies `rotate-180`.
 
-**Main content offset.** `<main>` uses `transition-[padding] duration-200`; conditional `:class`: `collapsed ? 'lg:pl-16' : 'lg:pl-56'`.
+**Main content offset.** `<main>` uses animated left padding. Expanded offset is `16rem`; collapsed offset is `6rem` via the collapsed shell selector. Base content padding is `1.5rem`.
 
 **Mobile shell.** Mobile top bar lives in layout, not navbar:
 
@@ -851,7 +854,7 @@ It contains the wordmark, `<livewire:switch-team />`, and hamburger button. Mobi
 flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base
 ```
 
-Conditional `:class`: `collapsed ? 'lg:px-1 px-2 sidebar-collapsed' : 'px-2'`.
+Conditional padding: expanded and collapsed sidebar/nav horizontal padding is `0.7rem`; collapsed state also adds `.sidebar-collapsed`. At `≥1024px`, collapsed sidebar header adds `padding-top: 0.5rem` to align the compact identity with adjacent page title rhythm.
 
 The `.sidebar-collapsed` class triggers a media-query rule in `utilities.css`:
 
@@ -859,14 +862,18 @@ The `.sidebar-collapsed` class triggers a media-query rule in `utilities.css`:
 @media (min-width: 1024px) {
   .sidebar-collapsed .menu-item {
     justify-content: center;
+    width: var(--button-h);   /* 2rem / w-8 */
+    height: var(--button-h);  /* 2rem / h-8 */
+    min-height: var(--button-h);
     padding-left: 0;
     padding-right: 0;
     gap: 0;
+    margin-inline: auto;
   }
 }
 ```
 
-This centers icons and removes label-side padding/gap when the sidebar collapses on `lg` breakpoint.
+This centers icons and removes label-side padding/gap when the sidebar collapses on `lg` breakpoint. Collapsed top-level nav items keep the same compact button background/click-target size as other navbar icon buttons: `w-8 h-8` (`var(--button-h)` / `2rem`), not a full-height tile.
 
 **Navbar Alpine state.** The navbar exposes:
 - `tooltip: { text, x, y, show }` — hover-positioned tooltip used only when `collapsed`.
@@ -876,10 +883,10 @@ This centers icons and removes label-side padding/gap when the sidebar collapses
 - `init()` — applies theme + zoom on mount; subscribes to color-scheme media query.
 - `collapsed` is inherited from the parent layout; the parent persists it to `localStorage.sidebarCollapsed`.
 
-**Header (lines 95–126).** Default `flex pt-4 pb-4 pl-2 items-start gap-2`. Conditional: expanded `lg:pt-6`; collapsed `lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-8`.
+**Header (lines 95–126).** Default Coolify rhythm is `flex pt-4 pb-4 pl-2 items-start gap-2`. Conditional: expanded `lg:pt-6`; collapsed `lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-8`. Product shells may use a compact adapted rhythm (for example header `gap: 1.1rem`, brand `margin-top: 0.7rem`, collapsed header `padding-top: 0.5rem`) when expanded and collapsed identity rows stay visually aligned with adjacent main content and navbar icons.
 
-- **Expanded logo** — wordmark `<a class="text-2xl font-bold tracking-tight dark:text-white hover:opacity-80 transition-opacity">Coolify</a>` + `<x-version />`.
-- **Collapsed logo** — `<img src="/coolify-logo.svg" class="w-6 h-6">` + `<x-version class="text-[10px]" />` inside `<div class="hidden flex-col items-center w-full gap-1" :class="collapsed && 'lg:flex'">`.
+- **Expanded app identity** — product wordmark/name link stacked above version. Wordmark class stays `text-2xl font-bold tracking-tight dark:text-white hover:opacity-80 transition-opacity`.
+- **Collapsed app identity** — compact app icon (`w-6 h-6`) centered above version text inside `<div class="hidden flex-col items-center w-full gap-1" :class="collapsed && 'lg:flex'">`. Product-specific first-letter fallbacks may use `w-8 h-8` / `2rem` when matching a 32px collapsed control system. If the app has no icon asset, use the first letter of the app name as a white, backgroundless text icon. Keep it centered and do not invent a custom logo.
 - **Global search button** — hidden when collapsed (`:class="collapsed && 'lg:hidden'"`). Triggers `$dispatch('open-global-search')`. Class:
   ```
   flex items-center gap-1.5 px-2.5 py-1.5 bg-neutral-100 dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md hover:bg-neutral-200 dark:hover:bg-coolgray-200 transition-colors
@@ -893,7 +900,7 @@ This centers icons and removes label-side padding/gap when the sidebar collapses
 px-2 pt-2 pb-7 overflow-hidden motion-safe:transition-all motion-safe:duration-200 motion-safe:ease-out motion-reduce:transition-none
 ```
 
-Collapsed classes: `lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-[4.5rem] lg:flex lg:justify-center`.
+Collapsed classes: `lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-[4.5rem] lg:flex lg:justify-center`. Compact product shells may reduce this to `min-height: var(--button-h)` / `2rem` when the active 32px team badge sits directly under a compact app identity and the column rhythm remains balanced.
 
 Renders `<livewire:switch-team />`. Expanded state shows the team `<select>`. Collapsed state hides the select and shows a 32px initial badge:
 
@@ -903,7 +910,7 @@ text-coollabs dark:text-warning bg-neutral-100 dark:bg-coolgray-200
 hover:bg-neutral-200 dark:hover:bg-coolgray-300 rounded-sm cursor-pointer transition-colors
 ```
 
-Clicking the badge opens a fixed team menu at `left: rect.right + 8`, `top: rect.top`; menu class `fixed z-[100] min-w-48 max-h-72 overflow-y-auto bg-white dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md shadow-lg py-1`.
+Clicking the badge opens a fixed team menu at `left: rect.right + 8`, `top: rect.top`; menu class `fixed z-[100] min-w-48 max-h-72 overflow-y-auto bg-white dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md shadow-lg py-1`. Compact app variant: `min-width: 12rem`, `max-height: 18rem`, `padding: 0.25rem 0`, compact `0.875rem` items, same light/dark surfaces and border colors; active compact items use `text-coollabs` in light and `text-warning` in dark.
 
 **Menu lists (lines 130–432).**
 
@@ -924,12 +931,14 @@ Utility `.menu-item`:
 flex gap-3 items-center px-2 py-1 w-full text-sm dark:hover:bg-coolgray-100 dark:hover:text-white hover:bg-neutral-300 rounded-sm truncate min-w-0
 ```
 
+Softer product shells may use `hover:bg-neutral-200` in light mode while keeping active state at `bg-neutral-200` and dark hover at `dark:hover:bg-coolgray-100`.
+
 Utility `.menu-item-active`:
 ```
 text-black rounded-sm dark:bg-coolgray-200 dark:text-warning bg-neutral-200 overflow-hidden
 ```
 
-Icon `.menu-item-icon`: `flex-shrink-0 w-3.5 h-3.5 dark:hover:text-white` (14px). Sub-items also use 14px icons unless a component has a documented exception.
+Icon `.menu-item-icon`: `flex-shrink-0 size-4 dark:hover:text-white`. Sub-items use `gap-2` + `size-4` icons.
 
 **Tooltip overlay (lines 435–440).** Rendered only in collapsed mode. Fixed-positioned floating tooltip computed from menu-item bounding rect:
 
