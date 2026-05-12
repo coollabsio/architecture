@@ -269,11 +269,11 @@ components:
 ### 3. Shape & Elevation
 - [ ] Default radius `rounded-sm` (4px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
 - [ ] `.coolbox` shares the 4px default radius — distinguished by ring-hover, not radius. ([Shapes](#shapes))
-- [ ] `rounded-lg` (8px) only on callouts; any `rounded-md` usage must be one of the documented chrome exceptions (global search button, collapsed tooltip, breadcrumb dropdown). ([Shapes](#shapes))
-- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars, and the documented modal close button. ([Shapes](#shapes))
+- [ ] `rounded-lg` (8px) only on callouts; any `rounded-md` usage must be one of the documented chrome exceptions (global search button, collapsed tooltip, collapsed team menu, breadcrumb dropdown). ([Shapes](#shapes))
+- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars, and documented close/collapse controls. ([Shapes](#shapes))
 - [ ] `rounded-none` only appears in the documented mobile modal-confirmation shell before `sm:rounded-sm`. ([Modal Confirmation](#modal-confirmation))
 - [ ] No mixed radii within the same view. ([Shapes](#shapes))
-- [ ] Shadows reserved for: `shadow-sm` (boxes), toast custom shadow, `shadow-lg` (slide-over), `drop-shadow-sm` (modal-input). Otherwise tonal layers only. ([Shadows](#shadows-used-sparingly))
+- [ ] Shadows reserved for: `shadow-sm` (boxes, desktop sidebar collapse toggle), toast custom shadow, `shadow-lg` (slide-over, chrome dropdowns), `drop-shadow-sm` (modal-input). Otherwise tonal layers only. ([Shadows](#shadows-used-sparingly))
 - [ ] In dark mode, no additional shadow-based elevation beyond the documented exceptions. ([Shadows](#shadows-used-sparingly))
 
 ### 4. Inputs (signature system)
@@ -327,15 +327,18 @@ components:
 - [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper-tooltip))
 
 ### 9. Navigation
-- [ ] Sidebar root: no fixed width; `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Desktop sidebar shell uses `lg:w-56` expanded / `lg:w-16` collapsed; main content mirrors with `lg:pl-56` / `lg:pl-16`. ([Structure](#structure))
+- [ ] Sidebar root: `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for `coolify-logo.svg w-6 h-6`; padding `lg:px-1`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Desktop collapse toggle: `absolute top-8 -right-3`, 24px round bordered button; title flips Expand/Collapse; chevron rotates `180deg` when expanded. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] `.sidebar-collapsed .menu-item` centers icons and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`. ([Structure](#structure))
-- [ ] Alpine state exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`, `collapsed`. Theme persists to `localStorage.theme`. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`, wordmark + switch-team + hamburger. ([Structure](#structure))
+- [ ] Layout Alpine exposes `open`, `collapsed`, `pageWidth`, `toggleSidebar()`; `collapsed` persists to `localStorage.sidebarCollapsed`. Navbar Alpine exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Navbar menu icons use 14px (`w-3.5 h-3.5`) by default for consistent collapsed/expanded sizing. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Collapsed tooltip reads `title`/`aria-label`, positions at `rect.right + 8`, and only shows while collapsed. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Team switcher remains visible in collapsed mode; only alignment/padding changes. ([Sidebar / Navbar](#sidebar-navbar))
+- [ ] Team switcher becomes a collapsed 32px initial badge that opens a fixed team menu at `rect.right + 8`, `rect.top`. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Bottom spacer pushes Sponsor, Feedback, and Logout to the bottom group. ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar-navbar))
 - [ ] Feedback opens the documented modal-input flow; Logout remains a POST form button. ([Sidebar / Navbar](#sidebar-navbar))
@@ -388,7 +391,7 @@ Two signature traits define the system:
 1. **Purple/Yellow accent swap.** Light mode uses `coollabs` purple `#6b16ed`. Dark mode swaps to `warning` yellow `#fcd452` for focus rings, active nav items, helper icons, loading spinners, highlighted text, helper links. Never use purple as the dark-mode accent; documented purple fill/hover states (`.box` hover, highlighted button, dropdown item hover) are explicit exceptions.
 2. **Inset box-shadow inputs with a 4px "dirty bar".** Inputs and selects have no border — they use `box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px <border>`. When the field is focused or has unsaved changes (`wire:dirty`), the left 4px becomes the accent color — a live visual indicator of modified state. This is the single most distinctive UI detail in Coolify.
 
-Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px primarily on callouts, with small documented chrome exceptions below. Shadows used sparingly — one `shadow-sm` on boxes, one custom shadow on toasts, `shadow-lg` on slide-overs, and `drop-shadow-sm` on modal-input. The rest is flat tonal layers.
+Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px primarily on callouts, with small documented chrome exceptions below. Shadows used sparingly — `shadow-sm` on boxes and the sidebar collapse toggle, one custom shadow on toasts, `shadow-lg` on slide-overs and chrome dropdowns, and `drop-shadow-sm` on modal-input. The rest is flat tonal layers.
 
 ## Colors
 
@@ -458,14 +461,19 @@ Collapsible left sidebar on desktop. Mobile collapses to a sticky top bar with h
 
 ### Structure
 
-- **Sidebar** — collapsible, two states persisted via `localStorage` (Alpine `collapsed` boolean):
+- **Layout shell** — `resources/views/layouts/app.blade.php` owns sidebar state:
+  - Alpine state: `open` for mobile drawer, `collapsed` for desktop sidebar, `pageWidth` for centered/full content.
+  - `collapsed` initializes from `localStorage.sidebarCollapsed`; `toggleSidebar()` flips it and writes the same key.
+  - Desktop sidebar wrapper: `hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col min-w-0 transition-[width] duration-200`; width is `lg:w-56` expanded / `lg:w-16` collapsed.
+  - Desktop collapse button: `absolute top-8 -right-3 z-50 hidden lg:flex items-center justify-center w-6 h-6 rounded-full border ... shadow-sm`; title is `Expand sidebar` or `Collapse sidebar`; chevron `w-3.5 h-3.5` rotates `180deg` when expanded.
+- **Sidebar nav** — root `<nav>` inside the fixed shell:
   - **Expanded** — full content + labels + wordmark logo + global search button + settings dropdown. Padding `px-2`.
   - **Collapsed (≥`lg`)** — icons only; menu-item labels hidden via `:class="collapsed && 'lg:hidden'"`; small `/coolify-logo.svg` (`w-6 h-6`) replaces wordmark; search + settings dropdown hidden. Padding `lg:px-1`. Adds `.sidebar-collapsed` class to nav root.
   - Mobile (<`lg`) always uses `px-2` (collapse is a desktop-only mode).
-  - Width is content-driven (no fixed `w-*` class) — derived from icon size + padding when collapsed; from labels + padding when expanded.
   - Root: `flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base`.
-- **Main content** — no fixed offset; layout adapts to current sidebar width. Inner padding `p-4 sm:px-6 lg:px-8 lg:py-6`.
-- **Mobile top bar** — `sticky top-0 z-40 lg:hidden` with `bg-white/95 dark:bg-base/95 backdrop-blur-sm` (lives in layout, not the navbar component).
+- **Main content** — transitions padding; `lg:pl-56` expanded / `lg:pl-16` collapsed. Inner padding `p-4 sm:px-6 lg:px-8 lg:py-6`.
+- **Mobile top bar** — `sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 sm:px-6 lg:hidden bg-white/95 dark:bg-base/95 backdrop-blur-sm border-b border-neutral-300/50 dark:border-coolgray-200/50`; contains wordmark, `<livewire:switch-team />`, hamburger.
+- **Mobile drawer** — right-side overlay only below `lg`: backdrop `fixed inset-0 bg-black/80`; panel `fixed inset-y-0 right-0 h-full flex`; inner width `w-full max-w-56`; close button sits `right-full`.
 
 ### Spacing scale
 
@@ -513,8 +521,9 @@ No grid system — flex layouts everywhere.
 
 - Boxes: `shadow-sm` (`0 1px 2px 0 rgba(0,0,0,0.05)`)
 - Toasts: `shadow-[0_5px_15px_-3px_rgb(0_0_0_/_0.08)]`
-- Slide-over: `shadow-lg`
+- Slide-over and chrome dropdowns: `shadow-lg`
 - Modal-input: `drop-shadow-sm`
+- Sidebar collapse toggle: `shadow-sm`
 
 ### Input inset box-shadow system (distinctive)
 
@@ -554,8 +563,8 @@ Variant `input-sticky` uses `1px` outer shadow instead of `2px` for thinner bord
 - **Default** — `rounded-sm` (4px). Everything: inputs, buttons, cards, modals, toasts, dropdowns.
 - **Coolbox** — same 4px radius as default. Alternate card style distinguished by ring-hover, not corner radius.
 - **Callouts** — `rounded-lg` (8px). Main exception to the sharp rule.
-- **Chrome exceptions** — `rounded-md` appears only on the documented global search button, collapsed tooltip, and breadcrumb dropdowns.
-- **Badges / deprecated badge / pills / avatars / modal close button / banner close button** — `rounded-full`.
+- **Chrome exceptions** — `rounded-md` appears only on the documented global search button, collapsed tooltip, collapsed team menu, and breadcrumb dropdowns.
+- **Badges / deprecated badge / pills / avatars / modal close button / banner close button / sidebar collapse toggle** — `rounded-full`.
 - **Mobile modal-confirmation shell** — `rounded-none sm:rounded-sm` only for the full-screen mobile confirmation flow.
 
 Never mix radii within the same view.
@@ -799,7 +808,44 @@ Shown on parent `.group:hover`. Supports rich HTML (links colored `text-coollabs
 
 Component: `resources/views/components/navbar.blade.php`.
 
-**Root nav.** Single `<nav>` with conditional padding driven by Alpine `collapsed` state:
+Parent layout: `resources/views/layouts/app.blade.php`.
+
+**Layout shell state.** The app layout owns sidebar geometry and persistence:
+- `open: false` — mobile drawer state.
+- `collapsed: false` — desktop sidebar state, initialized from `localStorage.getItem('sidebarCollapsed') === 'true'`.
+- `pageWidth: 'full'` — initialized from `localStorage.pageWidth`; defaults to `'full'`.
+- `toggleSidebar()` — toggles `collapsed` and persists `localStorage.sidebarCollapsed`.
+
+**Desktop shell.** Sidebar wrapper is fixed at `lg` with animated width:
+
+```
+hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col min-w-0 transition-[width] duration-200
+```
+
+Conditional `:class`: `collapsed ? 'lg:w-16' : 'lg:w-56'`.
+
+The desktop collapse/expand button is:
+
+```
+absolute top-8 -right-3 z-50 hidden lg:flex items-center justify-center w-6 h-6
+rounded-full border bg-white dark:bg-coolgray-100 dark:border-coolgray-200
+border-neutral-300 hover:bg-neutral-100 dark:hover:bg-coolgray-200 transition-colors shadow-sm
+```
+
+Its title is `Expand sidebar` when collapsed and `Collapse sidebar` when expanded. Icon is `w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300 transition-transform`; expanded state applies `rotate-180`.
+
+**Main content offset.** `<main>` uses `transition-[padding] duration-200`; conditional `:class`: `collapsed ? 'lg:pl-16' : 'lg:pl-56'`.
+
+**Mobile shell.** Mobile top bar lives in layout, not navbar:
+
+```
+sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 sm:px-6 lg:hidden
+bg-white/95 dark:bg-base/95 backdrop-blur-sm border-b border-neutral-300/50 dark:border-coolgray-200/50
+```
+
+It contains the wordmark, `<livewire:switch-team />`, and hamburger button. Mobile drawer opens from the right: backdrop `fixed inset-0 bg-black/80`, panel `fixed inset-y-0 right-0 h-full flex`, inner width `w-full max-w-56`; close button sits at `right-full`.
+
+**Root nav.** Single `<nav>` with conditional padding driven by parent Alpine `collapsed` state:
 
 ```
 flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base
@@ -822,13 +868,13 @@ The `.sidebar-collapsed` class triggers a media-query rule in `utilities.css`:
 
 This centers icons and removes label-side padding/gap when the sidebar collapses on `lg` breakpoint.
 
-**Alpine state.** The nav exposes:
+**Navbar Alpine state.** The navbar exposes:
 - `tooltip: { text, x, y, show }` — hover-positioned tooltip used only when `collapsed`.
 - `setTheme(type)` — `'dark' | 'light' | 'system'` persisted to `localStorage.theme`. Subscribes to `prefers-color-scheme: dark` change events when set to `'system'`.
 - `setZoom(zoom)` — persists `localStorage.zoom`. `'90'` shrinks `html` font-size to 93.75% (mobile) / 87.5% (`lg`).
 - `switchWidth()` — toggles `localStorage.pageWidth` between `'full'` and `'center'`. Reloads page.
 - `init()` — applies theme + zoom on mount; subscribes to color-scheme media query.
-- `collapsed` is set externally (parent layout); persisted via `localStorage`.
+- `collapsed` is inherited from the parent layout; the parent persists it to `localStorage.sidebarCollapsed`.
 
 **Header (lines 95–126).** Default `flex pt-4 pb-4 pl-2 items-start gap-2`. Conditional: expanded `lg:pt-6`; collapsed `lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-8`.
 
@@ -841,7 +887,23 @@ This centers icons and removes label-side padding/gap when the sidebar collapses
   Inline `<kbd>` shortcut hint: `px-1 py-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-coolgray-200 rounded`. Title says `Search (Press / or ⌘K)`.
 - **Settings dropdown** — `<livewire:settings-dropdown />` hidden when collapsed.
 
-**Team switcher (lines 127–129).** Wrapper `px-2 pt-2 pb-7`; collapsed `lg:px-0 lg:pt-0 lg:pb-4 lg:flex lg:justify-center`. Renders `<livewire:switch-team />`. Always visible (collapsed mode only changes alignment + padding).
+**Team switcher (lines 127–129).** Wrapper:
+
+```
+px-2 pt-2 pb-7 overflow-hidden motion-safe:transition-all motion-safe:duration-200 motion-safe:ease-out motion-reduce:transition-none
+```
+
+Collapsed classes: `lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-[4.5rem] lg:flex lg:justify-center`.
+
+Renders `<livewire:switch-team />`. Expanded state shows the team `<select>`. Collapsed state hides the select and shows a 32px initial badge:
+
+```
+flex items-center justify-center w-8 h-8 p-0 text-sm font-semibold
+text-coollabs dark:text-warning bg-neutral-100 dark:bg-coolgray-200
+hover:bg-neutral-200 dark:hover:bg-coolgray-300 rounded-sm cursor-pointer transition-colors
+```
+
+Clicking the badge opens a fixed team menu at `left: rect.right + 8`, `top: rect.top`; menu class `fixed z-[100] min-w-48 max-h-72 overflow-y-auto bg-white dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md shadow-lg py-1`.
 
 **Menu lists (lines 130–432).**
 
@@ -867,7 +929,7 @@ Utility `.menu-item-active`:
 text-black rounded-sm dark:bg-coolgray-200 dark:text-warning bg-neutral-200 overflow-hidden
 ```
 
-Icon `.menu-item-icon`: `flex-shrink-0 w-6 h-6 dark:hover:text-white`. Sub-items use `gap-2` + `w-4 h-4` icons.
+Icon `.menu-item-icon`: `flex-shrink-0 w-3.5 h-3.5 dark:hover:text-white` (14px). Sub-items also use 14px icons unless a component has a documented exception.
 
 **Tooltip overlay (lines 435–440).** Rendered only in collapsed mode. Fixed-positioned floating tooltip computed from menu-item bounding rect:
 
