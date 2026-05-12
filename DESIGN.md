@@ -395,6 +395,12 @@ Two signature traits define the system:
 
 Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px primarily on callouts, with small documented chrome exceptions below. Shadows used sparingly — `shadow-sm` on boxes and the sidebar collapse toggle, one custom shadow on toasts, `shadow-lg` on slide-overs and chrome dropdowns, and `drop-shadow-sm` on modal-input. The rest is flat tonal layers.
 
+## Styling rule
+
+Use Tailwind utilities and project-defined Tailwind `@utility` classes for UI styling by default. Do not introduce ad-hoc component CSS or inline styles when an equivalent Tailwind utility or existing design-system utility exists. Put reusable component styles in `resources/css/utilities.css` as `@utility` blocks.
+
+Allowed exceptions: `resources/css/app.css` `@theme` tokens, base/global element rules, necessary browser/third-party selectors, documented component internals such as the input inset box-shadow system, and rare dynamic inline styles that cannot be represented safely as Tailwind classes.
+
 ## Colors
 
 Source of truth: `resources/css/app.css` `@theme` block (Tailwind v4).
@@ -1064,11 +1070,13 @@ Touch variant adds `min-h-10 px-3 py-2 text-sm`.
 - **Do** maintain WCAG AA contrast (4.5:1 for normal text).
 - **Do** sanitize HTML passed into toasts via `window.sanitizeHTML`.
 - **Do** use `<x-loading-on-button>` for in-button spinners and `<x-loading>` as `wire:loading.delay.longer` indicators in status components.
+- **Do** style UI with Tailwind utilities or documented project `@utility` classes first.
 - **Don't** use purple `coollabs` as the dark-mode accent. Always use yellow `warning` in dark unless this spec explicitly documents a purple fill/hover exception.
 - **Don't** mix corner radii — 4px everywhere except documented callouts, chrome, full-pill, and modal-confirmation exceptions.
 - **Don't** add undocumented shadows for elevation in dark mode. Use tonal layers from the coolgray ladder.
 - **Don't** set `border` utilities without expecting `coolgray-200` in dark (default override in base layer).
 - **Don't** add gradients. The one exception is the `.bg-coollabs-gradient` upsell strip.
+- **Don't** add one-off CSS or inline styles unless needed for base/global rules, third-party/browser selectors, dynamic values Tailwind cannot express, or a documented exception.
 - **Don't** add arbitrary extra font weights beyond the documented component weights.
 
 ---
