@@ -1,14 +1,16 @@
 # Rust Single-Binary Web Apps with SvelteKit
 
 Opinionated stack guide for **SvelteKit-specific, web app based Rust
-services**: a Rust HTTP/API backend plus a SvelteKit + shadcn-svelte frontend,
-shipped as a single self-hostable binary with the frontend embedded into the
-executable. Library picks, why, and the gotchas that bit us.
+services**: a Rust HTTP/API backend plus a SvelteKit frontend that uses
+shadcn-svelte for UI components, shipped as a single self-hostable binary with
+the frontend embedded into the executable. Library picks, why, and the gotchas
+that bit us.
 
 This is an archetype guide, not a generic Rust web-services guide, Rust style
 guide, CLI-only service template, library template, firmware guide, or non-web
-service architecture. Keep SvelteKit as the frontend assumption; adapt the
-replaceable defaults below only when a project has a concrete reason.
+service architecture. Keep SvelteKit as the frontend assumption and
+shadcn-svelte as the UI component baseline; adapt the replaceable defaults
+below only when a project has a concrete reason.
 
 ## Scope
 
@@ -46,8 +48,11 @@ Do not start from this guide if:
 
 ## Replaceable defaults
 
-SvelteKit is the fixed frontend assumption for this guide. These defaults are
-replaceable when the project has a concrete operational or product reason:
+SvelteKit is the fixed frontend assumption for this guide. shadcn-svelte is
+the default UI component system: use it for buttons, forms, dialogs, menus,
+tables, cards, navigation, and other reusable UI primitives. These defaults are
+replaceable only when the project has a concrete operational or product reason
+recorded in the feature plan or README:
 
 | Default | Replace when | Common alternative |
 |---|---|---|
@@ -55,7 +60,7 @@ replaceable when the project has a concrete operational or product reason:
 | Filesystem blobs | Blob data must be shared across nodes or backed by object lifecycle policies | S3-compatible storage |
 | `rust-embed` static serving | Assets should be cached globally or served outside the binary | CDN / reverse-proxy static hosting |
 | Bun | Org standardizes on Node/pnpm/npm | pnpm or npm |
-| shadcn-svelte primitives | Product has an established design system | In-house Svelte components |
+| shadcn-svelte UI components/primitives | Product has an established design system and the feature plan documents the replacement | In-house Svelte components |
 | `build.rs` frontend orchestration | Builds must be fully split between frontend and backend pipelines | CI-built frontend artifact copied before `cargo build` |
 | GitHub Releases | Project deploys only through containers or a platform marketplace | Container registry / platform release flow |
 
@@ -272,12 +277,19 @@ Exit code rules:
 | Fallback file | **`200.html`** | `index.html` collides with prerendered home; `200.html` is the SvelteKit-recommended SPA shell. |
 | Render mode | `prerender = false; ssr = false` in `+layout.ts` | Pure SPA against the Rust API. |
 | Styling | **Tailwind 4** | Default new apps to Tailwind 4; downgrade only if the chosen shadcn-svelte release cannot support it. |
-| Components | **shadcn-svelte primitives** | Distinctive, owned-in-tree components, no runtime lib; verify generated components against Svelte 5 + Tailwind 4 in CI. |
+| Components | **shadcn-svelte UI components/primitives** | Required UI baseline for buttons, forms, dialogs, menus, tables, cards, navigation, and reusable UI; add components with the shadcn-svelte CLI; owned-in-tree, no runtime lib; verify generated components against Svelte 5 + Tailwind 4 in CI. |
 | Compiler mode | **Svelte 5 / runes-capable by default** | Use Svelte 5 defaults for new apps; disable runes only for a documented shadcn-svelte compatibility issue. |
 | Package manager + runtime | **`bun`** | Single binary handling install, run, test, bundle. Faster than pnpm/npm; lockfile is `bun.lock` (text). |
 
 ### shadcn-svelte gotcha
 
+- Use shadcn-svelte for reusable UI components by default. Do not introduce
+  another component library, parallel design system, or ad-hoc component set
+  unless the project plan documents the product/design-system reason.
+- Add shadcn-svelte components with the CLI, e.g.
+  `bunx shadcn-svelte@latest add button dialog dropdown-menu table form`.
+  Commit the generated owned-in-tree component files and review them like app
+  code instead of copy-pasting components from docs by hand.
 - shadcn-svelte CLI install (`bunx shadcn-svelte@latest init`) is
   interactive — annoying for first bootstrap in CI/agent flows. Either
   hand-roll the Tailwind tokens (border / muted / destructive HSL values
@@ -945,7 +957,11 @@ tags are releases.
     stderr, and exit codes are stable.
 16. **Default to Svelte 5 + Tailwind 4.** Downgrade runes/Tailwind only for a
     documented shadcn-svelte compatibility issue verified in CI.
-17. **Plans before code.** One commit per task.
+17. **Default UI components are shadcn-svelte.** Add components with
+    `bunx shadcn-svelte@latest add ...`; do not introduce another component
+    library or ad-hoc component system unless the feature plan documents the
+    concrete product/design-system reason.
+18. **Plans before code.** One commit per task.
 
 ---
 
@@ -1199,8 +1215,10 @@ cross-platform installer/update story.
     stderr discipline, and exit-code tests.
 11. `frontend/`: SvelteKit + adapter-static (`fallback: '200.html'`,
     `prerender = false`, `ssr = false`), Svelte 5 / runes-capable defaults,
-    Tailwind 4, and shadcn-svelte primitives verified in CI. Use **bun** unless
-    the project chooses a documented replacement.
+    Tailwind 4, and shadcn-svelte UI components/primitives verified in CI. Use
+    `bunx shadcn-svelte@latest add ...` to add reusable UI components unless a
+    documented product/design-system reason replaces shadcn-svelte. Use **bun**
+    unless the project chooses a documented replacement.
 12. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
     re-install; existing-artifact detection; `SKIP_FRONTEND` escape hatch.
 13. Add root `package.json` + `scripts/dev.sh` so `bun run dev` starts
