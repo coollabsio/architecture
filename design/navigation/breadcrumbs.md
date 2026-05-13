@@ -44,6 +44,29 @@ Use `text-sm font-medium`. Do not uppercase breadcrumbs.
 
 Use `flex flex-wrap items-center gap-1.5`. Separator is a small `/` or chevron with muted text.
 
+## Exact Layout Recipe
+
+Use the current mockup Breadcrumbs component exactly:
+
+```txt
+nav: aria-label="Breadcrumb"
+list: flex flex-wrap items-center gap-1.5 text-sm font-medium
+item: inline-flex items-center gap-1.5
+separator: text-neutral-400
+link: rounded-sm text-neutral-600 hover:text-coollabs dark:text-neutral-400 dark:hover:text-warning
+current: text-black dark:text-white with aria-current="page"
+```
+
+## Exact Classes
+
+```txt
+ol: flex flex-wrap items-center gap-1.5 text-sm font-medium
+li: inline-flex items-center gap-1.5
+separator: text-neutral-400
+link: rounded-sm text-neutral-600 hover:text-coollabs focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning
+current: text-black dark:text-white
+```
+
 ## Elevation & Depth
 
 No surfaces or shadows.

@@ -70,6 +70,28 @@ Switch rows match Checkbox/Radio row density:
 
 Use `flex items-center gap-4 py-1 pr-2`; keep switch `shrink-0`.
 
+## Exact Layout Recipe
+
+```txt
+root-row: flex items-center gap-3
+track: inline-flex h-4 w-8 shrink-0 items-center rounded-full p-0.5
+thumb: pointer-events-none block size-3 rounded-full transition-transform
+unchecked-thumb-position: translate-x-0
+checked-thumb-position: translate-x-4
+checked-light: purple track
+checked-dark: yellow track
+padding-balance: thumb must have visually equal left/right padding in both states
+```
+
+## Exact Classes
+
+```txt
+track: inline-flex h-4 w-8 shrink-0 cursor-pointer items-center rounded-full border border-transparent bg-neutral-300 p-0.5 outline-none transition-colors focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 data-[state=checked]:bg-coollabs dark:bg-coolgray-300 dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base dark:data-[state=checked]:bg-warning
+thumb: pointer-events-none block size-3 rounded-full bg-white shadow-sm transition-transform data-[state=checked]:translate-x-4 dark:data-[state=checked]:bg-base
+label: text-sm text-black dark:text-white
+description: text-xs text-neutral-500 dark:text-neutral-400
+```
+
 ## Elevation & Depth
 
 No shadows. State is indicated through track color and thumb position.

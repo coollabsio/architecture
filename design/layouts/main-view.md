@@ -129,6 +129,31 @@ Right panel anatomy:
 - Detail content, or centered empty state.
 - Empty state can use `rounded-sm bg-neutral-100 p-8 text-center dark:bg-coolgray-200`.
 
+## Exact Layout Recipe
+
+```txt
+page: mx-auto min-h-screen max-w-6xl px-6 py-10
+sample-shell: rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
+header: mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
+spec-label: mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning
+page-title: text-3xl font-bold tracking-tight text-black dark:text-white
+page-description: mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400
+layout-stage: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base
+```
+
+## Exact Classes
+
+```txt
+resource-grid: mx-auto w-full max-w-5xl py-4; grid gap-4 sm:grid-cols-2 xl:grid-cols-3
+split-grid: grid min-h-[42rem] gap-2 lg:grid-cols-[32rem_1fr]
+split-panel: rounded-sm border border-neutral-200 bg-white dark:border-coolgray-300 dark:bg-coolgray-100
+single-section: min-h-[42rem] rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
+single-title-row: flex flex-wrap items-start justify-between gap-4
+single-resource-title: text-2xl font-bold text-black dark:text-white
+single-env-text: text-2xl text-neutral-600 dark:text-neutral-400
+workspace-canvas: min-h-[30rem] rounded-sm border border-neutral-200 p-6 dark:border-coolgray-300 dark:bg-coolgray-200
+```
+
 ## Elevation & Depth
 
 Use borders and panel surfaces. Avoid heavy shadows.

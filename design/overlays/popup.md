@@ -46,6 +46,27 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 Use Shadcn-Svelte Popover as base. Anchored small surface with neutral border, compact padding, shadow, and no heavy decoration.
 
+## Exact Layout Recipe
+
+```txt
+overlay-surface: rounded-sm border border-neutral-200 bg-white p-4 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
+overlay-title: text-base font-bold text-black dark:text-white
+overlay-description: text-sm text-neutral-600 dark:text-neutral-400
+overlay-body: text-sm text-neutral-700 dark:text-neutral-300
+overlay-actions: flex flex-wrap justify-end gap-2
+close-button: grid size-8 place-items-center rounded-sm
+```
+
+## Exact Classes
+
+```txt
+surface: rounded-sm border border-neutral-200 bg-white p-4 text-black shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
+header: flex items-start justify-between gap-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
+footer: flex flex-wrap justify-end gap-2 border-t border-neutral-200 pt-3 dark:border-coolgray-200
+backdrop: fixed inset-0 z-40 bg-black/60
+content: fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] max-w-lg -translate-x-1/2 -translate-y-1/2
+```
+
 ## Elevation & Depth
 
 Use borders and subtle shadows only where the component is an overlay. Avoid heavy shadows and gradients.

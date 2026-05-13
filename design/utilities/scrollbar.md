@@ -46,6 +46,23 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 Use native scrollbar styling/utility where possible. Scroll containers should be explicit, compact, and not hide important controls.
 
+## Exact Layout Recipe
+
+```txt
+scroll-container: max-h-* overflow-y-auto overscroll-contain
+scrollbar-width: thin
+track: transparent
+thumb-light: neutral-300
+thumb-dark: coolgray-300
+```
+
+## Exact Classes
+
+```txt
+scrollbar: scrollbar-thin scrollbar-thumb-neutral-300 scrollbar-track-transparent dark:scrollbar-thumb-coolgray-300
+example-container: scrollbar max-h-48 overflow-y-auto rounded-sm border border-neutral-200 bg-white p-3 text-sm dark:border-coolgray-300 dark:bg-coolgray-100
+```
+
 ## Elevation & Depth
 
 Use borders and subtle shadows only where the component is an overlay. Avoid heavy shadows and gradients.

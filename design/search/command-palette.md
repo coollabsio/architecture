@@ -47,6 +47,24 @@ Use compact `text-sm` body text. Labels are medium weight; errors are `text-xs t
 
 Keep spacing compact. Overlays use centered/floating surfaces with neutral borders. Forms use vertical field stacks and a bottom save/action row when needed.
 
+## Exact Layout Recipe
+
+```txt
+dialog: fixed inset-0 z-50 flex items-start justify-center px-4 pt-24
+surface: w-full max-w-xl rounded-sm border border-neutral-200 bg-white p-2 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
+input: use design/forms/input.md exact classes
+list: mt-2 max-h-80 overflow-y-auto overscroll-contain
+item: flex w-full items-center justify-between rounded-sm px-2 py-2 text-left text-sm
+kbd-hint: text-xs text-neutral-500
+```
+
+## Exact Classes
+
+```txt
+item: flex w-full items-center justify-between rounded-sm px-2 py-2 text-left text-sm text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200
+backdrop: fixed inset-0 z-40 bg-black/60
+```
+
 ## Elevation & Depth
 
 Use borders and subtle overlay shadows only. Avoid heavy shadows and gradients.

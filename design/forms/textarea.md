@@ -120,6 +120,21 @@ Text must not start directly against the inset shadow/border. Use `px-3` so cont
 
 Labels and helper icons are handled by the Form Field component.
 
+## Exact Layout Recipe
+
+```txt
+textarea: block min-h-32 w-full resize-y rounded-sm border-0 px-3 py-1.5 font-mono text-sm
+resize-handle: custom background lines, smaller than browser default visual weight
+text-start: px-3 so text never touches the border
+```
+
+## Exact Classes
+
+```txt
+base: block min-h-32 w-full resize-y rounded-sm border-0 bg-white px-3 py-1.5 font-mono text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
+shadow: use Input exact shadow/focus/dirty classes
+```
+
 ## Elevation & Depth
 
 Textarea uses the same layered inset shadows as Input.

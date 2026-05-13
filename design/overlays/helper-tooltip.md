@@ -46,6 +46,25 @@ Tooltip content uses `text-xs leading-4`. Keep helper copy short.
 
 Trigger is `inline-flex size-4 items-center justify-center rounded-full`. Tooltip content is content-fit with wrapping for long text: `min-w-max max-w-[min(20rem,calc(100vw-2rem))] whitespace-normal`.
 
+## Exact Layout Recipe
+
+Use the current mockup helper tooltip sizes exactly:
+
+```txt
+trigger: inline-flex size-4 items-center justify-center rounded-full
+trigger-text: text-[10px] font-bold leading-none
+content: absolute left-1/2 top-6 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 whitespace-normal rounded-sm px-2 py-1.5 text-xs leading-4
+short-tooltip: fit to text; do not force fixed width
+long-tooltip: wraps inside max-w only
+```
+
+## Exact Classes
+
+```txt
+trigger: inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+content: absolute left-1/2 top-6 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 whitespace-normal rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm
+```
+
 ## Elevation & Depth
 
 Use `shadow-sm` only for overlay separation.

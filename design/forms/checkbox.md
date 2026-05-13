@@ -137,6 +137,27 @@ flex min-w-0 grow gap-2 break-words
 
 Checkbox control is `shrink-0` so long labels do not compress it.
 
+## Exact Layout Recipe
+
+```txt
+row: flex max-w-full flex-row items-center gap-4 py-1 pr-2 cursor-pointer dark:hover:bg-coolgray-100
+row-hover-padding: keep py-1/pr-2 so hover background has breathing room
+control: grid size-4 shrink-0 place-items-center rounded-sm border
+label-wrap: flex min-w-0 grow gap-2 break-words
+label-text: text-sm text-black dark:text-white
+description: text-xs text-neutral-500 dark:text-neutral-400
+selected-dark: yellow background, black check glyph
+selected-light: purple background, white check glyph
+```
+
+## Exact Classes
+
+```txt
+control: grid size-4 shrink-0 cursor-pointer place-items-center rounded-sm border border-neutral-200 bg-white text-transparent outline-none transition-colors focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-neutral-200 disabled:text-neutral-700 data-[checked=true]:bg-coollabs data-[checked=true]:text-white dark:border-neutral-700 dark:data-[checked=true]:bg-warning dark:data-[checked=true]:text-black dark:bg-coolgray-100 dark:disabled:bg-base dark:disabled:text-neutral-400 dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+row: flex max-w-full flex-row items-center gap-4 py-1 pr-2 cursor-pointer dark:hover:bg-coolgray-100
+check-icon: size-3 stroke-[3]
+```
+
 ## Elevation & Depth
 
 Checkboxes do not use shadows. State is conveyed by fill, border, check mark, row hover, and focus ring.

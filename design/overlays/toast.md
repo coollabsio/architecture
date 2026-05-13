@@ -48,6 +48,30 @@ Title uses `text-sm font-bold`; description uses `text-sm` or `text-xs` muted te
 
 Toast surface is `rounded-sm border p-3`, compact, with `gap-2` and optional `size-4` icon. Actions use V2 Button classes. Triggered toasts render in a fixed viewport such as `fixed bottom-4 right-4 z-20` and auto-dismiss.
 
+## Exact Layout Recipe
+
+Use the current mockup ToastPreview exactly:
+
+```txt
+toast: grid max-w-sm grid-cols-[1rem_1fr] gap-2 rounded-sm border p-3 text-sm
+icon: mt-0.5 size-4 text-center font-bold
+icon-default: text-coollabs dark:text-warning
+title: font-bold
+description: text-neutral-600 dark:text-neutral-400
+viewport-sample: fixed bottom-4 right-4 z-20 w-[min(24rem,calc(100vw-2rem))] space-y-2
+close: absolute right-2 top-2 grid size-5 place-items-center rounded-sm text-xs
+```
+
+## Exact Classes
+
+```txt
+toast: grid max-w-sm grid-cols-[1rem_1fr] gap-2 rounded-sm border border-neutral-200 bg-white p-3 text-sm text-black shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
+icon: mt-0.5 size-4 text-center font-bold
+title: font-bold
+description: text-neutral-600 dark:text-neutral-400
+close: absolute right-2 top-2 grid size-5 place-items-center rounded-sm text-xs text-neutral-500 hover:bg-neutral-100 hover:text-black dark:text-neutral-400 dark:hover:bg-coolgray-200 dark:hover:text-white
+```
+
 ## Elevation & Depth
 
 Use a small shadow only for overlay separation: `shadow-sm`. Do not use large floating cards.

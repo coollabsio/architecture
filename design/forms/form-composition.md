@@ -54,6 +54,32 @@ Use compact `text-sm` body text. Labels are medium weight; errors are `text-xs t
 
 Keep spacing compact. Overlays use centered/floating surfaces with neutral borders. Forms use a compact section title/description, vertical field stacks, and a bottom save/action row when needed. Do not place dark inputs on the same `coolgray-100` surface as the form body; use `dark:bg-base` for the form card.
 
+## Exact Layout Recipe
+
+```txt
+form-card: space-y-4 rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-base
+header: border-b border-neutral-200 pb-3 dark:border-coolgray-300
+title: text-base font-bold text-black dark:text-white
+description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
+field-stack: space-y-4
+field: use FormField exact classes
+input: use Input exact classes
+action-row: flex items-center justify-between border-t border-neutral-200 pt-3 dark:border-coolgray-300
+meta: text-xs text-neutral-500 dark:text-neutral-400
+submit: Button highlighted, h-8 unless auth page says h-12
+```
+
+## Exact Classes
+
+```txt
+form: space-y-4 rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-base
+header: border-b border-neutral-200 pb-3 dark:border-coolgray-300
+title: text-base font-bold text-black dark:text-white
+description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
+action-row: flex items-center justify-between border-t border-neutral-200 pt-3 dark:border-coolgray-300
+semantic-validation: domain, email, and phone/tel examples must show compact text-xs error messages
+```
+
 ## Elevation & Depth
 
 Use borders and subtle overlay shadows only. Avoid heavy shadows and gradients.

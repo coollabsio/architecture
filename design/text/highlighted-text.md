@@ -46,6 +46,25 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 Highlighted text uses purple in light and yellow in dark. Required asterisk is semantic, visually compact, with sr-only required text.
 
+## Exact Layout Recipe
+
+Use the current mockup inline text utilities exactly:
+
+```txt
+highlighted: rounded-sm px-1 py-0.5 font-medium text-coollabs-200 dark:text-warning
+required-asterisk: font-bold text-coollabs dark:text-warning
+label-with-required: block text-sm font-medium text-black dark:text-white
+paragraph-context: text-sm text-neutral-700 dark:text-neutral-300
+```
+
+## Exact Classes
+
+```txt
+highlighted-text: rounded-sm px-1 py-0.5 font-medium text-coollabs-200 dark:text-warning
+required-asterisk: font-bold text-coollabs dark:text-warning
+label: block text-sm font-medium text-black dark:text-white
+```
+
 ## Elevation & Depth
 
 Use borders and subtle shadows only where the component is an overlay. Avoid heavy shadows and gradients.

@@ -144,6 +144,25 @@ Dropdown items:
 - Touch item minimum height: `min-h-10`.
 - Icons, if present, are leading `size-4` icons and must not change row height.
 
+## Exact Layout Recipe
+
+```txt
+trigger: use Button default/highlighted as appropriate; chevron at end
+content-position: absolute top-full z-50 mt-1
+content-size: min-w-max max-w-[calc(100vw-1rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain
+content-surface: rounded-sm border p-1 shadow-sm
+item: relative flex w-full items-center justify-start gap-2 rounded-sm py-1 pl-2 pr-4 text-xs
+item-touch-extension: min-h-10 px-3 py-2 text-sm
+```
+
+## Exact Classes
+
+```txt
+content: absolute top-full z-50 mt-1 min-w-max max-w-[calc(100vw-1rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain rounded-sm border border-neutral-300 bg-white p-1 shadow-sm outline-none dark:border-coolgray-300 dark:bg-coolgray-100
+item: relative flex w-full cursor-pointer select-none items-center justify-start gap-2 rounded-sm py-1 pl-2 pr-4 text-xs text-black outline-none transition-colors [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-neutral-100 focus-visible:bg-neutral-100 disabled:pointer-events-none disabled:opacity-50 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 dark:text-white dark:hover:bg-coollabs dark:focus-visible:bg-coollabs
+separator: my-1 h-px bg-neutral-200 dark:bg-coolgray-300
+```
+
 ## Elevation & Depth
 
 Dropdowns use minimal elevation:

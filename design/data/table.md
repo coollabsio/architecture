@@ -46,6 +46,26 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 Use Shadcn-Svelte Table/Data Table as base. Compact rows, neutral borders, hover row background, sticky/scroll overflow where needed. Actions go right; statuses use Badge/Status Indicator.
 
+## Exact Layout Recipe
+
+```txt
+wrapper: w-full overflow-x-auto rounded-sm border border-neutral-200 dark:border-coolgray-300
+table: w-full min-w-[42rem] border-collapse text-left text-sm
+header: border-b border-neutral-200 bg-neutral-100 text-xs font-bold uppercase tracking-wide text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-200 dark:text-neutral-400
+row: hover:bg-neutral-100 dark:hover:bg-coolgray-200
+cell: px-3 py-2 align-middle
+actions: flex items-center justify-end gap-2
+```
+
+## Exact Classes
+
+```txt
+table-wrap: w-full overflow-x-auto rounded-sm border border-neutral-200 dark:border-coolgray-300
+thead: border-b border-neutral-200 bg-neutral-100 text-xs font-bold uppercase tracking-wide text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-200 dark:text-neutral-400
+tr: hover:bg-neutral-100 dark:hover:bg-coolgray-200
+th-td: px-3 py-2
+```
+
 ## Elevation & Depth
 
 Use borders and subtle shadows only where the component is an overlay. Avoid heavy shadows and gradients.

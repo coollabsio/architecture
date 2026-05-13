@@ -57,6 +57,27 @@ Text uses `text-sm font-medium`; supporting timestamps use `text-xs text-neutral
 
 Use `inline-flex items-center gap-1.5`. Dot is `size-2 rounded-full shrink-0`. Keep label short.
 
+## Exact Layout Recipe
+
+Use the current mockup StatusIndicator exactly:
+
+```txt
+root: inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white
+dot: size-2 rounded-full
+detail: text-xs font-normal text-neutral-500 dark:text-neutral-400
+```
+
+## Exact Classes
+
+```txt
+root: inline-flex items-center gap-1.5 text-sm font-medium text-black dark:text-white
+dot-success: size-2 rounded-full bg-green-600
+dot-warning: size-2 rounded-full bg-warning
+dot-error: size-2 rounded-full bg-error
+dot-muted: size-2 rounded-full bg-neutral-400
+detail: text-xs font-normal text-neutral-500 dark:text-neutral-400
+```
+
 ## Elevation & Depth
 
 No shadows or raised surfaces.

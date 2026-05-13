@@ -131,6 +131,30 @@ Required layout rules:
 
 Do not add large vertical spacing between label and control.
 
+## Exact Layout Recipe
+
+```txt
+field: space-y-1
+label-row: mb-1 flex items-center gap-1
+label: text-sm font-medium text-black dark:text-white
+required: font-bold text-coollabs dark:text-warning
+helper-trigger: inline-flex size-4 items-center justify-center rounded-full
+helper-icon: text-[10px] font-bold leading-none
+description: mt-1 text-xs text-neutral-500 dark:text-neutral-400
+error: mt-1 text-xs text-error
+```
+
+## Exact Classes
+
+```txt
+label: text-sm font-medium text-black dark:text-white
+required-marker: font-bold text-coollabs dark:text-warning
+helper-trigger: inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+tooltip-content: z-50 w-max max-w-[min(20rem,calc(100vw-2rem))] rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm
+description: mt-1 text-xs text-neutral-500 dark:text-neutral-400
+error: mt-1 text-xs text-error
+```
+
 ## Elevation & Depth
 
 The field wrapper itself has no elevation.

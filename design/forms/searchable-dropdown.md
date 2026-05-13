@@ -57,6 +57,31 @@ Popover
 
 The search input must receive focus automatically when the dropdown opens. The option list must have bounded height and internal scroll.
 
+## Exact Layout Recipe
+
+```txt
+root: relative w-full min-w-52 max-w-sm
+trigger: Button w-full justify-between
+trigger-label: truncate; placeholder text-neutral-500 dark:text-neutral-400
+chevron: size-4 shrink-0, stacked up/down paths
+popover: absolute left-0 top-full z-50 mt-1 w-full rounded-sm border p-1 shadow-sm
+search-wrap: p-1
+list: mt-1 max-h-56 overflow-y-auto overscroll-contain
+option: group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm
+option-check: w-4 shrink-0 text-center
+option-description: block truncate text-xs font-normal
+```
+
+## Exact Classes
+
+```txt
+popover: absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
+option: group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coollabs dark:hover:text-white
+selected: bg-neutral-100 font-semibold dark:bg-coolgray-200 dark:text-warning
+description: block truncate text-xs font-normal text-neutral-500 dark:text-neutral-400 dark:group-hover:text-white
+empty: px-2 py-6 text-center text-sm text-neutral-500 dark:text-neutral-400
+```
+
 ## Elevation & Depth
 
 Use neutral border and subtle shadow on the popover only.

@@ -44,6 +44,25 @@ When paired with text, use `text-sm font-medium`.
 
 Default spinner is `size-4 animate-spin`. Inline loading uses `inline-flex items-center gap-2`.
 
+## Exact Layout Recipe
+
+```txt
+feedback-row: flex items-center gap-2 text-sm
+spinner: size-4 animate-spin
+skeleton: animate-pulse rounded-sm bg-neutral-200 dark:bg-coolgray-200
+loading-text: text-sm text-neutral-600 dark:text-neutral-400
+button-loading: keep text visible, place spinner after text
+```
+
+## Exact Classes
+
+```txt
+spinner: size-4 animate-spin text-current
+inline-loading: flex items-center gap-2 text-sm font-medium text-black dark:text-white
+skeleton: animate-pulse rounded-sm bg-neutral-200 dark:bg-coolgray-200
+page-loading-stack: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base
+```
+
 ## Elevation & Depth
 
 No shadows.

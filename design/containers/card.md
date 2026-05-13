@@ -62,6 +62,32 @@ Card title uses `text-base font-bold`. Body uses `text-sm`. Metadata uses `text-
 
 Base card: `rounded-sm border p-4`. Header and content should use `space-y-1` / `space-y-3`, not large whitespace. Footer action rows use `flex flex-wrap gap-2`.
 
+## Exact Layout Recipe
+
+Use the current mockup Card component classes exactly:
+
+```txt
+card: rounded-sm border border-neutral-200 bg-white p-4 text-black dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
+card-header: mb-3 space-y-1 border-b border-neutral-200 pb-3 dark:border-coolgray-200
+card-title: text-base font-bold text-black dark:text-white
+card-description: text-sm text-neutral-600 dark:text-neutral-400
+card-body: text-sm text-black dark:text-white unless content-specific text is needed
+sample-page-shell: mx-auto flex min-h-screen max-w-3xl items-center px-6 py-10
+sample-section: w-full rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
+sample-title: text-3xl font-bold tracking-tight text-black dark:text-white
+sample-description: mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400
+```
+
+## Exact Classes
+
+```txt
+card: rounded-sm border border-neutral-200 bg-white p-4 text-black dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
+card-header: mb-3 space-y-1 border-b border-neutral-200 pb-3 dark:border-coolgray-200
+card-title: text-base font-bold text-black dark:text-white
+card-description: text-sm text-neutral-600 dark:text-neutral-400
+metric-value: font-mono text-black dark:text-white
+```
+
 ## Elevation & Depth
 
 Cards do not use heavy shadows. Optional hover cards may use a subtle border/ring change, not a floating shadow.

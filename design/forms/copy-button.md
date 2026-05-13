@@ -98,6 +98,27 @@ pr-11
 
 so text does not run underneath the icon.
 
+## Exact Layout Recipe
+
+```txt
+wrapper: relative
+input: Input readonly with pr-11
+button: absolute right-2 top-1/2 -translate-y-1/2
+button-hit-area: rounded-sm p-1.5
+icon: size-5
+copied-feedback: swap icon to green check, do not resize field
+```
+
+## Exact Classes
+
+```txt
+wrapper: relative
+input-extension: pr-11
+button: absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+copy-icon: size-5
+success-icon: size-5 text-green-500
+```
+
 ## Elevation & Depth
 
 Copy Button does not add elevation. The field uses Input's readonly treatment and the icon button floats inside the field without a visible surface.

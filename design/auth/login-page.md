@@ -77,6 +77,39 @@ Recommended auth submit button classes:
 h-12 w-full justify-center py-3 text-base font-bold
 ```
 
+## Exact Layout Recipe
+
+Use the shared Coolify auth shell exactly for auth pages:
+
+```txt
+page: min-h-screen bg-gray-50 px-6 py-8 dark:bg-base
+outer: mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl items-center justify-center
+sample-frame: w-full rounded-sm border border-neutral-200 bg-gray-50 p-4 dark:border-coolgray-300 dark:bg-base
+auth-column: mx-auto w-full max-w-md space-y-8 text-black dark:text-white
+brand-wrap: space-y-2 text-center
+brand: text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white
+subtitle: text-lg text-neutral-600 dark:text-neutral-400
+content-stack: space-y-6
+form: flex flex-col gap-4
+primary-auth-button: h-12 w-full justify-center py-3 text-base font-bold
+secondary-link-button: block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
+divider-wrap: relative my-6
+divider-line: w-full border-t border-neutral-300 dark:border-coolgray-300
+divider-label: bg-gray-50 px-2 text-sm text-neutral-500 dark:bg-base dark:text-neutral-400
+```
+
+## Exact Classes
+
+```txt
+input-field: use design/forms/input.md exact Input classes
+password-field: use design/forms/input.md PasswordInput composition
+form-field-gap: flex flex-col gap-4
+info-callout: rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100
+warning-callout: rounded-sm border border-warning bg-warning/10 p-4
+success-message: rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300
+primary-submit: h-12 w-full justify-center py-3 text-base font-bold
+```
+
 ## Elevation & Depth
 
 No heavy shadow. Auth pages are simple centered forms on the app auth background.

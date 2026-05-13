@@ -127,6 +127,31 @@ pr-[2.4rem]
 
 The visibility toggle icon, if present, is an absolutely positioned trailing button and must not change input height.
 
+## Exact Layout Recipe
+
+```txt
+wrapper: w-full
+input-height: py-1.5 plus text-sm line-height
+padding: px-3 py-1.5
+text: text-sm text-black dark:text-white
+placeholder: placeholder:text-neutral-300 dark:placeholder:text-neutral-700
+radius: rounded-sm
+border: border-0; use inset box-shadow instead
+password-extra-padding: pr-[2.4rem]
+password-toggle: absolute inset-y-0 right-0 flex cursor-pointer items-center pr-2 text-neutral-500 hover:text-black dark:hover:text-white
+password-icon: size-6 stroke-width=1.5
+```
+
+## Exact Classes
+
+```txt
+base: block w-full rounded-sm border-0 bg-white px-3 py-1.5 text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
+shadow: [box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#242424]
+focus-shadow: focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:focus-visible:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
+dirty-shadow: data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
+disabled-readonly-shadow: disabled:[box-shadow:none] read-only:[box-shadow:none]
+```
+
 ## Elevation & Depth
 
 Inputs use layered inset shadows instead of borders.

@@ -6,7 +6,7 @@ export type ComponentSample = {
   status: "Migrated" | "Pending";
 };
 
-export const componentSamples: ComponentSample[] = [
+const allSamples: ComponentSample[] = [
   {
     label: "Button",
     slug: "buttons",
@@ -351,3 +351,18 @@ export const componentSamples: ComponentSample[] = [
     status: "Migrated"
   }
 ];
+
+const pageSampleSlugs = new Set([
+  "totp-challenge",
+  "login-page",
+  "register-page",
+  "forgot-password-page",
+  "reset-password-page",
+  "confirm-password-page",
+  "email-verification-page",
+  "main-view"
+]);
+
+export const pageSamples = allSamples.filter((sample) => pageSampleSlugs.has(sample.slug));
+export const componentSamples = allSamples.filter((sample) => !pageSampleSlugs.has(sample.slug));
+export const allComponentSamples = allSamples;

@@ -61,6 +61,27 @@ Title uses `text-sm font-bold`. Description uses `text-xs font-bold text-neutral
 
 Use `relative flex min-h-[4rem] flex-col gap-1 rounded-sm border p-2`. Horizontal layouts may switch to `lg:flex-row` when content needs icon + text + metadata.
 
+## Exact Layout Recipe
+
+Use the current mockup Coolbox typography and spacing:
+
+```txt
+coolbox: block rounded-sm border border-neutral-200 bg-white p-3 transition-colors hover:border-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:hover:border-warning
+content-stack: space-y-1
+title: font-bold text-black dark:text-white
+description: text-xs font-bold text-neutral-500 dark:text-neutral-400
+optional-status: mt-2
+sample-grid: grid gap-4 sm:grid-cols-2 xl:grid-cols-3
+```
+
+## Exact Classes
+
+```txt
+anchor: block rounded-sm border border-neutral-200 bg-white p-3 transition-colors hover:border-coollabs focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:hover:border-warning dark:focus-visible:ring-warning
+title: font-bold text-black dark:text-white
+description: text-xs font-bold text-neutral-500 dark:text-neutral-400
+```
+
 ## Elevation & Depth
 
 Default box is flat. Hover uses `ring-2`, not heavy shadow.

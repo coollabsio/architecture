@@ -3,15 +3,22 @@
   import { goto } from "$app/navigation";
   import { onMount } from "svelte";
   import "../app.css";
-  import { componentSamples } from "$lib/component-registry";
+  import { componentSamples, pageSamples } from "$lib/component-registry";
   import { Button } from "$lib/components/ui/button/index.js";
   import { SearchableDropdown, type SearchableDropdownOption } from "$lib/components/ui/searchable-dropdown/index.js";
 
   let theme: "light" | "dark" = "dark";
-  let selectedComponentHref = componentSamples[0]?.href ?? "/components/buttons";
+  let selectedComponentHref = "";
+  let selectedPageHref = "";
 
-  $: selectedComponent = componentSamples.find((sample) => sample.href === selectedComponentHref) ?? componentSamples[0];
+  $: selectedComponent = componentSamples.find((sample) => sample.href === selectedComponentHref);
+  $: selectedPage = pageSamples.find((sample) => sample.href === selectedPageHref);
   $: componentOptions = componentSamples.map((sample) => ({
+    label: sample.label,
+    value: sample.href,
+    description: sample.designDoc
+  })) satisfies SearchableDropdownOption[];
+  $: pageOptions = pageSamples.map((sample) => ({
     label: sample.label,
     value: sample.href,
     description: sample.designDoc
@@ -28,21 +35,35 @@
       theme = stored;
     }
 
-    const current = componentSamples.find((sample) => window.location.pathname.startsWith(sample.href));
-    selectedComponentHref = current?.href ?? componentSamples[0]?.href ?? "/components/buttons";
+    const path = window.location.pathname;
+    const currentComponent = componentSamples.find((sample) => path.startsWith(sample.href));
+    const currentPage = pageSamples.find((sample) => path.startsWith(sample.href));
+    selectedComponentHref = currentComponent?.href ?? "";
+    selectedPageHref = currentPage?.href ?? "";
   });
 
   function toggleTheme() {
     theme = theme === "dark" ? "light" : "dark";
   }
 
-  async function selectComponent(href = selectedComponentHref) {
+  async function selectComponent(href: string) {
     selectedComponentHref = href;
+    selectedPageHref = "";
+    await goto(href);
+  }
+
+  async function selectPage(href: string) {
+    selectedPageHref = href;
+    selectedComponentHref = "";
     await goto(href);
   }
 
   function selectComponentOption(option: SearchableDropdownOption) {
     void selectComponent(option.value);
+  }
+
+  function selectPageOption(option: SearchableDropdownOption) {
+    void selectPage(option.value);
   }
 </script>
 
@@ -56,14 +77,23 @@
 </svelte:head>
 
 <div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400">
-  <div class="fixed right-4 top-4 z-10 flex items-center gap-2">
+  <div class="fixed right-4 top-4 z-10 flex max-w-[calc(100vw-2rem)] flex-wrap items-center justify-end gap-2">
     <SearchableDropdown
       bind:value={selectedComponentHref}
       options={componentOptions}
-      placeholder={selectedComponent?.label ?? "Component"}
+      placeholder={selectedComponent?.label ?? "Components"}
       searchPlaceholder="Search components..."
       emptyText="No component found."
       onselect={selectComponentOption}
+    />
+
+    <SearchableDropdown
+      bind:value={selectedPageHref}
+      options={pageOptions}
+      placeholder={selectedPage?.label ?? "Pages"}
+      searchPlaceholder="Search pages..."
+      emptyText="No page found."
+      onselect={selectPageOption}
     />
 
     <Button onclick={toggleTheme} aria-label="Toggle light and dark mode">

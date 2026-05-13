@@ -47,6 +47,23 @@ Use Geist Mono, `text-xs font-medium leading-4`.
 
 Use `inline-flex h-5 items-center rounded-sm border px-1.5`. For key groups, separate keys with `+` text.
 
+## Exact Layout Recipe
+
+Use the current mockup KBD component exactly:
+
+```txt
+kbd: inline-flex h-5 items-center rounded-sm border px-1.5 font-mono text-xs font-medium leading-4
+shortcut-row: flex items-center justify-between text-sm text-black dark:text-white
+shortcut-combo: flex items-center gap-1
+```
+
+## Exact Classes
+
+```txt
+kbd: inline-flex h-5 items-center rounded-sm border border-neutral-200 bg-white px-1.5 font-mono text-xs font-medium leading-4 text-black dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
+combo: flex items-center gap-1
+```
+
 ## Elevation & Depth
 
 No heavy shadows. Optional tiny inset/border is enough.

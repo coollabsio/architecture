@@ -71,6 +71,29 @@ Default row layout mirrors Checkbox:
 
 Use `flex max-w-full cursor-pointer flex-row items-center gap-4 rounded-sm px-2 py-1` so the hover background has breathing room on both sides. Long labels wrap in a `min-w-0 grow` wrapper. The radio control is `size-4 shrink-0`.
 
+## Exact Layout Recipe
+
+```txt
+group: grid gap-1
+row: flex max-w-full cursor-pointer flex-row items-center gap-4 rounded-sm px-2 py-1
+row-text-wrap: min-w-0 grow
+label: text-sm text-black dark:text-white
+description: mt-0.5 text-xs text-neutral-500 dark:text-neutral-400
+control: size-4 shrink-0 rounded-full border
+indicator: size-2 rounded-full
+hover: row hover background must not touch text edges because row has px-2 py-1
+```
+
+## Exact Classes
+
+```txt
+row: flex max-w-full cursor-pointer flex-row items-center gap-4 rounded-sm px-2 py-1 hover:bg-neutral-100 dark:hover:bg-coolgray-100
+control: grid size-4 place-items-center rounded-full border border-neutral-300 bg-white outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-coollabs peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-coolgray-100 dark:peer-focus-visible:ring-warning dark:peer-focus-visible:ring-offset-base
+indicator: size-2 rounded-full bg-coollabs dark:bg-warning
+label: text-sm text-black dark:text-white
+description: text-xs text-neutral-500 dark:text-neutral-400
+```
+
 ## Elevation & Depth
 
 Radio controls do not use shadows. Rows may use subtle hover background in dark mode only.

@@ -47,6 +47,25 @@ Use `text-xs font-medium leading-4`. Tags should be one to three short words.
 
 Base tag: `inline-flex h-5 items-center gap-1 rounded-sm border px-1.5`. Removable tags add an icon button at `size-4` inside the tag.
 
+## Exact Layout Recipe
+
+```txt
+inline-status: inline-flex h-5 max-w-full items-center gap-1 rounded-sm border px-1.5 text-xs font-medium leading-4
+status-row: inline-flex min-w-0 items-center gap-2 text-sm
+status-dot: size-2 shrink-0 rounded-full
+metadata-text: truncate text-xs text-neutral-500 dark:text-neutral-400
+```
+
+## Exact Classes
+
+```txt
+badge-default: border-neutral-200 bg-neutral-100 text-black dark:border-coolgray-300 dark:bg-coolgray-200 dark:text-white
+badge-success: border-green-200 bg-green-50 text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300
+badge-warning: border-yellow-300 bg-yellow-50 text-yellow-900 dark:border-yellow-800 dark:bg-yellow-950/30 dark:text-yellow-200
+badge-error: border-red-300 bg-red-50 text-red-800 dark:border-red-900 dark:bg-red-950/30 dark:text-red-300
+tag-removable-button: -mr-0.5 grid size-4 place-items-center rounded-sm hover:bg-neutral-100 dark:hover:bg-coolgray-200
+```
+
 ## Elevation & Depth
 
 No shadows.

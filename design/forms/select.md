@@ -110,6 +110,23 @@ Default select layout:
 
 The right chevron is the same explicit stacked up/down SVG used by Dropdown triggers. It sits at `right-2 top-1/2`, uses `size-4`, `stroke-width=1.5`, `stroke="currentColor"`, black in light mode and white in dark mode.
 
+## Exact Layout Recipe
+
+```txt
+wrapper: relative w-full
+select: block w-full appearance-none rounded-sm border-0 px-2 py-1.5 pr-10 text-sm
+chevron-position: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2
+chevron-svg: two paths, stroke-width=1.5, stroke=currentColor, no single down chevron
+```
+
+## Exact Classes
+
+```txt
+select-base: block w-full appearance-none rounded-sm border-0 bg-white px-2 py-1.5 pr-10 text-sm text-black focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400
+chevron: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white
+shadow: use Input exact shadow/focus/dirty classes
+```
+
 ## Elevation & Depth
 
 Selects use the same layered inset shadows as Input.

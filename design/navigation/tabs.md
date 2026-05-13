@@ -57,6 +57,24 @@ Triggers use `text-sm font-medium`. Avoid uppercase tab labels.
 
 Tabs are compact: list uses `inline-flex gap-1 rounded-sm border p-1`; triggers use `h-8 px-2`. Content has `mt-3` and no implicit card unless explicitly composed with Card.
 
+## Exact Layout Recipe
+
+Use the current mockup Tabs component exactly:
+
+```txt
+root: w-full
+list: inline-flex gap-1 rounded-sm border border-neutral-200 bg-white p-1 dark:border-coolgray-300 dark:bg-coolgray-100
+trigger: inline-flex h-8 cursor-pointer items-center justify-center rounded-sm px-2 text-sm font-medium
+active: data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm dark:data-[state=active]:bg-coolgray-200 dark:data-[state=active]:text-white dark:data-[state=active]:shadow-none
+```
+
+## Exact Classes
+
+```txt
+list: inline-flex gap-1 rounded-sm border border-neutral-200 bg-white p-1 dark:border-coolgray-300 dark:bg-coolgray-100
+trigger: inline-flex h-8 cursor-pointer items-center justify-center rounded-sm px-2 text-sm font-medium text-neutral-600 outline-none transition-colors hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm dark:text-neutral-400 dark:hover:bg-coolgray-200 dark:hover:text-white dark:focus-visible:ring-warning dark:data-[state=active]:bg-coolgray-200 dark:data-[state=active]:text-white dark:data-[state=active]:shadow-none
+```
+
 ## Elevation & Depth
 
 No shadows. Active state is expressed with surface, text contrast, and optional border.
