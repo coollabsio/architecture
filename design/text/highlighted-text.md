@@ -1,0 +1,82 @@
+---
+version: alpha
+name: Coolify Highlighted Text and Required Asterisk
+description: Inline emphasis and required field marker.
+colors:
+  surface: "#ffffff"
+  text: "#000000"
+  muted: "#737373"
+  neutral-200: "#e5e5e5"
+  coolgray-100: "#181818"
+  coolgray-200: "#202020"
+  coolgray-300: "#242424"
+  coollabs: "#6b16ed"
+  warning: "#fbbf24"
+typography:
+  body:
+    fontFamily: "'Geist Sans', Inter, sans-serif"
+    fontSize: 0.875rem
+    fontWeight: 400
+    lineHeight: 1.25rem
+rounded:
+  sm: 0.25rem
+components:
+  component:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.text}"
+    typography: "{typography.body}"
+    rounded: "{rounded.sm}"
+---
+
+# Highlighted Text / Required Asterisk
+
+## Overview
+
+Highlighted text uses purple in light and yellow in dark. Required asterisk is semantic, visually compact, with sr-only required text.
+
+## Colors
+
+Use neutral light-mode surfaces and Coolify dark-mode `coolgray` surfaces. Accent/focus colors follow purple in light mode and yellow in dark mode.
+
+## Typography
+
+Use compact `text-sm` body text. Titles, where present, use bold Coolify heading style.
+
+## Layout
+
+Highlighted text uses purple in light and yellow in dark. Required asterisk is semantic, visually compact, with sr-only required text.
+
+## Elevation & Depth
+
+Use borders and subtle shadows only where the component is an overlay. Avoid heavy shadows and gradients.
+
+## Shapes
+
+Use `rounded-sm`.
+
+## Components
+
+Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+
+## Do's and Don'ts
+
+Do use sparingly. Don't highlight full paragraphs or use asterisk without accessible required text.
+
+## Implementation Notes
+
+Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+
+## Review Checklist
+
+- [ ] Uses compact spacing.
+- [ ] Works in light and dark mode.
+- [ ] Uses existing V2 primitives where possible.
+- [ ] Avoids legacy design references.
+
+## Claude Improvement Notes
+
+Future variants can be added after real product screens expose more states.
+
+## Source References
+
+- `DESIGN_V2.md`

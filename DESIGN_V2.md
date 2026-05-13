@@ -37,8 +37,8 @@ Use this file as a router:
 | Modal / dialog | [`design/overlays/modal.md`](design/overlays/modal.md) | Shadcn-Svelte `Dialog` | Migrated |
 | Destructive modal confirmation | [`design/overlays/modal-confirmation.md`](design/overlays/modal-confirmation.md) | Shadcn-Svelte `Alert Dialog` or `Dialog` | Migrated |
 | Confirm modal | [`design/overlays/confirm-modal.md`](design/overlays/confirm-modal.md) | Shadcn-Svelte `Alert Dialog` | Migrated |
-| Popup / popup small | `design/overlays/popup.md` | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Pending |
-| Slide-over | `design/overlays/slide-over.md` | Shadcn-Svelte `Sheet` | Pending |
+| Popup / popup small | [`design/overlays/popup.md`](design/overlays/popup.md) | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Migrated |
+| Slide-over | [`design/overlays/slide-over.md`](design/overlays/slide-over.md) | Shadcn-Svelte `Sheet` | Migrated |
 | Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
 | Helper tooltip | [`design/overlays/helper-tooltip.md`](design/overlays/helper-tooltip.md) | Shadcn-Svelte `Tooltip` or `Hover Card` | Migrated |
 | Main view layouts | [`design/layouts/main-view.md`](design/layouts/main-view.md) | Page layout composition | Migrated |
@@ -48,14 +48,14 @@ Use this file as a router:
 | Breadcrumbs | [`design/navigation/breadcrumbs.md`](design/navigation/breadcrumbs.md) | Shadcn-Svelte `Breadcrumb` | Migrated |
 | External link | [`design/navigation/external-link.md`](design/navigation/external-link.md) | Anchor + icon composition | Migrated |
 | Internal link | [`design/navigation/internal-link.md`](design/navigation/internal-link.md) | Anchor + icon composition | Migrated |
-| Banner | `design/navigation/banner.md` | Custom banner composition | Pending |
+| Banner | [`design/navigation/banner.md`](design/navigation/banner.md) | Custom banner composition | Migrated |
 | Loading spinner | [`design/feedback/loading-spinner.md`](design/feedback/loading-spinner.md) | Shadcn-Svelte `Spinner` | Migrated |
 | Loading on button | [`design/feedback/loading-on-button.md`](design/feedback/loading-on-button.md) | Shadcn-Svelte `Spinner` inside `Button` | Migrated |
-| Page loading | `design/feedback/page-loading.md` | Custom overlay + `Spinner` | Pending |
-| Highlighted text / required asterisk | `design/text/highlighted-text.md` | Text utility/composition | Pending |
+| Page loading | [`design/feedback/page-loading.md`](design/feedback/page-loading.md) | Custom overlay + `Spinner` | Migrated |
+| Highlighted text / required asterisk | [`design/text/highlighted-text.md`](design/text/highlighted-text.md) | Text utility/composition | Migrated |
 | Keyboard hint | [`design/text/kbd.md`](design/text/kbd.md) | Shadcn-Svelte `Kbd` | Migrated |
-| Scrollbar | `design/chrome/scrollbar.md` | CSS utility | Pending |
-| Table | `design/chrome/table.md` | Shadcn-Svelte `Table` or `Data Table` | Pending |
+| Scrollbar | [`design/chrome/scrollbar.md`](design/chrome/scrollbar.md) | CSS utility | Migrated |
+| Table | [`design/data/table.md`](design/data/table.md) | Shadcn-Svelte `Table` or `Data Table` | Migrated |
 | Dropdown | [`design/forms/dropdown.md`](design/forms/dropdown.md) | Shadcn-Svelte `Dropdown Menu` | Migrated |
 
 ## Migration rules

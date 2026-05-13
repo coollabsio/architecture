@@ -339,3 +339,11 @@ If the output is wrong, ask:
 - Should pending components get temporary guidance before full migration?
 
 - Use modal/dialog specs for focused overlays: normal dialogs for forms/details, confirm modal for reversible confirmations, destructive confirmation for irreversible actions.
+
+- `design/data/table.md`
+- `design/overlays/slide-over.md`
+- `design/overlays/popup.md`
+- `design/feedback/page-loading.md`
+- `design/navigation/banner.md`
+- `design/chrome/scrollbar.md`
+- `design/text/highlighted-text.md`

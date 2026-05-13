@@ -30,7 +30,7 @@
     <button class="absolute inset-0 cursor-default bg-black/60 backdrop-blur-[1px]" aria-label="Cancel destructive confirmation" onclick={close}></button>
     <div role="alertdialog" aria-modal="true" aria-labelledby="destructive-title" aria-describedby="destructive-description" class="relative z-10 w-full max-w-lg rounded-sm border border-neutral-200 bg-white p-4 shadow-xl dark:border-coolgray-300 dark:bg-coolgray-100">
       <div class="rounded-sm border border-red-200 bg-red-50 p-3 dark:border-red-900 dark:bg-red-950/30">
-        <h2 id="destructive-title" class="text-xl font-bold text-red-800 dark:text-red-300">{title}</h2>
+        <div class="flex items-start justify-between gap-4"><h2 id="destructive-title" class="text-xl font-bold text-red-800 dark:text-red-300">{title}</h2><Button variant="ghost" size="icon" aria-label="Close destructive confirmation" onclick={close}>×</Button></div>
         <p id="destructive-description" class="mt-2 text-sm text-red-700 dark:text-red-300/90">{description}</p>
       </div>
 

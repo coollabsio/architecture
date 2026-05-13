@@ -218,6 +218,55 @@ export const componentSamples: ComponentSample[] = [
     status: "Migrated"
   },
   {
+    label: "Table",
+    slug: "table",
+    href: "/components/table",
+    designDoc: "design/data/table.md",
+    status: "Migrated"
+  },
+  {
+    label: "Slide-over",
+    slug: "slide-over",
+    href: "/components/slide-over",
+    designDoc: "design/overlays/slide-over.md",
+    status: "Migrated"
+  },
+  {
+    label: "Popover / Popup",
+    slug: "popover",
+    href: "/components/popover",
+    designDoc: "design/overlays/popup.md",
+    status: "Migrated"
+  },
+  {
+    label: "Page Loading",
+    slug: "page-loading",
+    href: "/components/page-loading",
+    designDoc: "design/feedback/page-loading.md",
+    status: "Migrated"
+  },
+  {
+    label: "Banner",
+    slug: "banner",
+    href: "/components/banner",
+    designDoc: "design/navigation/banner.md",
+    status: "Migrated"
+  },
+  {
+    label: "Scrollbar",
+    slug: "scrollbar",
+    href: "/components/scrollbar",
+    designDoc: "design/chrome/scrollbar.md",
+    status: "Migrated"
+  },
+  {
+    label: "Highlighted Text",
+    slug: "highlighted-text",
+    href: "/components/highlighted-text",
+    designDoc: "design/text/highlighted-text.md",
+    status: "Migrated"
+  },
+  {
     label: "Main View",
     slug: "main-view",
     href: "/components/main-view",

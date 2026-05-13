@@ -48,4 +48,11 @@ Implemented pages:
 - `/components/sidebar-navbar` — dense app shell sidebar, collapsed mode, search, and page subnav.
 - `/components/subsidebar` — secondary vertical resource navigation.
 
+- `/components/table` — dense resource table with row hover, badges, and actions.
+- `/components/slide-over` — side sheet overlay.
+- `/components/popover` — compact anchored popup.
+- `/components/page-loading` — skeleton and page loading states.
+- `/components/banner` — page-level notice banners.
+- `/components/scrollbar` — compact scroll container treatment.
+- `/components/highlighted-text` — inline highlight and required asterisk.
 - `/components/main-view` — Coolify resource grid and split master-detail page layouts.
