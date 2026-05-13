@@ -108,6 +108,8 @@ Future async button patterns can distinguish optimistic vs blocking loading.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/loading-on-button/+page.svelte`
+
 - `DESIGN.md`
 - `design/forms/button.md`
 - `design/feedback/loading-spinner.md`

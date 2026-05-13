@@ -36,12 +36,19 @@
     selectedTeam = team;
     teamOpen = false;
   }
+
+  function toggleTheme() {
+    window.dispatchEvent(new CustomEvent("component-sample-theme-toggle"));
+  }
 </script>
 
 <aside class={cn("relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400", collapsed ? "w-16" : "w-64")}>
   <div class={cn("flex items-start gap-2 px-2 pb-4 pt-6", collapsed && "flex-col items-center px-0")}>
     {#if collapsed}
-      <a href="/components/sidebar-navbar" class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white" title="Coolify" aria-label="Coolify">C</a>
+      <div class="flex flex-col items-center gap-0.5">
+        <a href="/components/sidebar-navbar" class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white" title="Coolify" aria-label="Coolify">C</a>
+        <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400" title="v4.0.0">v4.0.0</p>
+      </div>
     {:else}
       <div class="min-w-0 flex-1">
         <a href="/components/sidebar-navbar" class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
@@ -123,9 +130,20 @@
     </ul>
   </nav>
 
-  <div class={cn("border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex justify-center")}>
+  <div class={cn("space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex flex-col items-center")}>
+    <button
+      type="button"
+      class={cn("flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning", collapsed && "size-8 justify-center px-0 py-0")}
+      title="Toggle theme"
+      aria-label="Toggle light and dark mode"
+      onclick={toggleTheme}
+    >
+      <svg class="hidden size-4 shrink-0 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+      <svg class="size-4 shrink-0 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      {#if !collapsed}<span>Theme</span>{/if}
+    </button>
     <a href="/components/sidebar-navbar" class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
-      <svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M4 12h2m12 0h2M12 4v2m0 12v2"/></svg>
+      <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M4 12h2m12 0h2M12 4v2m0 12v2"/></svg>
       {#if !collapsed}<span>Settings</span>{/if}
     </a>
   </div>

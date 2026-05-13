@@ -100,5 +100,7 @@ Future docs may define external-link confirmation for dangerous admin destinatio
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/external-link/+page.svelte`
+
 - `DESIGN.md`
 - `design/forms/button.md`

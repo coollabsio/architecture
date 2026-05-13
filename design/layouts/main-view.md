@@ -61,6 +61,17 @@ Page title uses `text-3xl font-bold tracking-tight`. Optional description uses `
 
 ## Layout
 
+### Main content top padding
+
+If a main view includes breadcrumbs above the title, use the normal top padding (`py-8` in a full application shell, or `py-10` for standalone centered samples). If breadcrumbs are not rendered, reduce the content top padding so the title does not look pushed down by an empty breadcrumb row.
+
+```txt
+with-breadcrumbs: min-w-0 px-6 py-8
+without-breadcrumbs: min-w-0 px-6 pb-8 pt-5
+```
+
+Never reserve blank vertical space for missing breadcrumbs.
+
 ### Coolify resource grid
 
 ```txt
@@ -133,6 +144,8 @@ Right panel anatomy:
 
 ```txt
 page: mx-auto min-h-screen max-w-6xl px-6 py-10
+full-app-main-with-breadcrumbs: min-w-0 px-6 py-8
+full-app-main-without-breadcrumbs: min-w-0 px-6 pb-8 pt-5
 sample-shell: rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
 header: mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
 spec-label: mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning
@@ -175,13 +188,27 @@ Use these migrated specs inside main views:
 - `design/navigation/sidebar-navbar.md`
 - `design/navigation/subsidebar.md`
 
+### Form control surface contrast
+
+When a main view renders `Input`, search fields, `Select`, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rules from `design/forms/input.md`, `design/forms/select.md`, and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do choose the Coolify resource grid for dashboard/index pages.
 - Do choose split master-detail for inbox/log/message/configuration browsers.
 - Do choose single-section workspace for resource detail pages with tabs and one primary content/canvas region.
+- Do reduce top padding when breadcrumbs are absent.
 - Do make descriptions optional.
 - Do keep sections compact and bordered.
+- Don't leave an empty breadcrumb-height gap above page titles.
 - Don't invent large marketing hero sections.
 - Don't use large radius, gradients, or heavy shadows.
 
@@ -191,8 +218,10 @@ Main views are layouts, not primitives. They should compose existing components 
 
 ## Review Checklist
 
+- [ ] Any input/search/select/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Page title is present.
 - [ ] Description is optional and concise.
+- [ ] Main view with breadcrumbs uses normal top padding; main view without breadcrumbs uses reduced top padding and no empty breadcrumb gap.
 - [ ] Resource grid uses Coolbox/Card sections.
 - [ ] Split view has two clear panels with independent scroll/list/detail areas.
 - [ ] Single-section view has resource header, metadata, actions, Subsidebar when needed, and one primary workspace.
@@ -204,6 +233,8 @@ Main views are layouts, not primitives. They should compose existing components 
 Future specs can add dashboard metrics, command-center, or log-view layouts if needed.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/main-view/+page.svelte`
 
 - `DESIGN.md`
 - `design/containers/coolbox.md`

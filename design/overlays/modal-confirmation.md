@@ -84,6 +84,18 @@ Use `rounded-sm`.
 - `Input` for typed confirmation.
 - `Button` destructive variant for final action.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do list irreversible consequences.
@@ -98,6 +110,7 @@ For the final implementation, support async loading on the destructive button an
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Consequences are explicit.
 - [ ] Typed confirmation is required.
 - [ ] Destructive action is disabled until valid.
@@ -109,6 +122,8 @@ For the final implementation, support async loading on the destructive button an
 Future variant can support checkbox-confirmation for medium-risk actions.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/destructive-confirmation/+page.svelte`
 
 - `design/forms/button.md`
 - `design/forms/input.md`

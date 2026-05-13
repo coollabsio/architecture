@@ -146,5 +146,7 @@ Future specs can split Toast/Sonner from inline Alert behavior.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/alert/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Alert primitive

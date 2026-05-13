@@ -104,4 +104,6 @@ Add async/loading and server-error variants after product usage is clearer.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/tooltip/+page.svelte`
+
 - `DESIGN.md`

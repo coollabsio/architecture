@@ -111,5 +111,7 @@ Sidebar integration can define when breadcrumbs are hidden on narrow pages.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/breadcrumbs/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Breadcrumb primitive

@@ -108,5 +108,7 @@ Future variants can define docs, tip, and note callouts separately.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/callout/+page.svelte`
+
 - `DESIGN.md`
 - `design/overlays/alert.md`

@@ -150,6 +150,8 @@ Future documentation can define a loading switch state for async server toggles.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/switch/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Switch primitive
 - Existing Checkbox row composition

@@ -178,17 +178,25 @@ header-expanded: flex items-start gap-2 px-2 pb-4 pt-6
 header-collapsed: flex flex-col items-center gap-2 px-0 pb-4 pt-6
 brand-name: block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white
 brand-version: text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
+brand-collapsed-wrap: flex flex-col items-center gap-0.5
 brand-collapsed-initial: grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white
+brand-collapsed-version: max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
 search-wrap: px-2 pb-4
 search-button: inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-neutral-300 bg-neutral-100 px-2.5 text-sm hover:bg-neutral-200 dark:border-coolgray-200 dark:bg-coolgray-100 dark:hover:bg-coolgray-200
 team-wrap-expanded: px-2 pb-7
+team-container-expanded: relative w-full
+team-trigger-expanded: flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-neutral-300 bg-white px-2 text-left text-sm text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:focus-visible:ring-warning
 team-wrap-collapsed: flex justify-center px-0 pb-4
+team-container-collapsed: relative mx-auto w-8
+team-trigger-collapsed: flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-coollabs dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300 dark:focus-visible:ring-warning
+team-menu-collapsed: absolute left-full top-0 z-[100] ml-2 mt-0 min-w-48 max-h-72 overflow-y-auto rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
 nav-list: flex flex-col gap-1.5
 nav-item-expanded: flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 nav-item-collapsed: mx-auto flex size-8 min-w-0 items-center justify-center gap-0 truncate rounded-sm px-0 py-0 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 nav-item-active: bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning
 nav-icon: size-4 shrink-0
 footer: border-t border-neutral-200 py-3 dark:border-coolgray-200
+footer-stack: space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200
 focus: focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning
 ```
 
@@ -202,12 +210,18 @@ collapse-chevron-svg: viewBox="0 0 24 24" fill="none" stroke="currentColor" stro
 collapse-chevron-path: M15 18 9 12l6-6
 brand-name: block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white
 brand-version: text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
+brand-collapsed-wrap: flex flex-col items-center gap-0.5
 brand-collapsed-initial: grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white
+brand-collapsed-version: max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
+team-trigger-expanded: flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-neutral-300 bg-white px-2 text-left text-sm text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:focus-visible:ring-warning
+team-trigger-collapsed: flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-coollabs dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300 dark:focus-visible:ring-warning
+team-menu-label: px-1.5 py-1 text-xs font-medium text-neutral-500 dark:text-neutral-400; content `Switch team`
+team-menu-item-active: font-semibold text-coollabs dark:text-warning
 nav-link: flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 nav-link-collapsed: mx-auto size-8 justify-center gap-0 px-0 py-0
 active-link: bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning
 nav-icon: size-4 shrink-0
-footer-link: flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white
+footer-link: flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 separator: border-neutral-200 dark:border-coolgray-200
 ```
 
@@ -258,14 +272,17 @@ Expanded brand block:
 Collapsed brand block:
 
 ```svelte
-<a
-  href="/"
-  class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
-  title="Coolify"
-  aria-label="Coolify"
->
-  C
-</a>
+<div class="flex flex-col items-center gap-0.5">
+  <a
+    href="/"
+    class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
+    title="Coolify"
+    aria-label="Coolify"
+  >
+    C
+  </a>
+  <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400" title="v4.0.0">v4.0.0</p>
+</div>
 ```
 
 Rules:
@@ -273,7 +290,7 @@ Rules:
 - App name uses `text-2xl font-bold tracking-tight`; keep it a single truncated line.
 - Version/build metadata sits directly below the app name, uses `text-[10px] leading-[0.875rem]`, and is muted.
 - If the app has a logo, place it before the text at `size-8 shrink-0`; do not increase the brand row height above the `pt-6 pb-4` header rhythm.
-- Collapsed brand uses a `size-8` square initial/logo centered in the sidebar. Keep `title` and `aria-label`.
+- Collapsed brand uses a `size-8` square initial/logo centered in the sidebar and still shows the version/build metadata below it. Keep `title` and `aria-label` on the initial/logo, and use `title` on the version when truncated.
 
 ### Collapse trigger
 
@@ -316,35 +333,104 @@ Requirements:
 
 ### Optional team switcher
 
-If a team switcher is required, place it directly below the header/search area and above the primary navigation list, matching Coolify's current placement. It is optional; do not reserve this space for apps without teams.
+If a team/workspace switcher is required, place it directly below the header/search area and above the primary navigation list, matching Coolify's current placement. It is optional; do not reserve this space for apps without teams.
 
-Expanded sidebar behavior:
+Use Shadcn-Svelte `Dropdown Menu` for both expanded and collapsed states. Do not use a native select for the team switcher: the team switcher is navigation/context switching, not an ordinary form field.
 
-```txt
-px-2 pb-7
-```
+#### Expanded navbar team switcher
 
-Use a compact Dropdown Menu trigger following `design/forms/dropdown.md`; height is `h-8`, full width, sharp `rounded-sm`, dark neutral surface, and stacked up/down chevron. Do not use a native select for the team switcher.
-
-Collapsed sidebar behavior:
-
-- Hide the select.
-- Show a `size-8` square team-initial button centered in the sidebar; wrapper should be `mx-auto w-8` so the trigger stays aligned with collapsed nav icons.
-- Button classes:
+Expanded placement:
 
 ```txt
-flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300
+team-wrap-expanded: px-2 pb-7
+team-container-expanded: relative w-full
 ```
 
-Expanded/collapsed menu popup uses the Dropdown Menu content/item styling from `design/forms/dropdown.md`. Collapsed placement should be anchored to the initial button wrapper, not viewport-fixed: use `absolute left-full top-0 ml-2 mt-0` so the menu always opens beside the centered collapsed team trigger.
-
-Collapsed menu popup:
+Expanded trigger anatomy:
 
 ```txt
-absolute left-full top-0 z-[100] ml-2 mt-0 min-w-48 max-h-72 overflow-y-auto rounded-md border border-neutral-300 bg-white py-1 shadow-lg dark:border-coolgray-200 dark:bg-coolgray-100
+[ current team/workspace label                         stacked chevron ]
 ```
 
-Current team item uses `font-semibold text-coollabs dark:text-warning`.
+Expanded trigger contract:
+
+- Render one full-width trigger for the current team/workspace only.
+- Trigger height is `h-8`; it aligns visually with Search and compact nav rows.
+- Use `rounded-sm`, a thin neutral border, white light surface, dark neutral surface, and compact `text-sm` typography.
+- The label is `min-w-0 truncate`; never wrap team names or increase the row height.
+- The chevron is the stacked up/down SVG used by Select/Dropdown triggers, `size-4 shrink-0`, not a single down chevron.
+- Trigger opens a Dropdown Menu containing all available teams/workspaces.
+- The menu starts with a non-interactive label/title row: `Switch team`.
+- The active/current team item uses `font-semibold text-coollabs dark:text-warning`.
+- Keep `aria-label`, `aria-haspopup="menu"`, and `aria-expanded` on the trigger.
+
+Expanded trigger classes:
+
+```txt
+flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-neutral-300 bg-white px-2 text-left text-sm text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:focus-visible:ring-warning
+```
+
+Expanded dropdown placement:
+
+```txt
+left-0 right-auto top-full mt-1 w-full min-w-full
+```
+
+When using the Shadcn-Svelte `DropdownMenuContent` primitive, the equivalent placement is `side="bottom" align="start"` with a menu width at least matching the trigger.
+
+#### Collapsed navbar team switcher
+
+Collapsed placement:
+
+```txt
+team-wrap-collapsed: flex justify-center px-0 pb-4
+team-container-collapsed: relative mx-auto w-8
+```
+
+Collapsed trigger anatomy:
+
+```txt
+[ team initial ]
+```
+
+Collapsed trigger contract:
+
+- Hide the expanded full-width trigger entirely at the collapsed desktop breakpoint.
+- Show a separate `size-8` square team-initial trigger centered in the `w-16` sidebar.
+- The collapsed trigger must align with collapsed nav icons (`mx-auto size-8` rhythm).
+- Display only a short initial/monogram, usually the first uppercase character of the current team/workspace.
+- Keep the full team name in `title` and `aria-label`, e.g. `aria-label="Switch team. Current team: Coolify"`.
+- Do not show the stacked chevron in collapsed mode; the trigger should remain a clean square initial.
+- Do not reserve the expanded trigger width or render hidden text that affects layout.
+
+Collapsed trigger classes:
+
+```txt
+flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-coollabs dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300 dark:focus-visible:ring-warning
+```
+
+Collapsed dropdown placement must be anchored to the `relative mx-auto w-8` trigger wrapper, not viewport-fixed. Open beside the centered initial button so the menu does not drift when the sidebar width changes.
+
+Collapsed dropdown placement classes:
+
+```txt
+absolute left-full top-0 z-[100] ml-2 mt-0 min-w-48 max-h-72 overflow-y-auto rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
+```
+
+When using the Shadcn-Svelte `DropdownMenuContent` primitive, the equivalent placement is `side="right" align="start"`.
+
+#### Team switcher menu items
+
+Menu content and items follow `design/forms/dropdown.md`:
+
+```txt
+team-menu-content: absolute top-full z-50 mt-1 min-w-max max-w-[calc(100vw-1rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain rounded-sm border border-neutral-300 bg-white p-1 shadow-sm outline-none dark:border-coolgray-300 dark:bg-coolgray-100
+team-menu-label: px-1.5 py-1 text-xs font-medium text-neutral-500 dark:text-neutral-400; text content is exactly `Switch team`
+team-menu-item: relative flex w-full cursor-pointer select-none items-center justify-start gap-2 rounded-sm py-1 pl-2 pr-4 text-xs text-black outline-none transition-colors hover:bg-neutral-100 focus-visible:bg-neutral-100 disabled:pointer-events-none disabled:opacity-50 dark:text-white dark:hover:bg-coollabs dark:focus-visible:bg-coollabs
+team-menu-item-active: font-semibold text-coollabs dark:text-warning
+```
+
+Do not add avatars, large cards, descriptions, or secondary metadata inside this menu unless a product-specific team picker spec is introduced. Keep the menu dense and action-like.
 
 ### Search button
 
@@ -380,14 +466,21 @@ Collapsed item contract:
 
 ### Footer item
 
-Use the footer for stable global actions such as Settings. Keep it visually secondary.
+Use the footer for stable global actions such as Theme and Settings. Keep it visually secondary and use the same dense row geometry as nav items.
 
 ```txt
-footer-wrapper: border-t border-neutral-200 py-3 dark:border-coolgray-200
-footer-link: flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white
+footer-wrapper: space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200
+footer-link: flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 footer-link-collapsed: size-8 justify-center px-0 py-0
 footer-icon: size-4 shrink-0
 ```
+
+Theme switcher:
+
+- Place in the footer above Settings when the app exposes a global theme preference.
+- Expanded label is `Theme`; collapsed mode shows only the icon with `title="Toggle theme"` and `aria-label="Toggle light and dark mode"`.
+- Use `size-4 shrink-0` sun/moon icons. Prefer action icons: show the moon in light mode to indicate switching to dark, and show the sun in dark mode to indicate switching to light. The row size must not change.
+- Do not style the theme switcher as a primary/highlighted action.
 
 ### Section/page navbar
 
@@ -414,6 +507,7 @@ Active subnav link uses `text-black dark:text-white` or `dark:text-warning` when
 - Do include an internal collapse/expand trigger in the sidebar header.
 - Do add tooltip/title text for collapsed icon-only items.
 - Do place the optional team switcher above the primary nav list when teams exist.
+- Do place optional theme switching in the footer as a secondary row.
 - Don't use large pills, marketing gradients, or heavy shadows.
 - Don't make sidebar items look like primary buttons.
 - Don't hide active state in dark mode; active item must remain obvious.
@@ -431,7 +525,7 @@ Collapsed state should be persisted only by the application shell, not by the pr
 - [ ] Sidebar container is `relative`, `w-64` expanded / `w-16` collapsed, border-separated, and has no heavy shadow.
 - [ ] Parent shell does not clip the border collapse trigger; verify no problematic `overflow-hidden` at the sidebar/main border.
 - [ ] Brand block uses `text-2xl font-bold tracking-tight`, truncates to one line, and places version/build metadata directly below at `text-[10px] leading-[0.875rem]`.
-- [ ] Collapsed brand uses a centered `size-8` initial/logo with `title` and `aria-label`.
+- [ ] Collapsed brand uses a centered `size-8` initial/logo with `title` and `aria-label`, plus visible `text-[10px]` version/build metadata below it.
 - [ ] Nav items are `text-sm`, `rounded-sm`, dense, `min-h-7`, `px-2 py-1`, `gap-3`, and icon + label.
 - [ ] Nav icons are `size-4 shrink-0`; collapsed nav icons remain `size-4` centered in a `size-8` item.
 - [ ] Active light item uses neutral fill with black text; active dark item uses `dark:bg-coolgray-200 dark:text-warning`.
@@ -440,9 +534,10 @@ Collapsed state should be persisted only by the application shell, not by the pr
 - [ ] Collapse chevron uses exact path `M15 18 9 12l6-6`, `size-3.5`, `stroke-width="2.2"`, and `rotate-180` when collapsed.
 - [ ] Collapse trigger is not the default square/inline Shadcn trigger; it is the rounded border control.
 - [ ] Page subnav uses horizontal scroll when needed.
-- [ ] Optional team switcher is placed below header/search and above nav, with Dropdown Menu trigger expanded and team-initial Dropdown trigger collapsed.
+- [ ] Optional team switcher is placed below header/search and above nav, with full-width Dropdown Menu trigger expanded and centered `size-8` team-initial Dropdown trigger collapsed.
 - [ ] Search button is `h-8`, full width, `px-2.5`, `text-sm`, and uses KBD spec for shortcuts.
 - [ ] Footer/global actions use a top border, `min-h-7` expanded links, `size-8` collapsed links, and `size-4` icons.
+- [ ] Optional theme switcher is in the sidebar footer above Settings, uses `aria-label`, and keeps `size-4` icon / `size-8` collapsed row geometry.
 - [ ] Focus rings are visible: purple light/yellow dark.
 
 ## Claude Improvement Notes
@@ -450,6 +545,8 @@ Collapsed state should be persisted only by the application shell, not by the pr
 Future specs can split app sidebar, resource subnav, and mobile sheet navigation if the combined file becomes too broad. For now, keeping them together helps AI agents build coherent dashboard shells.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/sidebar-navbar/+page.svelte`
 
 - `DESIGN.md`
 - Shadcn-Svelte Sidebar primitive

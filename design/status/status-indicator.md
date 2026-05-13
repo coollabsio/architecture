@@ -126,5 +126,7 @@ A future live-status variant may document optional subtle pulse for actively dep
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/status-indicator/+page.svelte`
+
 - `DESIGN.md`
 - `design/status/badge.md`

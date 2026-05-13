@@ -103,5 +103,7 @@ A future lifecycle badge set may include `Beta`, `Preview`, and `Experimental`.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/deprecated-badge/+page.svelte`
+
 - `DESIGN.md`
 - `design/status/badge.md`

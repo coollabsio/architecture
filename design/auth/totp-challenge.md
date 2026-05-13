@@ -170,6 +170,18 @@ Use `rounded-sm` throughout. The current product may use larger radius in places
 - Submit is disabled until six digits are present, or until recovery-code mode has a non-empty value.
 - Recovery-code mode replaces digit inputs with a normal `Input` and a toggle back to authenticator-code mode.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do keep this as a page-level auth composition, not a generic text input variant.
@@ -186,6 +198,7 @@ Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state fo
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Six digit boxes are present and centered.
 - [ ] Login submit button is highlighted, `h-12`, `py-3`, and `font-bold`.
 - [ ] Typing a digit advances focus.
@@ -202,6 +215,8 @@ Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state fo
 Consider adding a setup variant later for QR code enrollment, secret-key reveal/copy, and recovery-code display. Keep that separate from the login challenge if the file becomes too broad.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/totp-challenge/+page.svelte`
 
 - `DESIGN.md`
 - Coolify current two-factor challenge behavior reviewed for interaction patterns.

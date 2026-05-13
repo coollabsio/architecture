@@ -100,4 +100,6 @@ A sidebar link variant can be documented with Sidebar/Navbar.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/internal-link/+page.svelte`
+
 - `DESIGN.md`

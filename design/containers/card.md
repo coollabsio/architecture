@@ -142,5 +142,7 @@ A later `coolbox.md` can document interactive hover/ring card links separately.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/card/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Card primitive

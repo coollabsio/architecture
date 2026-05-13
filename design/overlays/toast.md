@@ -118,5 +118,7 @@ A future spec can define exact Sonner viewport placement and max stack count.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/toast/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Sonner primitive

@@ -387,5 +387,7 @@ Do not apply these improvements automatically while migrating. Preserve visual i
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/buttons/+page.svelte`
+
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Button docs: `https://www.shadcn-svelte.com/docs/components/button`.

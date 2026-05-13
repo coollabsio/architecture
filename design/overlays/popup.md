@@ -79,6 +79,18 @@ Use `rounded-sm`.
 
 Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 Do keep content short. Don't use for complex forms or destructive confirmations.
@@ -89,6 +101,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Uses Shadcn-Svelte `Popover` for anchored contextual content; uses `Dialog` only when focus must be trapped.
 - [ ] Surface uses `rounded-sm border bg-white dark:bg-coolgray-100` with explicit neutral/coolgray border.
 - [ ] Content width is constrained (`max-w-sm`/`max-w-md` style) and never overflows the viewport.
@@ -105,5 +118,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 Future variants can be added after real product screens expose more states.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/popover/+page.svelte`
 
 - `DESIGN.md`

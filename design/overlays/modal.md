@@ -97,6 +97,18 @@ Use `rounded-sm`.
 - Shadcn-Svelte `Dialog` primitive.
 - Existing `Button`, `Input`, `FormField`, etc. inside content.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do keep dialogs focused and short.
@@ -110,6 +122,7 @@ Trap focus and close on Escape when using the Shadcn primitive. The mockup uses 
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Has title.
 - [ ] Has accessible dialog semantics.
 - [ ] Footer actions are right-aligned.
@@ -120,6 +133,8 @@ Trap focus and close on Escape when using the Shadcn primitive. The mockup uses 
 Add form-specific variants after modal input is finalized.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/dialog/+page.svelte`
 
 - `design/forms/button.md`
 - `design/forms/input.md`

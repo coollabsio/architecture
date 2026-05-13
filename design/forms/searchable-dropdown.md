@@ -97,6 +97,18 @@ Use `rounded-sm`.
 - Popover/Command list
 - Optional option descriptions
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do use this for searchable lists with more than a handful of options.
@@ -110,6 +122,7 @@ Production should use accessible combobox semantics and keyboard navigation. The
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Search input is focused by default when opened.
 - [ ] Search filters options.
 - [ ] Selected item is visible.
@@ -121,6 +134,8 @@ Production should use accessible combobox semantics and keyboard navigation. The
 Future variant can add async loading and grouped options.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/searchable-dropdown/+page.svelte`
 
 - `design/forms/dropdown.md`
 - `design/forms/input.md`

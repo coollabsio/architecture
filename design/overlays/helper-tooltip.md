@@ -104,5 +104,7 @@ A rich helper hover-card variant can be documented later.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/helper-tooltip/+page.svelte`
+
 - `DESIGN.md`
 - `design/forms/form-field.md`

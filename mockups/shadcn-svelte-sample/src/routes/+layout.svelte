@@ -1,6 +1,6 @@
 <script lang="ts">
   import { browser } from "$app/environment";
-  import { onMount } from "svelte";
+  import { onDestroy, onMount } from "svelte";
   import "../app.css";
   import SampleToolbar from "$lib/components/sample-toolbar.svelte";
 
@@ -11,10 +11,22 @@
     localStorage.setItem("component-sample-theme", theme);
   }
 
+  function toggleTheme() {
+    theme = theme === "dark" ? "light" : "dark";
+  }
+
   onMount(() => {
     const stored = localStorage.getItem("component-sample-theme");
     if (stored === "light" || stored === "dark") {
       theme = stored;
+    }
+
+    window.addEventListener("component-sample-theme-toggle", toggleTheme);
+  });
+
+  onDestroy(() => {
+    if (browser) {
+      window.removeEventListener("component-sample-theme-toggle", toggleTheme);
     }
   });
 </script>

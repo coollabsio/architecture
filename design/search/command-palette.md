@@ -77,6 +77,18 @@ Use `rounded-sm`.
 
 Compose existing design primitives: Button, Input, FormField, HelperTooltip, RequiredAsterisk, Dialog, KBD.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do support keyboard/focus states.
@@ -90,6 +102,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Accessible labels and states are present.
 - [ ] Works in light and dark mode.
 - [ ] Uses existing migrated components where possible.
@@ -100,5 +113,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 Add async/loading and server-error variants after product usage is clearer.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/command-palette/+page.svelte`
 
 - `DESIGN.md`

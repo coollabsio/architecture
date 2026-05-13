@@ -260,5 +260,7 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/checkbox/+page.svelte`
+
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Checkbox docs: `https://www.shadcn-svelte.com/docs/components/checkbox`.

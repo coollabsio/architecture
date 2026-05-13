@@ -146,5 +146,7 @@ A later `status-indicator.md` can define dot + badge + timestamp patterns.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/badge/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Badge primitive

@@ -105,5 +105,7 @@ Filter-chip behavior can be documented later as a separate selected/removable ta
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/tag/+page.svelte`
+
 - `DESIGN.md`
 - `design/status/badge.md`

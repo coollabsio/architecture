@@ -134,5 +134,7 @@ A future Box spec can define non-ring variants. Coolbox should stay the ring-hov
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/lib/components/ui/coolbox/coolbox.svelte`
+
 - `DESIGN.md`
 - Coolify current `coolbox` utility visual pattern

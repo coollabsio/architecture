@@ -102,4 +102,6 @@ A future command palette spec can define shortcut alignment in menus.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/kbd/+page.svelte`
+
 - `DESIGN.md`

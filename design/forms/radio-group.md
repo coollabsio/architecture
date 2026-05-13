@@ -150,6 +150,8 @@ A future variant could document selectable card rows for larger plan choices, bu
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/radio-group/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Radio Group primitive
 - Existing Checkbox row composition

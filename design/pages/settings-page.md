@@ -202,6 +202,18 @@ Show instance version, update channel, environment, and health state using `Badg
 
 Danger zone is visually separated but does not use a red outer border by default. Use neutral border/surface, red title/destructive button, and require a destructive confirmation modal for irreversible actions.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do use one primary highlighted save button in the page header.
@@ -220,6 +232,7 @@ Persist settings through app-specific forms/actions/API calls. This design only 
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Page uses `max-w-6xl px-6 py-10` and `bg-gray-50 dark:bg-base` from the surrounding app shell.
 - [ ] Header has `text-3xl font-bold tracking-tight` title, `text-sm` description, Reset, and one highlighted Save button.
 - [ ] Main content uses `grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]`.
@@ -236,6 +249,8 @@ Persist settings through app-specific forms/actions/API calls. This design only 
 If a project has many settings, split this page into an application settings shell plus sub-pages for General, Access, Email, Backups, and Danger Zone. Keep the same section/card styling.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/settings-page/+page.svelte`
 
 - `DESIGN.md`
 - `design/forms/button.md`

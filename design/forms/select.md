@@ -84,6 +84,7 @@ Select colors match Input:
 - **Focus/dirty left bar:** `coollabs` purple in light mode, `warning` yellow in dark mode.
 - **Chevron:** black in light mode, white in dark mode.
 - **Disabled:** flat muted background and muted text; no inset shadow.
+- **Gray/neutral panel contrast:** selects must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` selects directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-base` for the parent card, or use `dark:bg-base` for the select in that local gray-panel context.
 
 Do not use a normal `border` utility for the main select outline.
 
@@ -110,6 +111,18 @@ Default select layout:
 
 The right chevron is the same explicit stacked up/down SVG used by Dropdown triggers. It sits at `right-2 top-1/2`, uses `size-4`, `stroke-width=1.5`, `stroke="currentColor"`, black in light mode and white in dark mode.
 
+### Form control surface contrast
+
+Selects inside gray/neutral sections must not blend into the container. Use these pairings:
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + select bg-white
+dark base form card: parent dark:bg-base + select dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + select dark:bg-base
+```
+
+Follow the same context-contrast rule as `design/forms/input.md`.
+
 ## Exact Layout Recipe
 
 ```txt
@@ -117,12 +130,14 @@ wrapper: relative w-full
 select: block w-full appearance-none rounded-sm border-0 px-2 py-1.5 pr-10 text-sm
 chevron-position: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2
 chevron-svg: two paths, stroke-width=1.5, stroke=currentColor, no single down chevron
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 ```
 
 ## Exact Classes
 
 ```txt
 select-base: block w-full appearance-none rounded-sm border-0 bg-white px-2 py-1.5 pr-10 text-sm text-black focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 chevron: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white
 shadow: use Input exact shadow/focus/dirty classes
 ```
@@ -254,9 +269,11 @@ Use Shadcn-Svelte content/item patterns only for complex selects. Do not make or
 - Do use `data-dirty="true"` or a `dirty` prop for dirty state.
 - Do keep native select wrappers for simple forms.
 - Do remove the inset shadow for disabled state.
+- Do verify selects remain visible on gray/neutral panel backgrounds.
 - Don't use a single down chevron for this select pattern.
 - Don't use normal border/ring styling for the primary outline.
 - Don't confuse action Dropdown Menu with form Select.
+- Don't place selects on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add gradients, large radii, heavy shadows, or separate chevron button chrome.
 - Don't introduce framework-specific dirty directives.
 
@@ -278,6 +295,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Disabled state removes the inset shadow entirely.
 - [ ] Chevron matches Dropdown trigger: two separate up/down paths, `size-4`, `stroke-width=1.5`, black in light mode, white in dark mode.
 - [ ] Select reserves `pr-10` / `2.5rem` for the chevron.
+- [ ] Selects on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-base`).
 - [ ] No single down chevron, normal border/ring outline, large radius, or heavy shadow introduced.
 
 ## Claude Improvement Notes
@@ -291,6 +309,8 @@ Potential cleanup ideas for a later implementation pass:
 Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/select/+page.svelte`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Select docs: `https://www.shadcn-svelte.com/docs/components/select`.

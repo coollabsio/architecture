@@ -104,4 +104,6 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/page-loading/+page.svelte`
+
 - `DESIGN.md`

@@ -37,7 +37,7 @@
       <label class="mt-4 block text-sm text-neutral-700 dark:text-neutral-300" for="confirmation-text">
         Type <span class="font-mono font-bold text-black dark:text-white">{confirmationText}</span> to confirm.
       </label>
-      <Input id="confirmation-text" class="mt-2" bind:value={typed} placeholder={confirmationText} />
+      <Input id="confirmation-text" class="mt-2 dark:bg-base" bind:value={typed} placeholder={confirmationText} />
 
       <div class="mt-5 flex flex-wrap justify-end gap-2">
         <Button onclick={close}>{cancelLabel}</Button>

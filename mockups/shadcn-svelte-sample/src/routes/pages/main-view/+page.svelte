@@ -67,7 +67,7 @@
             <h2 class="text-xl font-bold text-black dark:text-white">Inbox</h2>
             <div class="flex gap-2"><Button variant="highlighted">Compose</Button><Button>Refresh</Button></div>
           </div>
-          <div class="border-b border-neutral-200 p-4 dark:border-coolgray-200"><Input placeholder="Search" /></div>
+          <div class="border-b border-neutral-200 p-4 dark:border-coolgray-200"><Input class="dark:bg-base" placeholder="Search" /></div>
           <div class="space-y-2 p-4">
             <div class="rounded-sm bg-neutral-100 p-4 text-sm text-neutral-600 dark:bg-coolgray-200 dark:text-neutral-400">No SMTP messages yet. Send mail to this receiver to populate the inbox.</div>
           </div>

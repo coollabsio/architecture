@@ -256,6 +256,18 @@ Error text appears below the control and should be visible without opening a too
 
 When the control is disabled, keep the label readable. The helper icon may remain visible if the explanation is still useful, but it should not imply the field is editable.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do keep Form Field separate from raw Input.
@@ -282,6 +294,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Label row uses `mb-1 flex items-center gap-1`.
 - [ ] Label text uses `text-sm font-medium text-black dark:text-white`.
 - [ ] Required marker uses `font-bold text-coollabs dark:text-warning`.
@@ -305,6 +318,8 @@ Potential cleanup ideas for a later implementation pass:
 Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/lib/components/ui/form-field/form-field.svelte`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Label docs: `https://www.shadcn-svelte.com/docs/components/label`.

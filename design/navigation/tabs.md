@@ -122,5 +122,7 @@ A separate top-level navigation spec can define sidebar and page nav patterns.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/tabs/+page.svelte`
+
 - `DESIGN.md`
 - Shadcn-Svelte Tabs primitive

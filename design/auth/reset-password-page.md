@@ -116,6 +116,18 @@ Use `rounded-sm` for design controls, callouts, and secondary link buttons.
 - `Input` / `PasswordInput` as applicable.
 - `FormField` for labeled fields.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do keep primary auth actions tall, highlighted, and bold.
@@ -130,6 +142,7 @@ Apply auth submit sizing locally as class overrides on the highlighted Button. T
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Centered `max-w-md` auth layout.
 - [ ] Large Coolify title.
 - [ ] Primary auth button is highlighted, `h-12`, `py-3`, and `font-bold`.
@@ -141,6 +154,8 @@ Apply auth submit sizing locally as class overrides on the highlighted Button. T
 Consider extracting shared `AuthShell`, `AuthSubmitButton`, and auth divider components after all auth pages stabilize.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/reset-password-page/+page.svelte`
 
 - `DESIGN.md`
 - Coolify current auth views reviewed for layout and interaction hierarchy.

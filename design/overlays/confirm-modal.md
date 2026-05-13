@@ -108,5 +108,7 @@ Consider adding loading state support for async confirmations.
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/confirm-modal/+page.svelte`
+
 - `design/forms/button.md`
 - `design/overlays/modal.md`

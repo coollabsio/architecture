@@ -101,5 +101,7 @@ Page-level loading can define placement, overlay, and skeleton strategy separate
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/loading-spinner/+page.svelte`
+
 - `DESIGN.md`
 - Existing mockup `Spinner`

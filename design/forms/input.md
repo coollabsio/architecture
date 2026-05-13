@@ -94,6 +94,7 @@ Input colors are intentionally restrained:
 - **Focus/dirty left bar:** `coollabs` purple in light mode, `warning` yellow in dark mode.
 - **Placeholder:** `neutral-300` in light mode, `neutral-700` in dark mode.
 - **Disabled/readonly:** flat muted background and muted text; no inset shadow.
+- **Gray/neutral panel contrast:** inputs must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` inputs directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-base` for the parent card, or use `dark:bg-base` for the input in that local gray-panel context.
 
 Do not use a normal `border` utility for the main input outline.
 
@@ -127,6 +128,18 @@ pr-[2.4rem]
 
 The visibility toggle icon, if present, is an absolutely positioned trailing button and must not change input height.
 
+### Context contrast
+
+Inputs inside gray/neutral sections must not blend into the container. Use these pairings:
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + input bg-white
+dark base form card: parent dark:bg-base + input dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + input dark:bg-base
+```
+
+If the input edge disappears on a gray background, darken the input surface or the parent surface so there is a clear contrast step.
+
 ## Exact Layout Recipe
 
 ```txt
@@ -140,12 +153,14 @@ border: border-0; use inset box-shadow instead
 password-extra-padding: pr-[2.4rem]
 password-toggle: absolute inset-y-0 right-0 flex cursor-pointer items-center pr-2 text-neutral-500 hover:text-black dark:hover:text-white
 password-icon: size-6 stroke-width=1.5
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 ```
 
 ## Exact Classes
 
 ```txt
 base: block w-full rounded-sm border-0 bg-white px-3 py-1.5 text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 shadow: [box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#242424]
 focus-shadow: focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:focus-visible:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
 dirty-shadow: data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
@@ -328,8 +343,10 @@ Sticky focus/dirty uses the same 4px accent bar with a 1px simulated border.
 - Do reserve `pr-[2.4rem]` for password visibility toggles.
 - Do hide password values by default and provide an eye/eye-off toggle to show/hide the actual value.
 - Do keep inputs `rounded-sm`, compact, and `text-sm`.
+- Do verify inputs remain visible on gray/neutral panel backgrounds.
 - Don't introduce framework-specific dirty directives.
 - Don't use Shadcn default ring/border styling for the primary input outline.
+- Don't place inputs on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add heavy shadows, gradients, large radius, or decorative field chrome.
 
 ## Implementation Notes
@@ -352,6 +369,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Password inputs reserve `pr-[2.4rem]` when a visibility toggle exists.
 - [ ] Password fields hide values by default and provide show/hide behavior with eye/eye-off icons.
 - [ ] Sticky variant uses a 1px simulated border.
+- [ ] Inputs on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-base`).
 - [ ] No framework-specific dirty directives, gradients, large radii, or heavy shadows introduced.
 
 ## Claude Improvement Notes
@@ -366,6 +384,8 @@ Potential cleanup ideas for a later implementation pass:
 Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/input/+page.svelte`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Input docs: `https://www.shadcn-svelte.com/docs/components/input`.

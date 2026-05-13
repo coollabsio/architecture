@@ -130,6 +130,18 @@ Use `rounded-sm` for design controls and callouts.
 - `PasswordInput` for password fields.
 - `FormField` for labels, required markers, and password confirmation error.
 
+### Form control surface contrast
+
+When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
+dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+```
+
+Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
+
 ## Do's and Don'ts
 
 - Do keep the Create Account button tall, highlighted, and bold.
@@ -144,6 +156,7 @@ The auth submit button style is shared with Login and TOTP challenge pages. Appl
 
 ## Review Checklist
 
+- [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Centered `max-w-md` auth layout.
 - [ ] Large Coolify title and create-account subtitle.
 - [ ] Root-user warning variant exists.
@@ -156,6 +169,8 @@ The auth submit button style is shared with Login and TOTP challenge pages. Appl
 Consider extracting shared auth dividers and auth secondary links after forgot/reset pages are migrated.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/register-page/+page.svelte`
 
 - `DESIGN.md`
 - Coolify current register page reviewed for layout and interaction hierarchy.

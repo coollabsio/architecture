@@ -146,5 +146,7 @@ Future versions may add nested groups if Coolify needs deeper resource navigatio
 
 ## Source References
 
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/subsidebar/+page.svelte`
+
 - `design/navigation/sidebar-navbar.md`
 - Coolify `sub-menu-wrapper` / `sub-menu-item` pattern

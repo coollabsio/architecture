@@ -90,6 +90,7 @@ Textarea colors match Input:
 - **Resize handle:** accent-colored in browsers that expose `::-webkit-resizer`: purple in light mode, yellow in dark mode.
 - **Placeholder:** `neutral-300` in light mode, `neutral-700` in dark mode.
 - **Disabled/readonly:** flat muted background and muted text; no inset shadow.
+- **Gray/neutral panel contrast:** textareas must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` textareas directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-base` for the parent card, or use `dark:bg-base` for the textarea in that local gray-panel context.
 
 Do not use a normal `border` utility for the main textarea outline.
 
@@ -120,18 +121,32 @@ Text must not start directly against the inset shadow/border. Use `px-3` so cont
 
 Labels and helper icons are handled by the Form Field component.
 
+### Context contrast
+
+Textareas inside gray/neutral sections must not blend into the container. Use these pairings:
+
+```txt
+light gray panel: parent bg-gray-50 or bg-neutral-100 + textarea bg-white
+dark base form card: parent dark:bg-base + textarea dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + textarea dark:bg-base
+```
+
+If the textarea edge disappears on a gray background, darken the textarea surface or the parent surface so there is a clear contrast step.
+
 ## Exact Layout Recipe
 
 ```txt
 textarea: block min-h-32 w-full resize-y rounded-sm border-0 px-3 py-1.5 font-mono text-sm
 resize-handle: custom background lines, smaller than browser default visual weight
 text-start: px-3 so text never touches the border
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 ```
 
 ## Exact Classes
 
 ```txt
 base: block min-h-32 w-full resize-y rounded-sm border-0 bg-white px-3 py-1.5 font-mono text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
 shadow: use Input exact shadow/focus/dirty classes
 ```
 
@@ -257,8 +272,10 @@ If a multi-line secret needs hidden/revealed behavior, compose a separate `Secre
 - Do remove the inset shadow for disabled and readonly states.
 - Do enable Tab insertion only with an explicit `allowTab` prop.
 - Do tint the native resize handle purple/yellow where `::-webkit-resizer` is supported.
+- Do verify textareas remain visible on gray/neutral panel backgrounds.
 - Don't override Tab behavior for ordinary prose textareas.
 - Don't add password visibility behavior to every Textarea.
+- Don't place textareas on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add heavy shadows, large radius, gradients, or editor chrome.
 - Don't introduce framework-specific dirty directives.
 
@@ -280,6 +297,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Disabled and readonly states remove the inset shadow entirely.
 - [ ] Optional Tab insertion is controlled by `allowTab` and inserts two spaces.
 - [ ] Resize handle is accent-tinted where browser support allows it.
+- [ ] Textareas on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-base`).
 - [ ] No framework-specific dirty directives, gradients, large radii, or heavy shadows introduced.
 
 ## Claude Improvement Notes
@@ -293,6 +311,8 @@ Potential cleanup ideas for a later implementation pass:
 Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
+
+- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/textarea/+page.svelte`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
 - Shadcn-Svelte Textarea docs: `https://www.shadcn-svelte.com/docs/components/textarea`.
