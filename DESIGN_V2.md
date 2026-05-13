@@ -21,7 +21,7 @@ Use this file as a router:
 | Form label, required marker, helper icon, field description/error | [`design/forms/form-field.md`](design/forms/form-field.md) | Shadcn-Svelte `Label` + `Tooltip` composition | Migrated |
 | Select | [`design/forms/select.md`](design/forms/select.md) | Shadcn-Svelte `Select` or `Native Select` | Migrated |
 | Checkbox | `design/forms/checkbox.md` | Shadcn-Svelte `Checkbox` | Pending |
-| Textarea | `design/forms/textarea.md` | Shadcn-Svelte `Textarea` | Pending |
+| Textarea | [`design/forms/textarea.md`](design/forms/textarea.md) | Shadcn-Svelte `Textarea` | Migrated |
 | Copy button | `design/forms/copy-button.md` | Shadcn-Svelte `Button` | Pending |
 | Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Coolbox/card with ring hover | `design/containers/coolbox.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |

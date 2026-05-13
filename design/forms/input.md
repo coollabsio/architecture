@@ -30,7 +30,7 @@ rounded:
   sm: 0.25rem
 spacing:
   input-padding-y: 0.375rem
-  input-padding-x: 0.5rem
+  input-padding-x: 0.75rem
   dirty-bar-width: 0.25rem
   border-shadow-width: 0.125rem
   sticky-border-shadow-width: 0.0625rem
@@ -107,10 +107,13 @@ Labels, when composed with inputs, use `text-sm font-medium`. Required markers s
 
 Default input layout:
 
+Text must not start directly against the inset shadow/border. Use `px-3` so content has enough breathing room from the 4px dirty bar and simulated border.
+
+
 - `block`
 - `w-full`
 - `py-1.5`
-- `px-2`
+- `px-3`
 - `text-sm`
 - `rounded-sm`
 - `border-0`
@@ -175,7 +178,7 @@ Use Shadcn-Svelte `Input` as the base primitive. Extend the local primitive with
 Recommended base class:
 
 ```txt
-block w-full rounded-sm border-0 bg-white px-2 py-1.5 text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
+block w-full rounded-sm border-0 bg-white px-3 py-1.5 text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
 ```
 
 Recommended resting shadow class:

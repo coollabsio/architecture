@@ -18,3 +18,4 @@ Implemented pages:
 - `/components/input` — inset shadow border, focus/dirty left bar, disabled/readonly, password spacing, sticky variant, and form label helper icon composition.
 
 - `/components/select` — native select wrapper with inset shadow, dirty state, disabled state, and stacked up/down chevron.
+- `/components/textarea` — mono textarea with inset shadow, dirty state, disabled/readonly, and optional Tab insertion.

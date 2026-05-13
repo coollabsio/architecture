@@ -34,5 +34,12 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/select",
     designDoc: "design/forms/select.md",
     status: "Migrated"
+  },
+  {
+    label: "Textarea",
+    slug: "textarea",
+    href: "/components/textarea",
+    designDoc: "design/forms/textarea.md",
+    status: "Migrated"
   }
 ];
