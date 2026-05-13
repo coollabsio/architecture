@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
   import { CopyButton } from "$lib/components/ui/copy-button/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 </script>
@@ -42,11 +41,6 @@
           <li>Copied state uses green check for 1 second.</li>
           <li>Icon button keeps visible focus ring.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button variant="highlighted">Save</Button>
-          <Button>Reset</Button>
-        </div>
       </aside>
     </div>
   </section>

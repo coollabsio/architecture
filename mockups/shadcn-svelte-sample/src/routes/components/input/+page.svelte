@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Input, PasswordInput } from "$lib/components/ui/input/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 </script>
 
@@ -67,11 +66,6 @@
           <li>Password field hides by default and toggles show/hide with eye icons.</li>
           <li>Password field reserves pr-[2.4rem] for the visibility button.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button variant="highlighted">Save</Button>
-          <Button>Reset</Button>
-        </div>
       </aside>
     </div>
   </section>

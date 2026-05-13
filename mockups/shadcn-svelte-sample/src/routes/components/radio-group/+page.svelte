@@ -1,6 +1,5 @@
 <script lang="ts">
   import { RadioGroup, RadioRow } from "$lib/components/ui/radio-group/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
 
   let strategy = "rolling";
   let region = "eu";
@@ -41,7 +40,6 @@
         <ul class="list-inside list-disc space-y-1 text-xs text-neutral-600 dark:text-neutral-400">
           <li>Single-choice only.</li><li>Controls are circular size-4.</li><li>Selected uses inner dot.</li><li>Rows wrap labels safely.</li>
         </ul>
-        <div class="mt-3"><Button variant="highlighted">Save strategy</Button></div>
       </aside>
     </div>
   </section>

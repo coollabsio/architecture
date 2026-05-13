@@ -41,3 +41,5 @@ Implemented pages:
 - `/components/external-link` — external anchor with icon and new-tab attrs.
 - `/components/internal-link` — in-app anchor link styling.
 - `/components/kbd` — compact keyboard shortcut hints.
+
+- `/components/sidebar-navbar` — dense app shell sidebar, collapsed mode, search, and page subnav.

@@ -181,5 +181,12 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/kbd",
     designDoc: "design/text/kbd.md",
     status: "Migrated"
+  },
+  {
+    label: "Sidebar Navbar",
+    slug: "sidebar-navbar",
+    href: "/components/sidebar-navbar",
+    designDoc: "design/navigation/sidebar-navbar.md",
+    status: "Migrated"
   }
 ];

@@ -38,6 +38,7 @@ Current migrated component docs:
 - `design/navigation/external-link.md`
 - `design/navigation/internal-link.md`
 - `design/text/kbd.md`
+- `design/navigation/sidebar-navbar.md`
 
 ## Goal
 
@@ -180,7 +181,7 @@ Because `card.md` is migrated, the screen must demonstrate compact `rounded-sm b
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Status Indicator, Tag, Deprecated Badge, Alert, Toast, Loading Spinner, Loading On Button, Callout, Helper Tooltip, Breadcrumbs, External Link, Internal Link, KBD, Tabs, and Card components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Status Indicator, Tag, Deprecated Badge, Alert, Toast, Loading Spinner, Loading On Button, Callout, Helper Tooltip, Breadcrumbs, External Link, Internal Link, KBD, Sidebar Navbar, Tabs, and Card components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -221,6 +222,7 @@ Follow these visual decisions from the docs:
 - Breadcrumbs use ordered navigation with aria-current.
 - External/Internal Links preserve anchor semantics; external links include icon/new-tab attrs.
 - KBD uses semantic kbd elements with h-5 mono styling.
+- Sidebar Navbar uses Shadcn-Svelte Sidebar semantics, dense nav rows, collapsed icon-only mode, yellow dark active state, and border-separated app shell.
 
 ## Deliverables
 

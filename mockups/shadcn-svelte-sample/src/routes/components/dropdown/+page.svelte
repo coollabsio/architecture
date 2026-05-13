@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
   import {
     DropdownMenu,
     dropdownMenuItemVariants,
@@ -69,11 +68,6 @@
           <li>Dark hover/focus uses the documented purple fill exception.</li>
           <li>Disabled item uses pointer-events-none and opacity-50.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button>Default</Button>
-          <Button variant="highlighted">Apply</Button>
-        </div>
       </aside>
     </div>
   </section>

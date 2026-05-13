@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
   import { NativeSelect } from "$lib/components/ui/select/index.js";
 </script>
@@ -52,11 +51,6 @@
           <li>Disabled state removes the inset shadow.</li>
           <li>Simple forms should prefer this native select wrapper.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button variant="highlighted">Save</Button>
-          <Button>Reset</Button>
-        </div>
       </aside>
     </div>
   </section>

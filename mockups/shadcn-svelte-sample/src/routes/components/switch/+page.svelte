@@ -1,6 +1,5 @@
 <script lang="ts">
   import { Switch, SwitchRow } from "$lib/components/ui/switch/index.js";
-  import { Button } from "$lib/components/ui/button/index.js";
 
   let enabled = true;
   let previews = false;
@@ -38,7 +37,6 @@
       <aside class="rounded-sm border border-neutral-200 bg-white p-3 dark:border-coolgray-300 dark:bg-coolgray-200">
         <h2 class="mb-2 text-base font-bold text-black dark:text-white">Spec notes</h2>
         <ul class="list-inside list-disc space-y-1 text-xs text-neutral-600 dark:text-neutral-400"><li>w-8 h-4 track.</li><li>size-3 thumb.</li><li>Use for immediate toggles.</li></ul>
-        <div class="mt-3"><Button variant="highlighted">Apply</Button></div>
       </aside>
     </div>
   </section>

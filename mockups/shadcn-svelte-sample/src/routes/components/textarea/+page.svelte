@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
   import { Textarea } from "$lib/components/ui/textarea/index.js";
 </script>
@@ -51,11 +50,6 @@
           <li>Tab insertion is opt-in with allowTab.</li>
           <li>Password-like secrets should be a separate composition.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button variant="highlighted">Save</Button>
-          <Button>Reset</Button>
-        </div>
       </aside>
     </div>
   </section>

@@ -1,5 +1,4 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
   import { Checkbox, CheckboxRow } from "$lib/components/ui/checkbox/index.js";
 
   let checked = true;
@@ -56,11 +55,6 @@
           <li>Rows are clickable and dark-hoverable when enabled.</li>
           <li>Long labels wrap without compressing the control.</li>
         </ul>
-
-        <div class="mt-3 flex gap-2">
-          <Button variant="highlighted">Save</Button>
-          <Button>Reset</Button>
-        </div>
       </aside>
     </div>
   </section>
