@@ -88,7 +88,7 @@
 </svelte:head>
 
 <div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400">
-  <div class="fixed right-4 top-4 z-10 grid w-[min(56rem,calc(100vw-2rem))] grid-cols-1 items-end gap-2 sm:grid-cols-[minmax(14rem,1fr)_minmax(14rem,1fr)_auto]">
+  <div class="relative z-10 grid w-full grid-cols-1 items-end gap-2 border-b border-neutral-200 bg-gray-50 p-4 dark:border-coolgray-200 dark:bg-base sm:fixed sm:right-4 sm:top-4 sm:w-[min(56rem,calc(100vw-2rem))] sm:grid-cols-[minmax(14rem,1fr)_minmax(14rem,1fr)_auto] sm:border-b-0 sm:bg-transparent sm:p-0">
     <div class="space-y-1">
       <div class="flex items-center justify-between gap-2 px-1">
         <span class="text-[0.7rem] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Components</span>
