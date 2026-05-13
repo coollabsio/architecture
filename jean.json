@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "setup": "cd mockups/shadcn-svelte-sample && bun i",
+    "teardown": null,
+    "run": "cd mockups/shadcn-svelte-sample && bun dev"
+  },
+  "ports": [
+    {
+      "port": 5173,
+      "label": "App"
+    }
+  ]
+}

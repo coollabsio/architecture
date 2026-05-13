@@ -1,0 +1,31 @@
+export type ComponentSample = {
+  label: string;
+  slug: string;
+  href: string;
+  designDoc: string;
+  status: "Migrated" | "Pending";
+};
+
+export const componentSamples: ComponentSample[] = [
+  {
+    label: "Button",
+    slug: "buttons",
+    href: "/components/buttons",
+    designDoc: "design/forms/button.md",
+    status: "Migrated"
+  },
+  {
+    label: "Dropdown",
+    slug: "dropdown",
+    href: "/components/dropdown",
+    designDoc: "design/forms/dropdown.md",
+    status: "Migrated"
+  },
+  {
+    label: "Input",
+    slug: "input",
+    href: "/components/input",
+    designDoc: "design/forms/input.md",
+    status: "Migrated"
+  }
+];
