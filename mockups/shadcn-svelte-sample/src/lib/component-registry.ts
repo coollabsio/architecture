@@ -263,7 +263,7 @@ export const componentSamples: ComponentSample[] = [
     label: "Scrollbar",
     slug: "scrollbar",
     href: "/components/scrollbar",
-    designDoc: "design/chrome/scrollbar.md",
+    designDoc: "design/utilities/scrollbar.md",
     status: "Migrated"
   },
   {
@@ -292,6 +292,27 @@ export const componentSamples: ComponentSample[] = [
     slug: "form-composition",
     href: "/components/form-composition",
     designDoc: "design/forms/form-composition.md",
+    status: "Migrated"
+  },
+  {
+    label: "TOTP Challenge",
+    slug: "totp-challenge",
+    href: "/components/totp-challenge",
+    designDoc: "design/auth/totp-challenge.md",
+    status: "Migrated"
+  },
+  {
+    label: "Login Page",
+    slug: "login-page",
+    href: "/components/login-page",
+    designDoc: "design/auth/login-page.md",
+    status: "Migrated"
+  },
+  {
+    label: "Register Page",
+    slug: "register-page",
+    href: "/components/register-page",
+    designDoc: "design/auth/register-page.md",
     status: "Migrated"
   },
   {

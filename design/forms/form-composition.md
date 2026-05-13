@@ -36,6 +36,12 @@ components:
 
 Compose FormField, Input, HelperTooltip, RequiredAsterisk, Button. Required marker must include accessible required text. Dirty fields use the input accent bar. Errors use compact red text below fields. Validate field semantics, for example domain fields should reject arbitrary text and require a domain-like value.
 
+Validation examples should cover more than one field type when documenting a form pattern:
+
+- **Domain:** require a domain-like value such as `api.example.com`.
+- **Email:** require a mailbox-like value such as `ops@example.com`.
+- **Phone:** allow an optional international phone-like value such as `+1 555 123 4567`, but reject arbitrary text.
+
 ## Colors
 
 Use neutral light surfaces and Coolify coolgray dark surfaces. In dark mode, standalone form cards should use the darker `base` surface so `coolgray-100` inputs remain visibly separated from the form background. Purple is the light-mode accent; warning yellow is the dark-mode accent. Errors use red/error.
@@ -64,6 +70,7 @@ Compose existing V2 primitives: Button, Input, FormField, HelperTooltip, Require
 
 - Do support keyboard/focus states.
 - Do keep content compact.
+- Do include real semantic validation examples for domain, email, and phone/tel fields when demonstrating validation behavior.
 - Do preserve light/dark accent rules.
 - Don't use legacy patterns or large rounded marketing UI.
 
@@ -82,7 +89,7 @@ dark:border-coolgray-300 dark:bg-base
 
 - [ ] Section title is present when the form appears as a standalone card.
 - [ ] Dark standalone form background is darker than the inputs (`dark:bg-base` behind `dark:bg-coolgray-100` inputs).
-- [ ] Domain/example semantic fields include validation, not only dirty state.
+- [ ] Domain, email, and phone/tel examples include validation, not only dirty state.
 - [ ] Accessible labels and states are present.
 - [ ] Works in light and dark mode.
 - [ ] Uses existing migrated components where possible.

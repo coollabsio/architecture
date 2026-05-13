@@ -54,11 +54,14 @@ Use this file as a router:
 | Page loading | [`design/feedback/page-loading.md`](design/feedback/page-loading.md) | Custom overlay + `Spinner` | Migrated |
 | Highlighted text / required asterisk | [`design/text/highlighted-text.md`](design/text/highlighted-text.md) | Text utility/composition | Migrated |
 | Keyboard hint | [`design/text/kbd.md`](design/text/kbd.md) | Shadcn-Svelte `Kbd` | Migrated |
-| Scrollbar | [`design/chrome/scrollbar.md`](design/chrome/scrollbar.md) | CSS utility | Migrated |
+| Scrollbar | [`design/utilities/scrollbar.md`](design/utilities/scrollbar.md) | CSS utility | Migrated |
 | Table | [`design/data/table.md`](design/data/table.md) | Shadcn-Svelte `Table` or `Data Table` | Migrated |
 | Dropdown | [`design/forms/dropdown.md`](design/forms/dropdown.md) | Shadcn-Svelte `Dropdown Menu` | Migrated |
 | Searchable dropdown | [`design/forms/searchable-dropdown.md`](design/forms/searchable-dropdown.md) | Shadcn-Svelte `Command` + `Popover` / Combobox | Migrated |
 | Form composition / validation | [`design/forms/form-composition.md`](design/forms/form-composition.md) | FormField + inputs + validation | Migrated |
+| TOTP / one-time token challenge | [`design/auth/totp-challenge.md`](design/auth/totp-challenge.md) | Shadcn-Svelte `Button` + `Input` + local OTP composition | Migrated |
+| Login page | [`design/auth/login-page.md`](design/auth/login-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Register page | [`design/auth/register-page.md`](design/auth/register-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
 | Command palette / global search | [`design/search/command-palette.md`](design/search/command-palette.md) | Shadcn-Svelte `Command` + `Dialog` | Migrated |
 | Tooltip variants | [`design/overlays/tooltip.md`](design/overlays/tooltip.md) | Shadcn-Svelte `Tooltip` | Migrated |
 
