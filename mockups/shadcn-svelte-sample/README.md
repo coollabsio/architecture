@@ -21,3 +21,9 @@ Implemented pages:
 - `/components/textarea` — mono textarea with inset shadow, dirty state, disabled/readonly, and optional Tab insertion.
 - `/components/checkbox` — checkbox primitive and right-aligned row composition with wrapping labels and focus rings.
 - `/components/copy-button` — readonly input plus secure-context clipboard action and temporary copied state.
+- `/components/radio-group` — compact single-choice rows with circular controls and inner-dot selected state.
+- `/components/switch` — compact immediate on/off settings with small track/thumb.
+- `/components/badge` — compact semantic labels and metadata badges.
+- `/components/alert` — compact inline operational notices and errors.
+- `/components/tabs` — dense section navigation with active/focus states.
+- `/components/card` — compact operational surfaces with sharp borders.

@@ -55,5 +55,47 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/copy-button",
     designDoc: "design/forms/copy-button.md",
     status: "Migrated"
+  },
+  {
+    label: "Radio Group",
+    slug: "radio-group",
+    href: "/components/radio-group",
+    designDoc: "design/forms/radio-group.md",
+    status: "Migrated"
+  },
+  {
+    label: "Switch",
+    slug: "switch",
+    href: "/components/switch",
+    designDoc: "design/forms/switch.md",
+    status: "Migrated"
+  },
+  {
+    label: "Badge",
+    slug: "badge",
+    href: "/components/badge",
+    designDoc: "design/status/badge.md",
+    status: "Migrated"
+  },
+  {
+    label: "Alert",
+    slug: "alert",
+    href: "/components/alert",
+    designDoc: "design/overlays/alert.md",
+    status: "Migrated"
+  },
+  {
+    label: "Tabs",
+    slug: "tabs",
+    href: "/components/tabs",
+    designDoc: "design/navigation/tabs.md",
+    status: "Migrated"
+  },
+  {
+    label: "Card",
+    slug: "card",
+    href: "/components/card",
+    designDoc: "design/containers/card.md",
+    status: "Migrated"
   }
 ];

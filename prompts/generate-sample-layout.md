@@ -20,6 +20,12 @@ Current migrated component docs:
 - `design/forms/textarea.md`
 - `design/forms/checkbox.md`
 - `design/forms/copy-button.md`
+- `design/forms/radio-group.md`
+- `design/forms/switch.md`
+- `design/status/badge.md`
+- `design/overlays/alert.md`
+- `design/navigation/tabs.md`
+- `design/containers/card.md`
 
 ## Goal
 
@@ -85,7 +91,7 @@ Because `input.md` is migrated, the screen must demonstrate the Input spec clear
 
 Because `select.md` is migrated, the screen must demonstrate the Select spec clearly:
 
-- Native select wrapper or Shadcn-Svelte Select trigger styled according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- Native select wrapper or Shadcn-Svelte Select trigger styled according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
 - Default select.
 - Dirty select using `data-dirty="true"` or a `dirty` prop.
 - Disabled select with no inset shadow.
@@ -124,21 +130,45 @@ Because `copy-button.md` is migrated, the screen must demonstrate the Copy Butto
 - Input right padding so value text does not sit under the icon.
 - Accessible `aria-label` and `title`.
 
+## Required Radio Group demonstrations
+
+Because `radio-group.md` is migrated, the screen must demonstrate compact single-choice rows with circular `size-4` controls, inner-dot selected state, disabled option, and long-label wrapping.
+
+## Required Switch demonstrations
+
+Because `switch.md` is migrated, the screen must demonstrate compact immediate on/off rows, `w-8 h-4` track, `size-3` thumb, checked/unchecked/disabled states, and accessible labels.
+
+## Required Badge demonstrations
+
+Because `badge.md` is migrated, the screen must demonstrate default, success, warning, error, outline, and accent badge variants with `h-5`, `text-xs`, `rounded-sm` density.
+
+## Required Alert demonstrations
+
+Because `alert.md` is migrated, the screen must demonstrate default/info, success, warning, and destructive inline alerts with compact bordered surfaces and `role="alert"` for urgent errors.
+
+## Required Tabs demonstrations
+
+Because `tabs.md` is migrated, the screen must demonstrate compact `h-8 px-2` tab triggers, active/inactive states, and panel content without large pill styling.
+
+## Required Card demonstrations
+
+Because `card.md` is migrated, the screen must demonstrate compact `rounded-sm border p-4` operational surfaces with header/content/footer composition.
+
 ## Implementation rules
 
 - Use Shadcn-Svelte primitives as the base.
 - For Button, use the local Shadcn-Svelte `Button` primitive and extend `buttonVariants(...)` according to `design/forms/button.md`.
 - For Dropdown, use the local Shadcn-Svelte `Dropdown Menu` primitive and extend its content/item classes according to `design/forms/dropdown.md`.
-- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
 - For form labels/helper icons, compose Label + Tooltip according to `design/forms/form-field.md`; do not bake helper behavior into raw Input.
-- For Select, use a native select wrapper for simple forms or Shadcn-Svelte Select for complex cases; style it according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
-- For Textarea, use Shadcn-Svelte `Textarea` with mono typography and the same inset shadow/dirty-state system according to `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
-- For Checkbox, use Shadcn-Svelte `Checkbox` with right-aligned row composition according to `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- For Select, use a native select wrapper for simple forms or Shadcn-Svelte Select for complex cases; style it according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
+- For Textarea, use Shadcn-Svelte `Textarea` with mono typography and the same inset shadow/dirty-state system according to `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
+- For Checkbox, use Shadcn-Svelte `Checkbox` with right-aligned row composition according to `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
 - For Copy Button, compose readonly Input plus icon Button according to `design/forms/copy-button.md`.
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, and Copy Button components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Alert, Tabs, and Card components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -164,6 +194,12 @@ Follow these visual decisions from the docs:
 - Textareas use mono typography and the same inset shadow/dirty-bar system as Input.
 - Checkboxes are size-4, rounded-sm, purple checked fill, and use purple/yellow focus rings.
 - Copy Buttons compose readonly Input plus absolute icon; copied state uses a green check for 1 second.
+- Radio Groups use circular size-4 controls with inner-dot selected state.
+- Switches use compact w-8 h-4 tracks and size-3 thumbs.
+- Badges are h-5, text-xs, rounded-sm semantic labels.
+- Alerts are compact bordered p-3 inline surfaces.
+- Tabs use h-8 px-2 rounded-sm triggers with clear active state.
+- Cards use rounded-sm border p-4 and no heavy shadow.
 
 ## Deliverables
 
@@ -174,7 +210,7 @@ Preferred output format:
 1. Brief plan, maximum 5 bullets.
 2. File tree.
 3. Code blocks for each changed/created file.
-4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
 5. Short self-review checklist showing which Button requirements are satisfied.
 
 If you are working inside a real repo, create or update files directly instead of only printing code.

@@ -23,12 +23,16 @@ Use this file as a router:
 | Checkbox | [`design/forms/checkbox.md`](design/forms/checkbox.md) | Shadcn-Svelte `Checkbox` | Migrated |
 | Textarea | [`design/forms/textarea.md`](design/forms/textarea.md) | Shadcn-Svelte `Textarea` | Migrated |
 | Copy button | [`design/forms/copy-button.md`](design/forms/copy-button.md) | Shadcn-Svelte `Button` + `Input` composition | Migrated |
+| Radio group | [`design/forms/radio-group.md`](design/forms/radio-group.md) | Shadcn-Svelte `Radio Group` | Migrated |
+| Switch | [`design/forms/switch.md`](design/forms/switch.md) | Shadcn-Svelte `Switch` | Migrated |
+| Card, panel, operational surface | [`design/containers/card.md`](design/containers/card.md) | Shadcn-Svelte `Card` | Migrated |
 | Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Coolbox/card with ring hover | `design/containers/coolbox.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
-| Badge | `design/status/badge.md` | Shadcn-Svelte `Badge` | Pending |
+| Badge | [`design/status/badge.md`](design/status/badge.md) | Shadcn-Svelte `Badge` | Migrated |
 | Status indicator | `design/status/status-indicator.md` | Badge + text composition | Pending |
 | Deprecated badge | `design/status/deprecated-badge.md` | Shadcn-Svelte `Badge` | Pending |
 | Tag | `design/status/tag.md` | Shadcn-Svelte `Badge` or custom tag | Pending |
+| Alert / inline callout | [`design/overlays/alert.md`](design/overlays/alert.md) | Shadcn-Svelte `Alert` | Migrated |
 | Callout | `design/overlays/callout.md` | Shadcn-Svelte `Alert` | Pending |
 | Modal input variant | `design/overlays/modal.md` | Shadcn-Svelte `Dialog` | Pending |
 | Destructive modal confirmation | `design/overlays/modal-confirmation.md` | Shadcn-Svelte `Alert Dialog` or `Dialog` | Pending |
@@ -38,6 +42,7 @@ Use this file as a router:
 | Toast | `design/overlays/toast.md` | Shadcn-Svelte `Sonner` | Pending |
 | Helper tooltip | `design/overlays/helper-tooltip.md` | Shadcn-Svelte `Tooltip` or `Hover Card` | Pending |
 | Sidebar / navbar | `design/navigation/sidebar-navbar.md` | Shadcn-Svelte `Sidebar` + app layout | Pending |
+| Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |
 | Breadcrumbs | `design/navigation/breadcrumbs.md` | Shadcn-Svelte `Breadcrumb` | Pending |
 | External link | `design/navigation/external-link.md` | Anchor + icon composition | Pending |
 | Internal link | `design/navigation/internal-link.md` | Anchor + icon composition | Pending |

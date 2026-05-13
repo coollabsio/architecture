@@ -91,7 +91,8 @@ bunx shadcn-svelte@latest add checkbox
 
 - **Unchecked light:** white surface with neutral border and coolgray check color token.
 - **Unchecked dark:** `coolgray-100` surface.
-- **Checked:** purple `coollabs` fill with white check mark.
+- **Checked light:** purple `coollabs` fill with white check mark.
+- **Checked dark:** yellow `warning` fill with black check mark, matching the Radio Group dark selected accent.
 - **Focus:** purple `coollabs` ring in light mode, yellow `warning` ring in dark mode.
 - **Disabled dark:** `base` background and not-allowed cursor.
 - **Enabled row dark hover:** `coolgray-100` background.
@@ -161,10 +162,10 @@ size-4 shrink-0 cursor-pointer rounded-sm border border-neutral-200 bg-white tex
 Checked state should fill purple and render a white check:
 
 ```txt
-data-[state=checked]:bg-coollabs data-[state=checked]:text-white
+data-[state=checked]:bg-coollabs data-[state=checked]:text-white dark:data-[state=checked]:bg-warning dark:data-[state=checked]:text-black
 ```
 
-If the local primitive uses a native checkbox rather than a fully custom control, use `accent-coollabs` where needed but keep the focus ring and radius rules.
+If the local primitive uses a native checkbox rather than a fully custom control, use `accent-coollabs` in light mode and a dark-mode yellow override where possible, while keeping focus ring and radius rules.
 
 ### Checkbox row
 
@@ -197,7 +198,8 @@ If supported by the primitive, indeterminate state uses the same purple fill and
 
 - Do start from Shadcn-Svelte `Checkbox`.
 - Do keep checkbox controls `size-4`, `rounded-sm`, and `shrink-0`.
-- Do use purple checked fill with white glyph.
+- Do use purple checked fill with white glyph in light mode.
+- Do use yellow checked fill with black glyph in dark mode.
 - Do use focus-visible ring: purple light, yellow dark, `ring-offset-2`.
 - Do allow long labels to wrap without shrinking the checkbox.
 - Do make enabled rows clickable with `cursor-pointer`.
@@ -217,7 +219,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 - [ ] Uses Shadcn-Svelte `Checkbox` as the base primitive.
 - [ ] Checkbox is `size-4`, `rounded-sm`, `shrink-0`.
-- [ ] Checked state uses purple fill and white check mark.
+- [ ] Checked state uses purple/white in light mode and yellow/black in dark mode.
 - [ ] Focus-visible ring uses `ring-coollabs` light / `dark:ring-warning` dark with `ring-offset-2`.
 - [ ] Enabled row uses `cursor-pointer` and dark hover `dark:hover:bg-coolgray-100`.
 - [ ] Long labels wrap without shrinking the checkbox.
