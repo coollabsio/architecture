@@ -35,8 +35,8 @@
         <div class="flex flex-wrap items-center gap-2">
           <Button disabled>Disabled</Button>
           <Button disabled aria-busy="true">
-            <Spinner />
             Saving
+            <Spinner />
           </Button>
           <Button size="icon" aria-label="Refresh service status">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">

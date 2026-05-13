@@ -1,0 +1,6 @@
+<script lang="ts">
+  import { Tag } from "$lib/components/ui/tag/index.js";
+  import { Card, CardHeader, CardTitle, CardDescription } from "$lib/components/ui/card/index.js";
+</script>
+<svelte:head><title>Coolify V2 Tag sample</title></svelte:head>
+<main class="mx-auto flex min-h-screen max-w-3xl items-center px-6 py-10"><section class="w-full rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100"><div class="mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200"><p class="mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning">DESIGN_V2.md → design/status/tag.md</p><h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">Tag sample</h1><p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Compact metadata and removable labels.</p></div><Card><CardHeader><CardTitle>Image metadata</CardTitle><CardDescription>Tags are h-5, text-xs, rounded-sm.</CardDescription></CardHeader><div class="flex flex-wrap gap-2"><Tag>main</Tag><Tag>v1.4.2</Tag><Tag>amd64</Tag><Tag removable>preview</Tag><Tag class="border-coollabs bg-coollabs-50 text-coollabs-200 dark:border-warning dark:bg-warning/10 dark:text-warning">selected</Tag></div></Card></section></main>

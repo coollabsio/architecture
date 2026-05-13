@@ -274,12 +274,12 @@ Required disabled styling:
 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-100 disabled:border-neutral-300 disabled:bg-neutral-100 disabled:text-neutral-600 dark:disabled:border-coolgray-300 dark:disabled:bg-coolgray-100/60 dark:disabled:text-neutral-400
 ```
 
-Use Shadcn-Svelte `Spinner` inside `Button` for loading state:
+Use Shadcn-Svelte `Spinner` inside `Button` for loading state: keep the text label first and put the spinner after the text:
 
 ```svelte
-<Button disabled>
-  <Spinner />
+<Button disabled aria-busy="true">
   Saving
+  <Spinner />
 </Button>
 ```
 
@@ -323,6 +323,7 @@ Use `buttonVariants(...)` for anchors that need button styling:
 - Don't use raw boolean attributes such as `isHighlighted` or `isError`.
 - Don't add gradients, heavy shadows, large radii, or decorative marketing effects.
 - Don't use purple as the general dark-mode accent outside documented exceptions.
+- Don't place the spinner before the text label on loading text buttons.
 - Don't reduce disabled/loading opacity so far that labels become unreadable.
 
 ## Implementation Notes

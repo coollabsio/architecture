@@ -27,3 +27,10 @@ Implemented pages:
 - `/components/alert` — compact inline operational notices and errors.
 - `/components/tabs` — dense section navigation with active/focus states.
 - `/components/card` — compact operational surfaces with sharp borders.
+
+- `/components/status-indicator` — dot plus text status composition with semantic colors.
+- `/components/tag` — compact metadata/removable tags.
+- `/components/deprecated-badge` — dedicated lifecycle badge variant.
+- `/components/toast` — compact Sonner-style toast previews.
+- `/components/loading-spinner` — standalone compact spinner states.
+- `/components/loading-on-button` — Button plus Spinner loading composition.

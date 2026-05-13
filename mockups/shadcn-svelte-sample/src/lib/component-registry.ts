@@ -97,5 +97,47 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/card",
     designDoc: "design/containers/card.md",
     status: "Migrated"
+  },
+  {
+    label: "Status Indicator",
+    slug: "status-indicator",
+    href: "/components/status-indicator",
+    designDoc: "design/status/status-indicator.md",
+    status: "Migrated"
+  },
+  {
+    label: "Tag",
+    slug: "tag",
+    href: "/components/tag",
+    designDoc: "design/status/tag.md",
+    status: "Migrated"
+  },
+  {
+    label: "Deprecated Badge",
+    slug: "deprecated-badge",
+    href: "/components/deprecated-badge",
+    designDoc: "design/status/deprecated-badge.md",
+    status: "Migrated"
+  },
+  {
+    label: "Toast",
+    slug: "toast",
+    href: "/components/toast",
+    designDoc: "design/overlays/toast.md",
+    status: "Migrated"
+  },
+  {
+    label: "Loading Spinner",
+    slug: "loading-spinner",
+    href: "/components/loading-spinner",
+    designDoc: "design/feedback/loading-spinner.md",
+    status: "Migrated"
+  },
+  {
+    label: "Loading On Button",
+    slug: "loading-on-button",
+    href: "/components/loading-on-button",
+    designDoc: "design/feedback/loading-on-button.md",
+    status: "Migrated"
   }
 ];

@@ -29,9 +29,9 @@ Use this file as a router:
 | Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Coolbox/card with ring hover | `design/containers/coolbox.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Badge | [`design/status/badge.md`](design/status/badge.md) | Shadcn-Svelte `Badge` | Migrated |
-| Status indicator | `design/status/status-indicator.md` | Badge + text composition | Pending |
-| Deprecated badge | `design/status/deprecated-badge.md` | Shadcn-Svelte `Badge` | Pending |
-| Tag | `design/status/tag.md` | Shadcn-Svelte `Badge` or custom tag | Pending |
+| Status indicator | [`design/status/status-indicator.md`](design/status/status-indicator.md) | Badge + text composition | Migrated |
+| Deprecated badge | [`design/status/deprecated-badge.md`](design/status/deprecated-badge.md) | Shadcn-Svelte `Badge` | Migrated |
+| Tag | [`design/status/tag.md`](design/status/tag.md) | Shadcn-Svelte `Badge` or custom tag | Migrated |
 | Alert / inline callout | [`design/overlays/alert.md`](design/overlays/alert.md) | Shadcn-Svelte `Alert` | Migrated |
 | Callout | `design/overlays/callout.md` | Shadcn-Svelte `Alert` | Pending |
 | Modal input variant | `design/overlays/modal.md` | Shadcn-Svelte `Dialog` | Pending |
@@ -39,7 +39,7 @@ Use this file as a router:
 | Confirm modal | `design/overlays/confirm-modal.md` | Shadcn-Svelte `Alert Dialog` | Pending |
 | Popup / popup small | `design/overlays/popup.md` | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Pending |
 | Slide-over | `design/overlays/slide-over.md` | Shadcn-Svelte `Sheet` | Pending |
-| Toast | `design/overlays/toast.md` | Shadcn-Svelte `Sonner` | Pending |
+| Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
 | Helper tooltip | `design/overlays/helper-tooltip.md` | Shadcn-Svelte `Tooltip` or `Hover Card` | Pending |
 | Sidebar / navbar | `design/navigation/sidebar-navbar.md` | Shadcn-Svelte `Sidebar` + app layout | Pending |
 | Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |
@@ -47,8 +47,8 @@ Use this file as a router:
 | External link | `design/navigation/external-link.md` | Anchor + icon composition | Pending |
 | Internal link | `design/navigation/internal-link.md` | Anchor + icon composition | Pending |
 | Banner | `design/navigation/banner.md` | Custom banner composition | Pending |
-| Loading spinner | `design/feedback/loading-spinner.md` | Shadcn-Svelte `Spinner` | Pending |
-| Loading on button | `design/feedback/loading-on-button.md` | Shadcn-Svelte `Spinner` inside `Button` | Pending |
+| Loading spinner | [`design/feedback/loading-spinner.md`](design/feedback/loading-spinner.md) | Shadcn-Svelte `Spinner` | Migrated |
+| Loading on button | [`design/feedback/loading-on-button.md`](design/feedback/loading-on-button.md) | Shadcn-Svelte `Spinner` inside `Button` | Migrated |
 | Page loading | `design/feedback/page-loading.md` | Custom overlay + `Spinner` | Pending |
 | Highlighted text / required asterisk | `design/text/highlighted-text.md` | Text utility/composition | Pending |
 | Keyboard hint | `design/text/kbd.md` | Shadcn-Svelte `Kbd` | Pending |

@@ -26,6 +26,12 @@ Current migrated component docs:
 - `design/overlays/alert.md`
 - `design/navigation/tabs.md`
 - `design/containers/card.md`
+- `design/status/status-indicator.md`
+- `design/status/tag.md`
+- `design/status/deprecated-badge.md`
+- `design/overlays/toast.md`
+- `design/feedback/loading-spinner.md`
+- `design/feedback/loading-on-button.md`
 
 ## Goal
 
@@ -168,7 +174,7 @@ Because `card.md` is migrated, the screen must demonstrate compact `rounded-sm b
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Alert, Tabs, and Card components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Status Indicator, Tag, Deprecated Badge, Alert, Toast, Loading Spinner, Loading On Button, Tabs, and Card components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -186,7 +192,7 @@ Follow these visual decisions from the docs:
 - Focus ring: `ring-coollabs` in light mode and `dark:ring-warning` in dark mode.
 - Highlighted button may use purple fill/hover in dark mode because it is a documented exception.
 - Destructive button uses red/error styling.
-- Loading spinner inside a button inherits light-mode text color and uses `dark:text-warning` in dark mode. Disabled/loading buttons must remain clearly visible in light mode.
+- Loading spinner inside a text button comes after the label (`Saving <Spinner />`), inherits light-mode text color, and uses `dark:text-warning` in dark mode. Disabled/loading buttons must remain clearly visible in light mode.
 - Dropdown content uses `border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-200`.
 - Dropdown items use `text-xs py-1 pl-2 pr-4 gap-2`; touch items use `min-h-10 px-3 py-2 text-sm`.
 - Inputs use inset `box-shadow` rather than borders, with a 4px focus/dirty bar and no shadow when disabled/readonly.
@@ -200,6 +206,10 @@ Follow these visual decisions from the docs:
 - Alerts are compact bordered p-3 inline surfaces.
 - Tabs use h-8 px-2 rounded-sm triggers with clear active state.
 - Cards use rounded-sm border p-4 and no heavy shadow.
+- Status Indicators use size-2 semantic dots with text.
+- Tags and Deprecated Badges build on Badge density.
+- Toasts are compact bordered rounded-sm Sonner-style surfaces.
+- Loading states use size-4 Spinner and Button + label-then-spinner composition with aria-busy.
 
 ## Deliverables
 
