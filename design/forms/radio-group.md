@@ -88,7 +88,7 @@ hover: row hover background must not touch text edges because row has px-2 py-1
 
 ```txt
 row: flex max-w-full cursor-pointer flex-row items-center gap-4 rounded-sm px-2 py-1 hover:bg-neutral-100 dark:hover:bg-coolgray-100
-control: grid size-4 place-items-center rounded-full border border-neutral-300 bg-white outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-coollabs peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-coolgray-100 dark:peer-focus-visible:ring-warning dark:peer-focus-visible:ring-offset-base
+control: grid size-4 place-items-center rounded-full border border-neutral-300 bg-white outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-coollabs peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-coolgray-100 dark:peer-focus-visible:ring-warning dark:peer-focus-visible:ring-offset-app-base
 indicator: size-2 rounded-full bg-coollabs dark:bg-warning
 label: text-sm text-black dark:text-white
 description: text-xs text-neutral-500 dark:text-neutral-400
@@ -115,7 +115,7 @@ bunx shadcn-svelte@latest add radio-group
 Recommended control classes:
 
 ```txt
-size-4 shrink-0 cursor-pointer rounded-full border border-neutral-300 bg-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 dark:border-neutral-700 dark:bg-coolgray-100 dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+size-4 shrink-0 cursor-pointer rounded-full border border-neutral-300 bg-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60 dark:border-neutral-700 dark:bg-coolgray-100 dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base
 ```
 
 Checked indicator:

@@ -85,8 +85,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
@@ -104,7 +104,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Uses Shadcn-Svelte `Sheet` as the base and opens from the right.
 - [ ] Panel uses `fixed inset-y-0 right-0`, `w-screen`, `max-w-xl`, and a left border.
-- [ ] Surface is `bg-neutral-50 dark:bg-base` or the current mockup-equivalent sheet surface, not a floating card background.
+- [ ] Surface is `bg-neutral-50 dark:bg-app-base` or the current mockup-equivalent sheet surface, not a floating card background.
 - [ ] Header contains title `text-base font-bold text-black dark:text-white`, optional muted description, and an accessible close button.
 - [ ] Body is scrollable independently when content exceeds viewport height; header/footer remain usable.
 - [ ] Footer actions use Button variants, align right, and wrap on narrow widths.

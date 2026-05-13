@@ -5,6 +5,7 @@ description: Full viewport application shell using the Coolify sidebar navbar an
 colors:
   page-light: "#f9fafb"
   base: "#101010"
+  appBase: "#101010"
   surface: "#ffffff"
   text: "#000000"
   muted: "#737373"
@@ -39,7 +40,7 @@ components:
     backgroundColor: "{colors.page-light}"
     textColor: "{colors.text}"
   app-shell-dark:
-    backgroundColor: "{colors.base}"
+    backgroundColor: "{colors.appBase}"
     textColor: "{colors.muted}"
 ---
 
@@ -53,7 +54,7 @@ Base composition: `design/navigation/sidebar-navbar.md` for the sidebar, `design
 
 ## Colors
 
-- Shell background: `bg-gray-50 dark:bg-base`.
+- Shell background: `bg-gray-50 dark:bg-app-base`.
 - Sidebar follows `design/navigation/sidebar-navbar.md` exactly.
 - Main content cards use `bg-white dark:bg-coolgray-100` with neutral/coolgray borders.
 - Active states in dark mode use yellow, not purple.
@@ -83,7 +84,7 @@ If the main view does not render breadcrumbs, reduce the main region's top paddi
 ## Exact Layout Recipe
 
 ```txt
-page-shell: min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]
+page-shell: min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]
 main-region-with-breadcrumbs: min-w-0 px-6 py-8
 main-region-without-breadcrumbs: min-w-0 px-6 pb-8 pt-5
 main-inner: mx-auto max-w-6xl
@@ -101,7 +102,7 @@ content-card: rounded-sm border border-neutral-200 bg-white p-4 dark:border-cool
 ## Exact Classes
 
 ```txt
-shell: min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]
+shell: min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]
 main-with-breadcrumbs: min-w-0 px-6 py-8
 main-without-breadcrumbs: min-w-0 px-6 pb-8 pt-5
 inner: mx-auto max-w-6xl
@@ -132,8 +133,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
@@ -162,7 +163,7 @@ In the mockup app, the shared top selector remains visible above every page. Rea
 - [ ] Pages without breadcrumbs do not leave an empty breadcrumb-height gap above the title.
 - [ ] Content cards use neutral borders and `rounded-sm`.
 - [ ] Mobile layout stacks without horizontal overflow.
-- [ ] Dark mode uses `dark:bg-base`, `dark:bg-coolgray-100`, and yellow active/focus accents.
+- [ ] Dark mode uses `dark:bg-app-base`, `dark:bg-coolgray-100`, and yellow active/focus accents.
 
 ## Claude Improvement Notes
 

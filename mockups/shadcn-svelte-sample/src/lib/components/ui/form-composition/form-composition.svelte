@@ -22,16 +22,16 @@
     <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Update the resource name, public domain, and contact validation examples.</p>
   </div>
   <FormField forId="name" label="Name" required helper="Used in resource lists and URLs." error={nameError || undefined}>
-    <Input id="name" class="dark:bg-base" bind:value={name} dirty={name.length > 0} aria-invalid={!!nameError} placeholder="production-api" />
+    <Input id="name" class="dark:bg-app-base" bind:value={name} dirty={name.length > 0} aria-invalid={!!nameError} placeholder="production-api" />
   </FormField>
   <FormField forId="domain" label="Domain" helper="Public hostname for this resource." error={domainError || undefined}>
-    <Input id="domain" class="dark:bg-base" bind:value={domain} dirty={domain !== "api.example.com"} aria-invalid={!!domainError} />
+    <Input id="domain" class="dark:bg-app-base" bind:value={domain} dirty={domain !== "api.example.com"} aria-invalid={!!domainError} />
   </FormField>
   <FormField forId="email" label="Notification email" required helper="Receives deployment and validation alerts." error={emailError || undefined}>
-    <Input id="email" class="dark:bg-base" type="email" bind:value={email} dirty={email !== "ops@example.com"} aria-invalid={!!emailError} />
+    <Input id="email" class="dark:bg-app-base" type="email" bind:value={email} dirty={email !== "ops@example.com"} aria-invalid={!!emailError} />
   </FormField>
   <FormField forId="phone" label="Escalation phone" helper="Optional international number for urgent alerts." error={phoneError || undefined}>
-    <Input id="phone" class="dark:bg-base" type="tel" bind:value={phone} dirty={phone !== "+1 555 123 4567"} aria-invalid={!!phoneError} />
+    <Input id="phone" class="dark:bg-app-base" type="tel" bind:value={phone} dirty={phone !== "+1 555 123 4567"} aria-invalid={!!phoneError} />
   </FormField>
   <div class="flex items-center justify-between border-t border-neutral-200 pt-3 dark:border-coolgray-300"><p class="text-xs text-neutral-500 dark:text-neutral-400">Dirty fields show the left accent bar.</p><Button variant="highlighted" disabled={!canSave}>Save</Button></div>
 </form>

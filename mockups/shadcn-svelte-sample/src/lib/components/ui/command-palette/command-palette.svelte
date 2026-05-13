@@ -12,7 +12,7 @@
   <div class="fixed inset-0 z-50 flex items-start justify-center p-4 pt-24">
     <button class="absolute inset-0 cursor-default bg-black/60" aria-label="Close command palette" onclick={close}></button>
     <section class="relative z-10 w-full max-w-xl rounded-sm border border-neutral-200 bg-white p-3 shadow-xl dark:border-coolgray-300 dark:bg-coolgray-100" aria-label="Command palette">
-      <div class="flex items-center gap-2"><Input class="dark:bg-base" bind:value={query} placeholder="Search commands, resources, settings..." autofocus /><Kbd>Esc</Kbd></div>
+      <div class="flex items-center gap-2"><Input class="dark:bg-app-base" bind:value={query} placeholder="Search commands, resources, settings..." autofocus /><Kbd>Esc</Kbd></div>
       <div class="mt-3 max-h-80 overflow-y-auto border-t border-neutral-200 pt-2 dark:border-coolgray-300">
         {#each filtered as item}
           <button class="flex w-full items-center justify-between rounded-sm px-2 py-2 text-left text-sm text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200" onclick={close}><span>{item}</span><span class="text-xs text-neutral-500">↵</span></button>

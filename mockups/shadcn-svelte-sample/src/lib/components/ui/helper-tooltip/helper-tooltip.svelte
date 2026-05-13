@@ -6,7 +6,7 @@
 <span class="relative inline-flex">
   <button
     type="button"
-    class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base"
+    class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
     aria-label="Show help"
     onclick={() => (open = !open)}
     onmouseenter={() => (open = true)}

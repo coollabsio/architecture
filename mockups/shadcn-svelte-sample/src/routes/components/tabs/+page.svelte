@@ -17,7 +17,7 @@
       <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Compact section navigation inside one service context.</p>
     </div>
 
-    <div class="rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <Tabs {items} bind:value={active}>
         <div slot="default" let:value class="rounded-sm border border-neutral-200 bg-white p-3 dark:border-coolgray-300 dark:bg-coolgray-100">
           {#if value === 'overview'}

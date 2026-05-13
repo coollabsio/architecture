@@ -15,7 +15,7 @@
       <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">This is covered in Button, but separated here for accessibility and composition guidance.</p>
     </div>
 
-    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <div class="flex flex-wrap gap-2">
         <Button disabled={loading} aria-busy={loading ? "true" : undefined}>
           {loading ? "Saving" : "Save"}

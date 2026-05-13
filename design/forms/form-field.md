@@ -149,7 +149,7 @@ error: mt-1 text-xs text-error
 ```txt
 label: text-sm font-medium text-black dark:text-white
 required-marker: font-bold text-coollabs dark:text-warning
-helper-trigger: inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+helper-trigger: inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base
 tooltip-content: z-50 w-max max-w-[min(20rem,calc(100vw-2rem))] rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm
 description: mt-1 text-xs text-neutral-500 dark:text-neutral-400
 error: mt-1 text-xs text-error
@@ -215,7 +215,7 @@ Use an information icon, not an eye icon. Recommended icon shape is a filled acc
 Trigger class:
 
 ```txt
-inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base
 ```
 
 Icon class:
@@ -262,8 +262,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.

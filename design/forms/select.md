@@ -84,7 +84,7 @@ Select colors match Input:
 - **Focus/dirty left bar:** `coollabs` purple in light mode, `warning` yellow in dark mode.
 - **Chevron:** black in light mode, white in dark mode.
 - **Disabled:** flat muted background and muted text; no inset shadow.
-- **Gray/neutral panel contrast:** selects must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` selects directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-base` for the parent card, or use `dark:bg-base` for the select in that local gray-panel context.
+- **Gray/neutral panel contrast:** selects must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` selects directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-app-base` for the parent card, or use `dark:bg-app-base` for the select in that local gray-panel context.
 
 Do not use a normal `border` utility for the main select outline.
 
@@ -117,8 +117,8 @@ Selects inside gray/neutral sections must not blend into the container. Use thes
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + select bg-white
-dark base form card: parent dark:bg-base + select dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + select dark:bg-base
+dark app-base form card: parent dark:bg-app-base + select dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + select dark:bg-app-base
 ```
 
 Follow the same context-contrast rule as `design/forms/input.md`.
@@ -130,14 +130,14 @@ wrapper: relative w-full
 select: block w-full appearance-none rounded-sm border-0 px-2 py-1.5 pr-10 text-sm
 chevron-position: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2
 chevron-svg: two paths, stroke-width=1.5, stroke=currentColor, no single down chevron
-gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base when the parent is dark:bg-coolgray-100
 ```
 
 ## Exact Classes
 
 ```txt
 select-base: block w-full appearance-none rounded-sm border-0 bg-white px-2 py-1.5 pr-10 text-sm text-black focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400
-gray-panel-contrast: use bg-white on light gray panels; use dark:bg-base when the parent is dark:bg-coolgray-100
+gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base when the parent is dark:bg-coolgray-100
 chevron: pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white
 shadow: use Input exact shadow/focus/dirty classes
 ```
@@ -295,7 +295,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Disabled state removes the inset shadow entirely.
 - [ ] Chevron matches Dropdown trigger: two separate up/down paths, `size-4`, `stroke-width=1.5`, black in light mode, white in dark mode.
 - [ ] Select reserves `pr-10` / `2.5rem` for the chevron.
-- [ ] Selects on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-base`).
+- [ ] Selects on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-app-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-app-base`).
 - [ ] No single down chevron, normal border/ring outline, large radius, or heavy shadow introduced.
 
 ## Claude Improvement Notes

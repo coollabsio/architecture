@@ -20,7 +20,7 @@
       <h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">Searchable dropdown sample</h1>
       <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Combobox-style dropdown for longer option lists.</p>
     </div>
-    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <SearchableDropdown bind:value {options} placeholder="Select environment" searchPlaceholder="Search environments..." />
       <p class="text-sm text-neutral-600 dark:text-neutral-400">Selected value: <span class="font-mono text-black dark:text-white">{value}</span></p>
     </div>

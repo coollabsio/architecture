@@ -21,7 +21,7 @@
       <div class="relative inline-flex">
         <button
           type="button"
-          class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base"
+          class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
           aria-label={`${label} help`}
           aria-expanded={tooltipOpen}
           onmouseenter={() => (tooltipOpen = true)}

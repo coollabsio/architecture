@@ -26,7 +26,7 @@
   />
   <button
     type="button"
-    class="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-2 text-neutral-500 outline-none hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base"
+    class="absolute inset-y-0 right-0 flex cursor-pointer items-center pr-2 text-neutral-500 outline-none hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
     aria-label={visible ? "Hide password" : "Show password"}
     aria-pressed={visible}
     onclick={() => (visible = !visible)}

@@ -114,7 +114,7 @@ copied-feedback: swap icon to green check, do not resize field
 ```txt
 wrapper: relative
 input-extension: pr-11
-button: absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base
+button: absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base
 copy-icon: size-5
 success-icon: size-5 text-green-500
 ```
@@ -147,7 +147,7 @@ Recommended implementation shape:
   {#if isSecure}
     <button
       type="button"
-      class="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-base"
+      class="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
       title="Copy to clipboard"
       aria-label="Copy to clipboard"
     >
@@ -195,8 +195,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.

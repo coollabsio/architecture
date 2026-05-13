@@ -15,6 +15,7 @@ colors:
   coolgray-200: "#202020"
   coolgray-300: "#242424"
   base: "#101010"
+  appBase: "#101010"
   white: "#ffffff"
 typography:
   nav-sm:
@@ -50,7 +51,7 @@ components:
     textColor: "{colors.muted}"
     typography: "{typography.nav-sm}"
   sidebar-dark:
-    backgroundColor: "{colors.base}"
+    backgroundColor: "{colors.appBase}"
     textColor: "{colors.neutral-400}"
     typography: "{typography.nav-sm}"
   nav-item:
@@ -121,13 +122,13 @@ Desktop layout:
 Recommended shell:
 
 ```txt
-min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[16rem_1fr]
+min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400 lg:grid lg:grid-cols-[16rem_1fr]
 ```
 
 Sidebar:
 
 ```txt
-relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
+relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400
 ```
 
 The sidebar itself must be `relative` and should not be clipped by an ancestor at the sidebar/main border. If a parent shell uses `overflow-hidden`, verify the collapse trigger remains visible.
@@ -171,9 +172,9 @@ Mobile:
 ## Exact Layout Recipe
 
 ```txt
-shell: min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[16rem_1fr]
-sidebar-expanded: relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
-sidebar-collapsed: relative flex min-h-screen w-16 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
+shell: min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400 lg:grid lg:grid-cols-[16rem_1fr]
+sidebar-expanded: relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400
+sidebar-collapsed: relative flex min-h-screen w-16 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400
 header-expanded: flex items-start gap-2 px-2 pb-4 pt-6
 header-collapsed: flex flex-col items-center gap-2 px-0 pb-4 pt-6
 brand-name: block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white
@@ -203,7 +204,7 @@ focus: focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-
 ## Exact Classes
 
 ```txt
-collapse-trigger: absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
+collapse-trigger: absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-app-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
 collapse-chevron: size-3.5 transition-transform
 collapse-chevron-collapsed: rotate-180
 collapse-chevron-svg: viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
@@ -299,7 +300,7 @@ Sidebar must include an internal collapse/expand trigger positioned on the borde
 Recommended trigger classes:
 
 ```txt
-absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
+absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-app-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
 ```
 
 Exact icon:

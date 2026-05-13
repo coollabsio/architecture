@@ -12,6 +12,7 @@ colors:
   coolgray-200: "#202020"
   coolgray-300: "#242424"
   base: "#101010"
+  appBase: "#101010"
   white: "#ffffff"
 typography:
   page-title:
@@ -31,7 +32,7 @@ spacing:
   section-gap: 1rem
 components:
   main-view-coolify:
-    backgroundColor: "{colors.base}"
+    backgroundColor: "{colors.appBase}"
     textColor: "{colors.white}"
     typography: "{typography.body-sm}"
   split-view-panel:
@@ -151,7 +152,7 @@ header: mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
 spec-label: mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning
 page-title: text-3xl font-bold tracking-tight text-black dark:text-white
 page-description: mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400
-layout-stage: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base
+layout-stage: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base
 ```
 
 ## Exact Classes
@@ -194,8 +195,8 @@ When a main view renders `Input`, search fields, `Select`, or `Textarea` inside 
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rules from `design/forms/input.md`, `design/forms/select.md`, and `design/forms/textarea.md`.

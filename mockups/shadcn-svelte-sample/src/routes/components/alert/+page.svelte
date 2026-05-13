@@ -13,7 +13,7 @@
       <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Compact inline notices for operational feedback.</p>
     </div>
 
-    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <Alert title="Deployment ready"><span slot="icon">i</span>The latest image was built and is ready to deploy.</Alert>
       <Alert variant="success" title="Backup completed"><span slot="icon">✓</span>The database backup finished 2 minutes ago.</Alert>
       <Alert variant="warning" title="Resource limit close"><span slot="icon">!</span>This server is using 86% of its memory limit.</Alert>

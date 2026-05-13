@@ -24,7 +24,7 @@
       <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Secondary resource navigation based on Coolify's sub-menu pattern. Use vertical for settings/config pages and horizontal for compact top-level resource sections.</p>
     </div>
 
-    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <div>
         <h2 class="mb-2 text-base font-bold text-black dark:text-white">Vertical</h2>
         <div class="flex flex-col gap-8 rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100 sm:flex-row">

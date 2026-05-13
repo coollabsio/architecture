@@ -48,7 +48,7 @@ Use Shadcn-Svelte primitives as the base: `Button`, `Input`/`PasswordInput` wher
 
 ## Colors
 
-Use `bg-gray-50 dark:bg-base` for the full auth page. Inputs and callouts use neutral surfaces with visible dark contrast. Links use purple in light mode and yellow in dark mode on hover/focus.
+Use `bg-gray-50 dark:bg-app-base` for the full auth page. Inputs and callouts use neutral surfaces with visible dark contrast. Links use purple in light mode and yellow in dark mode on hover/focus.
 
 ## Typography
 
@@ -59,7 +59,7 @@ Brand uses `text-5xl font-extrabold tracking-tight`. Subtitles use `text-lg text
 Use a centered full-page auth shell:
 
 ```txt
-min-h-screen bg-gray-50 px-6 py-8 dark:bg-base
+min-h-screen bg-gray-50 px-6 py-8 dark:bg-app-base
 mx-auto w-full max-w-md space-y-8
 ```
 
@@ -74,9 +74,9 @@ h-12 w-full justify-center py-3 text-base font-bold
 Use the shared Coolify auth shell exactly for auth pages:
 
 ```txt
-page: min-h-screen bg-gray-50 px-6 py-8 dark:bg-base
+page: min-h-screen bg-gray-50 px-6 py-8 dark:bg-app-base
 outer: mx-auto flex min-h-[calc(100vh-4rem)] max-w-3xl items-center justify-center
-sample-frame: w-full rounded-sm border border-neutral-200 bg-gray-50 p-4 dark:border-coolgray-300 dark:bg-base
+sample-frame: w-full rounded-sm border border-neutral-200 bg-gray-50 p-4 dark:border-coolgray-300 dark:bg-app-base
 auth-column: mx-auto w-full max-w-md space-y-8 text-black dark:text-white
 brand-wrap: space-y-2 text-center
 brand: text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white
@@ -87,7 +87,7 @@ primary-auth-button: h-12 w-full justify-center py-3 text-base font-bold
 secondary-link-button: block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
 divider-wrap: relative my-6
 divider-line: w-full border-t border-neutral-300 dark:border-coolgray-300
-divider-label: bg-gray-50 px-2 text-sm text-neutral-500 dark:bg-base dark:text-neutral-400
+divider-label: bg-gray-50 px-2 text-sm text-neutral-500 dark:bg-app-base dark:text-neutral-400
 ```
 
 ## Exact Classes
@@ -122,8 +122,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.

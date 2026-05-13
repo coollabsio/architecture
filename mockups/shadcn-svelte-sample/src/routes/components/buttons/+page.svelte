@@ -18,7 +18,7 @@
       </p>
     </div>
 
-    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <div>
         <h2 class="mb-2 text-base font-bold text-black dark:text-white">Variants</h2>
         <div class="flex flex-wrap items-center gap-2">
@@ -63,7 +63,7 @@
         </a>
       </div>
 
-      <div class="rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+      <div class="rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
         <h2 class="mb-1 text-base font-bold text-black dark:text-white">Spec notes</h2>
         <ul class="list-inside list-disc space-y-1 text-xs text-neutral-600 dark:text-neutral-400">
           <li>Base button uses h-8, px-2, gap-2, text-sm, font-medium, rounded-sm, cursor-pointer.</li>

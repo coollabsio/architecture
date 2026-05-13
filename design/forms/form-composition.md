@@ -44,7 +44,7 @@ Validation examples should cover more than one field type when documenting a for
 
 ## Colors
 
-Use neutral light surfaces and Coolify coolgray dark surfaces. In dark mode, this sample intentionally uses a lighter `dark:bg-coolgray-100` form card on a `dark:bg-coolgray-200` stage, so the inputs must switch to `dark:bg-base` for contrast. If a form instead uses a `dark:bg-base` card, default `dark:bg-coolgray-100` inputs are acceptable. Never let form controls blend into a same-color gray background. Purple is the light-mode accent; warning yellow is the dark-mode accent. Errors use red/error.
+Use neutral light surfaces and Coolify coolgray dark surfaces. In dark mode, this sample intentionally uses a lighter `dark:bg-coolgray-100` form card on a `dark:bg-coolgray-200` stage, so the inputs must switch to `dark:bg-app-base` for contrast. If a form instead uses a `dark:bg-app-base` card, default `dark:bg-coolgray-100` inputs are acceptable. Never let form controls blend into a same-color gray background. Purple is the light-mode accent; warning yellow is the dark-mode accent. Errors use red/error.
 
 ## Typography
 
@@ -52,7 +52,7 @@ Use compact `text-sm` body text. Labels are medium weight; errors are `text-xs t
 
 ## Layout
 
-Keep spacing compact. Overlays use centered/floating surfaces with neutral borders. Forms use a compact section title/description, vertical field stacks, and a bottom save/action row when needed. For the lighter form-card sample, place `dark:bg-base` inputs/textareas on the `dark:bg-coolgray-100` form body.
+Keep spacing compact. Overlays use centered/floating surfaces with neutral borders. Forms use a compact section title/description, vertical field stacks, and a bottom save/action row when needed. For the lighter form-card sample, place `dark:bg-app-base` inputs/textareas on the `dark:bg-coolgray-100` form body.
 
 ## Exact Layout Recipe
 
@@ -64,7 +64,7 @@ title: text-base font-bold text-black dark:text-white
 description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
 field-stack: space-y-4
 field: use FormField exact classes
-input: use Input exact classes with dark:bg-base when inside this dark:bg-coolgray-100 form card
+input: use Input exact classes with dark:bg-app-base when inside this dark:bg-coolgray-100 form card
 input-on-gray-panel: use design/forms/input.md context contrast rule
 textarea-on-gray-panel: use design/forms/textarea.md context contrast rule
 action-row: flex items-center justify-between border-t border-neutral-200 pt-3 dark:border-coolgray-300
@@ -77,7 +77,7 @@ submit: Button highlighted, h-8 unless auth page says h-12
 ```txt
 stage: rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-coolgray-200
 form: space-y-4 rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
-form-input: dark:bg-base when inside the dark:bg-coolgray-100 form
+form-input: dark:bg-app-base when inside the dark:bg-coolgray-100 form
 header: border-b border-neutral-200 pb-3 dark:border-coolgray-300
 title: text-base font-bold text-black dark:text-white
 description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
@@ -116,13 +116,13 @@ Standalone form card baseline used by the mockup:
 ```txt
 stage: rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-coolgray-200
 form: rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
-inputs: dark:bg-base
+inputs: dark:bg-app-base
 ```
 
 ## Review Checklist
 
 - [ ] Section title is present when the form appears as a standalone card.
-- [ ] Dark standalone form sample uses lighter `dark:bg-coolgray-100` card on `dark:bg-coolgray-200` stage, with `dark:bg-base` inputs for contrast.
+- [ ] Dark standalone form sample uses lighter `dark:bg-coolgray-100` card on `dark:bg-coolgray-200` stage, with `dark:bg-app-base` inputs for contrast.
 - [ ] Inputs and textareas on gray/coolgray panels use the context contrast rules from their component specs.
 - [ ] Domain, email, and phone/tel examples include validation, not only dirty state.
 - [ ] Accessible labels and states are present.

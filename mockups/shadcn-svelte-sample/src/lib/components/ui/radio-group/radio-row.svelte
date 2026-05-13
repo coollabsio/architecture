@@ -28,7 +28,7 @@
   <span class="relative inline-grid size-4 shrink-0 place-items-center">
     <input class="peer sr-only" type="radio" {name} bind:group={value} value={optionValue} {disabled} />
     <span
-      class="grid size-4 place-items-center rounded-full border border-neutral-300 bg-white outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-coollabs peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-coolgray-100 dark:peer-focus-visible:ring-warning dark:peer-focus-visible:ring-offset-base"
+      class="grid size-4 place-items-center rounded-full border border-neutral-300 bg-white outline-none peer-focus-visible:ring-2 peer-focus-visible:ring-coollabs peer-focus-visible:ring-offset-2 peer-disabled:cursor-not-allowed dark:border-neutral-700 dark:bg-coolgray-100 dark:peer-focus-visible:ring-warning dark:peer-focus-visible:ring-offset-app-base"
       aria-hidden="true"
     >
       {#if value === optionValue}

@@ -15,7 +15,7 @@
 
 <svelte:head><title>Full application page</title></svelte:head>
 
-<main class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]">
+<main class="min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400 lg:grid lg:grid-cols-[auto_1fr]">
   <SidebarNavbar bind:collapsed />
 
   <section class="min-w-0 px-6 py-8">
@@ -57,15 +57,15 @@
             <div class="grid gap-4 md:grid-cols-2">
               <label class="space-y-1 text-sm font-medium text-black dark:text-white">
                 <span>Service name</span>
-                <Input class="dark:bg-base" value="api" />
+                <Input class="dark:bg-app-base" value="api" />
               </label>
               <label class="space-y-1 text-sm font-medium text-black dark:text-white">
                 <span>Public domain</span>
-                <Input class="dark:bg-base" value="api.example.com" />
+                <Input class="dark:bg-app-base" value="api.example.com" />
               </label>
               <label class="space-y-1 text-sm font-medium text-black dark:text-white md:col-span-2">
                 <span>Repository</span>
-                <Input class="dark:bg-base" value="github.com/coollabs/api:main" readonly />
+                <Input class="dark:bg-app-base" value="github.com/coollabs/api:main" readonly />
               </label>
             </div>
           </Card>
@@ -90,9 +90,9 @@
               <CardDescription>Runtime metadata.</CardDescription>
             </CardHeader>
             <dl class="space-y-3">
-              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Region</dt><dd class="text-sm font-medium text-black dark:text-white">EU</dd></div>
-              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Replicas</dt><dd class="text-sm font-medium text-black dark:text-white">3</dd></div>
-              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Last deploy</dt><dd class="text-sm font-medium text-black dark:text-white">8 min ago</dd></div>
+              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Region</dt><dd class="text-sm font-medium text-black dark:text-white">EU</dd></div>
+              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Replicas</dt><dd class="text-sm font-medium text-black dark:text-white">3</dd></div>
+              <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base"><dt class="text-xs text-neutral-500 dark:text-neutral-400">Last deploy</dt><dd class="text-sm font-medium text-black dark:text-white">8 min ago</dd></div>
             </dl>
           </Card>
 

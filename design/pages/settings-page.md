@@ -70,9 +70,9 @@ This is a page composition built from Shadcn-Svelte primitives: `Button`, `Input
 
 ## Colors
 
-- **Page background:** `bg-gray-50 dark:bg-base`.
+- **Page background:** `bg-gray-50 dark:bg-app-base`.
 - **Primary settings sections:** `bg-white dark:bg-coolgray-100` with neutral/coolgray border.
-- **Nested preview/read-only blocks:** `bg-gray-50 dark:bg-base`.
+- **Nested preview/read-only blocks:** `bg-gray-50 dark:bg-app-base`.
 - **Normal actions:** default Button from `design/forms/button.md`.
 - **Primary save action:** highlighted Button from `design/forms/button.md`.
 - **Danger zone:** neutral surface with red/destructive text and destructive buttons only for final actions.
@@ -127,8 +127,8 @@ section-title: text-base font-bold text-black dark:text-white
 section-description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
 field-grid: grid gap-4 md:grid-cols-2
 field-stack: space-y-4
-readonly-row: flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 text-sm dark:bg-base
-switch-row: flex items-start justify-between gap-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base
+readonly-row: flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 text-sm dark:bg-app-base
+switch-row: flex items-start justify-between gap-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base
 danger-section: rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100
 danger-title: text-base font-bold text-red-700 dark:text-red-300
 danger-description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
@@ -208,8 +208,8 @@ When this spec renders `Input`, `PasswordInput`, command/search input, or `Texta
 
 ```txt
 light gray panel: parent bg-gray-50 or bg-neutral-100 + control bg-white
-dark base panel: parent dark:bg-base + control dark:bg-coolgray-100
-dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-base
+dark app-base panel: parent dark:bg-app-base + control dark:bg-coolgray-100
+dark gray panel: parent dark:bg-coolgray-100 + control dark:bg-app-base
 ```
 
 Follow the exact context-contrast rule from `design/forms/input.md` and `design/forms/textarea.md`.
@@ -233,7 +233,7 @@ Persist settings through app-specific forms/actions/API calls. This design only 
 ## Review Checklist
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
-- [ ] Page uses `max-w-6xl px-6 py-10` and `bg-gray-50 dark:bg-base` from the surrounding app shell.
+- [ ] Page uses `max-w-6xl px-6 py-10` and `bg-gray-50 dark:bg-app-base` from the surrounding app shell.
 - [ ] Header has `text-3xl font-bold tracking-tight` title, `text-sm` description, Reset, and one highlighted Save button.
 - [ ] Main content uses `grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]`.
 - [ ] Settings sections use `rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100`.

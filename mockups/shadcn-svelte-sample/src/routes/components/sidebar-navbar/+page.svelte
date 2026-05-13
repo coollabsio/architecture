@@ -19,7 +19,7 @@
       </div>
     </div>
 
-    <div class="overflow-hidden rounded-sm border border-neutral-200 bg-gray-50 dark:border-coolgray-300 dark:bg-base lg:grid lg:grid-cols-[auto_1fr]">
+    <div class="overflow-hidden rounded-sm border border-neutral-200 bg-gray-50 dark:border-coolgray-300 dark:bg-app-base lg:grid lg:grid-cols-[auto_1fr]">
       <SidebarNavbar bind:collapsed />
 
       <div class="min-w-0 p-4">

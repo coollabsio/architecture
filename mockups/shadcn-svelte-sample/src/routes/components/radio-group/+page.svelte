@@ -16,7 +16,7 @@
     </div>
 
     <div class="grid gap-4 md:grid-cols-[1fr_16rem]">
-      <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+      <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
         <div>
           <h2 class="mb-2 text-base font-bold text-black dark:text-white">Deployment strategy</h2>
           <RadioGroup name="strategy" bind:value={strategy} options={[

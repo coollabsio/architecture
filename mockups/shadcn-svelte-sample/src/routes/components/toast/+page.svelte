@@ -43,7 +43,7 @@
       <p class="mt-1 text-sm text-neutral-600 dark:text-neutral-400">Compact Sonner-style notifications with static previews and a working trigger.</p>
     </div>
 
-    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+    <div class="space-y-3 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
       <ToastPreview title="Settings saved" description="Environment variables were updated." />
       <ToastPreview variant="success" title="Deployment queued" description="The worker picked up the new build." />
       <ToastPreview variant="warning" title="Memory limit close" description="Server usage is above 85%." />

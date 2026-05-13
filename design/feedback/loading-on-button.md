@@ -63,7 +63,7 @@ button-loading: keep text visible, place spinner after text
 spinner: size-4 animate-spin text-current
 inline-loading: flex items-center gap-2 text-sm font-medium text-black dark:text-white
 skeleton: animate-pulse rounded-sm bg-neutral-200 dark:bg-coolgray-200
-page-loading-stack: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base
+page-loading-stack: space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base
 ```
 
 ## Elevation & Depth

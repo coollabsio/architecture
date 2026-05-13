@@ -46,19 +46,19 @@
 
         <div class="grid gap-4 md:grid-cols-2">
           <FormField forId="app-name" label="Application name" helper="Shown in the sidebar brand, auth pages, emails, and browser title.">
-            <Input id="app-name" class="dark:bg-base" bind:value={appName} dirty />
+            <Input id="app-name" class="dark:bg-app-base" bind:value={appName} dirty />
           </FormField>
 
           <FormField forId="public-url" label="Public URL" helper="Canonical URL used for callbacks, generated links, and email actions.">
-            <Input id="public-url" class="dark:bg-base" bind:value={publicUrl} dirty />
+            <Input id="public-url" class="dark:bg-app-base" bind:value={publicUrl} dirty />
           </FormField>
 
           <FormField forId="support-email" label="Support email" description="Used in system emails and account recovery screens.">
-            <Input id="support-email" class="dark:bg-base" type="email" bind:value={supportEmail} />
+            <Input id="support-email" class="dark:bg-app-base" type="email" bind:value={supportEmail} />
           </FormField>
 
           <FormField forId="timezone" label="Default timezone" description="Used for schedules until a user chooses their own timezone.">
-            <NativeSelect id="timezone" class="dark:bg-base" bind:value={timezone}>
+            <NativeSelect id="timezone" class="dark:bg-app-base" bind:value={timezone}>
               <option value="UTC">UTC</option>
               <option value="Europe/Budapest">Europe/Budapest</option>
               <option value="America/New_York">America/New_York</option>
@@ -89,10 +89,10 @@
 
         <div class="grid gap-4 md:grid-cols-2">
           <FormField forId="admin-email" label="Admin notification email" description="Receives update and incident notifications.">
-            <Input id="admin-email" class="dark:bg-base" type="email" value="ops@example.com" />
+            <Input id="admin-email" class="dark:bg-app-base" type="email" value="ops@example.com" />
           </FormField>
           <FormField forId="update-channel" label="Update channel" description="Controls which release notices appear in the dashboard.">
-            <NativeSelect id="update-channel" class="dark:bg-base" value="stable">
+            <NativeSelect id="update-channel" class="dark:bg-app-base" value="stable">
               <option value="stable">Stable</option>
               <option value="preview">Preview</option>
               <option value="none">None</option>
@@ -109,15 +109,15 @@
           <Badge variant="success">Healthy</Badge>
         </div>
         <dl class="space-y-3">
-          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base">
+          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base">
             <dt class="text-xs text-neutral-500 dark:text-neutral-400">Version</dt>
             <dd class="text-sm font-medium text-black dark:text-white">v4.0.0</dd>
           </div>
-          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base">
+          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base">
             <dt class="text-xs text-neutral-500 dark:text-neutral-400">Environment</dt>
             <dd class="text-sm font-medium text-black dark:text-white">Production</dd>
           </div>
-          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-base">
+          <div class="flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 dark:bg-app-base">
             <dt class="text-xs text-neutral-500 dark:text-neutral-400">Last backup</dt>
             <dd class="text-sm font-medium text-black dark:text-white">12 min ago</dd>
           </div>

@@ -42,7 +42,7 @@
   }
 </script>
 
-<aside class={cn("relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400", collapsed ? "w-16" : "w-64")}>
+<aside class={cn("relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400", collapsed ? "w-16" : "w-64")}>
   <div class={cn("flex items-start gap-2 px-2 pb-4 pt-6", collapsed && "flex-col items-center px-0")}>
     {#if collapsed}
       <div class="flex flex-col items-center gap-0.5">
@@ -59,7 +59,7 @@
 
   <button
     type="button"
-    class="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning"
+    class="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-app-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning"
     aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
     aria-expanded={!collapsed}
     title={collapsed ? "Expand sidebar" : "Collapse sidebar"}

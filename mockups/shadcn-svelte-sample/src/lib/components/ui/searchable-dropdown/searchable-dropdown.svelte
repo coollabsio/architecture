@@ -60,7 +60,7 @@
 
   {#if open}
     <div class="absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100">
-      <div class="p-1"><Input class="dark:bg-base" bind:this={searchInput} bind:value={query} placeholder={searchPlaceholder} /></div>
+      <div class="p-1"><Input class="dark:bg-app-base" bind:this={searchInput} bind:value={query} placeholder={searchPlaceholder} /></div>
       <div class="mt-1 max-h-56 overflow-y-auto overscroll-contain" role="listbox">
         {#each filtered as option}
           <button

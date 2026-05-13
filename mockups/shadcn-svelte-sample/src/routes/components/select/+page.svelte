@@ -18,7 +18,7 @@
     </div>
 
     <div class="grid gap-4 md:grid-cols-[1fr_16rem]">
-      <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-base">
+      <div class="space-y-4 rounded-sm border border-neutral-200 bg-gray-50 p-3 dark:border-coolgray-300 dark:bg-app-base">
         <FormField forId="direction" label="Direction" required helper="Choose how incoming domains are normalized.">
           <NativeSelect id="direction" value="allow-www-and-non-www">
             <option value="allow-www-and-non-www">Allow www & non-www.</option>

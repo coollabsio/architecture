@@ -51,7 +51,7 @@
   </script>
 </svelte:head>
 
-<div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400">
+<div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-app-base dark:text-neutral-400">
   <SampleToolbar bind:theme />
   <div class="sm:pt-24 sm:[&>main]:min-h-[calc(100vh-6rem)]">
     <slot />
