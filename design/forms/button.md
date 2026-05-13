@@ -161,6 +161,7 @@ Buttons are compact and dense:
 - Internal gap: `gap-2` / `0.5rem`.
 - Width: `min-w-fit`; do not stretch buttons unless a specific layout requires it.
 - Icon-only size: prefer `size-8` for Coolify density.
+- Icons: text buttons are text-only by default. Do not add leading/trailing icons to ordinary buttons unless the button is one of the documented special cases below.
 
 For navigation links styled as buttons, keep anchor semantics and apply `buttonVariants(...)` rather than nesting anchors inside buttons.
 
@@ -188,6 +189,7 @@ ghost: border-transparent bg-transparent text-black hover:bg-neutral-100 dark:te
 link: border-transparent bg-transparent px-0 text-coollabs hover:underline dark:text-warning
 auth-submit-extension: h-12 w-full justify-center py-3 text-base font-bold
 loading-order: text first, spinner after text
+icon-policy: no icons on normal text buttons by default; icons only for icon-only buttons, loading spinners, external-link affordances, or rare domain-specific actions where the icon materially improves recognition
 ```
 
 ## Elevation & Depth
@@ -327,6 +329,23 @@ Icon-only buttons use Shadcn-Svelte icon sizes and must have an accessible name.
 </Button>
 ```
 
+### Icons in text buttons
+
+Ordinary text buttons should not include icons by default.
+
+Allowed special cases:
+
+- **Icon-only action buttons** such as refresh, close, copy, or collapse controls. They must use `size="icon"`/`size-8` and an accessible name.
+- **Loading state** where the spinner appears after the text label.
+- **External-link or navigation affordance** when the icon clarifies that the action leaves the current context.
+- **Rare domain-specific actions** where the icon is a learned product affordance and improves scan speed.
+
+Disallowed by default:
+
+- Decorative leading icons on Save, Cancel, Deploy, Delete, Reset, Submit, Continue, or ordinary default/highlighted/destructive text buttons.
+- Icons added only to make a button feel more visually busy.
+- Inconsistent icon usage where one button in a group has an icon and equivalent sibling actions do not.
+
 ### Link-styled action
 
 Use `buttonVariants(...)` for anchors that need button styling:
@@ -344,9 +363,12 @@ Use `buttonVariants(...)` for anchors that need button styling:
 - Do keep disabled/loading buttons readable in light mode: `disabled:bg-neutral-100`, `disabled:text-neutral-600`, `disabled:border-neutral-300`.
 - Do keep focus rings purple in light mode and yellow in dark mode.
 - Do use `type="button"` unless the button intentionally submits a form.
+- Do keep ordinary text buttons icon-free by default.
 - Do give icon-only buttons an accessible name with `aria-label` or visible text.
+- Do reserve icons for icon-only controls, loading spinners, external-link affordances, or rare domain-specific actions.
 - Don't use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific paths in button implementations.
 - Don't use raw boolean attributes such as `isHighlighted` or `isError`.
+- Don't add decorative icons to normal text buttons such as Save, Cancel, Deploy, Delete, Reset, Submit, or Continue.
 - Don't add gradients, heavy shadows, large radii, or decorative marketing effects.
 - Don't use purple as the general dark-mode accent outside documented exceptions.
 - Don't place the spinner before the text label on loading text buttons.
@@ -370,7 +392,9 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Focus ring follows `ring-coollabs` light / `dark:ring-warning` dark with `ring-offset-2`.
 - [ ] Loading state uses Shadcn-Svelte `Spinner` inside `Button`.
 - [ ] Button spinner has no light-mode color override and inherits text color.
+- [ ] Normal text buttons are icon-free by default.
 - [ ] Icon-only buttons use `size="icon*"` and have an accessible name.
+- [ ] Any icon inside a text button is justified by an allowed special case: loading spinner, external-link/navigation affordance, or rare domain-specific action.
 - [ ] Disabled/loading state remains readable in light mode.
 - [ ] No undocumented radius, gradient, extra shadow, or extra font weight introduced.
 

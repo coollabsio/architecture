@@ -50,7 +50,7 @@
       </div>
 
       <div>
-        <h2 class="mb-2 text-base font-bold text-black dark:text-white">Anchor using buttonVariants(...)</h2>
+        <h2 class="mb-2 text-base font-bold text-black dark:text-white">Special icon case: external link</h2>
         <a
           href="https://www.shadcn-svelte.com/docs/components/button"
           class={buttonVariants({ variant: "default" })}
@@ -69,6 +69,8 @@
           <li>Base button uses h-8, px-2, gap-2, text-sm, font-medium, rounded-sm, cursor-pointer.</li>
           <li>Focus ring uses coollabs in light mode and warning in dark mode.</li>
           <li>Loading spinner inherits text in light mode and uses dark:text-warning.</li>
+          <li>Normal text buttons do not use icons by default.</li>
+          <li>Icons are reserved for icon-only buttons, loading spinners, external links, or rare domain-specific actions.</li>
           <li>Disabled/loading buttons stay readable with neutral backgrounds and text.</li>
           <li>No legacy boolean styling attributes; variants are Shadcn-style props.</li>
         </ul>
