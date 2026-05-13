@@ -11,6 +11,8 @@
   export let searchPlaceholder = "Search...";
   export let emptyText = "No results found.";
   export let onselect: (option: SearchableDropdownOption) => void = () => {};
+  let className = "";
+  export { className as class };
 
   let open = false;
   let query = "";
@@ -50,7 +52,7 @@
 
 <svelte:window onclick={closeFromOutside} onkeydown={handleKeydown} />
 
-<div bind:this={root} class="relative w-full min-w-52 max-w-sm">
+<div bind:this={root} class={cn("relative w-full min-w-52 max-w-sm", className)}>
   <Button class="w-full justify-between" aria-haspopup="listbox" aria-expanded={open} onclick={openDropdown}>
     <span class={cn("truncate", !selected && "text-neutral-500 dark:text-neutral-400")}>{selected?.label ?? placeholder}</span>
     <svg class="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9L12 5.25 15.75 9" /></svg>

@@ -88,28 +88,45 @@
 </svelte:head>
 
 <div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400">
-  <div class="fixed right-4 top-4 z-10 flex max-w-[calc(100vw-2rem)] flex-wrap items-center justify-end gap-2">
-    <SearchableDropdown
-      bind:value={selectedComponentHref}
-      options={componentOptions}
-      placeholder={selectedComponent?.label ?? "Components"}
-      searchPlaceholder="Search components..."
-      emptyText="No component found."
-      onselect={selectComponentOption}
-    />
+  <div class="fixed right-4 top-4 z-10 grid w-[min(56rem,calc(100vw-2rem))] grid-cols-1 items-end gap-2 sm:grid-cols-[minmax(14rem,1fr)_minmax(14rem,1fr)_auto]">
+    <div class="space-y-1">
+      <div class="flex items-center justify-between gap-2 px-1">
+        <span class="text-[0.7rem] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Components</span>
+        <span class="hidden truncate text-[0.7rem] text-neutral-500 dark:text-neutral-500 sm:block">Reusable primitives</span>
+      </div>
+      <SearchableDropdown
+        class="max-w-none"
+        bind:value={selectedComponentHref}
+        options={componentOptions}
+        placeholder={selectedComponent?.label ?? "Choose component"}
+        searchPlaceholder="Search components..."
+        emptyText="No component found."
+        onselect={selectComponentOption}
+      />
+    </div>
 
-    <SearchableDropdown
-      bind:value={selectedPageHref}
-      options={pageOptions}
-      placeholder={selectedPage?.label ?? "Pages"}
-      searchPlaceholder="Search pages..."
-      emptyText="No page found."
-      onselect={selectPageOption}
-    />
+    <div class="space-y-1">
+      <div class="flex items-center justify-between gap-2 px-1">
+        <span class="text-[0.7rem] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Pages</span>
+        <span class="hidden truncate text-[0.7rem] text-neutral-500 dark:text-neutral-500 sm:block">Complex layouts</span>
+      </div>
+      <SearchableDropdown
+        class="max-w-none"
+        bind:value={selectedPageHref}
+        options={pageOptions}
+        placeholder={selectedPage?.label ?? "Choose page"}
+        searchPlaceholder="Search pages..."
+        emptyText="No page found."
+        onselect={selectPageOption}
+      />
+    </div>
 
-    <Button onclick={toggleTheme} aria-label="Toggle light and dark mode">
-      {theme === "dark" ? "Light mode" : "Dark mode"}
-    </Button>
+    <div class="space-y-1">
+      <span class="block px-1 text-[0.7rem] font-bold uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Theme</span>
+      <Button class="w-full whitespace-nowrap sm:w-auto" onclick={toggleTheme} aria-label="Toggle light and dark mode">
+        {theme === "dark" ? "Light mode" : "Dark mode"}
+      </Button>
+    </div>
   </div>
 
   <slot />
