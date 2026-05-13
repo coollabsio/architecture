@@ -100,4 +100,4 @@ A sidebar link variant can be documented with Sidebar/Navbar.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

@@ -103,5 +103,5 @@ A future lifecycle badge set may include `Beta`, `Preview`, and `Experimental`.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/status/badge.md`

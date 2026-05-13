@@ -25,22 +25,22 @@ Each gets its own file.
 
 | File | Scope |
 |---|---|
-| [`DESIGN.md`](./DESIGN.md) | Coolify design system. Tokens, components, AI review checklist. Tailwind v4 / Laravel + Livewire. |
+| [`DESIGN.md`](./DESIGN.md) | Coolify design system. Split component/page specs for Shadcn-Svelte + Tailwind. |
 
 Signature traits worth knowing before reading:
 
 - **Purple/yellow accent swap** — `coollabs #6b16ed` (light) / `warning #fcd452` (dark). Never purple in dark.
-- **Inset box-shadow inputs** with 4px left "dirty bar" wired via `wire:dirty.class` — focus + modified state in one indicator.
+- **Inset box-shadow inputs** with a 4px left dirty/focus bar — focus + modified state in one indicator.
 - **Sharp 4px radii** everywhere except callouts (8px) and pills (full). No mixed radii per view.
 
-### Validating DESIGN.md
+### Validating design docs
 
-`DESIGN.md` follows the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) spec — YAML frontmatter for machine-readable tokens, Markdown body for rationale. Lint and export with the spec's CLI ([`@google/design.md`](https://www.npmjs.com/package/@google/design.md), exposes `design.md` / `designmd`):
+`DESIGN.md` is the router/index. Component and page files under `design/` follow the [google-labs-code/design.md](https://github.com/google-labs-code/design.md) spec — YAML frontmatter for machine-readable tokens, Markdown body for rationale. Lint/export individual component files with the spec's CLI ([`@google/design.md`](https://www.npmjs.com/package/@google/design.md), exposes `design.md` / `designmd`):
 
 ```bash
-bunx @google/design.md lint DESIGN.md
-bunx @google/design.md export DESIGN.md --format tailwind > theme.json
-bunx @google/design.md export DESIGN.md --format dtcg     > tokens.json
+bunx @google/design.md lint design/forms/button.md
+bunx @google/design.md export design/forms/button.md --format tailwind > theme.json
+bunx @google/design.md export design/forms/button.md --format dtcg     > tokens.json
 ```
 
 Use `bunx` — `npx` chokes on the `.md` suffix in the package name. Spec is alpha; confirm flags via `bunx @google/design.md --help` before wiring into CI.

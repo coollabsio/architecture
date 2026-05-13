@@ -101,5 +101,5 @@ Page-level loading can define placement, overlay, and skeleton strategy separate
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Existing mockup `Spinner`

@@ -53,7 +53,7 @@ components:
 
 ## Overview
 
-The Coolify Alert is a compact Shadcn-Svelte `Alert` primitive for contextual information, warnings, errors, and success messages. It replaces generic callout boxes for migrated V2 screens.
+The Coolify Alert is a compact Shadcn-Svelte `Alert` primitive for contextual information, warnings, errors, and success messages. It replaces generic callout boxes for migrated design-system screens.
 
 ## Colors
 
@@ -146,5 +146,5 @@ Future specs can split Toast/Sonner from inline Alert behavior.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Alert primitive

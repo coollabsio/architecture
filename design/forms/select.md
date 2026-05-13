@@ -265,7 +265,7 @@ Use Shadcn-Svelte content/item patterns only for complex selects. Do not make or
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
 - Select intentionally mirrors Input's shadow and dirty-state behavior.
-- Keep Dropdown Menu and Select separate in V2 docs even if both use a chevron.
+- Keep Dropdown Menu and Select separate in design docs even if both use a chevron.
 - A future Combobox component should cover searchable option lists.
 
 ## Review Checklist
@@ -288,7 +288,7 @@ Potential cleanup ideas for a later implementation pass:
 2. Extract shared Input/Select shadow classes into a shared form-control helper once Textarea is migrated.
 3. Create a separate Combobox spec for searchable selects.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

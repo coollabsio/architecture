@@ -1,6 +1,6 @@
 # Coolify Shadcn-Svelte component samples
 
-Component sample sandbox generated from `DESIGN_V2.md` and migrated component docs under `design/`.
+Component sample sandbox generated from `DESIGN.md` and migrated component docs under `design/`.
 
 Run:
 

@@ -78,7 +78,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 primitives: Button, Input, FormField, HelperTooltip, RequiredAsterisk, Dialog, KBD.
+Compose existing design primitives: Button, Input, FormField, HelperTooltip, RequiredAsterisk, Dialog, KBD.
 
 ## Do's and Don'ts
 
@@ -96,7 +96,7 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 - [ ] Accessible labels and states are present.
 - [ ] Works in light and dark mode.
 - [ ] Uses existing migrated components where possible.
-- [ ] Avoids old design references.
+- [ ] Avoids references to removed/deprecated design docs.
 
 ## Claude Improvement Notes
 
@@ -104,4 +104,4 @@ Add async/loading and server-error variants after product usage is clearer.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

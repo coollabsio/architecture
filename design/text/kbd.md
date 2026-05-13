@@ -102,4 +102,4 @@ A future command palette spec can define shortcut alignment in menus.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

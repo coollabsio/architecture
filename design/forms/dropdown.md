@@ -206,7 +206,7 @@ min-h-10 px-3 py-2 text-sm
 
 Recommended trigger rule:
 
-- Use the V2 Button component for action dropdown triggers when possible.
+- Use the Button component for action dropdown triggers when possible.
 - Trigger focus must use the same non-input focus ring as Button.
 - If the trigger includes a chevron, use the Coolify-style stacked up/down chevron icon, place it at the end, and keep it `size-4`. Do not use a single down chevron for select-like dropdown triggers.
 
@@ -296,7 +296,7 @@ Potential cleanup ideas for a later implementation pass:
 3. If many menus need responsive collision handling, document the preferred `sideOffset`, `align`, and collision padding values after implementation testing.
 4. Consider a separate `command-menu.md` or `combobox.md` for searchable dropdowns.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

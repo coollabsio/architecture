@@ -150,6 +150,6 @@ A future variant could document selectable card rows for larger plan choices, bu
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Radio Group primitive
-- Existing V2 Checkbox row composition
+- Existing Checkbox row composition

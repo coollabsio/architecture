@@ -111,5 +111,5 @@ Sidebar integration can define when breadcrumbs are hidden on narrow pages.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Breadcrumb primitive

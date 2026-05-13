@@ -252,11 +252,11 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 Potential cleanup ideas for a later implementation pass:
 
-1. Decide if V2 needs a separate `switch.md` for toggle-like settings.
+1. Decide if the design system needs a separate `switch.md` for toggle-like settings.
 2. Add a richer checkbox group pattern if grouped options appear frequently.
 3. Confirm indeterminate state visuals after integrating the real Shadcn-Svelte primitive.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

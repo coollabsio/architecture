@@ -76,7 +76,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -88,10 +88,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Banner is a page-level or section-level notice, not a replacement for Alert/Callout inside forms.
+- [ ] Message is concise and uses `text-sm`; optional title uses `font-bold` and explicit dark text contrast.
+- [ ] Surface uses a neutral/tinted background with explicit border colors that work in light and dark mode.
+- [ ] Layout is compact: `flex items-center justify-between gap-3` with `px-3/px-4` and `py-2`.
+- [ ] Dismiss button, when present, is `size-6`, `rounded-full`, has an accessible label, and has visible hover/focus states.
+- [ ] Action link/button uses the Button/Internal Link/External Link specs and does not invent a new CTA style.
+- [ ] Banner does not stack repeatedly; multiple notices should collapse into one clear message or a dedicated page section.
+- [ ] Sticky/fixed usage sets an intentional `z-index` and does not cover nav, dropdowns, modals, or toasts.
+- [ ] Enter/exit animation, if used, is subtle and around 100–150ms.
+- [ ] No gradients, large radii, heavy shadows, or modal-level/destructive language are introduced.
 
 ## Claude Improvement Notes
 
@@ -99,4 +105,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

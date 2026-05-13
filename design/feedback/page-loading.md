@@ -75,7 +75,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -87,10 +87,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Uses Shadcn-Svelte `Skeleton` for page/content placeholders and Spinner only for short blocking states.
+- [ ] Skeleton blocks reserve the final layout dimensions closely enough to avoid large layout shift.
+- [ ] Skeletons use `animate-pulse rounded-sm bg-neutral-200 dark:bg-coolgray-200`.
+- [ ] Inline loading rows use `flex items-center gap-2 text-sm` and keep copy short.
+- [ ] Button loading keeps the original button text visible and places the spinner after the text.
+- [ ] Spinner is `size-4 animate-spin`, inherits text color in buttons, and uses yellow accent only where documented.
+- [ ] Full-page blocking loaders are reserved for app/page transitions that genuinely block interaction.
+- [ ] Loading states remain readable on `gray-50`, `white`, `base`, and `coolgray-100` surfaces.
+- [ ] Reduced-motion users are not forced into excessive animation beyond minimal spinner/skeleton affordance.
+- [ ] No oversized spinners, centered empty-screen loaders for normal data fetches, gradients, or heavy shadows are introduced.
 
 ## Claude Improvement Notes
 
@@ -98,4 +104,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

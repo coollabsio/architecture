@@ -73,7 +73,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -85,10 +85,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Scroll containers explicitly set overflow (`overflow-y-auto`, `overflow-x-auto`, or both) and do not rely on accidental page overflow.
+- [ ] Scrollbars are thin/subtle: `scrollbar-thin` or native equivalent.
+- [ ] Thumb color is neutral in light mode and coolgray in dark mode; scrollbar color is never used to communicate status.
+- [ ] Track stays transparent or low-contrast so it does not create extra visual borders.
+- [ ] Menus/dropdowns with many items set a max height and remain scrollable inside the viewport.
+- [ ] Tables use horizontal overflow wrappers instead of shrinking text until unreadable.
+- [ ] Log/code areas use Scrollbar together with mono typography and preserve keyboard/text selection behavior.
+- [ ] Scroll containers preserve focus visibility for keyboard users and do not trap wheel/trackpad scrolling unexpectedly.
+- [ ] Touch devices can scroll naturally; avoid hiding scrollbars when discoverability matters.
+- [ ] No custom JavaScript scrollbar replacement, gradient track, thick decorative thumb, or layout-shifting overlay is introduced.
 
 ## Claude Improvement Notes
 
@@ -96,4 +102,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

@@ -46,7 +46,7 @@ Title uses `text-sm font-bold`; description uses `text-sm` or `text-xs` muted te
 
 ## Layout
 
-Toast surface is `rounded-sm border p-3`, compact, with `gap-2` and optional `size-4` icon. Actions use V2 Button classes. Triggered toasts render in a fixed viewport such as `fixed bottom-4 right-4 z-20` and auto-dismiss.
+Toast surface is `rounded-sm border p-3`, compact, with `gap-2` and optional `size-4` icon. Actions use Button classes. Triggered toasts render in a fixed viewport such as `fixed bottom-4 right-4 z-20` and auto-dismiss.
 
 ## Exact Layout Recipe
 
@@ -110,7 +110,7 @@ Toasts should auto-dismiss unless they contain an action. Destructive failures s
 - [ ] Toast is compact, bordered, and `rounded-sm`.
 - [ ] Trigger examples render a toast and auto-dismiss it.
 - [ ] Semantic state uses icon/accent and readable text.
-- [ ] Actions use V2 Button.
+- [ ] Actions use Button.
 
 ## Claude Improvement Notes
 
@@ -118,5 +118,5 @@ A future spec can define exact Sonner viewport placement and max stack count.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Sonner primitive

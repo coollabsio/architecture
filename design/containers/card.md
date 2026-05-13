@@ -133,7 +133,7 @@ Cards are layout primitives. They should not own business logic or fetch state.
 ## Review Checklist
 
 - [ ] Card uses `rounded-sm border p-4`.
-- [ ] Light/dark surfaces match V2 tokens.
+- [ ] Light/dark surfaces match design tokens.
 - [ ] No heavy shadow or decorative gradient.
 
 ## Claude Improvement Notes
@@ -142,5 +142,5 @@ A later `coolbox.md` can document interactive hover/ring card links separately.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Card primitive

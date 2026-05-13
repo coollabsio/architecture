@@ -42,7 +42,7 @@ Neutral surface with neutral border. Use purple icon/accent in light mode and ye
 
 ## Typography
 
-Title uses `text-sm font-bold`; body uses `text-sm`; links follow V2 link styles.
+Title uses `text-sm font-bold`; body uses `text-sm`; links follow design link styles.
 
 ## Layout
 
@@ -108,5 +108,5 @@ Future variants can define docs, tip, and note callouts separately.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/overlays/alert.md`

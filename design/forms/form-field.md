@@ -302,7 +302,7 @@ Potential cleanup ideas for a later implementation pass:
 3. Add examples for Select and Textarea after those components are migrated.
 4. Consider documenting error/description precedence once validation UX is migrated.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

@@ -134,5 +134,5 @@ A future Box spec can define non-ring variants. Coolbox should stay the ring-hov
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Coolify current `coolbox` utility visual pattern

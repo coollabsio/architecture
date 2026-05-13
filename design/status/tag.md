@@ -105,5 +105,5 @@ Filter-chip behavior can be documented later as a separate selected/removable ta
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/status/badge.md`

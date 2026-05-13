@@ -18,12 +18,12 @@
   ];
 </script>
 
-<svelte:head><title>Coolify V2 Main View layouts</title></svelte:head>
+<svelte:head><title>Coolify Main View layouts</title></svelte:head>
 
 <main class="mx-auto min-h-screen max-w-6xl px-6 py-10">
   <section class="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
     <div class="mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200">
-      <p class="mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning">DESIGN_V2.md → design/layouts/main-view.md</p>
+      <p class="mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning">DESIGN.md → design/layouts/main-view.md</p>
       <div class="flex flex-wrap items-center justify-between gap-2">
         <div>
           <h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">Main View layouts</h1>
@@ -113,7 +113,7 @@
           <div class="min-w-0 flex-1">
             <div class="min-h-[30rem] rounded-sm border border-neutral-200 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.08)_1px,transparent_0)] [background-size:24px_24px] p-6 dark:border-coolgray-300 dark:bg-coolgray-200 dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)]">
               <div class="mb-4 rounded-sm border border-neutral-200 bg-white px-3 py-2 text-xs text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-400">
-                Hint: this single-section topology view borrows the resource-map feel from Laravel Cloud, adapted to Coolify V2 colors, spacing, and Shadcn-Svelte primitives.
+                Hint: this single-section topology view borrows the resource-map feel from Laravel Cloud, adapted to Coolify colors, spacing, and Shadcn-Svelte primitives.
               </div>
               <div class="grid gap-6 lg:grid-cols-3">
                 <div class="space-y-3">

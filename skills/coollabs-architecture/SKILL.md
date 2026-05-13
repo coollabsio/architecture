@@ -19,7 +19,7 @@ Before applying guidance, ensure repository content is current:
 
 1. Read `README.md` first. Treat it as the index.
 2. Select the relevant source file:
-   - Design, UI, Tailwind, Livewire, Coolify visual language, components, colors, spacing, and AI UI review: read `DESIGN.md`.
+   - Design, UI, Tailwind, Shadcn-Svelte, Coolify visual language, components, colors, spacing, and AI UI review: read `DESIGN.md`.
    - Rust web apps/services with SvelteKit, shadcn-svelte, SQLite, embedded frontend, `axum`, `sqlx`, single-binary deployment, and CLI/admin operations: read `RUST_WEB_APP_SERVICES.md`.
 3. Apply the guidance directly. Prefer repository rules over generic framework defaults.
 4. Mention the file path or section used when giving recommendations.

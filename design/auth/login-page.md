@@ -44,7 +44,7 @@ Use Shadcn-Svelte primitives as the base: `Button`, `Input`, `PasswordInput`, an
 
 ## Colors
 
-Use `bg-gray-50 dark:bg-base` for the full auth page. Inputs keep the V2 input surfaces. Links use purple in light mode and yellow in dark mode on hover/focus.
+Use `bg-gray-50 dark:bg-base` for the full auth page. Inputs keep the input surfaces. Links use purple in light mode and yellow in dark mode on hover/focus.
 
 The primary login button uses the highlighted button variant, but auth submit buttons are intentionally taller and bolder than normal operator buttons.
 
@@ -116,7 +116,7 @@ No heavy shadow. Auth pages are simple centered forms on the app auth background
 
 ## Shapes
 
-Use `rounded-sm` for V2 controls and links.
+Use `rounded-sm` for design controls and links.
 
 ## Components
 
@@ -131,7 +131,7 @@ Use `rounded-sm` for V2 controls and links.
 - Do use password visibility behavior from `PasswordInput`.
 - Do keep optional OAuth buttons secondary/default.
 - Don't use normal compact `h-8` button height for the primary auth submit.
-- Don't copy Laravel/Blade/Livewire implementation details into V2.
+- Don't copy Laravel/Blade/Livewire implementation details into this design system.
 
 ## Implementation Notes
 
@@ -141,10 +141,10 @@ The auth submit button style is shared with Register and TOTP challenge pages. A
 
 - [ ] Centered `max-w-md` auth layout.
 - [ ] Large Coolify title.
-- [ ] Email/password fields use V2 FormField/Input primitives.
+- [ ] Email/password fields use FormField/Input primitives.
 - [ ] Primary Login button is highlighted, `h-12`, `py-3`, and `font-bold`.
 - [ ] Register and OAuth secondary actions are visually less prominent.
-- [ ] Light/dark link hover colors match V2 accents.
+- [ ] Light/dark link hover colors match accents.
 
 ## Claude Improvement Notes
 
@@ -152,5 +152,5 @@ Consider a shared `AuthShell` and `AuthSubmitButton` composition if more auth pa
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Coolify current login page reviewed for layout and interaction hierarchy.

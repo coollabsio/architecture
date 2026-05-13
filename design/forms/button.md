@@ -115,7 +115,7 @@ components:
 
 ## Overview
 
-The Coolify Button is a compact Shadcn-Svelte `Button` primitive extended with Coolify's dense, dark-first operator UI. It defines the Coolify V2 button style while using the Shadcn-Svelte implementation model.
+The Coolify Button is a compact Shadcn-Svelte `Button` primitive extended with Coolify's dense, dark-first operator UI. It defines the Coolify button style while using the Shadcn-Svelte implementation model.
 
 Buttons feel flat, sharp, and operational. They are not soft marketing CTAs. The default height is 2rem, the radius is 4px, and state changes use borders, tonal fills, and focus rings instead of shadows or gradients.
 
@@ -345,7 +345,7 @@ Use `buttonVariants(...)` for anchors that need button styling:
 - Do keep focus rings purple in light mode and yellow in dark mode.
 - Do use `type="button"` unless the button intentionally submits a form.
 - Do give icon-only buttons an accessible name with `aria-label` or visible text.
-- Don't use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific paths in V2 button implementations.
+- Don't use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific paths in button implementations.
 - Don't use raw boolean attributes such as `isHighlighted` or `isError`.
 - Don't add gradients, heavy shadows, large radii, or decorative marketing effects.
 - Don't use purple as the general dark-mode accent outside documented exceptions.
@@ -357,7 +357,7 @@ Use `buttonVariants(...)` for anchors that need button styling:
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
 - Keep Button variants co-located with the generated local Shadcn-Svelte primitive.
-- Keep pending changes as explicit review decisions; do not silently drift from this V2 component spec.
+- Keep pending changes as explicit review decisions; do not silently drift from this component spec.
 
 ## Review Checklist
 
@@ -379,7 +379,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 Potential cleanup ideas for a later implementation pass:
 
 1. Decide whether the promoted variant should stay `highlighted` or become `primary`.
-2. Decide globally whether V2 keeps Coolify's `h-8` density everywhere or accepts Shadcn defaults in less dense apps.
+2. Decide globally whether the design system keeps Coolify's `h-8` density everywhere or accepts Shadcn defaults in less dense apps.
 3. Confirm whether default icon button size should always be `size-8`.
 4. If adjacent buttons are common, migrate a separate `button-group.md` using Shadcn-Svelte Button Group.
 

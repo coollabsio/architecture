@@ -8,8 +8,8 @@ Your job is to read the local design docs and generate a sample Shadcn-Svelte mo
 
 Read these files in order:
 
-1. `DESIGN_V2.md`
-2. Every component file marked `Migrated` in `DESIGN_V2.md`
+1. `DESIGN.md`
+2. Every component file listed as migrated in `DESIGN.md`
 Current migrated component docs:
 
 - `design/forms/button.md`
@@ -48,7 +48,7 @@ Current migrated component docs:
 
 ## Goal
 
-Create a small sample application screen that shows how an upcoming Shadcn-Svelte project should look if it follows the V2 design docs.
+Create a small sample application screen that shows how an upcoming Shadcn-Svelte project should look if it follows the design docs.
 
 The sample should be a realistic operator/dashboard UI, not a generic component gallery.
 
@@ -85,7 +85,7 @@ Because `button.md` is migrated, the screen must demonstrate the Button spec cle
 Because `dropdown.md` is migrated, the screen must demonstrate the Dropdown Menu spec clearly:
 
 - Shadcn-Svelte-style `Dropdown Menu` primitive or local wrapper.
-- Trigger using the V2 Button component.
+- Trigger using the Button component.
 - Content with compact bordered `p-1` surface.
 - Default menu items.
 - Touch-sized menu item.
@@ -240,7 +240,7 @@ Preferred output format:
 1. Brief plan, maximum 5 bullets.
 2. File tree.
 3. Code blocks for each changed/created file.
-4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
+4. Short explanation of how the output follows `DESIGN.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`, `design/forms/radio-group.md`, `design/forms/switch.md`, `design/status/badge.md`, `design/overlays/alert.md`, `design/navigation/tabs.md`, and `design/containers/card.md`.
 5. Short self-review checklist showing which Button requirements are satisfied.
 
 If you are working inside a real repo, create or update files directly instead of only printing code.
@@ -302,7 +302,7 @@ The generated result is successful if:
 
 The generated result should be considered a design-doc failure if the AI:
 
-- Ignores `DESIGN_V2.md` or `button.md`.
+- Ignores `DESIGN.md` or `button.md`.
 - Uses `isHighlighted` / `isError` instead of Shadcn-style variants.
 - Builds a generic Shadcn default UI without Coolify density/colors.
 - Makes the button height/radius inconsistent with the spec.
@@ -310,7 +310,7 @@ The generated result should be considered a design-doc failure if the AI:
 - Builds a generic dropdown that misses compact `p-1`, `text-xs`, bordered content, or dark purple item hover/focus.
 - Builds a generic bordered/ringed input instead of the inset box-shadow + dirty-bar input.
 - Shows password values by default or omits the eye/eye-off visibility toggle.
-- Uses a generic select with normal borders or a single down chevron instead of the V2 select styling.
+- Uses a generic select with normal borders or a single down chevron instead of the design select styling.
 - Uses a generic sans textarea or normal borders instead of mono + inset shadow styling.
 - Uses checkbox styling that looks like a switch, has wrong focus ring colors, or lets labels shrink the checkbox.
 - Renders Copy Button in insecure contexts, lacks copied-state feedback, or lets text overlap the copy icon.
@@ -326,7 +326,7 @@ When reviewing the output, evaluate the Markdown docs, not only the generated UI
 If the output is wrong, ask:
 
 - Was the prompt unclear?
-- Was `DESIGN_V2.md` unclear?
+- Was `DESIGN.md` unclear?
 - Was `design/forms/button.md` too implementation-heavy or too vague?
 - Was `design/forms/dropdown.md` too implementation-heavy or too vague?
 - Was `design/forms/input.md` too implementation-heavy or too vague?

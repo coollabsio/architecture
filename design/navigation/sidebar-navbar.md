@@ -232,7 +232,7 @@ Expanded sidebar behavior:
 px-2 pb-7
 ```
 
-Use a compact Dropdown Menu trigger following `design/forms/dropdown.md`; height is `h-8`, full width, sharp `rounded-sm`, dark neutral surface, and stacked up/down chevron. Do not use a native select for the V2 team switcher.
+Use a compact Dropdown Menu trigger following `design/forms/dropdown.md`; height is `h-8`, full width, sharp `rounded-sm`, dark neutral surface, and stacked up/down chevron. Do not use a native select for the team switcher.
 
 Collapsed sidebar behavior:
 
@@ -327,6 +327,6 @@ Future specs can split app sidebar, resource subnav, and mobile sheet navigation
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Sidebar primitive
 - Coolify current sidebar/navbar visual pattern: dense rows, active dark yellow, border-separated shell

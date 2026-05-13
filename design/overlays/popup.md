@@ -77,7 +77,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -89,10 +89,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Uses Shadcn-Svelte `Popover` for anchored contextual content; uses `Dialog` only when focus must be trapped.
+- [ ] Surface uses `rounded-sm border bg-white dark:bg-coolgray-100` with explicit neutral/coolgray border.
+- [ ] Content width is constrained (`max-w-sm`/`max-w-md` style) and never overflows the viewport.
+- [ ] Padding stays compact (`p-3` or `p-4`) with `gap-2/gap-3`; no large modal spacing.
+- [ ] Title uses `text-base font-bold text-black dark:text-white`; body uses compact `text-sm`.
+- [ ] Trigger has a visible focus ring and the popup opens/closes with keyboard and pointer interactions from the primitive.
+- [ ] Popup content closes on outside click/Escape unless it contains a deliberate interactive flow.
+- [ ] Actions use Button/Link specs and align right when there are multiple actions.
+- [ ] Use Popup only for short contextual content; complex forms, destructive confirmations, and page-sized workflows use Modal/Sheet instead.
+- [ ] No heavy shadows beyond the documented small overlay shadow, no gradients, and no large radii are introduced.
 
 ## Claude Improvement Notes
 
@@ -100,4 +106,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

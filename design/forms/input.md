@@ -101,7 +101,7 @@ Do not use a normal `border` utility for the main input outline.
 
 Input text uses Geist Sans at `text-sm` with regular weight.
 
-Labels, when composed with inputs, use `text-sm font-medium`. Required markers should use the V2 highlighted text pattern when that component exists.
+Labels, when composed with inputs, use `text-sm font-medium`. Required markers should use the highlighted text pattern when that component exists.
 
 ## Layout
 
@@ -230,7 +230,7 @@ Recommended disabled/readonly shadow reset:
 disabled:[box-shadow:none] read-only:[box-shadow:none]
 ```
 
-### V2 dirty-state API
+### dirty-state API
 
 Use either a `dirty` prop or `data-dirty="true"` on the local input primitive.
 
@@ -246,7 +246,7 @@ Rendered state:
 <input data-dirty="true" />
 ```
 
-Do not use framework-specific dirty directives in V2 docs or implementations.
+Do not use framework-specific dirty directives in design docs or implementations.
 
 ### Default input
 
@@ -338,7 +338,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 - Keep the local Shadcn-Svelte input primitive small: props, class merging, `data-dirty`, and `data-sticky` are enough.
 - Keep password visibility as a composed pattern around Input, not baked into every Input.
-- Select and Textarea should get separate V2 component specs even though they share the same shadow system.
+- Select and Textarea should get separate component specs even though they share the same shadow system.
 
 ## Review Checklist
 
@@ -363,7 +363,7 @@ Potential cleanup ideas for a later implementation pass:
 3. Decide if sticky inputs are common enough to keep in the base primitive or should live in a separate composition.
 4. Create shared shadow tokens once Select and Textarea are migrated.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

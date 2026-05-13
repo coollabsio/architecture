@@ -108,7 +108,7 @@ Use flat surfaces and borders only. Avoid heavy auth-card shadows.
 
 ## Shapes
 
-Use `rounded-sm` for V2 controls, callouts, and secondary link buttons.
+Use `rounded-sm` for design controls, callouts, and secondary link buttons.
 
 ## Components
 
@@ -122,7 +122,7 @@ Use `rounded-sm` for V2 controls, callouts, and secondary link buttons.
 - Do keep secondary navigation as bordered link buttons or muted text links.
 - Do preserve Coolify-inspired centered auth hierarchy.
 - Don't use compact `h-8` operator buttons for primary auth submits.
-- Don't copy Laravel/Blade/Livewire implementation details into V2.
+- Don't copy Laravel/Blade/Livewire implementation details into this design system.
 
 ## Implementation Notes
 
@@ -134,7 +134,7 @@ Apply auth submit sizing locally as class overrides on the highlighted Button. T
 - [ ] Large Coolify title.
 - [ ] Primary auth button is highlighted, `h-12`, `py-3`, and `font-bold`.
 - [ ] Secondary actions are visually less prominent.
-- [ ] Light/dark contrast matches V2 tokens.
+- [ ] Light/dark contrast matches design tokens.
 
 ## Claude Improvement Notes
 
@@ -142,5 +142,5 @@ Consider extracting shared `AuthShell`, `AuthSubmitButton`, and auth divider com
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Coolify current auth views reviewed for layout and interaction hierarchy.

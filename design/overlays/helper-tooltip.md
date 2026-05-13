@@ -104,5 +104,5 @@ A rich helper hover-card variant can be documented later.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/forms/form-field.md`

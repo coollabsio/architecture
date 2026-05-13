@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Loading On Button
-description: Button loading composition using V2 Button plus Loading Spinner.
+description: Button loading composition using Button plus Loading Spinner.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -33,7 +33,7 @@ components:
 
 ## Overview
 
-Loading On Button is a composition already partially covered by Button, but documented separately so agents consistently pair V2 Button with the Loading Spinner and correct accessibility.
+Loading On Button is a composition already partially covered by Button, but documented separately so agents consistently pair Button with the Loading Spinner and correct accessibility.
 
 ## Colors
 
@@ -45,7 +45,7 @@ Same as Button: `text-sm font-medium`.
 
 ## Layout
 
-Use V2 Button layout: `h-8 px-2 gap-2 rounded-sm`. Place the loading label first and the spinner after the label, e.g. `Saving <Spinner />`.
+Use Button layout: `h-8 px-2 gap-2 rounded-sm`. Place the loading label first and the spinner after the label, e.g. `Saving <Spinner />`.
 
 ## Exact Layout Recipe
 
@@ -97,7 +97,7 @@ This spec references `design/forms/button.md` and `design/feedback/loading-spinn
 
 ## Review Checklist
 
-- [ ] Uses V2 Button plus Spinner.
+- [ ] Uses Button plus Spinner.
 - [ ] Has `disabled` and `aria-busy="true"` only while loading.
 - [ ] When the loading flag becomes false, spinner disappears and the normal label/action returns.
 - [ ] Loading label remains readable in light mode.
@@ -108,6 +108,6 @@ Future async button patterns can distinguish optimistic vs blocking loading.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/forms/button.md`
 - `design/feedback/loading-spinner.md`

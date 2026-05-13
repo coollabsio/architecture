@@ -75,7 +75,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -87,10 +87,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Highlighted text uses `text-coollabs-200` or `text-coollabs` in light mode and `dark:text-warning` in dark mode.
+- [ ] Required asterisk uses `font-bold text-coollabs dark:text-warning`.
+- [ ] Required fields also expose semantic required state (`required`, `aria-required`, or equivalent form metadata), not only a visual asterisk.
+- [ ] Asterisk appears directly next to the label with the Form Field label spacing (`gap-1`), not floating elsewhere.
+- [ ] Highlighted inline snippets stay short; do not highlight full sentences or paragraphs.
+- [ ] Inline highlight preserves surrounding line height and does not create pill/badge semantics unless explicitly intended.
+- [ ] Links inside helper/highlight text remain underlined or otherwise clearly interactive.
+- [ ] Text remains readable on white, neutral, `base`, and `coolgray-100` surfaces.
+- [ ] Do not use purple as the dark-mode accent for helper/highlight/required text.
+- [ ] No background gradients, large padding, oversized font weight, or badge-like replacement for normal emphasized text is introduced.
 
 ## Claude Improvement Notes
 
@@ -98,4 +104,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

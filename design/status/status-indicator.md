@@ -112,7 +112,7 @@ size-2 shrink-0 rounded-full bg-neutral-400
 
 ## Implementation Notes
 
-For screen readers, include the status text in the accessible name. Animated/pulsing status is not part of V2 unless separately approved.
+For screen readers, include the status text in the accessible name. Animated/pulsing status is not part of unless separately approved.
 
 ## Review Checklist
 
@@ -126,5 +126,5 @@ A future live-status variant may document optional subtle pulse for actively dep
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/status/badge.md`

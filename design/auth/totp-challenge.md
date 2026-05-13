@@ -150,7 +150,7 @@ Use borders only. Avoid heavy shadows. The TOTP page should feel secure and util
 
 ## Shapes
 
-Use `rounded-sm` throughout V2. The current product may use larger radius in places, but the V2 implementation should normalize to the design system shape token.
+Use `rounded-sm` throughout. The current product may use larger radius in places, but the implementation should normalize to the design system shape token.
 
 ## Components
 
@@ -178,7 +178,7 @@ Use `rounded-sm` throughout V2. The current product may use larger radius in pla
 - Do keep focus states high contrast in both themes.
 - Don't use native number inputs; they introduce steppers and inconsistent formatting.
 - Don't accept arbitrary non-digit characters in authenticator-code mode.
-- Don't copy Laravel, Blade, Livewire, or Alpine implementation details into V2 implementations.
+- Don't copy Laravel, Blade, Livewire, or Alpine implementation details into implementations.
 
 ## Implementation Notes
 
@@ -203,5 +203,5 @@ Consider adding a setup variant later for QR code enrollment, secret-key reveal/
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Coolify current two-factor challenge behavior reviewed for interaction patterns.

@@ -229,7 +229,7 @@ Potential cleanup ideas for a later implementation pass:
 2. Decide whether copied duration should remain 1 second or become a shared timing token.
 3. Add a secret-copy variant after secret display patterns are finalized.
 
-Do not apply these improvements automatically while migrating. Preserve this V2 spec first, then change after explicit review.
+Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 

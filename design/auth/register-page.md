@@ -121,7 +121,7 @@ Use flat surfaces and borders only.
 
 ## Shapes
 
-Use `rounded-sm` for V2 controls and callouts.
+Use `rounded-sm` for design controls and callouts.
 
 ## Components
 
@@ -136,7 +136,7 @@ Use `rounded-sm` for V2 controls and callouts.
 - Do show the root-user warning when the first user is being created.
 - Do include password rule guidance near password fields.
 - Don't use the compact default button height for the primary auth submit.
-- Don't copy Laravel/Blade/Livewire implementation details into V2.
+- Don't copy Laravel/Blade/Livewire implementation details into this design system.
 
 ## Implementation Notes
 
@@ -157,5 +157,5 @@ Consider extracting shared auth dividers and auth secondary links after forgot/r
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Coolify current register page reviewed for layout and interaction hierarchy.

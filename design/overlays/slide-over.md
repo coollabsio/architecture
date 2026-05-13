@@ -77,7 +77,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -89,10 +89,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Uses Shadcn-Svelte `Sheet` as the base and opens from the right.
+- [ ] Panel uses `fixed inset-y-0 right-0`, `w-screen`, `max-w-xl`, and a left border.
+- [ ] Surface is `bg-neutral-50 dark:bg-base` or the current mockup-equivalent sheet surface, not a floating card background.
+- [ ] Header contains title `text-base font-bold text-black dark:text-white`, optional muted description, and an accessible close button.
+- [ ] Body is scrollable independently when content exceeds viewport height; header/footer remain usable.
+- [ ] Footer actions use Button variants, align right, and wrap on narrow widths.
+- [ ] Backdrop and ESC/outside-click behavior come from the Sheet primitive and do not conflict with modals/toasts.
+- [ ] Animation is subtle: short slide-in/out transition, no bounce or large easing flourish.
+- [ ] Use Slide-over for secondary details/editing; destructive confirmations still use Confirm Modal / Modal Confirmation.
+- [ ] No rounded outer desktop card, centered dialog geometry, gradients, or undocumented heavy elevation are introduced.
 
 ## Claude Improvement Notes
 
@@ -100,4 +106,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

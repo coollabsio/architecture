@@ -1,1089 +1,125 @@
----
-version: alpha
-name: Coolify
-description: Self-hosted PaaS. Dark-first utilitarian UI. Purple (light) / yellow (dark) accent swap. Sharp 4px radii. Inset box-shadow inputs with 4px dirty-bar indicator.
-colors:
-  # Brand
-  coollabs: "#6b16ed"
-  coollabs-50: "#f5f0ff"
-  coollabs-100: "#7317ff"
-  coollabs-200: "#5a12c7"
-  coollabs-300: "#4a0fa3"
-  # Dark-mode accent (warning scale)
-  warning: "#fcd452"
-  warning-50: "#fefce8"
-  warning-100: "#fef9c3"
-  warning-200: "#fef08a"
-  warning-300: "#fde047"
-  warning-400: "#fcd452"
-  warning-500: "#facc15"
-  warning-600: "#ca8a04"
-  warning-700: "#a16207"
-  warning-800: "#854d0e"
-  warning-900: "#713f12"
-  # Dark surfaces
-  base: "#101010"
-  coolgray-100: "#181818"
-  coolgray-200: "#202020"
-  coolgray-300: "#242424"
-  coolgray-400: "#282828"
-  coolgray-500: "#323232"
-  # Light surfaces (Tailwind neutrals)
-  surface: "#ffffff"
-  background: "#f9fafb"
-  border: "#e5e5e5"
-  text: "#000000"
-  text-muted: "#737373"
-  text-muted-strong: "#595959"
-  text-placeholder: "#d4d4d4"
-  # Semantic
-  success: "#22C55E"
-  error: "#dc2626"
-  primary: "#6b16ed"
-  # Neutrals & utility (referenced by components)
-  white: "#ffffff"
-  neutral-100: "#f5f5f5"
-  red-50: "#fef2f2"
-  red-300: "#fca5a5"
-  red-800: "#991b1b"
-  blue-50: "#eff6ff"
-  blue-800: "#1e40af"
-  green-50: "#f0fdf4"
-  green-800: "#166534"
-typography:
-  h1:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 1.875rem
-    fontWeight: 700
-    lineHeight: 1.2
-  h2:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 1.25rem
-    fontWeight: 700
-  h3:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 1.125rem
-    fontWeight: 700
-  h4:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 1rem
-    fontWeight: 700
-  body-md:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 0.875rem
-    fontWeight: 400
-    lineHeight: 1.25rem
-  label-md:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 0.875rem
-    fontWeight: 500
-  label-sm:
-    fontFamily: "'Geist Sans', Inter, sans-serif"
-    fontSize: 0.75rem
-    fontWeight: 700
-    lineHeight: 1rem
-  mono:
-    fontFamily: "'Geist Mono', SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace"
-    fontSize: 0.875rem
-    fontWeight: 400
-rounded:
-  sm: 0.25rem    # default — inputs, buttons, cards, modals
-  lg: 0.5rem     # callouts
-  full: 9999px   # badges, pills
-spacing:
-  xs: 0.25rem
-  sm: 0.5rem
-  md: 1rem
-  lg: 1.5rem
-  xl: 2rem
-  section: 3rem
-  sidebar-padding-x-collapsed: 0.7rem
-  sidebar-padding-x-expanded: 0.7rem
-  button-height: 2rem
-  card-min-height: 4rem
-  input-py: 0.375rem
-components:
-  button:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.sm}"
-    height: "{spacing.button-height}"
-    padding: 0 0.5rem
-  button-dark:
-    backgroundColor: "{colors.coolgray-100}"
-    textColor: "{colors.white}"
-  button-hover:
-    backgroundColor: "{colors.neutral-100}"
-  button-hover-dark:
-    backgroundColor: "{colors.coolgray-200}"
-  button-highlighted:
-    backgroundColor: "{colors.coollabs-50}"
-    textColor: "{colors.coollabs-200}"
-  button-highlighted-hover:
-    backgroundColor: "{colors.primary}"
-    textColor: "{colors.white}"
-  button-error:
-    backgroundColor: "{colors.red-50}"
-    textColor: "{colors.red-800}"
-  button-error-hover:
-    backgroundColor: "{colors.error}"
-    textColor: "{colors.white}"
-  input:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.sm}"
-    padding: 0.375rem 0.5rem
-  input-dark:
-    backgroundColor: "{colors.coolgray-100}"
-    textColor: "{colors.white}"
-  textarea:
-    typography: "{typography.mono}"
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.sm}"
-  box:
-    backgroundColor: "{colors.surface}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.sm}"
-    height: "{spacing.card-min-height}"
-  box-dark:
-    backgroundColor: "{colors.coolgray-100}"
-    textColor: "{colors.white}"
-  box-hover:
-    backgroundColor: "{colors.neutral-100}"
-  box-hover-dark:
-    backgroundColor: "{colors.coollabs-100}"
-    textColor: "{colors.white}"
-  coolbox:
-    backgroundColor: "{colors.surface}"
-    borderColor: "{colors.border}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.sm}"
-    height: "{spacing.card-min-height}"
-  coolbox-dark:
-    backgroundColor: "{colors.coolgray-100}"
-    borderColor: "{colors.coolgray-400}"
-  coolbox-hover:
-    borderColor: "{colors.coollabs}"
-  coolbox-hover-dark:
-    borderColor: "{colors.warning}"
-  badge-success:
-    backgroundColor: "{colors.success}"
-    size: 0.75rem
-    rounded: "{rounded.full}"
-  badge-warning:
-    backgroundColor: "{colors.warning}"
-    size: 0.75rem
-    rounded: "{rounded.full}"
-  badge-error:
-    backgroundColor: "{colors.error}"
-    size: 0.75rem
-    rounded: "{rounded.full}"
-  deprecated-badge:
-    backgroundColor: "{colors.warning-50}"
-    textColor: "{colors.warning-800}"
-    rounded: "{rounded.full}"
-    padding: 0.125rem 0.5rem
-  callout-warning:
-    backgroundColor: "{colors.warning-50}"
-    textColor: "{colors.warning-800}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.md}"
-  callout-danger:
-    backgroundColor: "{colors.red-50}"
-    textColor: "{colors.red-800}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.md}"
-  callout-info:
-    backgroundColor: "{colors.blue-50}"
-    textColor: "{colors.blue-800}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.md}"
-  callout-success:
-    backgroundColor: "{colors.green-50}"
-    textColor: "{colors.green-800}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.md}"
-  dropdown:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.xs}"
-  dropdown-dark:
-    backgroundColor: "{colors.coolgray-200}"
-  dropdown-item-hover:
-    backgroundColor: "{colors.neutral-100}"
-  dropdown-item-hover-dark:
-    backgroundColor: "{colors.coollabs}"
-    textColor: "{colors.white}"
-  menu-item-active:
-    backgroundColor: "{colors.border}"
-    textColor: "{colors.text}"
-    rounded: "{rounded.sm}"
-  menu-item-active-dark:
-    backgroundColor: "{colors.coolgray-200}"
-    textColor: "{colors.warning}"
-  tag:
-    backgroundColor: "{colors.border}"
-    textColor: "{colors.text-muted-strong}"
-    padding: 0.25rem 0.5rem
-  kbd:
-    rounded: "{rounded.sm}"
-    padding: 0 0.5rem
-  toast:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.sm}"
-    padding: "{spacing.md}"
-    width: 20rem
-  modal-input:
-    backgroundColor: "{colors.surface}"
-    rounded: "{rounded.sm}"
-  modal-input-dark:
-    backgroundColor: "{colors.base}"
-  modal-confirmation:
-    backgroundColor: "{colors.neutral-100}"
-    rounded: "{rounded.sm}"
-  modal-confirmation-dark:
-    backgroundColor: "{colors.base}"
----
-
-## AI Review Checklist
-
-> Use this when asked for a **full design review** against this spec. Walk every box. Cite the section link when reporting a violation.
-
-### 1. Foundations
-- [ ] Light-mode accent is `coollabs #6b16ed`; dark-mode accent is `warning #fcd452` for focus rings, active nav, helpers, spinners, highlighted text, and helper links. Purple in dark mode is allowed only for documented fill/hover exceptions (`.box` hover, highlighted button, dropdown item hover), never as the accent. ([Overview](#overview))
-- [ ] All `h1`–`h4` and card titles force `dark:text-white`. ([Dark-mode heading rule](#dark-mode-heading-rule-critical))
-- [ ] Default `border` utilities resolve to `coolgray-200` in dark via base-layer override — don't fight it. ([Default border override](#default-border-override))
-- [ ] Fonts: UI uses Geist Sans, code/logs/textareas use Geist Mono. ([Typography](#typography))
-- [ ] Heading hierarchy matches the table (`text-3xl` / `text-xl` / `text-lg` / `text-base`, all `font-bold`). ([Heading hierarchy](#heading-hierarchy-tailwind-utilities))
-- [ ] Use only documented weights (`400`, `500`, `600`, `700`) and avoid introducing extra per-screen weights beyond component requirements. ([Don'ts](#dos-and-donts))
-- [ ] Frontmatter YAML parses and machine-readable tokens stay aligned with the body and source files. ([Source files](#source-files))
-
-### 2. Color & Surfaces
-- [ ] Dark surfaces follow the coolgray ladder: `base → coolgray-100 → -200 → -300 → -400 → -500`. ([Dark tonal ladder](#dark-tonal-ladder))
-- [ ] Light surfaces follow the neutral ladder: `gray-50 → white → neutral-200/100/300`. ([Light tonal ladder](#light-tonal-ladder))
-- [ ] Status colors: `success #22C55E` (running/healthy), `error #dc2626` (stopped/danger), `warning #fcd452` (degraded/restarting). ([Palettes](#palettes))
-- [ ] No gradients except `.bg-coollabs-gradient` upsell strip. ([Don'ts](#dos-and-donts))
-- [ ] WCAG AA contrast (4.5:1 normal text) verified on every text-on-surface pairing. ([Do's](#dos-and-donts))
-
-### 3. Shape & Elevation
-- [ ] Default radius `rounded-sm` (4px) on inputs, buttons, cards, modals, toasts, dropdowns. ([Shapes](#shapes))
-- [ ] `.coolbox` shares the 4px default radius — distinguished by ring-hover, not radius. ([Shapes](#shapes))
-- [ ] `rounded-lg` (8px) only on callouts; any `rounded-md` usage must be one of the documented chrome exceptions (global search button, collapsed tooltip, collapsed team menu, breadcrumb dropdown). ([Shapes](#shapes))
-- [ ] `rounded-full` only on badges, deprecated badge, pills, avatars, and documented close/collapse controls. ([Shapes](#shapes))
-- [ ] `rounded-none` only appears in the documented mobile modal-confirmation shell before `sm:rounded-sm`. ([Modal Confirmation](#modal-confirmation))
-- [ ] No mixed radii within the same view. ([Shapes](#shapes))
-- [ ] Shadows reserved for: `shadow-sm` (boxes, desktop sidebar collapse toggle), toast custom shadow, `shadow-lg` (slide-over, chrome dropdowns), `drop-shadow-sm` (modal-input). Otherwise tonal layers only. ([Shadows](#shadows-used-sparingly))
-- [ ] In dark mode, no additional shadow-based elevation beyond the documented exceptions. ([Shadows](#shadows-used-sparingly))
-
-### 4. Inputs (signature system)
-- [ ] Inputs / selects / textareas use the inset `box-shadow` system, **not** `border`. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
-- [ ] 4px left dirty-bar wired via `wire:dirty.class` with the focus-color shadow string. ([Dirty indicator](#input))
-- [ ] Focus shadow uses `coollabs` (light) / `warning` (dark) on the 4px left bar. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
-- [ ] Disabled / readonly fields drop the box-shadow entirely. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
-- [ ] Disabled / readonly backgrounds and text match the documented neutral/coolgray muted states. ([Input](#input))
-- [ ] Password inputs reserve `pr-[2.4rem]` for the eye icon. ([Input](#input))
-- [ ] `.input-sticky` keeps the same shape but uses the documented thinner `1px` shadow border. ([Input](#input))
-- [ ] Select arrow SVG stroke swaps `%23000000` → `%23ffffff` in dark mode. ([Select](#select))
-- [ ] Checkbox uses focus-visible ring (`coollabs` / `warning`) with `ring-offset-2`. ([Checkbox](#checkbox))
-- [ ] Textarea uses `font-mono`, same dirty-bar wiring as input, and the optional Tab handler only where 2-space insertion is intended. ([Textarea](#textarea))
-- [ ] Datalist and env-var Livewire inputs use the identical dirty-class shadow string as input/select/textarea. ([Input inset box-shadow system](#input-inset-box-shadow-system-distinctive))
-- [ ] Copy-button only renders in `window.isSecureContext`; copied state shows `text-green-500` for 1s. ([Copy-Button](#copy-button))
-
-### 5. Buttons
-- [ ] Base `.button` height `h-8`, `px-2`, `gap-2`, `text-sm`, `font-medium`, `rounded-sm`. ([Button](#button))
-- [ ] `[isHighlighted]` and `[isError]` variants apply the documented attribute selectors. ([Button](#button))
-- [ ] In-button spinner uses `<x-loading-on-button>` (no light-mode color, inherits text). ([Loading-On-Button](#loading-on-button))
-- [ ] Focus ring follows the non-input pattern (`focus-visible:ring-2 ring-coollabs dark:ring-warning ring-offset-2 dark:ring-offset-base`). ([Focus ring](#focus-ring-buttons-links-checkboxes-non-input))
-
-### 6. Containers
-- [ ] `.box`: `min-h-[4rem]`, `shadow-sm`, `rounded-sm`, dark hover goes purple `coollabs-100`. ([Box](#box))
-- [ ] `.box-title` / `.box-description` flip to contrast on `group-hover` (else description disappears on dark hover). ([Box](#box))
-- [ ] `.coolbox`: `rounded` (4px) + ring-hover (`hover:ring-2 ring-coollabs dark:ring-warning`). ([Coolbox](#coolbox))
-- [ ] `.coolbox` hover never changes background; the ring is the entire hover affordance. ([Coolbox](#coolbox))
-- [ ] `.box-title` / `.box-description` stay steady on `.coolbox` hover because `.coolbox` has no fill change. ([Coolbox](#coolbox))
-
-### 7. Status & Badges
-- [ ] Badge base size `w-3 h-3`, `rounded-full`, with `border-neutral-200 dark:border-black`. ([Badge base](#badge-base))
-- [ ] Dashboard badge variant uses `absolute top-1 right-1 w-2.5 h-2.5`. ([Badge base](#badge-base))
-- [ ] Status pattern: badge + `pl-2 pr-1 text-xs font-bold {color}` label. ([Status indicator pattern](#status-indicator-pattern))
-- [ ] `running` / `degraded` / `restarting` / `stopped` use the documented badge + text-color pairs. ([Status indicator pattern](#status-indicator-pattern))
-- [ ] `running` swaps to `badge-warning` while checking proxy; degraded/restarting/stopped loading states use the documented `<x-loading>` behavior. ([Status indicator pattern](#status-indicator-pattern))
-- [ ] Deprecated badge uses `bg-warning/15 text-warning border-warning/30 rounded-full`. ([Deprecated Badge](#deprecated-badge))
-- [ ] `.tag`: `dark:bg-coolgray-100` / `bg-neutral-100`, hover one shade darker. ([Tag](#tag))
-
-### 8. Overlays
-- [ ] Callouts use the four documented type → bg/border/title/body color quartets. ([Callout](#callout))
-- [ ] Callout icons use `*-600` light / `*-400` dark. ([Callout](#callout))
-- [ ] Modal: `bg-white dark:bg-base`, `border-neutral-200 dark:border-coolgray-300`, `rounded-sm`, `drop-shadow-sm`. Backdrop `bg-black/20 backdrop-blur-xs`. ([Modal](#modal-input-variant))
-- [ ] Modal close button: `w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-coolgray-300`, 24px X icon `stroke-width=1.5`. ([Modal](#modal-input-variant))
-- [ ] Modal-confirmation uses `<x-callout type="danger">`, hides the password step for OAuth users, and keeps the documented responsive/mobile geometry. ([Modal Confirmation](#modal-confirmation))
-- [ ] Confirm Modal remains the simpler Livewire-bound confirm dialog, not the destructive multi-step wizard. ([Confirm Modal](#confirm-modal))
-- [ ] Popup / Popup-Small fixed bottom-right with documented widths (max-w-4xl / max-w-[46rem]). ([Popup / Popup-Small](#popup-popup-small))
-- [ ] Slide-over: `max-w-xl`, `bg-neutral-50 dark:bg-base`, `border-l shadow-lg`. ([Slide-Over](#slide-over))
-- [ ] Toast: stacks ≤4, auto-dismiss 4s, hover pauses, `window.sanitizeHTML` applied to HTML payloads. ([Toast](#toast))
-- [ ] Toast supports documented position variants and per-toast copy/close controls. ([Toast](#toast))
-- [ ] Toast icon colors match type table (success/info/warning/danger/default). ([Toast](#toast))
-- [ ] Helper icon: `cursor-pointer text-coollabs dark:text-warning`. Popup uses `.info-helper-popup` and shows on `.group:hover`. ([Helper / Tooltip](#helper-tooltip))
-
-### 9. Navigation
-- [ ] Desktop sidebar shell uses `lg:w-56` expanded / `lg:w-16` collapsed; main content offsets to `16rem` expanded / `6rem` collapsed. ([Structure](#structure))
-- [ ] Sidebar root: `bg-white dark:bg-base`, `border-r dark:border-coolgray-200 border-neutral-300`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Collapsed mode (`lg`) hides labels, search button, settings dropdown; swaps wordmark for compact app identity (`w-6 h-6` icon or accepted compact `w-8 h-8` first-letter fallback); padding `0.7rem`; adds `.sidebar-collapsed` class. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Expanded and collapsed app identity both show the app version; collapsed identity uses a real app icon when available, otherwise first app letter, white, no background, centered above version. Product-adapted header spacing is allowed when desktop geometry remains correct. No hardcoded product-logo dependency. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Desktop collapse toggle: `absolute top-8 -right-3`, 24px round bordered button; title flips Expand/Collapse; chevron rotates `180deg` when expanded. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Mobile (<`lg`) keeps `px-2` (collapse is desktop-only). ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] `.sidebar-collapsed .menu-item` is a compact `w-8 h-8` (`2rem`) background/click target, centers icons, and zeroes label-side padding/gap at `≥1024px`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Mobile top bar: `sticky top-0 z-40 lg:hidden`, `bg-white/95 dark:bg-base/95 backdrop-blur-sm`, wordmark + switch-team + hamburger. ([Structure](#structure))
-- [ ] Layout Alpine exposes `open`, `collapsed`, `pageWidth`, `toggleSidebar()`; `collapsed` persists to `localStorage.sidebarCollapsed`. Navbar Alpine exposes `tooltip`, `setTheme`, `setZoom`, `switchWidth`, `init`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Every menu link sets `title="…"` for the collapsed-mode floating tooltip. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Navbar menu icons use `size-4`; sub-item icons use `size-4`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Collapsed tooltip reads `title`/`aria-label`, positions at `rect.right + 8`, and only shows while collapsed. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Team switcher becomes a collapsed 32px initial badge that opens a fixed team menu at `rect.right + 8`, `rect.top`; compact app menus may use `min-w-48`/`12rem`, `max-h-72`/`18rem`, and `py-1`/`0.25rem 0`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Bottom spacer pushes Sponsor, Feedback, and Logout to the bottom group. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Sponsor + Admin icons are the only colored nav icons (`text-pink-500`). ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Feedback opens the documented modal-input flow; Logout remains a POST form button. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] `.menu-item-active` dark uses `bg-coolgray-200 text-warning`. ([Sidebar / Navbar](#sidebar-navbar))
-- [ ] Breadcrumbs: links `hover:text-warning`; active item `dark:text-warning font-semibold`. ([Breadcrumbs](#breadcrumbs))
-- [ ] External-Link `w-3 h-3` arrow-out icon appended to external anchors. ([External-Link](#external-link))
-- [ ] Internal-Link uses the documented `w-4 h-4 text-black dark:text-white` arrow SVG. ([Internal-Link](#internal-link))
-- [ ] Banner: `z-999`, `bg-coolgray-100`, `sm:h-14`, `shadow-xs`, dismiss reveals via 100ms transition. ([Banner](#banner))
-- [ ] Banner close button is `w-6 h-6 rounded-full hover:bg-coolgray-500 text-neutral-200`. ([Banner](#banner))
-
-### 10. Feedback / Text / Chrome
-- [ ] Loading spinner: `w-4 h-4 text-coollabs dark:text-warning animate-spin` with two-opacity SVG. ([Loading Spinner](#loading-spinner))
-- [ ] Loading-on-button has no light-mode color and inherits button text. ([Loading-On-Button](#loading-on-button))
-- [ ] Page-Loading remains the full-page loader overlay variant. ([Page-Loading](#page-loading))
-- [ ] Highlighted / required asterisk uses `.text-helper` (`font-bold text-coollabs dark:text-warning`). ([Highlighted text](#highlighted-text))
-- [ ] `.kbd-custom` border is dashed, `dark:text-warning`. ([Kbd](#kbd))
-- [ ] Body uses `.scrollbar` (`scrollbar-thumb-coollabs-100`, `scrollbar-thin`). ([Scrollbar](#scrollbar))
-- [ ] Tables use the base-layer rules (`min-w-full`, `divide-y dark:divide-coolgray-200`, `tr:hover dark:bg-coolgray-300 hover:bg-neutral-100`, first-cell `pl-4 sm:pl-6 font-bold`). ([Table](#table))
-- [ ] Table headers keep `thead uppercase`, `th` text colors, and documented `px/py` cell padding. ([Table](#table))
-- [ ] Dropdown container: `border-neutral-300 dark:border-coolgray-300 bg-white dark:bg-coolgray-200 p-1 shadow-sm`. ([Dropdown](#dropdown))
-- [ ] `.dropdown-item`: `text-xs`, hover `bg-neutral-100 dark:bg-coollabs`. Touch variant `min-h-10 px-3 py-2 text-sm`. ([Dropdown](#dropdown))
-- [ ] Dropdown disabled and focus-visible states match documented `data-disabled` and focus background rules. ([Dropdown](#dropdown))
-
-### 11. Spacing & Layout
-- [ ] Spacing tokens match the scale table (`p-2`, `p-4`, `py-1.5`, `h-8`, `px-2`, `gap-2`, `gap-3`, `mb-12`, `min-h-[4rem]`). ([Spacing scale](#spacing-scale))
-- [ ] Layout uses flex (no grid system). ([Spacing scale](#spacing-scale))
-- [ ] Main content padding is `1.5rem`; expanded left offset is `16rem`, collapsed left offset is `6rem`. ([Structure](#structure))
-- [ ] Page topbar `h1` uses `1.8rem` with `line-height: 1.1` for mailbox/settings-style pages. ([Structure](#structure))
-- [ ] Section margin `mb-12`. ([Spacing scale](#spacing-scale))
-
-### 12. Hard Don'ts (zero tolerance)
-- [ ] No purple `coollabs` as the dark-mode accent; only the documented dark purple fill/hover exceptions are allowed.
-- [ ] No undocumented or mixed corner radii in one view.
-- [ ] No undocumented shadow-based elevation in dark mode.
-- [ ] No unexpected color when using `border` utilities (default = `coolgray-200` dark).
-- [ ] No gradients (except the one upsell strip).
-- [ ] No arbitrary extra font weights beyond the documented component weights.
-
----
-
 # Coolify Design System
 
-## Overview
+This file is the entry point for the split design system. Component details live in `design/` as one Markdown file per component.
 
-Coolify is a self-hosted PaaS (Heroku/Netlify/Vercel alternative) built with Laravel 12, Livewire 3, and Tailwind CSS v4. UI is **dark-first, dense, utilitarian** — operators want information density over whitespace.
+This design system is framework-forward for upcoming projects: use **Shadcn-Svelte primitives as the implementation base**, then extend them with Coolify visual decisions where needed. Component files should follow the **Google DESIGN.md specification**: YAML frontmatter tokens plus canonical markdown sections (`Overview`, `Colors`, `Typography`, `Layout`, `Elevation & Depth`, `Shapes`, `Components`, `Do's and Don'ts`). Do not copy Laravel, Blade, Livewire, or project-specific implementation details into component specs.
 
-Brand personality: precise, engineered, no-nonsense. No flourish. No gradients outside a single branded upsell. Flat surfaces differentiated by tonal depth, not shadow.
+Use this file as a router:
 
-Two signature traits define the system:
+1. Identify the UI need.
+2. Open the matching component file.
+3. Start from the Shadcn-Svelte primitive named in that file.
+4. Apply the Coolify tokens, variants, states, accessibility notes, and review checklist.
+5. If a component has not been migrated yet, do not infer detailed styling; wait for that component spec or use only the already-migrated design guidance.
 
-1. **Purple/Yellow accent swap.** Light mode uses `coollabs` purple `#6b16ed`. Dark mode swaps to `warning` yellow `#fcd452` for focus rings, active nav items, helper icons, loading spinners, highlighted text, helper links. Never use purple as the dark-mode accent; documented purple fill/hover states (`.box` hover, highlighted button, dropdown item hover) are explicit exceptions.
-2. **Inset box-shadow inputs with a 4px "dirty bar".** Inputs and selects have no border — they use `box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px <border>`. When the field is focused or has unsaved changes (`wire:dirty`), the left 4px becomes the accent color — a live visual indicator of modified state. This is the single most distinctive UI detail in Coolify.
+## Component lookup
 
-Sharp geometry everywhere: 4px corner radius by default (`rounded-sm`). 8px primarily on callouts, with small documented chrome exceptions below. Shadows used sparingly — `shadow-sm` on boxes and the sidebar collapse toggle, one custom shadow on toasts, `shadow-lg` on slide-overs and chrome dropdowns, and `drop-shadow-sm` on modal-input. The rest is flat tonal layers.
-
-## Styling rule
-
-Use Tailwind utilities and project-defined Tailwind `@utility` classes for UI styling by default. Do not introduce ad-hoc component CSS or inline styles when an equivalent Tailwind utility or existing design-system utility exists. Put reusable component styles in `resources/css/utilities.css` as `@utility` blocks.
-
-Allowed exceptions: `resources/css/app.css` `@theme` tokens, base/global element rules, necessary browser/third-party selectors, documented component internals such as the input inset box-shadow system, and rare dynamic inline styles that cannot be represented safely as Tailwind classes.
-
-## Colors
-
-Source of truth: `resources/css/app.css` `@theme` block (Tailwind v4).
-
-### Palettes
-
-- **Primary / Coollabs (`#6b16ed`)** — brand purple. Light-mode accent. Used for focus rings, active states, highlighted buttons, spinners, scrollbar thumb. Scale: `coollabs-50 #f5f0ff` (backgrounds), `coollabs #6b16ed` (base), `coollabs-100 #7317ff` (dark-mode button hover), `coollabs-200 #5a12c7` (light-mode text), `coollabs-300 #4a0fa3` (deepest).
-- **Warning (`#fcd452`)** — dark-mode accent + callout palette. Full yellow scale `warning-50` through `warning-900`. Swaps in for coollabs under `.dark`.
-- **Coolgray (dark surface ladder)** — five shades building dark-mode depth: `base #101010` (page) → `coolgray-100 #181818` (components) → `-200 #202020` (elevated / active nav) → `-300 #242424` (input borders, button borders) → `-400 #282828` (tooltips) → `-500 #323232` (subtle overlays).
-- **Semantic** — `success #22C55E` for running/healthy, `error #dc2626` for stopped/danger.
-- **Light surfaces** — `gray-50 #f9fafb` (page), `white` (components), `neutral-200 #e5e5e5` (borders), `neutral-500 #737373` (muted text), `neutral-300 #d4d4d4` (placeholders).
-
-### Dark-mode heading rule (critical)
-
-Body default text in dark mode is `neutral-400 #a3a3a3`. Headings and card titles MUST explicitly force `text-white` — otherwise they render near-invisible on `coolgray-100 #181818`. This is enforced globally: `h1–h4` all have `dark:text-white` in `app.css`.
-
-### Default border override
-
-Tailwind v4 defaults `border-color` to `currentcolor`. Coolify overrides it in `@layer base`:
-
-```css
-*, ::after, ::before, ::backdrop, ::file-selector-button {
-  border-color: var(--color-coolgray-200, currentcolor);
-}
-```
-
-So any `border` utility without an explicit color gets `coolgray-200 #202020` in dark mode.
-
-## Typography
-
-Fonts loaded in `resources/css/fonts.css` (all `woff2`, `font-display: swap`):
-
-- **Geist Sans** — primary UI font. Variable weight `100 900`. Inter as fallback (static weights 100–900).
-- **Geist Mono** — monospace for code, logs, textareas. Variable weight `100 900`.
-
-Applied via `@theme`:
-
-```css
---font-sans: 'Geist Sans', Inter, sans-serif;
---font-mono: 'Geist Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
---font-logs: 'Geist Mono', 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
-```
-
-### Heading hierarchy (Tailwind utilities)
-
-| Element | Utility |
-|---|---|
-| `h1` | `text-3xl font-bold dark:text-white` |
-| `h2` | `text-xl font-bold dark:text-white` |
-| `h3` | `text-lg font-bold dark:text-white` |
-| `h4` | `text-base font-bold dark:text-white` |
-
-### Body
-
-| Context | Utility |
-|---|---|
-| Body default | `text-sm font-sans antialiased` |
-| Label | `text-sm font-medium` |
-| Badge / status text | `text-xs font-bold` |
-| Box description | `text-xs font-bold text-neutral-500` |
-| Caption / kbd | `text-xs` |
-
-## Layout
-
-Collapsible left sidebar on desktop. Mobile collapses to a sticky top bar with hamburger menu overlay.
-
-### Structure
-
-- **Layout shell** — `resources/views/layouts/app.blade.php` owns sidebar state:
-  - Alpine state: `open` for mobile drawer, `collapsed` for desktop sidebar, `pageWidth` for centered/full content.
-  - `collapsed` initializes from `localStorage.sidebarCollapsed`; `toggleSidebar()` flips it and writes the same key.
-  - Desktop sidebar wrapper: `hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col min-w-0 transition-[width] duration-200`; width is `lg:w-56` expanded / `lg:w-16` collapsed.
-  - Desktop collapse button: `absolute top-8 -right-3 z-50 hidden lg:flex items-center justify-center w-6 h-6 rounded-full border ... shadow-sm`; title is `Expand sidebar` or `Collapse sidebar`; chevron `w-3.5 h-3.5` rotates `180deg` when expanded.
-- **Sidebar nav** — root `<nav>` inside the fixed shell:
-  - **Expanded** — full content + labels + wordmark/name logo with version + global search button + settings dropdown. Padding `0.7rem`.
-  - **Collapsed (≥`lg`)** — icons only; menu-item labels hidden via `:class="collapsed && 'lg:hidden'"`; compact app icon (`w-6 h-6`) replaces wordmark/name and keeps version underneath. Product-specific first-letter fallbacks may use `w-8 h-8` when the sidebar also uses 32px controls. If no app icon asset exists, use the app's first letter as a white, backgroundless fallback icon. Search + settings dropdown hidden. Padding `0.7rem`. Adds `.sidebar-collapsed` class to nav root.
-  - Mobile (<`lg`) always uses `px-2` (collapse is a desktop-only mode).
-  - Root: `flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base`.
-- **Main content** — transitions left padding; expanded left offset is `16rem`, collapsed left offset is `6rem`. Base content padding is `1.5rem`.
-- **Page topbar** — settings/mailbox-style pages use a compact eyebrow above the page title; `.real-ui-topbar h1` is `1.8rem` with `line-height: 1.1`.
-- **Mobile top bar** — `sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 sm:px-6 lg:hidden bg-white/95 dark:bg-base/95 backdrop-blur-sm border-b border-neutral-300/50 dark:border-coolgray-200/50`; contains wordmark, `<livewire:switch-team />`, hamburger.
-- **Mobile drawer** — right-side overlay only below `lg`: backdrop `fixed inset-0 bg-black/80`; panel `fixed inset-y-0 right-0 h-full flex`; inner width `w-full max-w-56`; close button sits `right-full`.
-
-### Spacing scale
-
-| Token | Value | Use |
-|---|---|---|
-| `p-2` | 0.5rem | Component internal padding |
-| `p-4` | 1rem | Callout padding |
-| `py-1.5` | 0.375rem | Input vertical padding |
-| `h-8` | 2rem | Button height |
-| `px-2` | 0.5rem | Button horizontal padding |
-| `gap-2` | 0.5rem | Button gap |
-| `px-2 py-1` | 0.25rem / 0.5rem | Menu item padding |
-| `gap-3` | 0.75rem | Menu item gap |
-| `mb-12` | 3rem | Section margin |
-| `min-h-[4rem]` | 4rem | Card min-height |
-
-No grid system — flex layouts everywhere.
-
-## Elevation & Depth
-
-**Flat + tonal.** Hierarchy comes from background color, not shadows.
-
-### Dark tonal ladder
-
-```
-#101010 (base)          page background
-  #181818 (coolgray-100) cards, inputs, components
-    #202020 (coolgray-200) elevated surfaces, borders, nav active
-      #242424 (coolgray-300) input borders, button borders
-        #282828 (coolgray-400) tooltips, hover states
-          #323232 (coolgray-500) subtle overlays
-```
-
-### Light tonal ladder
-
-```
-#f9fafb (gray-50)       page background
-  #ffffff (white)        cards, inputs, components
-    #e5e5e5 (neutral-200) borders
-      #f5f5f5 (neutral-100) hover backgrounds
-        #d4d4d4 (neutral-300) deeper hover, nav active
-```
-
-### Shadows (used sparingly)
-
-- Boxes: `shadow-sm` (`0 1px 2px 0 rgba(0,0,0,0.05)`)
-- Toasts: `shadow-[0_5px_15px_-3px_rgb(0_0_0_/_0.08)]`
-- Slide-over and chrome dropdowns: `shadow-lg`
-- Modal-input: `drop-shadow-sm`
-- Sidebar collapse toggle: `shadow-sm`
-
-### Input inset box-shadow system (distinctive)
-
-Inputs and selects use `box-shadow` instead of `border` — `border-0` + two layered inset shadows. The first inset shadow paints a 4px-wide vertical bar at the left edge (transparent at rest, accent on focus/dirty). The second inset shadow paints a 2px-wide simulated border around the inner edge of the field. Corners are `rounded-sm` (4px).
-
-```css
-/* default */  box-shadow: inset 4px 0 0 transparent, inset 0 0 0 2px #e5e5e5;
-/* default dark */  inset 4px 0 0 transparent, inset 0 0 0 2px #242424;
-/* focus light */  inset 4px 0 0 #6b16ed, inset 0 0 0 2px #e5e5e5;
-/* focus dark */  inset 4px 0 0 #fcd452, inset 0 0 0 2px #242424;
-/* dirty (same as focus) — set via wire:dirty.class */
-/* disabled / readonly */  box-shadow: none;
-```
-
-**Blade pattern.** Livewire flips the bar color on modified state via `wire:dirty.class`:
-
-```blade
-wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
-```
-
-This same dirty-class string is applied across `forms/input.blade.php`, `forms/select.blade.php`, `forms/textarea.blade.php`, `forms/datalist.blade.php`, and `forms/env-var-input.blade.php` — every Livewire-bound input shares the identical pattern.
-
-**State summary:**
-- **Resting** — 2px gray `#e5e5e5` (light) / `#242424` (dark) border, 4px transparent left bar.
-- **Focus** — same border, 4px accent left bar (`#6b16ed` light / `#fcd452` dark).
-- **Dirty** — same as focus (purple/yellow 4px left bar).
-- **Read-only / disabled** — `box-shadow: none` strips both layers; field becomes flat with `bg-neutral-200` (light) or `bg-coolgray-100/40` (dark).
-
-Variant `input-sticky` uses `1px` outer shadow instead of `2px` for thinner border presence (used in sticky toolbars).
-
-### Focus ring (buttons, links, checkboxes, non-input)
-
-`focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning focus-visible:ring-offset-2 dark:focus-visible:ring-offset-base`
-
-## Shapes
-
-- **Default** — `rounded-sm` (4px). Everything: inputs, buttons, cards, modals, toasts, dropdowns.
-- **Coolbox** — same 4px radius as default. Alternate card style distinguished by ring-hover, not corner radius.
-- **Callouts** — `rounded-lg` (8px). Main exception to the sharp rule.
-- **Chrome exceptions** — `rounded-md` appears only on the documented global search button, collapsed tooltip, collapsed team menu, and breadcrumb dropdowns.
-- **Badges / deprecated badge / pills / avatars / modal close button / banner close button / sidebar collapse toggle** — `rounded-full`.
-- **Mobile modal-confirmation shell** — `rounded-none sm:rounded-sm` only for the full-screen mobile confirmation flow.
-
-Never mix radii within the same view.
-
-## Components
-
-All component classes live in `resources/css/utilities.css` as `@utility` blocks, consumed by Blade components under `resources/views/components/`.
-
-### Forms
-
-#### Button
-
-Utility `.button` (`resources/css/utilities.css`):
-
-```
-flex gap-2 justify-center items-center px-2 h-8 text-sm text-black normal-case rounded-sm border-2 outline-0 cursor-pointer font-medium bg-white border-neutral-200 hover:bg-neutral-100 dark:bg-coolgray-100 dark:text-white dark:hover:text-white dark:hover:bg-coolgray-200 dark:border-coolgray-300 hover:text-black disabled:cursor-not-allowed min-w-fit dark:disabled:text-neutral-600 disabled:border-transparent disabled:hover:bg-transparent disabled:bg-transparent disabled:text-neutral-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning focus-visible:ring-offset-2 dark:focus-visible:ring-offset-base
-```
-
-Attribute variants (in `app.css`):
-
-- `button[isHighlighted]` → `text-coollabs-200 dark:text-white bg-coollabs-50 dark:bg-coollabs/20 border-coollabs dark:border-coollabs-100 hover:bg-coollabs hover:text-white dark:hover:bg-coollabs-100 dark:hover:text-white`
-- `button[isError]` → `text-red-800 dark:text-red-300 bg-red-50 dark:bg-red-900/30 border-red-300 dark:border-red-800 hover:bg-red-300 hover:text-white dark:hover:bg-red-800 dark:hover:text-white`
-
-Loading: `<x-loading-on-button>` — inline `w-4 h-4 dark:text-warning animate-spin` SVG.
-
-#### Input
-
-Utility chain `.input-select` → `.input`:
-
-```
-block py-1.5 w-full text-sm text-black rounded-sm border-0 dark:bg-coolgray-100 dark:text-white disabled:bg-neutral-200 disabled:text-neutral-500 dark:disabled:bg-coolgray-100/40 placeholder:text-neutral-300 dark:placeholder:text-neutral-700 read-only:text-neutral-500 read-only:bg-neutral-200 dark:read-only:text-neutral-500 dark:read-only:bg-coolgray-100/40 focus-visible:outline-none
-```
-
-Plus the inset box-shadow system (see Elevation). Password variant: `.input[type="password"]` gets `pr-[2.4rem]` for the eye icon.
-
-**Dirty indicator.** Livewire sets the focus-colored shadow via `wire:dirty.class`:
-
-```blade
-wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
-```
-
-Variant `.input-sticky` — same shape, `1px` outer shadow (thinner border).
-
-#### Select
-
-Extends `.input-select` + custom SVG dropdown arrow. Inherits the same focus + dirty behavior as `.input` — `border-0`, layered inset box-shadow border, 4px transparent left bar that flips to `#6b16ed` (light) / `#fcd452` (dark) on `:focus-visible` and on `wire:dirty.class`.
-
-```css
-background-image: url("data:image/svg+xml,...stroke='%23000000'...");
-padding-right: 2.5rem;
-```
-
-Dark mode swaps the SVG stroke to `%23ffffff`. Wire dirty pattern identical to `.input`:
-
-```blade
-wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
-```
-
-#### Checkbox
-
-Input class:
-```
-dark:border-neutral-700 text-coolgray-400 dark:bg-coolgray-100 rounded-sm cursor-pointer dark:disabled:bg-base dark:disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning focus-visible:ring-offset-2 dark:focus-visible:ring-offset-base
-```
-
-Container:
-```
-form-control flex max-w-full flex-row items-center gap-4 py-1 pr-2 dark:hover:bg-coolgray-100 cursor-pointer
-```
-
-#### Textarea
-
-Uses the same `.input` utility + `font-mono`. Inherits the inset box-shadow system: `border-0`, 2px box-shadow border (`#e5e5e5` light / `#242424` dark), 4px transparent left bar that flips to `#6b16ed` (light) / `#fcd452` (dark) on `:focus-visible` and on dirty. Read-only / disabled strips both shadow layers (`box-shadow: none`).
-
-Wire dirty pattern identical to `.input`:
-
-```blade
-wire:dirty.class="[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]"
-```
-
-Optional `@keydown.tab=handleKeydown` inserts 2 spaces on Tab. Password variant of textarea (rare; e.g. multi-line secret) reuses the same chain.
-
-#### Copy-Button
-
-`resources/views/components/forms/copy-button.blade.php` — readonly `.input` with an absolute-positioned copy icon right-side. Copied state shows a green check (`text-green-500`) for 1 second. Only renders in secure contexts (`window.isSecureContext`).
-
-### Containers
-
-#### Box
-
-Utility `.box`:
-```
-relative flex lg:flex-row flex-col p-2 transition-colors cursor-pointer min-h-[4rem] dark:bg-coolgray-100 shadow-sm bg-white border text-black dark:text-white hover:text-black border-neutral-200 dark:border-coolgray-300 hover:bg-neutral-100 dark:hover:bg-coollabs-100 dark:hover:text-white hover:no-underline rounded-sm
-```
-
-**Critical child text rule.** On dark hover, background becomes purple `#7317ff` — description text `#737373` disappears. Utilities `.box-title` and `.box-description` include `dark:group-hover:text-white group-hover:text-black` to flip text contrast.
-
-Variants: `.box-boarding`, `.box-without-bg`, `.box-without-bg-without-border`.
-
-#### Coolbox
-
-Utility `.coolbox`:
-```
-relative flex transition-all duration-150 dark:bg-coolgray-100 bg-white p-2 rounded border border-neutral-200 dark:border-coolgray-400 hover:ring-2 dark:hover:ring-warning hover:ring-coollabs cursor-pointer min-h-[4rem]
-```
-
-Distinguished by **ring-hover** instead of background change. Same 4px radius as default `.box`.
-
-**State breakdown:**
-- **Resting** — 1px static border (`#e5e5e5` light / `#282828` dark via `coolgray-400`); background `bg-white dark:bg-coolgray-100`. No background change anywhere on the box itself in either state.
-- **Hover** — `ring-2` accent ring appears outside the border (`coollabs` light / `warning` dark). Animates over `150ms` via `transition-all`. The 1px static border stays. Background does NOT shift. This is the entire hover affordance — no color fill, no purple sweep.
-
-This is the **dominant card style for project / resource / environment listings** — uses `.coolbox group` paired with `.box-title` + `.box-description` children, plus inline action links (e.g. `+ Add Resource`, `Settings`).
-
-Note: `.box-title` and `.box-description` keep their colors steady on coolbox hover (no flip needed) because the background never changes — unlike `.box` where dark hover goes purple and forces the contrast flip.
-
-### Status & Badges
-
-#### Badge base
-
-```
-inline-block w-3 h-3 text-xs font-bold rounded-full leading-none border border-neutral-200 dark:border-black
-```
-
-Fill utilities: `.badge-success` (`bg-success`), `.badge-warning` (`bg-warning`), `.badge-error` (`bg-error`). Dashboard variant `.badge-dashboard` is `absolute top-1 right-1 w-2.5 h-2.5`.
-
-#### Status indicator pattern
-
-Badge + label side-by-side. Components in `resources/views/components/status/`:
-
-| Component | Badge | Text color | Loading? |
+| Need | Use | Base primitive | Status |
 |---|---|---|---|
-| `status/running` | `badge-success` | `text-success` (`#22C55E`) | Swaps to `badge-warning` while checking proxy |
-| `status/degraded` | `badge-warning` | `dark:text-warning` (`#fcd452`) | `<x-loading>` + `wire:loading.delay.longer` |
-| `status/restarting` | `badge-warning` | `dark:text-warning` | `<x-loading>` |
-| `status/stopped` | `badge-error` | `text-error` (`#dc2626`) | `<x-loading>` |
-
-Layout: `<div class="flex items-center">` → badge → `<div class="pl-2 pr-1 text-xs font-bold {color}">{label}</div>` → optional `({health})` in same color.
-
-#### Deprecated Badge
-
-`resources/views/components/deprecated-badge.blade.php`:
-```
-px-2 py-0.5 text-xs font-medium leading-normal rounded-full bg-warning/15 text-warning border border-warning/30
-```
-
-#### Tag
-
-Utility `.tag`:
-```
-px-2 py-1 cursor-pointer box-description dark:bg-coolgray-100 dark:hover:bg-coolgray-300 bg-neutral-100 hover:bg-neutral-200
-```
-
-### Overlays
-
-#### Callout
-
-Four types (`warning`, `danger`, `info`, `success`). Base: `relative p-4 border rounded-lg`.
-
-| Type | Background | Border | Title text | Body text |
-|---|---|---|---|---|
-| warning | `bg-warning-50 dark:bg-warning-900/30` | `border-warning-300 dark:border-warning-800` | `text-warning-800 dark:text-warning-300` | `text-warning-700 dark:text-warning-200` |
-| danger | `bg-red-50 dark:bg-red-900/30` | `border-red-300 dark:border-red-800` | `text-red-800 dark:text-red-300` | `text-red-700 dark:text-red-200` |
-| info | `bg-blue-50 dark:bg-blue-900/30` | `border-blue-300 dark:border-blue-800` | `text-blue-800 dark:text-blue-300` | `text-blue-700 dark:text-blue-200` |
-| success | `bg-green-50 dark:bg-green-900/30` | `border-green-300 dark:border-green-800` | `text-green-800 dark:text-green-300` | `text-green-700 dark:text-green-200` |
-
-Icon colors (600 light / 400 dark) match type.
-
-#### Modal (input variant)
-
-`resources/views/components/modal.blade.php`:
-```
-relative w-full lg:w-auto lg:min-w-2xl lg:max-w-4xl border rounded-sm drop-shadow-sm bg-white border-neutral-200 dark:bg-base dark:border-coolgray-300 flex flex-col
-```
-
-Backdrop: `bg-black/20 backdrop-blur-xs`. Close button: `w-8 h-8 rounded-full hover:bg-neutral-100 dark:hover:bg-coolgray-300` top-right, 24px `stroke-width=1.5` X icon.
-
-#### Modal Confirmation
-
-`resources/views/components/modal-confirmation.blade.php` — destructive-action 2-or-3-step wizard (checkboxes → confirm text → password):
-```
-relative w-full border rounded-none sm:rounded-sm min-w-full lg:min-w-[36rem] max-w-full sm:max-w-[48rem] h-screen sm:h-auto max-h-screen sm:max-h-[calc(100vh-2rem)] bg-neutral-100 border-neutral-400 dark:bg-base dark:border-coolgray-300 flex flex-col
-```
-
-Uses `<x-callout type="danger">` for warning. Password step hidden for OAuth users.
-
-#### Confirm Modal
-
-`resources/views/components/confirm-modal.blade.php` — Livewire-bound simpler confirm dialog.
-
-#### Popup / Popup-Small
-
-Fixed bottom-right notification card with title / description / action button. `bg-white dark:bg-coolgray-100 border dark:border-coolgray-300 shadow-lg sm:rounded-sm`. Popup is responsive max-w-4xl, Popup-Small is `max-w-[46rem]`.
-
-#### Slide-Over
-
-`resources/views/components/slide-over.blade.php`:
-
-Outer: `fixed inset-y-0 right-0 flex max-w-full pl-10`
-
-Panel: `max-w-xl w-screen flex flex-col h-full py-6 overflow-hidden border-l shadow-lg bg-neutral-50 dark:bg-base dark:border-neutral-800 border-neutral-200`
-
-#### Toast
-
-`resources/views/components/toast.blade.php` — Alpine-powered stacked toast system.
-
-- Container: `fixed ... sm:max-w-xs z-9999`, positioned via `position` param (`top-right` / `top-left` / `top-center` / `bottom-right` / `bottom-left` / `bottom-center`).
-- Toast shell: `relative flex flex-col items-start shadow-[0_5px_15px_-3px_rgb(0_0_0_/_0.08)] w-full dark:bg-coolgray-100 bg-white dark:border dark:border-coolgray-200 rounded-sm sm:max-w-xs`.
-- Stacks up to 4 (oldest gets scale 82% then burns).
-- Auto-dismiss after 4 s. Hover on container pauses dismissal and expands stack.
-- HTML payload sanitized via `window.sanitizeHTML` (XSS guard).
-- Per-toast copy-to-clipboard + close buttons.
-
-Icon colors:
-
-| Type | Class |
-|---|---|
-| success | `text-green-500` |
-| info | `text-blue-500` |
-| warning | `text-orange-400` |
-| danger | `text-red-500` |
-| default | `text-gray-800` |
-
-#### Helper / Tooltip
-
-`resources/views/components/helper.blade.php`. Icon utility `.info-helper`:
-```
-cursor-pointer text-coollabs dark:text-warning
-```
-
-Popup utility `.info-helper-popup`:
-```
-hidden absolute z-40 text-xs rounded-sm text-neutral-700 group-hover:block dark:border-coolgray-500 border-neutral-900 dark:bg-coolgray-400 bg-neutral-200 dark:text-neutral-300 max-w-sm whitespace-normal break-words
-```
-
-Shown on parent `.group:hover`. Supports rich HTML (links colored `text-coollabs dark:text-warning underline`).
-
-### Navigation
-
-#### Sidebar / Navbar
-
-Component: `resources/views/components/navbar.blade.php`.
-
-Parent layout: `resources/views/layouts/app.blade.php`.
-
-**Layout shell state.** The app layout owns sidebar geometry and persistence:
-- `open: false` — mobile drawer state.
-- `collapsed: false` — desktop sidebar state, initialized from `localStorage.getItem('sidebarCollapsed') === 'true'`.
-- `pageWidth: 'full'` — initialized from `localStorage.pageWidth`; defaults to `'full'`.
-- `toggleSidebar()` — toggles `collapsed` and persists `localStorage.sidebarCollapsed`.
-
-**Desktop shell.** Sidebar wrapper is fixed at `lg` with animated width:
-
-```
-hidden lg:fixed lg:inset-y-0 lg:z-50 lg:flex lg:flex-col min-w-0 transition-[width] duration-200
-```
-
-Conditional `:class`: `collapsed ? 'lg:w-16' : 'lg:w-56'`.
-
-The desktop collapse/expand button is:
-
-```
-absolute top-8 -right-3 z-50 hidden lg:flex items-center justify-center w-6 h-6
-rounded-full border bg-white dark:bg-coolgray-100 dark:border-coolgray-200
-border-neutral-300 hover:bg-neutral-100 dark:hover:bg-coolgray-200 transition-colors shadow-sm
-```
-
-Its title is `Expand sidebar` when collapsed and `Collapse sidebar` when expanded. Icon is `w-3.5 h-3.5 text-neutral-600 dark:text-neutral-300 transition-transform`; expanded state applies `rotate-180`.
-
-**Main content offset.** `<main>` uses animated left padding. Expanded offset is `16rem`; collapsed offset is `6rem` via the collapsed shell selector. Base content padding is `1.5rem`.
-
-**Mobile shell.** Mobile top bar lives in layout, not navbar:
-
-```
-sticky top-0 z-40 flex items-center justify-between px-4 py-4 gap-x-6 sm:px-6 lg:hidden
-bg-white/95 dark:bg-base/95 backdrop-blur-sm border-b border-neutral-300/50 dark:border-coolgray-200/50
-```
-
-It contains the wordmark, `<livewire:switch-team />`, and hamburger button. Mobile drawer opens from the right: backdrop `fixed inset-0 bg-black/80`, panel `fixed inset-y-0 right-0 h-full flex`, inner width `w-full max-w-56`; close button sits at `right-full`.
-
-**Root nav.** Single `<nav>` with conditional padding driven by parent Alpine `collapsed` state:
-
-```
-flex flex-col flex-1 bg-white border-r dark:border-coolgray-200 border-neutral-300 dark:bg-base
-```
-
-Conditional padding: expanded and collapsed sidebar/nav horizontal padding is `0.7rem`; collapsed state also adds `.sidebar-collapsed`. At `≥1024px`, collapsed sidebar header adds `padding-top: 0.5rem` to align the compact identity with adjacent page title rhythm.
-
-The `.sidebar-collapsed` class triggers a media-query rule in `utilities.css`:
-
-```css
-@media (min-width: 1024px) {
-  .sidebar-collapsed .menu-item {
-    justify-content: center;
-    width: var(--button-h);   /* 2rem / w-8 */
-    height: var(--button-h);  /* 2rem / h-8 */
-    min-height: var(--button-h);
-    padding-left: 0;
-    padding-right: 0;
-    gap: 0;
-    margin-inline: auto;
-  }
-}
-```
-
-This centers icons and removes label-side padding/gap when the sidebar collapses on `lg` breakpoint. Collapsed top-level nav items keep the same compact button background/click-target size as other navbar icon buttons: `w-8 h-8` (`var(--button-h)` / `2rem`), not a full-height tile.
-
-**Navbar Alpine state.** The navbar exposes:
-- `tooltip: { text, x, y, show }` — hover-positioned tooltip used only when `collapsed`.
-- `setTheme(type)` — `'dark' | 'light' | 'system'` persisted to `localStorage.theme`. Subscribes to `prefers-color-scheme: dark` change events when set to `'system'`.
-- `setZoom(zoom)` — persists `localStorage.zoom`. `'90'` shrinks `html` font-size to 93.75% (mobile) / 87.5% (`lg`).
-- `switchWidth()` — toggles `localStorage.pageWidth` between `'full'` and `'center'`. Reloads page.
-- `init()` — applies theme + zoom on mount; subscribes to color-scheme media query.
-- `collapsed` is inherited from the parent layout; the parent persists it to `localStorage.sidebarCollapsed`.
-
-**Header (lines 95–126).** Default Coolify rhythm is `flex pt-4 pb-4 pl-2 items-start gap-2`. Conditional: expanded `lg:pt-6`; collapsed `lg:flex-col lg:items-center lg:pl-0 lg:gap-3 lg:pt-8`. Product shells may use a compact adapted rhythm (for example header `gap: 1.1rem`, brand `margin-top: 0.7rem`, collapsed header `padding-top: 0.5rem`) when expanded and collapsed identity rows stay visually aligned with adjacent main content and navbar icons.
-
-- **Expanded app identity** — product wordmark/name link stacked above version. Wordmark class stays `text-2xl font-bold tracking-tight dark:text-white hover:opacity-80 transition-opacity`.
-- **Collapsed app identity** — compact app icon (`w-6 h-6`) centered above version text inside `<div class="hidden flex-col items-center w-full gap-1" :class="collapsed && 'lg:flex'">`. Product-specific first-letter fallbacks may use `w-8 h-8` / `2rem` when matching a 32px collapsed control system. If the app has no icon asset, use the first letter of the app name as a white, backgroundless text icon. Keep it centered and do not invent a custom logo.
-- **Global search button** — hidden when collapsed (`:class="collapsed && 'lg:hidden'"`). Triggers `$dispatch('open-global-search')`. Class:
-  ```
-  flex items-center gap-1.5 px-2.5 py-1.5 bg-neutral-100 dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md hover:bg-neutral-200 dark:hover:bg-coolgray-200 transition-colors
-  ```
-  Inline `<kbd>` shortcut hint: `px-1 py-0.5 text-xs font-semibold text-neutral-500 dark:text-neutral-400 bg-neutral-200 dark:bg-coolgray-200 rounded`. Title says `Search (Press / or ⌘K)`.
-- **Settings dropdown** — `<livewire:settings-dropdown />` hidden when collapsed.
-
-**Team switcher (lines 127–129).** Wrapper:
-
-```
-px-2 pt-2 pb-7 overflow-hidden motion-safe:transition-all motion-safe:duration-200 motion-safe:ease-out motion-reduce:transition-none
-```
-
-Collapsed classes: `lg:px-0 lg:pt-0 lg:pb-0 lg:min-h-[4.5rem] lg:flex lg:justify-center`. Compact product shells may reduce this to `min-height: var(--button-h)` / `2rem` when the active 32px team badge sits directly under a compact app identity and the column rhythm remains balanced.
-
-Renders `<livewire:switch-team />`. Expanded state shows the team `<select>`. Collapsed state hides the select and shows a 32px initial badge:
-
-```
-flex items-center justify-center w-8 h-8 p-0 text-sm font-semibold
-text-coollabs dark:text-warning bg-neutral-100 dark:bg-coolgray-200
-hover:bg-neutral-200 dark:hover:bg-coolgray-300 rounded-sm cursor-pointer transition-colors
-```
-
-Clicking the badge opens a fixed team menu at `left: rect.right + 8`, `top: rect.top`; menu class `fixed z-[100] min-w-48 max-h-72 overflow-y-auto bg-white dark:bg-coolgray-100 border border-neutral-300 dark:border-coolgray-200 rounded-md shadow-lg py-1`. Compact app variant: `min-width: 12rem`, `max-height: 18rem`, `padding: 0.25rem 0`, compact `0.875rem` items, same light/dark surfaces and border colors; active compact items use `text-coollabs` in light and `text-warning` in dark.
-
-**Menu lists (lines 130–432).**
-
-Outer list: `<ul role="list" class="flex flex-col flex-1 gap-y-7">`.
-Inner list: `<ul role="list" class="flex flex-col h-full space-y-1.5">`.
-
-Each link uses `.menu-item` / `.menu-item-active`; icon `.menu-item-icon`; label `<span class="menu-item-label" :class="collapsed && 'lg:hidden'">{Label}</span>`.
-
-A spacer `<div class="flex-1"></div>` (line 368) pushes the bottom group (Sponsor, Feedback, Logout) to the bottom of the nav.
-
-- **Sponsor link** — only colored icon in nav: `text-pink-500 menu-item-icon`. Opens `coolify.io/sponsorships` in new tab.
-- **Admin link** — same `text-pink-500 menu-item-icon`. Visible only to instance admin or impersonating session in cloud/dev.
-- **Feedback** — wrapped in `<x-modal-input title="How can we help?">`; menu-item triggers `wire:click="help"`.
-- **Logout** — `<form action="/logout" method="POST">` containing `<button title="Logout" type="submit" class="gap-2 mb-6 menu-item">`.
-
-Utility `.menu-item`:
-```
-flex gap-3 items-center px-2 py-1 w-full text-sm dark:hover:bg-coolgray-100 dark:hover:text-white hover:bg-neutral-300 rounded-sm truncate min-w-0
-```
-
-Softer product shells may use `hover:bg-neutral-200` in light mode while keeping active state at `bg-neutral-200` and dark hover at `dark:hover:bg-coolgray-100`.
-
-Utility `.menu-item-active`:
-```
-text-black rounded-sm dark:bg-coolgray-200 dark:text-warning bg-neutral-200 overflow-hidden
-```
-
-Icon `.menu-item-icon`: `flex-shrink-0 size-4 dark:hover:text-white`. Sub-items use `gap-2` + `size-4` icons.
-
-**Tooltip overlay (lines 435–440).** Rendered only in collapsed mode. Fixed-positioned floating tooltip computed from menu-item bounding rect:
-
-```
-fixed z-[100] -translate-y-1/2 px-2 py-1 text-xs font-medium rounded-md
-bg-neutral-900 dark:bg-coolgray-300 text-white whitespace-nowrap
-pointer-events-none shadow-lg border border-neutral-700 dark:border-coolgray-200
-```
-
-Bound with `x-show="collapsed && tooltip.show"`, `x-cloak`, `x-transition.opacity.duration.100ms`, `:style="`left: ${tooltip.x}px; top: ${tooltip.y}px;`"`, and `x-text="tooltip.text"`.
-
-Trigger logic on root `<nav>` `@mouseover`: if `collapsed`, finds the closest `.menu-item`, reads its `title` or `aria-label`, sets `tooltip.x = rect.right + 8`, `tooltip.y = rect.top + rect.height / 2`, shows the tooltip. `@mouseleave` hides it.
-
-Each menu link MUST set a `title="…"` attribute so the tooltip has text to display when collapsed.
-
-#### Breadcrumbs
-
-`resources/views/components/resources/breadcrumbs.blade.php` — project → environment → resource trail. Desktop: `<ol class="hidden flex-wrap items-center gap-y-1 md:flex">`. Each link `text-xs lg:text-sm hover:text-warning`. Chevron buttons `text-warning`. Dropdowns `absolute ... bg-white dark:bg-coolgray-100 rounded-md shadow-lg border`. Active item `dark:text-warning font-semibold`.
-
-#### External-Link
-
-Mini icon — `inline-flex w-3 h-3 dark:text-neutral-400 text-black` with arrow-out-of-box SVG. Appended to external anchors.
-
-#### Internal-Link
-
-Arrow SVG — `inline-flex w-4 h-4 text-black dark:text-white`. Used in CTA links ("go to deployment" etc).
-
-#### Banner
-
-`resources/views/components/banner.blade.php` — dismissible top bar:
-```
-relative z-999 w-full py-2 mx-auto duration-100 ease-out shadow-xs bg-coolgray-100 sm:py-0 sm:h-14
-```
-
-Close button: `w-6 h-6 rounded-full hover:bg-coolgray-500 text-neutral-200`. Reveals via Alpine `x-transition` after 100ms delay.
-
-### Feedback
-
-#### Loading Spinner
-
-`resources/views/components/loading.blade.php` — inline flex with optional text + spinning SVG:
-```
-w-4 h-4 mx-1 ml-3 text-coollabs dark:text-warning animate-spin
-```
-
-SVG has two paths at `opacity-25` (track) + `opacity-75` (arc).
-
-Utility `.loading`: `w-4 dark:text-warning text-coollabs`.
-
-#### Loading-On-Button
-
-`resources/views/components/loading-on-button.blade.php` — same SVG but **no light-mode color** (`w-4 h-4 mx-1 ml-3 dark:text-warning animate-spin`), meant to inherit button text color.
-
-#### Page-Loading
-
-Full-page loader overlay (variant of `loading` component, fills viewport).
-
-### Text
-
-#### Highlighted text
-
-`resources/views/components/highlighted.blade.php` / utility `.text-helper`:
-```
-inline-block font-bold text-coollabs dark:text-warning
-```
-
-Also used for required-field asterisks via `<x-highlighted text="*" />`.
-
-#### Kbd
-
-Utility `.kbd-custom`:
-```
-px-2 text-xs rounded-sm border border-dashed border-neutral-700 dark:text-warning
-```
-
-### Chrome
-
-#### Scrollbar
-
-Utility `.scrollbar` (uses `tailwind-scrollbar` plugin):
-```
-scrollbar-thumb-coollabs-100 scrollbar-track-neutral-200 dark:scrollbar-track-coolgray-200 scrollbar-thin
-```
-
-Applied globally to `<body>` in `app.css`.
-
-#### Table
-
-Styled via base element rules in `app.css` (not a reusable component):
-
-```css
-table       { @apply min-w-full divide-y dark:divide-coolgray-200 divide-neutral-300; }
-thead       { @apply uppercase; }
-tbody       { @apply divide-y dark:divide-coolgray-200 divide-neutral-300; }
-tr          { @apply text-black dark:text-neutral-400 dark:hover:bg-coolgray-300 hover:bg-neutral-100; }
-tr th       { @apply px-3 py-3.5 text-left text-black dark:text-white; }
-tr th:first-child { @apply py-3.5 pr-3 pl-4 sm:pl-6; }
-tr td       { @apply px-3 py-4 whitespace-nowrap; }
-tr td:first-child { @apply pr-3 pl-4 font-bold sm:pl-6; }
-```
-
-#### Dropdown
-
-`resources/views/components/dropdown.blade.php`. Container:
-```
-border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-200
-```
-
-Utility `.dropdown-item`:
-```
-flex relative gap-2 justify-start items-center py-1 pr-4 pl-2 w-full text-xs transition-colors cursor-pointer select-none dark:text-white hover:bg-neutral-100 dark:hover:bg-coollabs outline-none data-disabled:pointer-events-none data-disabled:opacity-50 focus-visible:bg-neutral-100 dark:focus-visible:bg-coollabs
-```
-
-Touch variant adds `min-h-10 px-3 py-2 text-sm`.
-
-## Do's and Don'ts
-
-- **Do** force `dark:text-white` on h1–h4 and card titles. Default body text `#a3a3a3` is unreadable on `coolgray-100`.
-- **Do** swap the accent: `coollabs` in light, `warning` in dark. For focus rings, active nav, helpers, spinners, highlighted text, helper links. Use documented purple dark-mode fill/hover exceptions only where this spec names them.
-- **Do** use the inset box-shadow system on inputs, selects, and textareas — not a border. It enables the 4px left dirty-bar.
-- **Do** wire the dirty indicator via `wire:dirty.class` so Livewire flips the bar color on modified state.
-- **Do** flip `.box-title` and `.box-description` to the contrast color on hover. On dark hover the card goes purple `#7317ff`; `text-neutral-500` description becomes invisible.
-- **Do** maintain WCAG AA contrast (4.5:1 for normal text).
-- **Do** sanitize HTML passed into toasts via `window.sanitizeHTML`.
-- **Do** use `<x-loading-on-button>` for in-button spinners and `<x-loading>` as `wire:loading.delay.longer` indicators in status components.
-- **Do** style UI with Tailwind utilities or documented project `@utility` classes first.
-- **Don't** use purple `coollabs` as the dark-mode accent. Always use yellow `warning` in dark unless this spec explicitly documents a purple fill/hover exception.
-- **Don't** mix corner radii — 4px everywhere except documented callouts, chrome, full-pill, and modal-confirmation exceptions.
-- **Don't** add undocumented shadows for elevation in dark mode. Use tonal layers from the coolgray ladder.
-- **Don't** set `border` utilities without expecting `coolgray-200` in dark (default override in base layer).
-- **Don't** add gradients. The one exception is the `.bg-coollabs-gradient` upsell strip.
-- **Don't** add one-off CSS or inline styles unless needed for base/global rules, third-party/browser selectors, dynamic values Tailwind cannot express, or a documented exception.
-- **Don't** add arbitrary extra font weights beyond the documented component weights.
-
+| Action button, submit button, destructive button, highlighted button | [`design/forms/button.md`](design/forms/button.md) | Shadcn-Svelte `Button` | Migrated |
+| Text input | [`design/forms/input.md`](design/forms/input.md) | Shadcn-Svelte `Input` | Migrated |
+| Form label, required marker, helper icon, field description/error | [`design/forms/form-field.md`](design/forms/form-field.md) | Shadcn-Svelte `Label` + `Tooltip` composition | Migrated |
+| Select | [`design/forms/select.md`](design/forms/select.md) | Shadcn-Svelte `Select` or `Native Select` | Migrated |
+| Checkbox | [`design/forms/checkbox.md`](design/forms/checkbox.md) | Shadcn-Svelte `Checkbox` | Migrated |
+| Textarea | [`design/forms/textarea.md`](design/forms/textarea.md) | Shadcn-Svelte `Textarea` | Migrated |
+| Copy button | [`design/forms/copy-button.md`](design/forms/copy-button.md) | Shadcn-Svelte `Button` + `Input` composition | Migrated |
+| Radio group | [`design/forms/radio-group.md`](design/forms/radio-group.md) | Shadcn-Svelte `Radio Group` | Migrated |
+| Switch | [`design/forms/switch.md`](design/forms/switch.md) | Shadcn-Svelte `Switch` | Migrated |
+| Card, panel, operational surface | [`design/containers/card.md`](design/containers/card.md) | Shadcn-Svelte `Card` | Migrated |
+| Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
+| Coolbox/card with ring hover | [`design/containers/coolbox.md`](design/containers/coolbox.md) | Shadcn-Svelte `Card` or anchor/button wrapper | Migrated |
+| Badge | [`design/status/badge.md`](design/status/badge.md) | Shadcn-Svelte `Badge` | Migrated |
+| Status indicator | [`design/status/status-indicator.md`](design/status/status-indicator.md) | Badge + text composition | Migrated |
+| Deprecated badge | [`design/status/deprecated-badge.md`](design/status/deprecated-badge.md) | Shadcn-Svelte `Badge` | Migrated |
+| Tag | [`design/status/tag.md`](design/status/tag.md) | Shadcn-Svelte `Badge` or custom tag | Migrated |
+| Alert / inline callout | [`design/overlays/alert.md`](design/overlays/alert.md) | Shadcn-Svelte `Alert` | Migrated |
+| Callout | [`design/overlays/callout.md`](design/overlays/callout.md) | Shadcn-Svelte `Alert` | Migrated |
+| Modal / dialog | [`design/overlays/modal.md`](design/overlays/modal.md) | Shadcn-Svelte `Dialog` | Migrated |
+| Destructive modal confirmation | [`design/overlays/modal-confirmation.md`](design/overlays/modal-confirmation.md) | Shadcn-Svelte `Alert Dialog` or `Dialog` | Migrated |
+| Confirm modal | [`design/overlays/confirm-modal.md`](design/overlays/confirm-modal.md) | Shadcn-Svelte `Alert Dialog` | Migrated |
+| Popup / popup small | [`design/overlays/popup.md`](design/overlays/popup.md) | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Migrated |
+| Slide-over | [`design/overlays/slide-over.md`](design/overlays/slide-over.md) | Shadcn-Svelte `Sheet` | Migrated |
+| Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
+| Helper tooltip | [`design/overlays/helper-tooltip.md`](design/overlays/helper-tooltip.md) | Shadcn-Svelte `Tooltip` or `Hover Card` | Migrated |
+| Main view layouts | [`design/layouts/main-view.md`](design/layouts/main-view.md) | Page layout composition | Migrated |
+| Sidebar / navbar | [`design/navigation/sidebar-navbar.md`](design/navigation/sidebar-navbar.md) | Shadcn-Svelte `Sidebar` + app layout | Migrated |
+| Subsidebar | [`design/navigation/subsidebar.md`](design/navigation/subsidebar.md) | Secondary vertical resource navigation | Migrated |
+| Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |
+| Breadcrumbs | [`design/navigation/breadcrumbs.md`](design/navigation/breadcrumbs.md) | Shadcn-Svelte `Breadcrumb` | Migrated |
+| External link | [`design/navigation/external-link.md`](design/navigation/external-link.md) | Anchor + icon composition | Migrated |
+| Internal link | [`design/navigation/internal-link.md`](design/navigation/internal-link.md) | Anchor + icon composition | Migrated |
+| Banner | [`design/navigation/banner.md`](design/navigation/banner.md) | Custom banner composition | Migrated |
+| Loading spinner | [`design/feedback/loading-spinner.md`](design/feedback/loading-spinner.md) | Shadcn-Svelte `Spinner` | Migrated |
+| Loading on button | [`design/feedback/loading-on-button.md`](design/feedback/loading-on-button.md) | Shadcn-Svelte `Spinner` inside `Button` | Migrated |
+| Page loading | [`design/feedback/page-loading.md`](design/feedback/page-loading.md) | Custom overlay + `Spinner` | Migrated |
+| Highlighted text / required asterisk | [`design/text/highlighted-text.md`](design/text/highlighted-text.md) | Text utility/composition | Migrated |
+| Keyboard hint | [`design/text/kbd.md`](design/text/kbd.md) | Shadcn-Svelte `Kbd` | Migrated |
+| Scrollbar | [`design/utilities/scrollbar.md`](design/utilities/scrollbar.md) | CSS utility | Migrated |
+| Table | [`design/data/table.md`](design/data/table.md) | Shadcn-Svelte `Table` or `Data Table` | Migrated |
+| Dropdown | [`design/forms/dropdown.md`](design/forms/dropdown.md) | Shadcn-Svelte `Dropdown Menu` | Migrated |
+| Searchable dropdown | [`design/forms/searchable-dropdown.md`](design/forms/searchable-dropdown.md) | Shadcn-Svelte `Command` + `Popover` / Combobox | Migrated |
+| Form composition / validation | [`design/forms/form-composition.md`](design/forms/form-composition.md) | FormField + inputs + validation | Migrated |
+| TOTP / one-time token challenge | [`design/auth/totp-challenge.md`](design/auth/totp-challenge.md) | Shadcn-Svelte `Button` + `Input` + local OTP composition | Migrated |
+| Login page | [`design/auth/login-page.md`](design/auth/login-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Register page | [`design/auth/register-page.md`](design/auth/register-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Forgot password page | [`design/auth/forgot-password-page.md`](design/auth/forgot-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Reset password page | [`design/auth/reset-password-page.md`](design/auth/reset-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `PasswordInput`, `FormField` | Migrated |
+| Confirm password page | [`design/auth/confirm-password-page.md`](design/auth/confirm-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `PasswordInput`, `FormField` | Migrated |
+| Email verification page | [`design/auth/email-verification-page.md`](design/auth/email-verification-page.md) | Auth page composition with Shadcn-Svelte `Button` | Migrated |
+| Command palette / global search | [`design/search/command-palette.md`](design/search/command-palette.md) | Shadcn-Svelte `Command` + `Dialog` | Migrated |
+| Tooltip variants | [`design/overlays/tooltip.md`](design/overlays/tooltip.md) | Shadcn-Svelte `Tooltip` | Migrated |
+
+## Migration rules
+
+- Migrate one component at a time.
+- Start from the closest Shadcn-Svelte primitive and document which primitive is extended.
+- Prefer Shadcn-Svelte props/variants/composition over global CSS selectors or raw boolean attributes.
+- Keep Coolify-specific decisions as tokens/variant overrides on top of the primitive.
+- Put improvement ideas in each component file under `Claude improvement notes`.
+- Do not treat improvement notes as approved implementation changes.
+
+## Component file template
+
+Each migrated component should follow the Google DESIGN.md format:
+
+```md
+---
+version: alpha
+name: Component Name
+description: Short implementation-independent description.
+colors:
+  primary: "#..."
+typography:
+  label-md:
+    fontFamily: "..."
+    fontSize: 0.875rem
+rounded:
+  sm: 0.25rem
+spacing:
+  component-height: 2rem
+components:
+  component-default:
+    backgroundColor: "{colors.surface}"
+    textColor: "{colors.text}"
+    typography: "{typography.label-md}"
+    rounded: "{rounded.sm}"
 ---
 
-## Source files
+# Component Name
 
-- Theme tokens: `resources/css/app.css` (`@theme` block)
-- Fonts: `resources/css/fonts.css`
-- Component utilities: `resources/css/utilities.css`
-- Blade components: `resources/views/components/**/*.blade.php`
+## Overview
+## Colors
+## Typography
+## Layout
+## Elevation & Depth
+## Shapes
+## Components
+## Do's and Don'ts
+
+## Implementation Notes
+## Review Checklist
+## Claude Improvement Notes
+## Source References
+```
+
+The first eight `##` sections are the canonical DESIGN.md order. Extra sections after them are allowed for implementation and review notes.

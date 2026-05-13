@@ -76,7 +76,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Compose existing V2 components where needed: Button, Badge, Input, Spinner, and links.
+Compose existing components where needed: Button, Badge, Input, Spinner, and links.
 
 ## Do's and Don'ts
 
@@ -88,10 +88,16 @@ Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify densit
 
 ## Review Checklist
 
-- [ ] Uses compact spacing.
-- [ ] Works in light and dark mode.
-- [ ] Uses existing V2 primitives where possible.
-- [ ] Avoids legacy design references.
+- [ ] Uses Shadcn-Svelte `Table` / Data Table primitives as the base, not a custom div-grid for tabular data.
+- [ ] Wrapper allows horizontal overflow on small screens: `w-full overflow-x-auto`.
+- [ ] Table keeps dense operational spacing: `text-sm`, header `text-xs`, cells `px-3 py-2`.
+- [ ] Header is uppercase, bold, muted, and separated by a neutral/coolgray border.
+- [ ] Rows use hover states: `hover:bg-neutral-100` in light mode and `dark:hover:bg-coolgray-200` or `dark:hover:bg-coolgray-300` in dark mode.
+- [ ] First/primary cell is visually stronger when needed, but secondary cells stay muted/readable.
+- [ ] Row actions align right with `flex items-center justify-end gap-2` and use Button/Dropdown primitives.
+- [ ] Status values use Status Indicator / Badge specs rather than ad-hoc colored dots.
+- [ ] Empty, loading, and error states reserve table/card space and do not shift the page layout abruptly.
+- [ ] No heavy shadows, large row cards, gradients, or undocumented border/radius changes are introduced.
 
 ## Claude Improvement Notes
 
@@ -99,4 +105,4 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`

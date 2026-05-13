@@ -100,5 +100,5 @@ Future docs may define external-link confirmation for dangerous admin destinatio
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - `design/forms/button.md`

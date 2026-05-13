@@ -122,5 +122,5 @@ A separate top-level navigation spec can define sidebar and page nav patterns.
 
 ## Source References
 
-- `DESIGN_V2.md`
+- `DESIGN.md`
 - Shadcn-Svelte Tabs primitive
