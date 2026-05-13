@@ -27,5 +27,12 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/input",
     designDoc: "design/forms/input.md",
     status: "Migrated"
+  },
+  {
+    label: "Select",
+    slug: "select",
+    href: "/components/select",
+    designDoc: "design/forms/select.md",
+    status: "Migrated"
   }
 ];

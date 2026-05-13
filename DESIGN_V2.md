@@ -19,7 +19,7 @@ Use this file as a router:
 | Action button, submit button, destructive button, highlighted button | [`design/forms/button.md`](design/forms/button.md) | Shadcn-Svelte `Button` | Migrated |
 | Text input | [`design/forms/input.md`](design/forms/input.md) | Shadcn-Svelte `Input` | Migrated |
 | Form label, required marker, helper icon, field description/error | [`design/forms/form-field.md`](design/forms/form-field.md) | Shadcn-Svelte `Label` + `Tooltip` composition | Migrated |
-| Select | `design/forms/select.md` | Shadcn-Svelte `Select` or `Native Select` | Pending |
+| Select | [`design/forms/select.md`](design/forms/select.md) | Shadcn-Svelte `Select` or `Native Select` | Migrated |
 | Checkbox | `design/forms/checkbox.md` | Shadcn-Svelte `Checkbox` | Pending |
 | Textarea | `design/forms/textarea.md` | Shadcn-Svelte `Textarea` | Pending |
 | Copy button | `design/forms/copy-button.md` | Shadcn-Svelte `Button` | Pending |

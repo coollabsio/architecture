@@ -16,6 +16,7 @@ Current migrated component docs:
 - `design/forms/dropdown.md`
 - `design/forms/input.md`
 - `design/forms/form-field.md`
+- `design/forms/select.md`
 
 ## Goal
 
@@ -77,17 +78,29 @@ Because `input.md` is migrated, the screen must demonstrate the Input spec clear
 - Form label with required marker and circled info helper icon using Tooltip behavior.
 - Sticky input variant with thinner 1px simulated border.
 
+## Required Select demonstrations
+
+Because `select.md` is migrated, the screen must demonstrate the Select spec clearly:
+
+- Native select wrapper or Shadcn-Svelte Select trigger styled according to `design/forms/select.md`.
+- Default select.
+- Dirty select using `data-dirty="true"` or a `dirty` prop.
+- Disabled select with no inset shadow.
+- Stacked up/down chevron, black in light mode and white in dark mode.
+- Form Field label/helper composition around at least one select.
+
 ## Implementation rules
 
 - Use Shadcn-Svelte primitives as the base.
 - For Button, use the local Shadcn-Svelte `Button` primitive and extend `buttonVariants(...)` according to `design/forms/button.md`.
 - For Dropdown, use the local Shadcn-Svelte `Dropdown Menu` primitive and extend its content/item classes according to `design/forms/dropdown.md`.
-- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`.
+- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`.
 - For form labels/helper icons, compose Label + Tooltip according to `design/forms/form-field.md`; do not bake helper behavior into raw Input.
+- For Select, use a native select wrapper for simple forms or Shadcn-Svelte Select for complex cases; style it according to `design/forms/select.md`.
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, and Input components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, and Select components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -109,6 +122,7 @@ Follow these visual decisions from the docs:
 - Dropdown content uses `border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-200`.
 - Dropdown items use `text-xs py-1 pl-2 pr-4 gap-2`; touch items use `min-h-10 px-3 py-2 text-sm`.
 - Inputs use inset `box-shadow` rather than borders, with a 4px focus/dirty bar and no shadow when disabled/readonly.
+- Selects use the same inset shadow system as Input and the stacked up/down chevron; do not use a single down chevron.
 
 ## Deliverables
 
@@ -119,7 +133,7 @@ Preferred output format:
 1. Brief plan, maximum 5 bullets.
 2. File tree.
 3. Code blocks for each changed/created file.
-4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`.
+4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`.
 5. Short self-review checklist showing which Button requirements are satisfied.
 
 If you are working inside a real repo, create or update files directly instead of only printing code.
@@ -145,6 +159,8 @@ mockups/shadcn-svelte-sample/
   src/lib/components/ui/input/password-input.svelte
   src/lib/components/ui/form-field/index.ts
   src/lib/components/ui/form-field/form-field.svelte
+  src/lib/components/ui/select/index.ts
+  src/lib/components/ui/select/native-select.svelte
   src/lib/utils.ts
 ```
 
@@ -160,6 +176,7 @@ The generated result is successful if:
 - It demonstrates all required Dropdown content/item states.
 - It demonstrates all required Input states, including dirty, disabled, readonly, password show/hide, password spacing, and sticky.
 - It demonstrates form label composition with required marker and helper icon tooltip.
+- It demonstrates Select default, dirty, disabled, and stacked-chevron states.
 - It avoids Livewire/Blade/Laravel-specific implementation details.
 - It does not introduce undocumented visual language such as gradients, large radius, or heavy shadows.
 - The screen feels compact, dark-first, utilitarian, and operational.
@@ -176,6 +193,7 @@ The generated result should be considered a design-doc failure if the AI:
 - Builds a generic dropdown that misses compact `p-1`, `text-xs`, bordered content, or dark purple item hover/focus.
 - Builds a generic bordered/ringed input instead of the inset box-shadow + dirty-bar input.
 - Shows password values by default or omits the eye/eye-off visibility toggle.
+- Uses a generic select with normal borders or a single down chevron instead of the V2 select styling.
 - Uses an eye icon for helper information instead of a circled info icon.
 - Uses purple as the general dark-mode accent outside documented exceptions.
 - Adds gradients, large rounded corners, large shadows, or decorative marketing UI.
@@ -193,5 +211,6 @@ If the output is wrong, ask:
 - Was `design/forms/dropdown.md` too implementation-heavy or too vague?
 - Was `design/forms/input.md` too implementation-heavy or too vague?
 - Was `design/forms/form-field.md` too implementation-heavy or too vague?
+- Was `design/forms/select.md` too implementation-heavy or too vague?
 - Did the Button doc leave missing variant/size details?
 - Should pending components get temporary guidance before full migration?
