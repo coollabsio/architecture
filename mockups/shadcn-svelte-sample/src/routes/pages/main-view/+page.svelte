@@ -9,12 +9,12 @@
   let view: "grid" | "split" | "single" = "grid";
 
   const resourceSections: SubSidebarItem[] = [
-    { label: "Environment", href: "/components/main-view", active: true },
-    { label: "Deployments", href: "/components/main-view" },
-    { label: "Commands", href: "/components/main-view" },
-    { label: "Logs", href: "/components/main-view" },
-    { label: "Metrics", href: "/components/main-view" },
-    { label: "Settings", href: "/components/main-view" }
+    { label: "Environment", href: "/pages/main-view", active: true },
+    { label: "Deployments", href: "/pages/main-view" },
+    { label: "Commands", href: "/pages/main-view" },
+    { label: "Logs", href: "/pages/main-view" },
+    { label: "Metrics", href: "/pages/main-view" },
+    { label: "Settings", href: "/pages/main-view" }
   ];
 </script>
 
@@ -48,16 +48,16 @@
         <Callout title="Resource grid layout">Use this layout for dashboard/index pages where the main job is choosing a resource or shortcut.</Callout>
 
         <div class="mt-4 grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
-          <Coolbox href="/components/main-view" title="Production API" description="Application · 3 containers">
+          <Coolbox href="/pages/main-view" title="Production API" description="Application · 3 containers">
             <div class="mt-2"><Badge variant="success">Running</Badge></div>
           </Coolbox>
-          <Coolbox href="/components/main-view" title="Postgres" description="Database · backups enabled">
+          <Coolbox href="/pages/main-view" title="Postgres" description="Database · backups enabled">
             <div class="mt-2"><Badge variant="warning">Restarting</Badge></div>
           </Coolbox>
-          <Coolbox href="/components/main-view" title="Redis Queue" description="Service · worker cache">
+          <Coolbox href="/pages/main-view" title="Redis Queue" description="Service · worker cache">
             <div class="mt-2"><Badge>Idle</Badge></div>
           </Coolbox>
-          <Coolbox href="/components/main-view" title="Create resource" description="Application, database, or service" />
+          <Coolbox href="/pages/main-view" title="Create resource" description="Application, database, or service" />
         </div>
       </div>
     {:else if view === 'split'}

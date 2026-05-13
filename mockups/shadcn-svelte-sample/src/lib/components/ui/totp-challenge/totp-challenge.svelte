@@ -60,7 +60,7 @@
   }
 </script>
 
-<section class="mx-auto w-full max-w-md space-y-6 rounded-sm border border-neutral-200 bg-white p-4 text-black dark:border-coolgray-300 dark:bg-base dark:text-white">
+<section class="mx-auto w-full max-w-md space-y-6 text-black dark:text-white">
   <div class="space-y-2 text-center">
     <h2 class="text-5xl font-extrabold tracking-tight">{title}</h2>
     <p class="text-lg text-neutral-600 dark:text-neutral-400">{subtitle}</p>
@@ -117,8 +117,8 @@
 
   <div class="relative">
     <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
-    <div class="relative flex justify-center text-sm"><span class="bg-white px-2 text-neutral-500 dark:bg-base dark:text-neutral-400">Need help?</span></div>
+    <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-base dark:text-neutral-400">Need help?</span></div>
   </div>
 
-  <a href="/components/totp-challenge" class={cn("block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning")}>Back to login</a>
+  <a href="/pages/login-page" class={cn("block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning")}>Back to login</a>
 </section>

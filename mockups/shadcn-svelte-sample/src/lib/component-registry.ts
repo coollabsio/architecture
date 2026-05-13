@@ -297,56 +297,56 @@ const allSamples: ComponentSample[] = [
   {
     label: "TOTP Challenge",
     slug: "totp-challenge",
-    href: "/components/totp-challenge",
+    href: "/pages/totp-challenge",
     designDoc: "design/auth/totp-challenge.md",
     status: "Migrated"
   },
   {
     label: "Login Page",
     slug: "login-page",
-    href: "/components/login-page",
+    href: "/pages/login-page",
     designDoc: "design/auth/login-page.md",
     status: "Migrated"
   },
   {
     label: "Register Page",
     slug: "register-page",
-    href: "/components/register-page",
+    href: "/pages/register-page",
     designDoc: "design/auth/register-page.md",
     status: "Migrated"
   },
   {
     label: "Forgot Password Page",
     slug: "forgot-password-page",
-    href: "/components/forgot-password-page",
+    href: "/pages/forgot-password-page",
     designDoc: "design/auth/forgot-password-page.md",
     status: "Migrated"
   },
   {
     label: "Reset Password Page",
     slug: "reset-password-page",
-    href: "/components/reset-password-page",
+    href: "/pages/reset-password-page",
     designDoc: "design/auth/reset-password-page.md",
     status: "Migrated"
   },
   {
     label: "Confirm Password Page",
     slug: "confirm-password-page",
-    href: "/components/confirm-password-page",
+    href: "/pages/confirm-password-page",
     designDoc: "design/auth/confirm-password-page.md",
     status: "Migrated"
   },
   {
     label: "Email Verification Page",
     slug: "email-verification-page",
-    href: "/components/email-verification-page",
+    href: "/pages/email-verification-page",
     designDoc: "design/auth/email-verification-page.md",
     status: "Migrated"
   },
   {
     label: "Main View",
     slug: "main-view",
-    href: "/components/main-view",
+    href: "/pages/main-view",
     designDoc: "design/layouts/main-view.md",
     status: "Migrated"
   }

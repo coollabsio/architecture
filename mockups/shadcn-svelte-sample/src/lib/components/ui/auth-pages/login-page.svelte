@@ -24,7 +24,7 @@
       </FormField>
 
       <div class="flex items-center justify-between">
-        <a href="/components/login-page" class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
+        <a href="/pages/forgot-password-page" class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
       </div>
 
       <Button class="h-12 w-full justify-center py-3 text-base font-bold" variant="highlighted" type="submit">Login</Button>
@@ -39,7 +39,7 @@
       <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-base dark:text-neutral-400">Don't have an account?</span></div>
     </div>
 
-    <a href="/components/register-page" class="block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Register now</a>
+    <a href="/pages/register-page" class="block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Register now</a>
 
     <div class="relative my-6">
       <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
