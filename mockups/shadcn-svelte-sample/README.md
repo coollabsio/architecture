@@ -43,3 +43,6 @@ Implemented pages:
 - `/components/kbd` — compact keyboard shortcut hints.
 
 - `/components/sidebar-navbar` — dense app shell sidebar, collapsed mode, search, and page subnav.
+- `/components/subsidebar` — secondary vertical resource navigation.
+
+- `/components/main-view` — Coolify resource grid and split master-detail page layouts.

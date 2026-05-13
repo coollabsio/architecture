@@ -27,7 +27,7 @@ Use this file as a router:
 | Switch | [`design/forms/switch.md`](design/forms/switch.md) | Shadcn-Svelte `Switch` | Migrated |
 | Card, panel, operational surface | [`design/containers/card.md`](design/containers/card.md) | Shadcn-Svelte `Card` | Migrated |
 | Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
-| Coolbox/card with ring hover | `design/containers/coolbox.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
+| Coolbox/card with ring hover | [`design/containers/coolbox.md`](design/containers/coolbox.md) | Shadcn-Svelte `Card` or anchor/button wrapper | Migrated |
 | Badge | [`design/status/badge.md`](design/status/badge.md) | Shadcn-Svelte `Badge` | Migrated |
 | Status indicator | [`design/status/status-indicator.md`](design/status/status-indicator.md) | Badge + text composition | Migrated |
 | Deprecated badge | [`design/status/deprecated-badge.md`](design/status/deprecated-badge.md) | Shadcn-Svelte `Badge` | Migrated |
@@ -41,7 +41,9 @@ Use this file as a router:
 | Slide-over | `design/overlays/slide-over.md` | Shadcn-Svelte `Sheet` | Pending |
 | Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
 | Helper tooltip | [`design/overlays/helper-tooltip.md`](design/overlays/helper-tooltip.md) | Shadcn-Svelte `Tooltip` or `Hover Card` | Migrated |
+| Main view layouts | [`design/layouts/main-view.md`](design/layouts/main-view.md) | Page layout composition | Migrated |
 | Sidebar / navbar | [`design/navigation/sidebar-navbar.md`](design/navigation/sidebar-navbar.md) | Shadcn-Svelte `Sidebar` + app layout | Migrated |
+| Subsidebar | [`design/navigation/subsidebar.md`](design/navigation/subsidebar.md) | Secondary vertical resource navigation | Migrated |
 | Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |
 | Breadcrumbs | [`design/navigation/breadcrumbs.md`](design/navigation/breadcrumbs.md) | Shadcn-Svelte `Breadcrumb` | Migrated |
 | External link | [`design/navigation/external-link.md`](design/navigation/external-link.md) | Anchor + icon composition | Migrated |

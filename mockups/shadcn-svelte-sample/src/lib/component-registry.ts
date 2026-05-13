@@ -188,5 +188,19 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/sidebar-navbar",
     designDoc: "design/navigation/sidebar-navbar.md",
     status: "Migrated"
+  },
+  {
+    label: "Subsidebar",
+    slug: "subsidebar",
+    href: "/components/subsidebar",
+    designDoc: "design/navigation/subsidebar.md",
+    status: "Migrated"
+  },
+  {
+    label: "Main View",
+    slug: "main-view",
+    href: "/components/main-view",
+    designDoc: "design/layouts/main-view.md",
+    status: "Migrated"
   }
 ];

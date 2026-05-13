@@ -39,6 +39,9 @@ Current migrated component docs:
 - `design/navigation/internal-link.md`
 - `design/text/kbd.md`
 - `design/navigation/sidebar-navbar.md`
+- `design/navigation/subsidebar.md`
+- `design/containers/coolbox.md`
+- `design/layouts/main-view.md`
 
 ## Goal
 
@@ -223,6 +226,7 @@ Follow these visual decisions from the docs:
 - External/Internal Links preserve anchor semantics; external links include icon/new-tab attrs.
 - KBD uses semantic kbd elements with h-5 mono styling.
 - Sidebar Navbar uses Shadcn-Svelte Sidebar semantics, dense nav rows, collapsed icon-only mode, yellow dark active state, and border-separated app shell.
+- Main views should use Coolify resource grid, split master-detail, or single-section workspace with Subsidebar when the resource has section navigation.
 
 ## Deliverables
 
