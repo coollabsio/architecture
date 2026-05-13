@@ -9,8 +9,9 @@ that bit us.
 This is an archetype guide, not a generic Rust web-services guide, Rust style
 guide, CLI-only service template, library template, firmware guide, or non-web
 service architecture. Keep SvelteKit as the frontend assumption and
-shadcn-svelte as the UI component baseline; adapt the replaceable defaults
-below only when a project has a concrete reason.
+shadcn-svelte as the UI component baseline; align all frontend UI with
+[`DESIGN.md`](./DESIGN.md) and its split `design/` component specs; adapt the
+replaceable defaults below only when a project has a concrete reason.
 
 ## Scope
 
@@ -50,9 +51,11 @@ Do not start from this guide if:
 
 SvelteKit is the fixed frontend assumption for this guide. shadcn-svelte is
 the default UI component system: use it for buttons, forms, dialogs, menus,
-tables, cards, navigation, and other reusable UI primitives. These defaults are
-replaceable only when the project has a concrete operational or product reason
-recorded in the feature plan or README:
+tables, cards, navigation, and other reusable UI primitives. The visual and
+interaction contract for those primitives comes from [`DESIGN.md`](./DESIGN.md)
+and the matching file in `design/`; treat those files as the frontend design
+SSOT. These defaults are replaceable only when the project has a concrete
+operational or product reason recorded in the feature plan or README:
 
 | Default | Replace when | Common alternative |
 |---|---|---|
@@ -277,9 +280,28 @@ Exit code rules:
 | Fallback file | **`200.html`** | `index.html` collides with prerendered home; `200.html` is the SvelteKit-recommended SPA shell. |
 | Render mode | `prerender = false; ssr = false` in `+layout.ts` | Pure SPA against the Rust API. |
 | Styling | **Tailwind 4** | Default new apps to Tailwind 4; downgrade only if the chosen shadcn-svelte release cannot support it. |
-| Components | **shadcn-svelte UI components/primitives** | Required UI baseline for buttons, forms, dialogs, menus, tables, cards, navigation, and reusable UI; add components with the shadcn-svelte CLI; owned-in-tree, no runtime lib; verify generated components against Svelte 5 + Tailwind 4 in CI. |
+| Design system | **[`DESIGN.md`](./DESIGN.md) + `design/` specs** | Required frontend visual/interaction SSOT. Before implementing a page or component, open the matching design spec and apply its tokens, exact layout recipe, states, accessibility notes, and checklist. |
+| Components | **shadcn-svelte UI components/primitives** | Required UI baseline for buttons, forms, dialogs, menus, tables, cards, navigation, and reusable UI; add components with the shadcn-svelte CLI; owned-in-tree, no runtime lib; extend generated primitives according to `DESIGN.md`; verify generated components against Svelte 5 + Tailwind 4 in CI. |
 | Compiler mode | **Svelte 5 / runes-capable by default** | Use Svelte 5 defaults for new apps; disable runes only for a documented shadcn-svelte compatibility issue. |
 | Package manager + runtime | **`bun`** | Single binary handling install, run, test, bundle. Faster than pnpm/npm; lockfile is `bun.lock` (text). |
+
+### Frontend design contract
+
+- Use [`DESIGN.md`](./DESIGN.md) as the router for all frontend UI. It points to
+  the component/page spec that must be followed before writing Svelte markup.
+- Start each reusable UI element from the closest shadcn-svelte primitive, then
+  apply the Coolify visual decisions, variants, spacing, typography, states, and
+  accessibility requirements from the matching `design/` Markdown file.
+- Do not copy Laravel, Blade, Livewire, Alpine, or project-specific frontend
+  implementation details into Rust web app frontends. The implementation stack
+  for this archetype is SvelteKit + Svelte 5 + Tailwind 4 + shadcn-svelte.
+- When a needed component is not yet listed in `DESIGN.md`, do not invent a new
+  ad-hoc style. Either add the component spec first using the DESIGN.md format,
+  or use only already-documented primitives and record the gap in the feature
+  plan.
+- New pages and component wrappers must pass both app checks (`svelte-check`,
+  build, tests where applicable) and the matching design spec's review
+  checklist.
 
 ### shadcn-svelte gotcha
 
@@ -957,11 +979,14 @@ tags are releases.
     stderr, and exit codes are stable.
 16. **Default to Svelte 5 + Tailwind 4.** Downgrade runes/Tailwind only for a
     documented shadcn-svelte compatibility issue verified in CI.
-17. **Default UI components are shadcn-svelte.** Add components with
+17. **Frontend UI follows `DESIGN.md`.** Before implementing or changing
+    SvelteKit UI, open [`DESIGN.md`](./DESIGN.md), follow the matching
+    `design/` spec, and complete its review checklist.
+18. **Default UI components are shadcn-svelte.** Add components with
     `bunx shadcn-svelte@latest add ...`; do not introduce another component
     library or ad-hoc component system unless the feature plan documents the
     concrete product/design-system reason.
-18. **Plans before code.** One commit per task.
+19. **Plans before code.** One commit per task.
 
 ---
 
@@ -1216,9 +1241,12 @@ cross-platform installer/update story.
 11. `frontend/`: SvelteKit + adapter-static (`fallback: '200.html'`,
     `prerender = false`, `ssr = false`), Svelte 5 / runes-capable defaults,
     Tailwind 4, and shadcn-svelte UI components/primitives verified in CI. Use
-    `bunx shadcn-svelte@latest add ...` to add reusable UI components unless a
-    documented product/design-system reason replaces shadcn-svelte. Use **bun**
-    unless the project chooses a documented replacement.
+    [`DESIGN.md`](./DESIGN.md) as the frontend UI router, follow the matching
+    `design/` component/page spec for tokens, exact layout recipes, states, and
+    review checklist, then add reusable primitives with
+    `bunx shadcn-svelte@latest add ...` unless a documented
+    product/design-system reason replaces shadcn-svelte. Use **bun** unless the
+    project chooses a documented replacement.
 12. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
     re-install; existing-artifact detection; `SKIP_FRONTEND` escape hatch.
 13. Add root `package.json` + `scripts/dev.sh` so `bun run dev` starts
