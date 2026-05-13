@@ -41,5 +41,12 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/textarea",
     designDoc: "design/forms/textarea.md",
     status: "Migrated"
+  },
+  {
+    label: "Checkbox",
+    slug: "checkbox",
+    href: "/components/checkbox",
+    designDoc: "design/forms/checkbox.md",
+    status: "Migrated"
   }
 ];
