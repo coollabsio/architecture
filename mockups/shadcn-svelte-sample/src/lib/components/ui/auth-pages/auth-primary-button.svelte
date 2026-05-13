@@ -13,7 +13,7 @@
 <Button
   {type}
   variant="highlighted"
-  class={cn("h-12 w-full justify-center py-3 text-base font-bold", className)}
+  class={cn("w-full justify-center", className)}
   {...$$restProps}
 >
   <slot />

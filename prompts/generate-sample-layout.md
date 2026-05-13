@@ -9,42 +9,12 @@ Your job is to read the local design docs and generate a sample Shadcn-Svelte mo
 Read these files in order:
 
 1. `DESIGN.md`
-2. Every component file listed as migrated in `DESIGN.md`
-Current migrated component docs:
+2. `design/tokens.md`
+3. latest relevant entries in `design/CHANGELOG.md`
+4. `design/manifest.json`
+5. every component/page file in `design/manifest.json` with `status: "Migrated"`
 
-- `design/forms/button.md`
-- `design/forms/dropdown.md`
-- `design/forms/input.md`
-- `design/forms/form-field.md`
-- `design/forms/select.md`
-- `design/forms/textarea.md`
-- `design/forms/checkbox.md`
-- `design/forms/copy-button.md`
-- `design/forms/radio-group.md`
-- `design/forms/switch.md`
-- `design/status/badge.md`
-- `design/overlays/alert.md`
-- `design/navigation/tabs.md`
-- `design/containers/card.md`
-- `design/status/status-indicator.md`
-- `design/status/tag.md`
-- `design/status/deprecated-badge.md`
-- `design/overlays/modal.md`
-- `design/overlays/confirm-modal.md`
-- `design/overlays/modal-confirmation.md`
-- `design/overlays/toast.md`
-- `design/feedback/loading-spinner.md`
-- `design/feedback/loading-on-button.md`
-- `design/overlays/callout.md`
-- `design/overlays/helper-tooltip.md`
-- `design/navigation/breadcrumbs.md`
-- `design/navigation/external-link.md`
-- `design/navigation/internal-link.md`
-- `design/text/kbd.md`
-- `design/navigation/sidebar-navbar.md`
-- `design/navigation/subsidebar.md`
-- `design/containers/coolbox.md`
-- `design/layouts/main-view.md`
+Do not maintain a hard-coded migrated-component list in this prompt. The manifest is generated from the `DESIGN.md` lookup table and mockup registry; use it as the current source of truth.
 
 ## Goal
 

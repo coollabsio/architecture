@@ -167,7 +167,7 @@ For navigation links styled as buttons, keep anchor semantics and apply `buttonV
 
 ## Exact Layout Recipe
 
-Buttons are compact by default. Only auth submit buttons opt into taller sizing locally.
+Buttons are compact by default, including auth submit buttons. Auth pages may make primary actions full width locally, but must not increase button typography or height.
 
 ```txt
 base: inline-flex min-w-fit shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-sm border-2 border-transparent bg-clip-padding px-2 text-sm font-medium normal-case outline-none transition-colors select-none
@@ -187,7 +187,7 @@ highlighted: border-coollabs bg-coollabs-50 text-coollabs-200 hover:bg-coollabs 
 destructive: border-red-300 bg-red-50 text-red-800 hover:bg-error hover:text-white dark:border-red-800 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-800 dark:hover:text-white
 ghost: border-transparent bg-transparent text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200
 link: border-transparent bg-transparent px-0 text-coollabs hover:underline dark:text-warning
-auth-submit-extension: h-12 w-full justify-center py-3 text-base font-bold
+auth-submit-extension: w-full justify-center
 loading-order: text first, spinner after text
 icon-policy: no icons on normal text buttons by default; icons only for icon-only buttons, loading spinners, external-link affordances, or rare domain-specific actions where the icon materially improves recognition
 ```

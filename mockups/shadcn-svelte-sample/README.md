@@ -2,6 +2,25 @@
 
 Component sample sandbox generated from `DESIGN.md` and migrated component docs under `design/`.
 
+## Design update workflow
+
+This mockup is a visual verification target, not the source of truth. If a design doc and a mockup disagree, fix the mockup or the doc explicitly; do not let agents infer a third style.
+
+When design behavior changes:
+
+1. Read root `DESIGN.md`, `design/tokens.md`, `design/CHANGELOG.md`, and `design/manifest.json`.
+2. Update the matching route listed in `design/manifest.json`.
+3. Keep `src/lib/component-registry.ts` aligned with `DESIGN.md` and regenerate `design/manifest.json` from the repo root with:
+
+   ```bash
+   scripts/generate-design-manifest.py
+   ```
+
+4. Capture/review light and dark screenshots for affected routes.
+5. Add a `design/CHANGELOG.md` entry with the future agent action.
+
+Do not maintain separate hard-coded component status lists in prompts. Use `design/manifest.json` as the agent-readable registry.
+
 Run:
 
 ```bash

@@ -50,7 +50,7 @@ The TOTP Challenge is the auth-page component used after password login when two
 
 Use Shadcn-Svelte primitives as the base where possible:
 
-- `Button` with `variant="highlighted"` and auth submit sizing for Login for submit and navigation-style actions.
+- `Button` with `variant="highlighted"` and auth layout sizing for Login submit and navigation-style actions.
 - `Input` for recovery-code mode.
 - Local composition for the six one-character TOTP digit boxes.
 
@@ -80,7 +80,7 @@ Centered auth card
   Instruction callout
   Six digit inputs
   Recovery-code toggle
-  Primary submit button (tall highlighted auth style)
+  Primary submit button (highlighted compact auth style)
   Optional submitted/error state
   Need help divider
   Back to login link
@@ -93,10 +93,10 @@ mx-auto w-full max-w-md space-y-6 rounded-sm border border-neutral-200 bg-white 
  dark:border-coolgray-300 dark:bg-app-base
 ```
 
-Auth submit button uses the same promoted style as Login/Register:
+Auth submit button uses the same promoted compact style as Login/Register:
 
 ```txt
-h-12 w-full justify-center py-3 text-base font-bold
+w-full justify-center
 ```
 
 Digit input row:
@@ -126,7 +126,7 @@ brand: text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white
 subtitle: text-lg text-neutral-600 dark:text-neutral-400
 content-stack: space-y-6
 form: flex flex-col gap-4
-primary-auth-button: h-12 w-full justify-center py-3 text-base font-bold
+primary-auth-button: w-full justify-center
 secondary-link-button: block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
 divider-wrap: relative my-6
 divider-line: w-full border-t border-neutral-300 dark:border-coolgray-300
@@ -142,7 +142,7 @@ form-field-gap: flex flex-col gap-4
 info-callout: rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100
 warning-callout: rounded-sm border border-warning bg-warning/10 p-4
 success-message: rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300
-primary-submit: h-12 w-full justify-center py-3 text-base font-bold
+primary-submit: w-full justify-center
 ```
 
 ## Elevation & Depth
@@ -155,7 +155,7 @@ Use `rounded-sm` throughout. The current product may use larger radius in places
 
 ## Components
 
-- `Button` with `variant="highlighted"` and auth submit sizing for Login
+- `Button` with `variant="highlighted"` and auth layout sizing for Login
 - `Input`
 - Local `TotpChallenge` composition
 - Optional inline success/error message using alert/toast styling
@@ -201,7 +201,7 @@ Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state fo
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Six digit boxes are present and centered.
-- [ ] Login submit button is highlighted, `h-12`, `py-3`, and `font-bold`.
+- [ ] Login submit button is highlighted and uses normal compact Button height/typography.
 - [ ] Typing a digit advances focus.
 - [ ] Backspace on an empty digit moves focus backward.
 - [ ] Paste fills up to six digits and strips non-digits.

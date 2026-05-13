@@ -3,7 +3,7 @@ version: alpha
 name: Coolify Destructive Confirmation Modal
 description: Typed confirmation modal for permanent destructive actions.
 colors:
-  overlay: "rgba(0,0,0,0.60)"
+  overlay: "#000000"
   surface: "#ffffff"
   error: "#ef4444"
   red-50: "#fef2f2"

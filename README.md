@@ -26,6 +26,10 @@ Each gets its own file.
 | File | Scope |
 |---|---|
 | [`DESIGN.md`](./DESIGN.md) | Coolify design system. Split component/page specs for Shadcn-Svelte + Tailwind. |
+| [`design/tokens.md`](./design/tokens.md) | Global Coolify tokens shared by component specs. |
+| [`design/CHANGELOG.md`](./design/CHANGELOG.md) | Latest design changes and future agent actions. |
+| [`design/REVIEW_CHECKLIST.md`](./design/REVIEW_CHECKLIST.md) | AI/human checklist for UI and design-doc changes. |
+| [`design/manifest.json`](./design/manifest.json) | Machine-readable component registry generated from `DESIGN.md` and mock routes. |
 
 Signature traits worth knowing before reading:
 
@@ -41,6 +45,8 @@ Signature traits worth knowing before reading:
 bunx @google/design.md lint design/forms/button.md
 bunx @google/design.md export design/forms/button.md --format tailwind > theme.json
 bunx @google/design.md export design/forms/button.md --format dtcg     > tokens.json
+scripts/generate-design-manifest.py
+scripts/design-check.sh
 ```
 
 Use `bunx` — `npx` chokes on the `.md` suffix in the package name. Spec is alpha; confirm flags via `bunx @google/design.md --help` before wiring into CI.

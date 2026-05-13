@@ -3,7 +3,7 @@ version: alpha
 name: Coolify Confirm Modal
 description: Single-step confirmation for reversible or lower-risk actions.
 colors:
-  overlay: "rgba(0,0,0,0.60)"
+  overlay: "#000000"
   surface: "#ffffff"
   text: "#000000"
   muted: "#737373"

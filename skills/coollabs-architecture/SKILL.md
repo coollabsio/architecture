@@ -21,9 +21,10 @@ Before applying guidance, ensure repository content is current:
 2. Select the relevant source file:
    - Design, UI, Tailwind, Shadcn-Svelte, Coolify visual language, components, colors, spacing, and AI UI review: read `DESIGN.md`.
    - Rust web apps/services with SvelteKit, shadcn-svelte, SQLite, embedded frontend, `axum`, `sqlx`, single-binary deployment, and CLI/admin operations: read `RUST_WEB_APP_SERVICES.md`.
-3. Apply the guidance directly. Prefer repository rules over generic framework defaults.
-4. Mention the file path or section used when giving recommendations.
-5. If the user's project does not match a doc's stated scope, say so and treat the doc as inspiration, not a template.
+3. For UI/design work, also read `design/tokens.md`, the latest relevant entries in `design/CHANGELOG.md`, `design/manifest.json`, and every relevant component/page spec listed there.
+4. Apply the guidance directly. Prefer repository rules over generic framework defaults.
+5. Mention the file path or section used when giving recommendations.
+6. If the user's project does not match a doc's stated scope, say so and treat the doc as inspiration, not a template.
 
 ## Design reminders
 
@@ -34,6 +35,7 @@ When using `DESIGN.md`, preserve these signature traits unless the doc has chang
 - Sharp 4px radii by default.
 - Inset box-shadow inputs with a 4px dirty-bar indicator.
 - Dark-first, utilitarian UI.
+- Use `design/REVIEW_CHECKLIST.md` after UI/design changes and report validation commands.
 
 ## Rust web app reminders
 

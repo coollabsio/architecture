@@ -3,7 +3,7 @@ version: alpha
 name: Coolify Dialog Modal
 description: General purpose modal dialog for focused tasks, forms, and details.
 colors:
-  overlay: "rgba(0,0,0,0.60)"
+  overlay: "#000000"
   surface: "#ffffff"
   text: "#000000"
   muted: "#737373"

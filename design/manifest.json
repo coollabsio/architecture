@@ -1,0 +1,547 @@
+{
+  "schemaVersion": 1,
+  "source": "DESIGN.md component lookup",
+  "generatedBy": "scripts/generate-design-manifest.py",
+  "components": [
+    {
+      "key": "button",
+      "need": "Action button, submit button, destructive button, highlighted button",
+      "label": "design/forms/button.md",
+      "designDoc": "design/forms/button.md",
+      "basePrimitive": "Shadcn-Svelte Button",
+      "status": "Migrated",
+      "mockRoute": "/components/buttons",
+      "mockSlug": "buttons"
+    },
+    {
+      "key": "input",
+      "need": "Text input",
+      "label": "design/forms/input.md",
+      "designDoc": "design/forms/input.md",
+      "basePrimitive": "Shadcn-Svelte Input",
+      "status": "Migrated",
+      "mockRoute": "/components/input",
+      "mockSlug": "input"
+    },
+    {
+      "key": "form_field",
+      "need": "Form label, required marker, helper icon, field description/error",
+      "label": "design/forms/form-field.md",
+      "designDoc": "design/forms/form-field.md",
+      "basePrimitive": "Shadcn-Svelte Label + Tooltip composition",
+      "status": "Migrated",
+      "mockRoute": null,
+      "mockSlug": null
+    },
+    {
+      "key": "select",
+      "need": "Select",
+      "label": "design/forms/select.md",
+      "designDoc": "design/forms/select.md",
+      "basePrimitive": "Shadcn-Svelte Select or Native Select",
+      "status": "Migrated",
+      "mockRoute": "/components/select",
+      "mockSlug": "select"
+    },
+    {
+      "key": "checkbox",
+      "need": "Checkbox",
+      "label": "design/forms/checkbox.md",
+      "designDoc": "design/forms/checkbox.md",
+      "basePrimitive": "Shadcn-Svelte Checkbox",
+      "status": "Migrated",
+      "mockRoute": "/components/checkbox",
+      "mockSlug": "checkbox"
+    },
+    {
+      "key": "textarea",
+      "need": "Textarea",
+      "label": "design/forms/textarea.md",
+      "designDoc": "design/forms/textarea.md",
+      "basePrimitive": "Shadcn-Svelte Textarea",
+      "status": "Migrated",
+      "mockRoute": "/components/textarea",
+      "mockSlug": "textarea"
+    },
+    {
+      "key": "copy_button",
+      "need": "Copy button",
+      "label": "design/forms/copy-button.md",
+      "designDoc": "design/forms/copy-button.md",
+      "basePrimitive": "Shadcn-Svelte Button + Input composition",
+      "status": "Migrated",
+      "mockRoute": "/components/copy-button",
+      "mockSlug": "copy-button"
+    },
+    {
+      "key": "radio_group",
+      "need": "Radio group",
+      "label": "design/forms/radio-group.md",
+      "designDoc": "design/forms/radio-group.md",
+      "basePrimitive": "Shadcn-Svelte Radio Group",
+      "status": "Migrated",
+      "mockRoute": "/components/radio-group",
+      "mockSlug": "radio-group"
+    },
+    {
+      "key": "switch",
+      "need": "Switch",
+      "label": "design/forms/switch.md",
+      "designDoc": "design/forms/switch.md",
+      "basePrimitive": "Shadcn-Svelte Switch",
+      "status": "Migrated",
+      "mockRoute": "/components/switch",
+      "mockSlug": "switch"
+    },
+    {
+      "key": "card",
+      "need": "Card, panel, operational surface",
+      "label": "design/containers/card.md",
+      "designDoc": "design/containers/card.md",
+      "basePrimitive": "Shadcn-Svelte Card",
+      "status": "Migrated",
+      "mockRoute": "/components/card",
+      "mockSlug": "card"
+    },
+    {
+      "key": "box",
+      "need": "Box/card link",
+      "label": "design/containers/box.md",
+      "designDoc": "design/containers/box.md",
+      "basePrimitive": "Shadcn-Svelte Card or custom wrapper",
+      "status": "Pending",
+      "mockRoute": null,
+      "mockSlug": null
+    },
+    {
+      "key": "coolbox",
+      "need": "Coolbox/card with ring hover",
+      "label": "design/containers/coolbox.md",
+      "designDoc": "design/containers/coolbox.md",
+      "basePrimitive": "Shadcn-Svelte Card or anchor/button wrapper",
+      "status": "Migrated",
+      "mockRoute": null,
+      "mockSlug": null
+    },
+    {
+      "key": "badge",
+      "need": "Badge",
+      "label": "design/status/badge.md",
+      "designDoc": "design/status/badge.md",
+      "basePrimitive": "Shadcn-Svelte Badge",
+      "status": "Migrated",
+      "mockRoute": "/components/badge",
+      "mockSlug": "badge"
+    },
+    {
+      "key": "status_indicator",
+      "need": "Status indicator",
+      "label": "design/status/status-indicator.md",
+      "designDoc": "design/status/status-indicator.md",
+      "basePrimitive": "Badge + text composition",
+      "status": "Migrated",
+      "mockRoute": "/components/status-indicator",
+      "mockSlug": "status-indicator"
+    },
+    {
+      "key": "deprecated_badge",
+      "need": "Deprecated badge",
+      "label": "design/status/deprecated-badge.md",
+      "designDoc": "design/status/deprecated-badge.md",
+      "basePrimitive": "Shadcn-Svelte Badge",
+      "status": "Migrated",
+      "mockRoute": "/components/deprecated-badge",
+      "mockSlug": "deprecated-badge"
+    },
+    {
+      "key": "tag",
+      "need": "Tag",
+      "label": "design/status/tag.md",
+      "designDoc": "design/status/tag.md",
+      "basePrimitive": "Shadcn-Svelte Badge or custom tag",
+      "status": "Migrated",
+      "mockRoute": "/components/tag",
+      "mockSlug": "tag"
+    },
+    {
+      "key": "alert",
+      "need": "Alert / inline callout",
+      "label": "design/overlays/alert.md",
+      "designDoc": "design/overlays/alert.md",
+      "basePrimitive": "Shadcn-Svelte Alert",
+      "status": "Migrated",
+      "mockRoute": "/components/alert",
+      "mockSlug": "alert"
+    },
+    {
+      "key": "callout",
+      "need": "Callout",
+      "label": "design/overlays/callout.md",
+      "designDoc": "design/overlays/callout.md",
+      "basePrimitive": "Shadcn-Svelte Alert",
+      "status": "Migrated",
+      "mockRoute": "/components/callout",
+      "mockSlug": "callout"
+    },
+    {
+      "key": "modal",
+      "need": "Modal / dialog",
+      "label": "design/overlays/modal.md",
+      "designDoc": "design/overlays/modal.md",
+      "basePrimitive": "Shadcn-Svelte Dialog",
+      "status": "Migrated",
+      "mockRoute": "/components/dialog",
+      "mockSlug": "dialog"
+    },
+    {
+      "key": "modal_confirmation",
+      "need": "Destructive modal confirmation",
+      "label": "design/overlays/modal-confirmation.md",
+      "designDoc": "design/overlays/modal-confirmation.md",
+      "basePrimitive": "Shadcn-Svelte Alert Dialog or Dialog",
+      "status": "Migrated",
+      "mockRoute": "/components/destructive-confirmation",
+      "mockSlug": "destructive-confirmation"
+    },
+    {
+      "key": "confirm_modal",
+      "need": "Confirm modal",
+      "label": "design/overlays/confirm-modal.md",
+      "designDoc": "design/overlays/confirm-modal.md",
+      "basePrimitive": "Shadcn-Svelte Alert Dialog",
+      "status": "Migrated",
+      "mockRoute": "/components/confirm-modal",
+      "mockSlug": "confirm-modal"
+    },
+    {
+      "key": "popup",
+      "need": "Popup / popup small",
+      "label": "design/overlays/popup.md",
+      "designDoc": "design/overlays/popup.md",
+      "basePrimitive": "Shadcn-Svelte Popover/Dialog as appropriate",
+      "status": "Migrated",
+      "mockRoute": "/components/popover",
+      "mockSlug": "popover"
+    },
+    {
+      "key": "slide_over",
+      "need": "Slide-over",
+      "label": "design/overlays/slide-over.md",
+      "designDoc": "design/overlays/slide-over.md",
+      "basePrimitive": "Shadcn-Svelte Sheet",
+      "status": "Migrated",
+      "mockRoute": "/components/slide-over",
+      "mockSlug": "slide-over"
+    },
+    {
+      "key": "toast",
+      "need": "Toast",
+      "label": "design/overlays/toast.md",
+      "designDoc": "design/overlays/toast.md",
+      "basePrimitive": "Shadcn-Svelte Sonner",
+      "status": "Migrated",
+      "mockRoute": "/components/toast",
+      "mockSlug": "toast"
+    },
+    {
+      "key": "helper_tooltip",
+      "need": "Helper tooltip",
+      "label": "design/overlays/helper-tooltip.md",
+      "designDoc": "design/overlays/helper-tooltip.md",
+      "basePrimitive": "Shadcn-Svelte Tooltip or Hover Card",
+      "status": "Migrated",
+      "mockRoute": "/components/helper-tooltip",
+      "mockSlug": "helper-tooltip"
+    },
+    {
+      "key": "main_view",
+      "need": "Main view layouts",
+      "label": "design/layouts/main-view.md",
+      "designDoc": "design/layouts/main-view.md",
+      "basePrimitive": "Page layout composition",
+      "status": "Migrated",
+      "mockRoute": "/pages/main-view",
+      "mockSlug": "main-view"
+    },
+    {
+      "key": "settings_page",
+      "need": "Application settings page",
+      "label": "design/pages/settings-page.md",
+      "designDoc": "design/pages/settings-page.md",
+      "basePrimitive": "Settings page composition with Shadcn-Svelte Button, Input, FormField, Select, Switch, Badge, Callout",
+      "status": "Migrated",
+      "mockRoute": "/pages/settings-page",
+      "mockSlug": "settings-page"
+    },
+    {
+      "key": "full_application_page",
+      "need": "Full application page",
+      "label": "design/pages/full-application-page.md",
+      "designDoc": "design/pages/full-application-page.md",
+      "basePrimitive": "Full viewport app shell with Sidebar Navbar + main content",
+      "status": "Migrated",
+      "mockRoute": "/pages/full-application-page",
+      "mockSlug": "full-application-page"
+    },
+    {
+      "key": "sidebar_navbar",
+      "need": "Sidebar / navbar",
+      "label": "design/navigation/sidebar-navbar.md",
+      "designDoc": "design/navigation/sidebar-navbar.md",
+      "basePrimitive": "Shadcn-Svelte Sidebar + app layout",
+      "status": "Migrated",
+      "mockRoute": "/components/sidebar-navbar",
+      "mockSlug": "sidebar-navbar"
+    },
+    {
+      "key": "subsidebar",
+      "need": "Subsidebar",
+      "label": "design/navigation/subsidebar.md",
+      "designDoc": "design/navigation/subsidebar.md",
+      "basePrimitive": "Secondary vertical resource navigation",
+      "status": "Migrated",
+      "mockRoute": "/components/subsidebar",
+      "mockSlug": "subsidebar"
+    },
+    {
+      "key": "tabs",
+      "need": "Tabs",
+      "label": "design/navigation/tabs.md",
+      "designDoc": "design/navigation/tabs.md",
+      "basePrimitive": "Shadcn-Svelte Tabs",
+      "status": "Migrated",
+      "mockRoute": "/components/tabs",
+      "mockSlug": "tabs"
+    },
+    {
+      "key": "breadcrumbs",
+      "need": "Breadcrumbs",
+      "label": "design/navigation/breadcrumbs.md",
+      "designDoc": "design/navigation/breadcrumbs.md",
+      "basePrimitive": "Shadcn-Svelte Breadcrumb",
+      "status": "Migrated",
+      "mockRoute": "/components/breadcrumbs",
+      "mockSlug": "breadcrumbs"
+    },
+    {
+      "key": "external_link",
+      "need": "External link",
+      "label": "design/navigation/external-link.md",
+      "designDoc": "design/navigation/external-link.md",
+      "basePrimitive": "Anchor + icon composition",
+      "status": "Migrated",
+      "mockRoute": "/components/external-link",
+      "mockSlug": "external-link"
+    },
+    {
+      "key": "internal_link",
+      "need": "Internal link",
+      "label": "design/navigation/internal-link.md",
+      "designDoc": "design/navigation/internal-link.md",
+      "basePrimitive": "Anchor + icon composition",
+      "status": "Migrated",
+      "mockRoute": "/components/internal-link",
+      "mockSlug": "internal-link"
+    },
+    {
+      "key": "banner",
+      "need": "Banner",
+      "label": "design/navigation/banner.md",
+      "designDoc": "design/navigation/banner.md",
+      "basePrimitive": "Custom banner composition",
+      "status": "Migrated",
+      "mockRoute": "/components/banner",
+      "mockSlug": "banner"
+    },
+    {
+      "key": "loading_spinner",
+      "need": "Loading spinner",
+      "label": "design/feedback/loading-spinner.md",
+      "designDoc": "design/feedback/loading-spinner.md",
+      "basePrimitive": "Shadcn-Svelte Spinner",
+      "status": "Migrated",
+      "mockRoute": "/components/loading-spinner",
+      "mockSlug": "loading-spinner"
+    },
+    {
+      "key": "loading_on_button",
+      "need": "Loading on button",
+      "label": "design/feedback/loading-on-button.md",
+      "designDoc": "design/feedback/loading-on-button.md",
+      "basePrimitive": "Shadcn-Svelte Spinner inside Button",
+      "status": "Migrated",
+      "mockRoute": "/components/loading-on-button",
+      "mockSlug": "loading-on-button"
+    },
+    {
+      "key": "page_loading",
+      "need": "Page loading",
+      "label": "design/feedback/page-loading.md",
+      "designDoc": "design/feedback/page-loading.md",
+      "basePrimitive": "Custom overlay + Spinner",
+      "status": "Migrated",
+      "mockRoute": "/components/page-loading",
+      "mockSlug": "page-loading"
+    },
+    {
+      "key": "highlighted_text",
+      "need": "Highlighted text / required asterisk",
+      "label": "design/text/highlighted-text.md",
+      "designDoc": "design/text/highlighted-text.md",
+      "basePrimitive": "Text utility/composition",
+      "status": "Migrated",
+      "mockRoute": "/components/highlighted-text",
+      "mockSlug": "highlighted-text"
+    },
+    {
+      "key": "kbd",
+      "need": "Keyboard hint",
+      "label": "design/text/kbd.md",
+      "designDoc": "design/text/kbd.md",
+      "basePrimitive": "Shadcn-Svelte Kbd",
+      "status": "Migrated",
+      "mockRoute": "/components/kbd",
+      "mockSlug": "kbd"
+    },
+    {
+      "key": "scrollbar",
+      "need": "Scrollbar",
+      "label": "design/utilities/scrollbar.md",
+      "designDoc": "design/utilities/scrollbar.md",
+      "basePrimitive": "CSS utility",
+      "status": "Migrated",
+      "mockRoute": "/components/scrollbar",
+      "mockSlug": "scrollbar"
+    },
+    {
+      "key": "table",
+      "need": "Table",
+      "label": "design/data/table.md",
+      "designDoc": "design/data/table.md",
+      "basePrimitive": "Shadcn-Svelte Table or Data Table",
+      "status": "Migrated",
+      "mockRoute": "/components/table",
+      "mockSlug": "table"
+    },
+    {
+      "key": "dropdown",
+      "need": "Dropdown",
+      "label": "design/forms/dropdown.md",
+      "designDoc": "design/forms/dropdown.md",
+      "basePrimitive": "Shadcn-Svelte Dropdown Menu",
+      "status": "Migrated",
+      "mockRoute": "/components/dropdown",
+      "mockSlug": "dropdown"
+    },
+    {
+      "key": "searchable_dropdown",
+      "need": "Searchable dropdown",
+      "label": "design/forms/searchable-dropdown.md",
+      "designDoc": "design/forms/searchable-dropdown.md",
+      "basePrimitive": "Shadcn-Svelte Command + Popover / Combobox",
+      "status": "Migrated",
+      "mockRoute": "/components/searchable-dropdown",
+      "mockSlug": "searchable-dropdown"
+    },
+    {
+      "key": "form_composition",
+      "need": "Form composition / validation",
+      "label": "design/forms/form-composition.md",
+      "designDoc": "design/forms/form-composition.md",
+      "basePrimitive": "FormField + inputs + validation",
+      "status": "Migrated",
+      "mockRoute": "/components/form-composition",
+      "mockSlug": "form-composition"
+    },
+    {
+      "key": "totp_challenge",
+      "need": "TOTP / one-time token challenge",
+      "label": "design/auth/totp-challenge.md",
+      "designDoc": "design/auth/totp-challenge.md",
+      "basePrimitive": "Shadcn-Svelte Button + Input + local OTP composition",
+      "status": "Migrated",
+      "mockRoute": "/pages/totp-challenge",
+      "mockSlug": "totp-challenge"
+    },
+    {
+      "key": "login_page",
+      "need": "Login page",
+      "label": "design/auth/login-page.md",
+      "designDoc": "design/auth/login-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "status": "Migrated",
+      "mockRoute": "/pages/login-page",
+      "mockSlug": "login-page"
+    },
+    {
+      "key": "register_page",
+      "need": "Register page",
+      "label": "design/auth/register-page.md",
+      "designDoc": "design/auth/register-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "status": "Migrated",
+      "mockRoute": "/pages/register-page",
+      "mockSlug": "register-page"
+    },
+    {
+      "key": "forgot_password_page",
+      "need": "Forgot password page",
+      "label": "design/auth/forgot-password-page.md",
+      "designDoc": "design/auth/forgot-password-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "status": "Migrated",
+      "mockRoute": "/pages/forgot-password-page",
+      "mockSlug": "forgot-password-page"
+    },
+    {
+      "key": "reset_password_page",
+      "need": "Reset password page",
+      "label": "design/auth/reset-password-page.md",
+      "designDoc": "design/auth/reset-password-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, PasswordInput, FormField",
+      "status": "Migrated",
+      "mockRoute": "/pages/reset-password-page",
+      "mockSlug": "reset-password-page"
+    },
+    {
+      "key": "confirm_password_page",
+      "need": "Confirm password page",
+      "label": "design/auth/confirm-password-page.md",
+      "designDoc": "design/auth/confirm-password-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, PasswordInput, FormField",
+      "status": "Migrated",
+      "mockRoute": "/pages/confirm-password-page",
+      "mockSlug": "confirm-password-page"
+    },
+    {
+      "key": "email_verification_page",
+      "need": "Email verification page",
+      "label": "design/auth/email-verification-page.md",
+      "designDoc": "design/auth/email-verification-page.md",
+      "basePrimitive": "Auth page composition with Shadcn-Svelte Button",
+      "status": "Migrated",
+      "mockRoute": "/pages/email-verification-page",
+      "mockSlug": "email-verification-page"
+    },
+    {
+      "key": "command_palette",
+      "need": "Command palette / global search",
+      "label": "design/search/command-palette.md",
+      "designDoc": "design/search/command-palette.md",
+      "basePrimitive": "Shadcn-Svelte Command + Dialog",
+      "status": "Migrated",
+      "mockRoute": "/components/command-palette",
+      "mockSlug": "command-palette"
+    },
+    {
+      "key": "tooltip",
+      "need": "Tooltip variants",
+      "label": "design/overlays/tooltip.md",
+      "designDoc": "design/overlays/tooltip.md",
+      "basePrimitive": "Shadcn-Svelte Tooltip",
+      "status": "Migrated",
+      "mockRoute": "/components/tooltip",
+      "mockSlug": "tooltip"
+    }
+  ]
+}

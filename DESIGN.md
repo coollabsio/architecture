@@ -4,13 +4,56 @@ This file is the entry point for the split design system. Component details live
 
 This design system is framework-forward for upcoming projects: use **Shadcn-Svelte primitives as the implementation base**, then extend them with Coolify visual decisions where needed. Component files should follow the **Google DESIGN.md specification**: YAML frontmatter tokens plus canonical markdown sections (`Overview`, `Colors`, `Typography`, `Layout`, `Elevation & Depth`, `Shapes`, `Components`, `Do's and Don'ts`). Do not copy Laravel, Blade, Livewire, or project-specific implementation details into component specs.
 
+Shared global tokens live in [`design/tokens.md`](design/tokens.md). Component-local frontmatter may repeat the subset needed for lint/export, but it must not contradict the global tokens.
+
 Use this file as a router:
 
 1. Identify the UI need.
-2. Open the matching component file.
-3. Start from the Shadcn-Svelte primitive named in that file.
-4. Apply the Coolify tokens, variants, states, accessibility notes, and review checklist.
-5. If a component has not been migrated yet, do not infer detailed styling; wait for that component spec or use only the already-migrated design guidance.
+2. Read [`design/tokens.md`](design/tokens.md) and the latest entries in [`design/CHANGELOG.md`](design/CHANGELOG.md).
+3. Open the matching component/page file from the lookup table or [`design/manifest.json`](design/manifest.json).
+4. Start from the Shadcn-Svelte primitive named in that file.
+5. Apply the Coolify tokens, variants, states, accessibility notes, and [`design/REVIEW_CHECKLIST.md`](design/REVIEW_CHECKLIST.md).
+6. If a component has not been migrated yet, do not infer detailed styling; wait for that component spec or use only the already-migrated design guidance.
+
+## AI Design Compliance Contract
+
+Agents must treat the local files as the source of truth, not model memory or older copied snippets.
+
+Before any UI implementation, design-doc edit, or mockup update:
+
+1. Read this file.
+2. Read `design/tokens.md`.
+3. Read the latest relevant entries in `design/CHANGELOG.md`.
+4. Use `design/manifest.json` to locate relevant migrated component/page specs and mock routes.
+5. Read every relevant component/page spec before changing UI code.
+6. If a needed spec is pending or missing, keep styling minimal and explicitly say the detailed spec is missing instead of inventing a new component language.
+
+After any UI implementation or design-doc edit:
+
+1. Check the work against `design/REVIEW_CHECKLIST.md`.
+2. Regenerate `design/manifest.json` when the lookup table, paths, statuses, or mock routes change.
+3. Update `design/CHANGELOG.md` with the design change and the required future agent action.
+4. Update or add mockup examples/screenshots when visual behavior changes.
+5. In the final response, report which design files were read and which validation/review commands ran.
+
+## Design Update Protocol
+
+When changing an existing component spec, update these together:
+
+- the component file under `design/`,
+- this lookup table when status/path/need/base primitive changes,
+- `design/CHANGELOG.md`,
+- `design/manifest.json` via `scripts/generate-design-manifest.py`,
+- matching mockup route(s) under `mockups/shadcn-svelte-sample`,
+- relevant prompts under `prompts/` when the workflow changes.
+
+When adding a new component spec:
+
+1. Create one `design/<category>/<component>.md` file using the Google DESIGN.md section order.
+2. Add it to the lookup table.
+3. Regenerate `design/manifest.json`.
+4. Add or update a mockup route.
+5. Add a changelog entry that tells future agents exactly how to apply the new spec.
 
 ## Component lookup
 
