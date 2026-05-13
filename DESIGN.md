@@ -42,6 +42,7 @@ Use this file as a router:
 | Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
 | Helper tooltip | [`design/overlays/helper-tooltip.md`](design/overlays/helper-tooltip.md) | Shadcn-Svelte `Tooltip` or `Hover Card` | Migrated |
 | Main view layouts | [`design/layouts/main-view.md`](design/layouts/main-view.md) | Page layout composition | Migrated |
+| Application settings page | [`design/pages/settings-page.md`](design/pages/settings-page.md) | Settings page composition with Shadcn-Svelte `Button`, `Input`, `FormField`, `Select`, `Switch`, `Badge`, `Callout` | Migrated |
 | Sidebar / navbar | [`design/navigation/sidebar-navbar.md`](design/navigation/sidebar-navbar.md) | Shadcn-Svelte `Sidebar` + app layout | Migrated |
 | Subsidebar | [`design/navigation/subsidebar.md`](design/navigation/subsidebar.md) | Secondary vertical resource navigation | Migrated |
 | Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |

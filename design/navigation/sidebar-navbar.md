@@ -27,13 +27,23 @@ typography:
     fontSize: 1.5rem
     fontWeight: 700
     lineHeight: 2rem
+  version-xs:
+    fontFamily: "'Geist Sans', Inter, sans-serif"
+    fontSize: 0.625rem
+    fontWeight: 400
+    lineHeight: 0.875rem
 rounded:
   sm: 0.25rem
+  full: 9999px
 spacing:
   sidebar-width: 16rem
   collapsed-width: 4rem
   item-height: 1.75rem
+  collapsed-item-size: 2rem
   item-gap: 0.75rem
+  icon-size: 1rem
+  collapse-trigger-size: 1.5rem
+  collapse-icon-size: 0.875rem
 components:
   sidebar:
     backgroundColor: "{colors.surface}"
@@ -59,6 +69,17 @@ components:
     textColor: "{colors.warning}"
     typography: "{typography.nav-sm}"
     rounded: "{rounded.sm}"
+  brand-name:
+    typography: "{typography.brand-lg}"
+    textColor: "{colors.text}"
+  brand-version:
+    typography: "{typography.version-xs}"
+    textColor: "{colors.muted}"
+  collapse-trigger:
+    width: "{spacing.collapse-trigger-size}"
+    height: "{spacing.collapse-trigger-size}"
+    rounded: "{rounded.full}"
+    iconSize: "{spacing.collapse-icon-size}"
 ---
 
 # Sidebar Navbar
@@ -86,7 +107,8 @@ Do not use purple as the general dark-mode active item color. Yellow is the dark
 - Brand: `text-2xl font-bold tracking-tight`.
 - Main nav labels: `text-sm` regular weight.
 - Section labels: `text-xs font-bold uppercase tracking-wide` only when sections need labels.
-- Version/build metadata: `text-[10px]` or `text-xs` muted.
+- Version/build metadata: `text-[10px] leading-[0.875rem]` muted. Use `text-xs` only if the app has a longer environment/build label that would become illegible at `10px`.
+- Nav item badges follow `design/status/badge.md`; do not change nav label size to fit badges.
 
 ## Layout
 
@@ -105,8 +127,10 @@ min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg
 Sidebar:
 
 ```txt
-flex min-h-screen flex-col border-r border-neutral-300 bg-white px-2 dark:border-coolgray-200 dark:bg-base
+relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
 ```
+
+The sidebar itself must be `relative` and should not be clipped by an ancestor at the sidebar/main border. If a parent shell uses `overflow-hidden`, verify the collapse trigger remains visible.
 
 Header area:
 
@@ -147,21 +171,44 @@ Mobile:
 ## Exact Layout Recipe
 
 ```txt
-nav-text: text-sm font-medium
-nav-muted: text-neutral-600 dark:text-neutral-400
-nav-active: text-black dark:text-white
-nav-focus: focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning
-nav-item-radius: rounded-sm
-nav-item-padding: px-2 py-1 for dense nav; px-3 py-2 for larger horizontal regions
+shell: min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400 lg:grid lg:grid-cols-[16rem_1fr]
+sidebar-expanded: relative flex min-h-screen w-64 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
+sidebar-collapsed: relative flex min-h-screen w-16 flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-base dark:text-neutral-400
+header-expanded: flex items-start gap-2 px-2 pb-4 pt-6
+header-collapsed: flex flex-col items-center gap-2 px-0 pb-4 pt-6
+brand-name: block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white
+brand-version: text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
+brand-collapsed-initial: grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white
+search-wrap: px-2 pb-4
+search-button: inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-neutral-300 bg-neutral-100 px-2.5 text-sm hover:bg-neutral-200 dark:border-coolgray-200 dark:bg-coolgray-100 dark:hover:bg-coolgray-200
+team-wrap-expanded: px-2 pb-7
+team-wrap-collapsed: flex justify-center px-0 pb-4
+nav-list: flex flex-col gap-1.5
+nav-item-expanded: flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
+nav-item-collapsed: mx-auto flex size-8 min-w-0 items-center justify-center gap-0 truncate rounded-sm px-0 py-0 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
+nav-item-active: bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning
+nav-icon: size-4 shrink-0
+footer: border-t border-neutral-200 py-3 dark:border-coolgray-200
+focus: focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning
 ```
 
 ## Exact Classes
 
 ```txt
-nav-link: rounded-sm text-sm font-medium text-neutral-600 hover:text-coollabs focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning
-active-link: text-black dark:text-white
-separator: text-neutral-400
-tab-trigger: inline-flex h-8 cursor-pointer items-center justify-center rounded-sm px-2 text-sm font-medium transition-colors
+collapse-trigger: absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
+collapse-chevron: size-3.5 transition-transform
+collapse-chevron-collapsed: rotate-180
+collapse-chevron-svg: viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"
+collapse-chevron-path: M15 18 9 12l6-6
+brand-name: block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white
+brand-version: text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400
+brand-collapsed-initial: grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white
+nav-link: flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
+nav-link-collapsed: mx-auto size-8 justify-center gap-0 px-0 py-0
+active-link: bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning
+nav-icon: size-4 shrink-0
+footer-link: flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white
+separator: border-neutral-200 dark:border-coolgray-200
 ```
 
 ## Elevation & Depth
@@ -199,10 +246,34 @@ Map Coolify classes onto:
 
 ### Brand block
 
+Expanded brand block:
+
 ```svelte
-<a href="/" class="text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
-<p class="text-[10px] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
+<div class="min-w-0 flex-1">
+  <a href="/" class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
+  <p class="text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
+</div>
 ```
+
+Collapsed brand block:
+
+```svelte
+<a
+  href="/"
+  class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
+  title="Coolify"
+  aria-label="Coolify"
+>
+  C
+</a>
+```
+
+Rules:
+
+- App name uses `text-2xl font-bold tracking-tight`; keep it a single truncated line.
+- Version/build metadata sits directly below the app name, uses `text-[10px] leading-[0.875rem]`, and is muted.
+- If the app has a logo, place it before the text at `size-8 shrink-0`; do not increase the brand row height above the `pt-6 pb-4` header rhythm.
+- Collapsed brand uses a `size-8` square initial/logo centered in the sidebar. Keep `title` and `aria-label`.
 
 ### Collapse trigger
 
@@ -214,6 +285,23 @@ Recommended trigger classes:
 absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning
 ```
 
+Exact icon:
+
+```svelte
+<svg
+  class={cn("size-3.5 transition-transform", collapsed && "rotate-180")}
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="2.2"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <path d="M15 18 9 12l6-6" />
+</svg>
+```
+
 Requirements:
 
 - Use `aria-label="Collapse sidebar"` / `aria-label="Expand sidebar"`.
@@ -221,6 +309,10 @@ Requirements:
 - Keep it visible in both expanded and collapsed modes.
 - Position it halfway over the sidebar/main border with `absolute -right-3`.
 - Use a small rounded chevron control (`size-6 rounded-full`), not a square header button.
+- Use the exact chevron path above, `size-3.5`, and `stroke-width="2.2"`.
+- Rotate the chevron `180deg` when collapsed; do not swap to a different icon.
+- Ensure the sidebar container is `relative` and the shell does not clip the trigger.
+- Do not use the default Shadcn-Svelte `SidebarTrigger` visual without these classes.
 
 ### Optional team switcher
 
@@ -268,9 +360,33 @@ Optional shortcut hint uses KBD spec.
 
 ```svelte
 <a href="/projects" aria-current="page" class="... bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning">
-  <Icon class="size-4 shrink-0" />
+  <Icon class="size-4 shrink-0" aria-hidden="true" />
   <span class="min-w-0 flex-1 truncate">Projects</span>
 </a>
+```
+
+Expanded item contract:
+
+- Wrapper: `min-h-7`, `px-2 py-1`, `gap-3`, `rounded-sm`, `text-sm`.
+- Icon: `size-4 shrink-0`, stroke-based icons should use `stroke-width` around `1.7` unless the icon set requires otherwise.
+- Label: `min-w-0 flex-1 truncate`.
+- Badge/count: trailing item only, use `design/status/badge.md`.
+
+Collapsed item contract:
+
+- Link/button box becomes `mx-auto size-8 justify-center gap-0 px-0 py-0`.
+- Hide visible text and badges in collapsed mode; keep `title`, `aria-label`, or tooltip with the original label.
+- Icon remains `size-4`, centered in the `size-8` box.
+
+### Footer item
+
+Use the footer for stable global actions such as Settings. Keep it visually secondary.
+
+```txt
+footer-wrapper: border-t border-neutral-200 py-3 dark:border-coolgray-200
+footer-link: flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white
+footer-link-collapsed: size-8 justify-center px-0 py-0
+footer-icon: size-4 shrink-0
 ```
 
 ### Section/page navbar
@@ -312,13 +428,21 @@ Collapsed state should be persisted only by the application shell, not by the pr
 ## Review Checklist
 
 - [ ] Sidebar uses Shadcn-Svelte Sidebar or semantic `nav` composition.
-- [ ] Sidebar has border separation and no heavy shadow.
-- [ ] Nav items are `text-sm`, `rounded-sm`, dense, and icon + label.
-- [ ] Active dark item uses yellow text on dark neutral fill.
-- [ ] Collapsed mode keeps accessible labels/tooltips.
-- [ ] Sidebar has an internal collapse/expand trigger with `aria-expanded`.
+- [ ] Sidebar container is `relative`, `w-64` expanded / `w-16` collapsed, border-separated, and has no heavy shadow.
+- [ ] Parent shell does not clip the border collapse trigger; verify no problematic `overflow-hidden` at the sidebar/main border.
+- [ ] Brand block uses `text-2xl font-bold tracking-tight`, truncates to one line, and places version/build metadata directly below at `text-[10px] leading-[0.875rem]`.
+- [ ] Collapsed brand uses a centered `size-8` initial/logo with `title` and `aria-label`.
+- [ ] Nav items are `text-sm`, `rounded-sm`, dense, `min-h-7`, `px-2 py-1`, `gap-3`, and icon + label.
+- [ ] Nav icons are `size-4 shrink-0`; collapsed nav icons remain `size-4` centered in a `size-8` item.
+- [ ] Active light item uses neutral fill with black text; active dark item uses `dark:bg-coolgray-200 dark:text-warning`.
+- [ ] Collapsed mode hides visible labels/badges but keeps accessible labels/tooltips.
+- [ ] Sidebar has an internal collapse/expand trigger with `aria-expanded`, `aria-label`, `absolute -right-3 top-8`, `size-6`, `rounded-full`, and `shadow-sm`.
+- [ ] Collapse chevron uses exact path `M15 18 9 12l6-6`, `size-3.5`, `stroke-width="2.2"`, and `rotate-180` when collapsed.
+- [ ] Collapse trigger is not the default square/inline Shadcn trigger; it is the rounded border control.
 - [ ] Page subnav uses horizontal scroll when needed.
 - [ ] Optional team switcher is placed below header/search and above nav, with Dropdown Menu trigger expanded and team-initial Dropdown trigger collapsed.
+- [ ] Search button is `h-8`, full width, `px-2.5`, `text-sm`, and uses KBD spec for shortcuts.
+- [ ] Footer/global actions use a top border, `min-h-7` expanded links, `size-8` collapsed links, and `size-4` icons.
 - [ ] Focus rings are visible: purple light/yellow dark.
 
 ## Claude Improvement Notes

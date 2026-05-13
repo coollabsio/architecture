@@ -349,6 +349,13 @@ const allSamples: ComponentSample[] = [
     href: "/pages/main-view",
     designDoc: "design/layouts/main-view.md",
     status: "Migrated"
+  },
+  {
+    label: "Settings Page",
+    slug: "settings-page",
+    href: "/pages/settings-page",
+    designDoc: "design/pages/settings-page.md",
+    status: "Migrated"
   }
 ];
 
@@ -360,7 +367,8 @@ const pageSampleSlugs = new Set([
   "reset-password-page",
   "confirm-password-page",
   "email-verification-page",
-  "main-view"
+  "main-view",
+  "settings-page"
 ]);
 
 export const pageSamples = allSamples.filter((sample) => pageSampleSlugs.has(sample.slug));
