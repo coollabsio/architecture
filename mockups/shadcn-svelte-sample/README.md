@@ -31,6 +31,9 @@ Implemented pages:
 - `/components/status-indicator` — dot plus text status composition with semantic colors.
 - `/components/tag` — compact metadata/removable tags.
 - `/components/deprecated-badge` — dedicated lifecycle badge variant.
+- `/components/dialog` — general modal dialog.
+- `/components/confirm-modal` — single-step confirmation modal.
+- `/components/destructive-confirmation` — typed destructive confirmation modal.
 - `/components/toast` — compact Sonner-style toast previews.
 - `/components/loading-spinner` — standalone compact spinner states.
 - `/components/loading-on-button` — Button plus Spinner loading composition.

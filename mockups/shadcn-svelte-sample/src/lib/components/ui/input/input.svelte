@@ -10,11 +10,13 @@
 
   export let dirty: boolean = false;
   export let sticky: boolean = false;
+  export let value: $$Props["value"] = undefined;
   let className: $$Props["class"] = undefined;
   export { className as class };
 </script>
 
 <input
+  bind:value
   data-dirty={dirty ? "true" : undefined}
   data-sticky={sticky ? "true" : undefined}
   class={cn(inputBaseClass, sticky ? inputStickyShadowClass : inputShadowClass, className)}

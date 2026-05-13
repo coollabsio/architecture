@@ -120,6 +120,27 @@ export const componentSamples: ComponentSample[] = [
     status: "Migrated"
   },
   {
+    label: "Dialog",
+    slug: "dialog",
+    href: "/components/dialog",
+    designDoc: "design/overlays/modal.md",
+    status: "Migrated"
+  },
+  {
+    label: "Confirm Modal",
+    slug: "confirm-modal",
+    href: "/components/confirm-modal",
+    designDoc: "design/overlays/confirm-modal.md",
+    status: "Migrated"
+  },
+  {
+    label: "Destructive Confirmation",
+    slug: "destructive-confirmation",
+    href: "/components/destructive-confirmation",
+    designDoc: "design/overlays/modal-confirmation.md",
+    status: "Migrated"
+  },
+  {
     label: "Toast",
     slug: "toast",
     href: "/components/toast",

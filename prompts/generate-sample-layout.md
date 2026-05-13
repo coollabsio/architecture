@@ -29,6 +29,9 @@ Current migrated component docs:
 - `design/status/status-indicator.md`
 - `design/status/tag.md`
 - `design/status/deprecated-badge.md`
+- `design/overlays/modal.md`
+- `design/overlays/confirm-modal.md`
+- `design/overlays/modal-confirmation.md`
 - `design/overlays/toast.md`
 - `design/feedback/loading-spinner.md`
 - `design/feedback/loading-on-button.md`
@@ -334,3 +337,5 @@ If the output is wrong, ask:
 - Was `design/forms/copy-button.md` too implementation-heavy or too vague?
 - Did the Button doc leave missing variant/size details?
 - Should pending components get temporary guidance before full migration?
+
+- Use modal/dialog specs for focused overlays: normal dialogs for forms/details, confirm modal for reversible confirmations, destructive confirmation for irreversible actions.

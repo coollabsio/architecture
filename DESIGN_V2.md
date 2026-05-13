@@ -34,9 +34,9 @@ Use this file as a router:
 | Tag | [`design/status/tag.md`](design/status/tag.md) | Shadcn-Svelte `Badge` or custom tag | Migrated |
 | Alert / inline callout | [`design/overlays/alert.md`](design/overlays/alert.md) | Shadcn-Svelte `Alert` | Migrated |
 | Callout | [`design/overlays/callout.md`](design/overlays/callout.md) | Shadcn-Svelte `Alert` | Migrated |
-| Modal input variant | `design/overlays/modal.md` | Shadcn-Svelte `Dialog` | Pending |
-| Destructive modal confirmation | `design/overlays/modal-confirmation.md` | Shadcn-Svelte `Alert Dialog` or `Dialog` | Pending |
-| Confirm modal | `design/overlays/confirm-modal.md` | Shadcn-Svelte `Alert Dialog` | Pending |
+| Modal / dialog | [`design/overlays/modal.md`](design/overlays/modal.md) | Shadcn-Svelte `Dialog` | Migrated |
+| Destructive modal confirmation | [`design/overlays/modal-confirmation.md`](design/overlays/modal-confirmation.md) | Shadcn-Svelte `Alert Dialog` or `Dialog` | Migrated |
+| Confirm modal | [`design/overlays/confirm-modal.md`](design/overlays/confirm-modal.md) | Shadcn-Svelte `Alert Dialog` | Migrated |
 | Popup / popup small | `design/overlays/popup.md` | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Pending |
 | Slide-over | `design/overlays/slide-over.md` | Shadcn-Svelte `Sheet` | Pending |
 | Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
