@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
+  import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 
@@ -14,7 +14,7 @@
     {#if emailsEnabled}
       <form class="flex flex-col gap-4" onsubmit={(event) => { event.preventDefault(); submitted = true; }}>
         <FormField forId="forgot-email" label="Email" required><Input id="forgot-email" type="email" autocomplete="email" bind:value={email} /></FormField>
-        <Button class="h-12 w-full justify-center py-3 text-base font-bold" type="submit" variant="highlighted">Send password reset email</Button>
+        <AuthPrimaryButton type="submit">Send password reset email</AuthPrimaryButton>
       </form>
       {#if submitted}<div class="rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300">Reset link requested for {email}.</div>{/if}
     {:else}

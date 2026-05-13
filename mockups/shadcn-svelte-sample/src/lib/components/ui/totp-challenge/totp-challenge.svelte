@@ -1,6 +1,6 @@
 <script lang="ts">
   import { tick } from "svelte";
-  import { Button } from "$lib/components/ui/button/index.js";
+  import AuthPrimaryButton from "$lib/components/ui/auth-pages/auth-primary-button.svelte";
   import { Input } from "$lib/components/ui/input/index.js";
   import { cn } from "$lib/utils";
 
@@ -108,7 +108,7 @@
       </div>
     {/if}
 
-    <Button class="h-12 w-full justify-center py-3 text-base font-bold" variant="highlighted" type="submit" disabled={!canSubmit}>Login</Button>
+    <AuthPrimaryButton type="submit" disabled={!canSubmit}>Login</AuthPrimaryButton>
   </form>
 
   {#if submitted}

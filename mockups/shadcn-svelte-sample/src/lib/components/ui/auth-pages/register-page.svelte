@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
+  import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input, PasswordInput } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 
@@ -55,7 +55,7 @@
         <p class="text-xs text-neutral-600 dark:text-neutral-400">Your password should be min 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.</p>
       </div>
 
-      <Button class="mt-2 h-12 w-full justify-center py-3 text-base font-bold" variant="highlighted" type="submit" disabled={!canSubmit}>Create Account</Button>
+      <AuthPrimaryButton class="mt-2" type="submit" disabled={!canSubmit}>Create Account</AuthPrimaryButton>
     </form>
 
     {#if submitted}

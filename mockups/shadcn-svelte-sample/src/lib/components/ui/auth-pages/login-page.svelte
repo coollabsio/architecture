@@ -1,5 +1,6 @@
 <script lang="ts">
   import { Button } from "$lib/components/ui/button/index.js";
+  import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input, PasswordInput } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 
@@ -27,7 +28,7 @@
         <a href="/pages/forgot-password-page" class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
       </div>
 
-      <Button class="h-12 w-full justify-center py-3 text-base font-bold" variant="highlighted" type="submit">Login</Button>
+      <AuthPrimaryButton type="submit">Login</AuthPrimaryButton>
     </form>
 
     {#if submitted}

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
+  import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { PasswordInput } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
 
@@ -18,7 +18,7 @@
       <FormField forId="reset-password" label="Password" required><PasswordInput id="reset-password" autocomplete="new-password" bind:value={password} /></FormField>
       <FormField forId="reset-password-confirmation" label="Password again" required error={mismatch || undefined}><PasswordInput id="reset-password-confirmation" autocomplete="new-password" bind:value={passwordConfirmation} aria-invalid={!!mismatch} /></FormField>
       <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100"><p class="text-xs text-neutral-600 dark:text-neutral-400">Your password should be min 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.</p></div>
-      <Button class="mt-2 h-12 w-full justify-center py-3 text-base font-bold" type="submit" variant="highlighted" disabled={!canSubmit}>Reset password</Button>
+      <AuthPrimaryButton class="mt-2" type="submit" disabled={!canSubmit}>Reset password</AuthPrimaryButton>
     </form>
     {#if submitted}<div class="rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300">Password reset submitted.</div>{/if}
     <div class="relative my-6"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div><div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-base dark:text-neutral-400">Remember your password?</span></div></div>
