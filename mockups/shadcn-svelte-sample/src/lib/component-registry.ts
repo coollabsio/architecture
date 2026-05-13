@@ -316,6 +316,34 @@ export const componentSamples: ComponentSample[] = [
     status: "Migrated"
   },
   {
+    label: "Forgot Password Page",
+    slug: "forgot-password-page",
+    href: "/components/forgot-password-page",
+    designDoc: "design/auth/forgot-password-page.md",
+    status: "Migrated"
+  },
+  {
+    label: "Reset Password Page",
+    slug: "reset-password-page",
+    href: "/components/reset-password-page",
+    designDoc: "design/auth/reset-password-page.md",
+    status: "Migrated"
+  },
+  {
+    label: "Confirm Password Page",
+    slug: "confirm-password-page",
+    href: "/components/confirm-password-page",
+    designDoc: "design/auth/confirm-password-page.md",
+    status: "Migrated"
+  },
+  {
+    label: "Email Verification Page",
+    slug: "email-verification-page",
+    href: "/components/email-verification-page",
+    designDoc: "design/auth/email-verification-page.md",
+    status: "Migrated"
+  },
+  {
     label: "Main View",
     slug: "main-view",
     href: "/components/main-view",

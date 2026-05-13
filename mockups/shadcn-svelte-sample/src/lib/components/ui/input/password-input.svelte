@@ -9,6 +9,7 @@
 
   export let dirty: boolean = false;
   export let sticky: boolean = false;
+  export let value: $$Props["value"] = undefined;
   let visible = false;
   let className: $$Props["class"] = undefined;
   export { className as class };
@@ -16,6 +17,7 @@
 
 <div class="relative">
   <Input
+    bind:value
     type={visible ? "text" : "password"}
     {dirty}
     {sticky}

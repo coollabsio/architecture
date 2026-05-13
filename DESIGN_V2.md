@@ -62,6 +62,10 @@ Use this file as a router:
 | TOTP / one-time token challenge | [`design/auth/totp-challenge.md`](design/auth/totp-challenge.md) | Shadcn-Svelte `Button` + `Input` + local OTP composition | Migrated |
 | Login page | [`design/auth/login-page.md`](design/auth/login-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
 | Register page | [`design/auth/register-page.md`](design/auth/register-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Forgot password page | [`design/auth/forgot-password-page.md`](design/auth/forgot-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `Input`, `FormField` | Migrated |
+| Reset password page | [`design/auth/reset-password-page.md`](design/auth/reset-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `PasswordInput`, `FormField` | Migrated |
+| Confirm password page | [`design/auth/confirm-password-page.md`](design/auth/confirm-password-page.md) | Auth page composition with Shadcn-Svelte `Button`, `PasswordInput`, `FormField` | Migrated |
+| Email verification page | [`design/auth/email-verification-page.md`](design/auth/email-verification-page.md) | Auth page composition with Shadcn-Svelte `Button` | Migrated |
 | Command palette / global search | [`design/search/command-palette.md`](design/search/command-palette.md) | Shadcn-Svelte `Command` + `Dialog` | Migrated |
 | Tooltip variants | [`design/overlays/tooltip.md`](design/overlays/tooltip.md) | Shadcn-Svelte `Tooltip` | Migrated |
 

@@ -9,6 +9,27 @@ bun install
 bun dev
 ```
 
+Build static files:
+
+```bash
+bun run build
+```
+
+Deploy the generated `build/` directory to any static host.
+
+If Bun cannot write to its global cache/temp directory in a sandboxed environment, keep using Bun and pass a local cache directory:
+
+```bash
+bun install --cache-dir .bun-cache
+```
+
+If you see an error that mentions `node_modules/.pnpm` or a missing SvelteKit virtual module like `$app/environment`, the install tree is stale or came from another package manager. Reset it with Bun only:
+
+```bash
+bun run reinstall
+bun dev
+```
+
 Use the top-right component selector to switch between component pages.
 
 Implemented pages:
