@@ -32,6 +32,12 @@ Current migrated component docs:
 - `design/overlays/toast.md`
 - `design/feedback/loading-spinner.md`
 - `design/feedback/loading-on-button.md`
+- `design/overlays/callout.md`
+- `design/overlays/helper-tooltip.md`
+- `design/navigation/breadcrumbs.md`
+- `design/navigation/external-link.md`
+- `design/navigation/internal-link.md`
+- `design/text/kbd.md`
 
 ## Goal
 
@@ -174,7 +180,7 @@ Because `card.md` is migrated, the screen must demonstrate compact `rounded-sm b
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Status Indicator, Tag, Deprecated Badge, Alert, Toast, Loading Spinner, Loading On Button, Tabs, and Card components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, Copy Button, Radio Group, Switch, Badge, Status Indicator, Tag, Deprecated Badge, Alert, Toast, Loading Spinner, Loading On Button, Callout, Helper Tooltip, Breadcrumbs, External Link, Internal Link, KBD, Tabs, and Card components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -210,6 +216,11 @@ Follow these visual decisions from the docs:
 - Tags and Deprecated Badges build on Badge density.
 - Toasts are compact bordered rounded-sm Sonner-style surfaces.
 - Loading states use size-4 Spinner and Button + label-then-spinner composition with aria-busy.
+- Callouts are non-urgent compact help blocks, distinct from Alerts.
+- Helper Tooltips use visible info icons and fit-to-content tooltip sizing.
+- Breadcrumbs use ordered navigation with aria-current.
+- External/Internal Links preserve anchor semantics; external links include icon/new-tab attrs.
+- KBD uses semantic kbd elements with h-5 mono styling.
 
 ## Deliverables
 

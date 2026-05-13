@@ -34,3 +34,10 @@ Implemented pages:
 - `/components/toast` — compact Sonner-style toast previews.
 - `/components/loading-spinner` — standalone compact spinner states.
 - `/components/loading-on-button` — Button plus Spinner loading composition.
+
+- `/components/callout` — non-urgent contextual guidance blocks.
+- `/components/helper-tooltip` — reusable info icon tooltip with fit-to-content width.
+- `/components/breadcrumbs` — compact hierarchy navigation.
+- `/components/external-link` — external anchor with icon and new-tab attrs.
+- `/components/internal-link` — in-app anchor link styling.
+- `/components/kbd` — compact keyboard shortcut hints.

@@ -139,5 +139,47 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/loading-on-button",
     designDoc: "design/feedback/loading-on-button.md",
     status: "Migrated"
+  },
+  {
+    label: "Callout",
+    slug: "callout",
+    href: "/components/callout",
+    designDoc: "design/overlays/callout.md",
+    status: "Migrated"
+  },
+  {
+    label: "Helper Tooltip",
+    slug: "helper-tooltip",
+    href: "/components/helper-tooltip",
+    designDoc: "design/overlays/helper-tooltip.md",
+    status: "Migrated"
+  },
+  {
+    label: "Breadcrumbs",
+    slug: "breadcrumbs",
+    href: "/components/breadcrumbs",
+    designDoc: "design/navigation/breadcrumbs.md",
+    status: "Migrated"
+  },
+  {
+    label: "External Link",
+    slug: "external-link",
+    href: "/components/external-link",
+    designDoc: "design/navigation/external-link.md",
+    status: "Migrated"
+  },
+  {
+    label: "Internal Link",
+    slug: "internal-link",
+    href: "/components/internal-link",
+    designDoc: "design/navigation/internal-link.md",
+    status: "Migrated"
+  },
+  {
+    label: "KBD",
+    slug: "kbd",
+    href: "/components/kbd",
+    designDoc: "design/text/kbd.md",
+    status: "Migrated"
   }
 ];

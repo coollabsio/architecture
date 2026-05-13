@@ -33,25 +33,25 @@ Use this file as a router:
 | Deprecated badge | [`design/status/deprecated-badge.md`](design/status/deprecated-badge.md) | Shadcn-Svelte `Badge` | Migrated |
 | Tag | [`design/status/tag.md`](design/status/tag.md) | Shadcn-Svelte `Badge` or custom tag | Migrated |
 | Alert / inline callout | [`design/overlays/alert.md`](design/overlays/alert.md) | Shadcn-Svelte `Alert` | Migrated |
-| Callout | `design/overlays/callout.md` | Shadcn-Svelte `Alert` | Pending |
+| Callout | [`design/overlays/callout.md`](design/overlays/callout.md) | Shadcn-Svelte `Alert` | Migrated |
 | Modal input variant | `design/overlays/modal.md` | Shadcn-Svelte `Dialog` | Pending |
 | Destructive modal confirmation | `design/overlays/modal-confirmation.md` | Shadcn-Svelte `Alert Dialog` or `Dialog` | Pending |
 | Confirm modal | `design/overlays/confirm-modal.md` | Shadcn-Svelte `Alert Dialog` | Pending |
 | Popup / popup small | `design/overlays/popup.md` | Shadcn-Svelte `Popover`/`Dialog` as appropriate | Pending |
 | Slide-over | `design/overlays/slide-over.md` | Shadcn-Svelte `Sheet` | Pending |
 | Toast | [`design/overlays/toast.md`](design/overlays/toast.md) | Shadcn-Svelte `Sonner` | Migrated |
-| Helper tooltip | `design/overlays/helper-tooltip.md` | Shadcn-Svelte `Tooltip` or `Hover Card` | Pending |
+| Helper tooltip | [`design/overlays/helper-tooltip.md`](design/overlays/helper-tooltip.md) | Shadcn-Svelte `Tooltip` or `Hover Card` | Migrated |
 | Sidebar / navbar | `design/navigation/sidebar-navbar.md` | Shadcn-Svelte `Sidebar` + app layout | Pending |
 | Tabs | [`design/navigation/tabs.md`](design/navigation/tabs.md) | Shadcn-Svelte `Tabs` | Migrated |
-| Breadcrumbs | `design/navigation/breadcrumbs.md` | Shadcn-Svelte `Breadcrumb` | Pending |
-| External link | `design/navigation/external-link.md` | Anchor + icon composition | Pending |
-| Internal link | `design/navigation/internal-link.md` | Anchor + icon composition | Pending |
+| Breadcrumbs | [`design/navigation/breadcrumbs.md`](design/navigation/breadcrumbs.md) | Shadcn-Svelte `Breadcrumb` | Migrated |
+| External link | [`design/navigation/external-link.md`](design/navigation/external-link.md) | Anchor + icon composition | Migrated |
+| Internal link | [`design/navigation/internal-link.md`](design/navigation/internal-link.md) | Anchor + icon composition | Migrated |
 | Banner | `design/navigation/banner.md` | Custom banner composition | Pending |
 | Loading spinner | [`design/feedback/loading-spinner.md`](design/feedback/loading-spinner.md) | Shadcn-Svelte `Spinner` | Migrated |
 | Loading on button | [`design/feedback/loading-on-button.md`](design/feedback/loading-on-button.md) | Shadcn-Svelte `Spinner` inside `Button` | Migrated |
 | Page loading | `design/feedback/page-loading.md` | Custom overlay + `Spinner` | Pending |
 | Highlighted text / required asterisk | `design/text/highlighted-text.md` | Text utility/composition | Pending |
-| Keyboard hint | `design/text/kbd.md` | Shadcn-Svelte `Kbd` | Pending |
+| Keyboard hint | [`design/text/kbd.md`](design/text/kbd.md) | Shadcn-Svelte `Kbd` | Migrated |
 | Scrollbar | `design/chrome/scrollbar.md` | CSS utility | Pending |
 | Table | `design/chrome/table.md` | Shadcn-Svelte `Table` or `Data Table` | Pending |
 | Dropdown | [`design/forms/dropdown.md`](design/forms/dropdown.md) | Shadcn-Svelte `Dropdown Menu` | Migrated |
