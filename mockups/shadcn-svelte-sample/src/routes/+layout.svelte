@@ -5,12 +5,17 @@
   import "../app.css";
   import { componentSamples } from "$lib/component-registry";
   import { Button } from "$lib/components/ui/button/index.js";
-  import { DropdownMenu, dropdownMenuItemVariants } from "$lib/components/ui/dropdown-menu/index.js";
+  import { SearchableDropdown, type SearchableDropdownOption } from "$lib/components/ui/searchable-dropdown/index.js";
 
   let theme: "light" | "dark" = "dark";
   let selectedComponentHref = componentSamples[0]?.href ?? "/components/buttons";
 
   $: selectedComponent = componentSamples.find((sample) => sample.href === selectedComponentHref) ?? componentSamples[0];
+  $: componentOptions = componentSamples.map((sample) => ({
+    label: sample.label,
+    value: sample.href,
+    description: sample.designDoc
+  })) satisfies SearchableDropdownOption[];
 
   $: if (browser) {
     document.documentElement.classList.toggle("dark", theme === "dark");
@@ -35,6 +40,10 @@
     selectedComponentHref = href;
     await goto(href);
   }
+
+  function selectComponentOption(option: SearchableDropdownOption) {
+    void selectComponent(option.value);
+  }
 </script>
 
 <svelte:head>
@@ -48,19 +57,14 @@
 
 <div class:dark={theme === "dark"} class="min-h-screen bg-gray-50 text-black dark:bg-base dark:text-neutral-400">
   <div class="fixed right-4 top-4 z-10 flex items-center gap-2">
-    <DropdownMenu label={selectedComponent?.label ?? "Component"}>
-      {#each componentSamples as sample}
-        <button
-          class={dropdownMenuItemVariants()}
-          role="menuitem"
-          aria-current={selectedComponentHref === sample.href ? "page" : undefined}
-          onclick={() => selectComponent(sample.href)}
-        >
-          <span class="size-4 text-center">{selectedComponentHref === sample.href ? "✓" : ""}</span>
-          {sample.label}
-        </button>
-      {/each}
-    </DropdownMenu>
+    <SearchableDropdown
+      bind:value={selectedComponentHref}
+      options={componentOptions}
+      placeholder={selectedComponent?.label ?? "Component"}
+      searchPlaceholder="Search components..."
+      emptyText="No component found."
+      onselect={selectComponentOption}
+    />
 
     <Button onclick={toggleTheme} aria-label="Toggle light and dark mode">
       {theme === "dark" ? "Light mode" : "Dark mode"}

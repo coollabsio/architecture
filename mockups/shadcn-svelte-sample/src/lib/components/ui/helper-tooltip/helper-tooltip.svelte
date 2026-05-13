@@ -1,5 +1,6 @@
 <script lang="ts">
-  export let text: string;
+  export let text = "";
+  export let content = "";
   let open = false;
 </script>
 <span class="relative inline-flex">
@@ -14,6 +15,6 @@
     onblur={() => (open = false)}
   >i</button>
   {#if open}
-    <span class="absolute left-1/2 top-6 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 whitespace-normal rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm">{text}</span>
+    <span class="absolute left-1/2 top-6 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-x-1/2 whitespace-normal rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm">{text || content}</span>
   {/if}
 </span>

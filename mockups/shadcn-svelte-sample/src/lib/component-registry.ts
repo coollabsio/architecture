@@ -22,6 +22,13 @@ export const componentSamples: ComponentSample[] = [
     status: "Migrated"
   },
   {
+    label: "Searchable Dropdown",
+    slug: "searchable-dropdown",
+    href: "/components/searchable-dropdown",
+    designDoc: "design/forms/searchable-dropdown.md",
+    status: "Migrated"
+  },
+  {
     label: "Input",
     slug: "input",
     href: "/components/input",
@@ -264,6 +271,27 @@ export const componentSamples: ComponentSample[] = [
     slug: "highlighted-text",
     href: "/components/highlighted-text",
     designDoc: "design/text/highlighted-text.md",
+    status: "Migrated"
+  },
+  {
+    label: "Command Palette",
+    slug: "command-palette",
+    href: "/components/command-palette",
+    designDoc: "design/search/command-palette.md",
+    status: "Migrated"
+  },
+  {
+    label: "Tooltip Variants",
+    slug: "tooltip",
+    href: "/components/tooltip",
+    designDoc: "design/overlays/tooltip.md",
+    status: "Migrated"
+  },
+  {
+    label: "Form Composition",
+    slug: "form-composition",
+    href: "/components/form-composition",
+    designDoc: "design/forms/form-composition.md",
     status: "Migrated"
   },
   {

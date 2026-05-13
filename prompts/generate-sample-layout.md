@@ -347,3 +347,9 @@ If the output is wrong, ask:
 - `design/navigation/banner.md`
 - `design/chrome/scrollbar.md`
 - `design/text/highlighted-text.md`
+
+- `design/search/command-palette.md`
+- `design/overlays/tooltip.md`
+- `design/forms/form-composition.md`
+
+- `design/forms/searchable-dropdown.md`

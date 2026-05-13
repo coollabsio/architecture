@@ -12,10 +12,16 @@
   export let sticky: boolean = false;
   export let value: $$Props["value"] = undefined;
   let className: $$Props["class"] = undefined;
+  let input: HTMLInputElement;
   export { className as class };
+
+  export function focus() {
+    input?.focus();
+  }
 </script>
 
 <input
+  bind:this={input}
   bind:value
   data-dirty={dirty ? "true" : undefined}
   data-sticky={sticky ? "true" : undefined}

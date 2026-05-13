@@ -15,6 +15,7 @@ Implemented pages:
 
 - `/components/buttons` — default, highlighted, destructive, loading, icon-only, link-styled, and disabled button states.
 - `/components/dropdown` — compact Shadcn-style dropdown content, default/touch/disabled/danger items, and dark hover behavior.
+- `/components/searchable-dropdown` — combobox-style searchable dropdown for longer option lists.
 - `/components/input` — inset shadow border, focus/dirty left bar, disabled/readonly, password spacing, sticky variant, and form label helper icon composition.
 
 - `/components/select` — native select wrapper with inset shadow, dirty state, disabled state, and stacked up/down chevron.
@@ -55,4 +56,7 @@ Implemented pages:
 - `/components/banner` — page-level notice banners.
 - `/components/scrollbar` — compact scroll container treatment.
 - `/components/highlighted-text` — inline highlight and required asterisk.
+- `/components/command-palette` — global search and command overlay.
+- `/components/tooltip` — action and helper tooltip variants.
+- `/components/form-composition` — validation, required markers, dirty state, save action.
 - `/components/main-view` — Coolify resource grid and split master-detail page layouts.

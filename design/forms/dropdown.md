@@ -44,7 +44,7 @@ components:
     rounded: "{rounded.sm}"
     padding: "{spacing.content-padding}"
   dropdown-content-dark:
-    backgroundColor: "{colors.coolgray-200}"
+    backgroundColor: "{colors.coolgray-100}"
     textColor: "{colors.white}"
     rounded: "{rounded.sm}"
     padding: "{spacing.content-padding}"
@@ -58,7 +58,7 @@ components:
     backgroundColor: "{colors.neutral-100}"
     textColor: "{colors.text}"
   dropdown-item-dark:
-    backgroundColor: "{colors.coolgray-200}"
+    backgroundColor: "{colors.coolgray-100}"
     textColor: "{colors.white}"
     typography: "{typography.menu-item}"
     rounded: "{rounded.sm}"
@@ -108,9 +108,9 @@ pnpm dlx shadcn-svelte@latest add dropdown-menu
 Dropdown colors use component surfaces and one strong dark-mode hover exception:
 
 - **Content light:** white surface, neutral border, subtle shadow.
-- **Content dark:** `coolgray-200` surface, `coolgray-300` border.
+- **Content dark:** `coolgray-100` surface, `coolgray-300` border. This matches the darker toast surface instead of the lighter panel background.
 - **Item light:** black text on white, neutral hover/focus background.
-- **Item dark:** white text on `coolgray-200`, purple hover/focus background.
+- **Item dark:** white text on the transparent `coolgray-100` menu surface, purple hover/focus background.
 - **Danger item:** error red text; hover may either keep red text or switch to white text on an error background when the action needs stronger warning.
 - **Focus:** item focus should match item hover; trigger focus uses the standard non-input ring: purple in light mode, yellow in dark mode.
 
@@ -150,7 +150,7 @@ Dropdowns use minimal elevation:
 
 ```txt
 border border-neutral-300 bg-white p-1 shadow-sm
- dark:border-coolgray-300 dark:bg-coolgray-200
+ dark:border-coolgray-300 dark:bg-coolgray-100
 ```
 
 Use `shadow-sm` only for the floating menu surface. Do not add heavy shadows or glass effects.
@@ -170,7 +170,7 @@ Use Shadcn-Svelte `Dropdown Menu` as the interaction primitive. Extend its local
 Recommended content class:
 
 ```txt
-z-50 min-w-max max-w-[calc(100vw-1rem)] rounded-sm border border-neutral-300 bg-white p-1 shadow-sm outline-none dark:border-coolgray-300 dark:bg-coolgray-200
+z-50 min-w-max max-w-[calc(100vw-1rem)] rounded-sm border border-neutral-300 bg-white p-1 shadow-sm outline-none dark:border-coolgray-300 dark:bg-coolgray-100
 ```
 
 Recommended item class:
@@ -256,7 +256,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 ## Review Checklist
 
 - [ ] Uses Shadcn-Svelte `Dropdown Menu` as the base primitive.
-- [ ] Content uses `border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-200`.
+- [ ] Content uses `border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100`.
 - [ ] Content and items use `rounded-sm`.
 - [ ] Default items use `text-xs`, `py-1`, `pl-2`, `pr-4`, `gap-2`, `cursor-pointer`, `select-none`.
 - [ ] Item icons are constrained to `size-4` and never resize menu rows.

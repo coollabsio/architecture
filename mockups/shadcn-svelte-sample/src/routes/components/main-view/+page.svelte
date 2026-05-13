@@ -88,6 +88,7 @@
       <div class="min-h-[42rem] rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
         <div class="flex flex-wrap items-start justify-between gap-4">
           <div>
+            <p class="mb-2 text-xs font-medium uppercase tracking-wide text-neutral-500 dark:text-neutral-400">Inspired by Laravel Cloud-style resource workspaces</p>
             <div class="flex items-center gap-2">
               <span class="flex size-7 items-center justify-center rounded-sm bg-cyan-100 text-sm font-bold text-cyan-700 dark:bg-cyan-500/20 dark:text-cyan-300">B</span>
               <h2 class="text-2xl font-bold text-black dark:text-white">Beep</h2>
@@ -111,6 +112,9 @@
 
           <div class="min-w-0 flex-1">
             <div class="min-h-[30rem] rounded-sm border border-neutral-200 bg-[radial-gradient(circle_at_1px_1px,rgba(0,0,0,0.08)_1px,transparent_0)] [background-size:24px_24px] p-6 dark:border-coolgray-300 dark:bg-coolgray-200 dark:bg-[radial-gradient(circle_at_1px_1px,rgba(255,255,255,0.08)_1px,transparent_0)]">
+              <div class="mb-4 rounded-sm border border-neutral-200 bg-white px-3 py-2 text-xs text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-400">
+                Hint: this single-section topology view borrows the resource-map feel from Laravel Cloud, adapted to Coolify V2 colors, spacing, and Shadcn-Svelte primitives.
+              </div>
               <div class="grid gap-6 lg:grid-cols-3">
                 <div class="space-y-3">
                   <div class="rounded-sm border border-neutral-200 bg-white p-3 hover:border-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:hover:border-warning">

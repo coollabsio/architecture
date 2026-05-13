@@ -57,6 +57,10 @@ Use this file as a router:
 | Scrollbar | [`design/chrome/scrollbar.md`](design/chrome/scrollbar.md) | CSS utility | Migrated |
 | Table | [`design/data/table.md`](design/data/table.md) | Shadcn-Svelte `Table` or `Data Table` | Migrated |
 | Dropdown | [`design/forms/dropdown.md`](design/forms/dropdown.md) | Shadcn-Svelte `Dropdown Menu` | Migrated |
+| Searchable dropdown | [`design/forms/searchable-dropdown.md`](design/forms/searchable-dropdown.md) | Shadcn-Svelte `Command` + `Popover` / Combobox | Migrated |
+| Form composition / validation | [`design/forms/form-composition.md`](design/forms/form-composition.md) | FormField + inputs + validation | Migrated |
+| Command palette / global search | [`design/search/command-palette.md`](design/search/command-palette.md) | Shadcn-Svelte `Command` + `Dialog` | Migrated |
+| Tooltip variants | [`design/overlays/tooltip.md`](design/overlays/tooltip.md) | Shadcn-Svelte `Tooltip` | Migrated |
 
 ## Migration rules
 

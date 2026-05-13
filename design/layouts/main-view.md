@@ -81,6 +81,8 @@ grid gap-4 sm:grid-cols-2 xl:grid-cols-3
 
 Use this when the page is one self-contained resource detail view, not a grid and not a list/detail split. The reference shape is a single bordered section containing resource title/environment, metadata, actions, a Subsidebar for section navigation, and a visual/content canvas.
 
+This layout may reference Laravel Cloud as visual inspiration for a resource/topology workspace: compact resource header, environment metadata, side section navigation, and connected service/database-style cards in one canvas. Treat this as inspiration only; implementation must still use Coolify V2 tokens and Shadcn-Svelte primitives.
+
 ```txt
 [ resource title + environment                   actions ]
 [ metadata row ]
@@ -94,6 +96,8 @@ min-h-[42rem] rounded-sm border border-neutral-200 bg-white dark:border-coolgray
 ```
 
 The workspace/canvas can use a subtle dot grid or neutral panel background only when it represents a map/topology/workflow view. Keep the grid subtle and do not use decorative gradients.
+
+When showing this as a sample/mockup, include a small hint such as “Inspired by Laravel Cloud-style resource workspaces” so the intent is clear without turning the component into a Laravel-specific implementation.
 
 ### Split master-detail
 
@@ -167,6 +171,7 @@ Main views are layouts, not primitives. They should compose existing V2 componen
 - [ ] Resource grid uses Coolbox/Card sections.
 - [ ] Split view has two clear panels with independent scroll/list/detail areas.
 - [ ] Single-section view has resource header, metadata, actions, Subsidebar when needed, and one primary workspace.
+- [ ] Single-section topology samples may mention Laravel Cloud as visual inspiration, but still use Coolify V2 tokens and Shadcn-Svelte primitives.
 - [ ] Uses borders, not heavy shadows.
 
 ## Claude Improvement Notes
