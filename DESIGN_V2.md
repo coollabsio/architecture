@@ -22,7 +22,7 @@ Use this file as a router:
 | Select | [`design/forms/select.md`](design/forms/select.md) | Shadcn-Svelte `Select` or `Native Select` | Migrated |
 | Checkbox | [`design/forms/checkbox.md`](design/forms/checkbox.md) | Shadcn-Svelte `Checkbox` | Migrated |
 | Textarea | [`design/forms/textarea.md`](design/forms/textarea.md) | Shadcn-Svelte `Textarea` | Migrated |
-| Copy button | `design/forms/copy-button.md` | Shadcn-Svelte `Button` | Pending |
+| Copy button | [`design/forms/copy-button.md`](design/forms/copy-button.md) | Shadcn-Svelte `Button` + `Input` composition | Migrated |
 | Box/card link | `design/containers/box.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Coolbox/card with ring hover | `design/containers/coolbox.md` | Shadcn-Svelte `Card` or custom wrapper | Pending |
 | Badge | `design/status/badge.md` | Shadcn-Svelte `Badge` | Pending |

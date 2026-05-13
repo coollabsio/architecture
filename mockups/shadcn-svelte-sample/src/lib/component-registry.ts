@@ -48,5 +48,12 @@ export const componentSamples: ComponentSample[] = [
     href: "/components/checkbox",
     designDoc: "design/forms/checkbox.md",
     status: "Migrated"
+  },
+  {
+    label: "Copy Button",
+    slug: "copy-button",
+    href: "/components/copy-button",
+    designDoc: "design/forms/copy-button.md",
+    status: "Migrated"
   }
 ];

@@ -20,3 +20,4 @@ Implemented pages:
 - `/components/select` — native select wrapper with inset shadow, dirty state, disabled state, and stacked up/down chevron.
 - `/components/textarea` — mono textarea with inset shadow, dirty state, disabled/readonly, and optional Tab insertion.
 - `/components/checkbox` — checkbox primitive and right-aligned row composition with wrapping labels and focus rings.
+- `/components/copy-button` — readonly input plus secure-context clipboard action and temporary copied state.

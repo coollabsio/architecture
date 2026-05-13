@@ -19,6 +19,7 @@ Current migrated component docs:
 - `design/forms/select.md`
 - `design/forms/textarea.md`
 - `design/forms/checkbox.md`
+- `design/forms/copy-button.md`
 
 ## Goal
 
@@ -84,7 +85,7 @@ Because `input.md` is migrated, the screen must demonstrate the Input spec clear
 
 Because `select.md` is migrated, the screen must demonstrate the Select spec clearly:
 
-- Native select wrapper or Shadcn-Svelte Select trigger styled according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`.
+- Native select wrapper or Shadcn-Svelte Select trigger styled according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
 - Default select.
 - Dirty select using `data-dirty="true"` or a `dirty` prop.
 - Disabled select with no inset shadow.
@@ -112,20 +113,32 @@ Because `checkbox.md` is migrated, the screen must demonstrate the Checkbox spec
 - Row composition with label text on the left and checkbox on the right.
 - Long label wrapping without shrinking the checkbox.
 
+## Required Copy Button demonstrations
+
+Because `copy-button.md` is migrated, the screen must demonstrate the Copy Button spec clearly:
+
+- Readonly Input plus absolute-positioned copy icon button.
+- Secure-context clipboard check before rendering or activating copy.
+- Copy icon default state.
+- Green check copied state for 1 second.
+- Input right padding so value text does not sit under the icon.
+- Accessible `aria-label` and `title`.
+
 ## Implementation rules
 
 - Use Shadcn-Svelte primitives as the base.
 - For Button, use the local Shadcn-Svelte `Button` primitive and extend `buttonVariants(...)` according to `design/forms/button.md`.
 - For Dropdown, use the local Shadcn-Svelte `Dropdown Menu` primitive and extend its content/item classes according to `design/forms/dropdown.md`.
-- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`.
+- For Input, use the local Shadcn-Svelte `Input` primitive and extend its inset shadow/dirty-state classes according to `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
 - For form labels/helper icons, compose Label + Tooltip according to `design/forms/form-field.md`; do not bake helper behavior into raw Input.
-- For Select, use a native select wrapper for simple forms or Shadcn-Svelte Select for complex cases; style it according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`.
-- For Textarea, use Shadcn-Svelte `Textarea` with mono typography and the same inset shadow/dirty-state system according to `design/forms/textarea.md`, and `design/forms/checkbox.md`.
-- For Checkbox, use Shadcn-Svelte `Checkbox` with right-aligned row composition according to `design/forms/checkbox.md`.
+- For Select, use a native select wrapper for simple forms or Shadcn-Svelte Select for complex cases; style it according to `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- For Textarea, use Shadcn-Svelte `Textarea` with mono typography and the same inset shadow/dirty-state system according to `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- For Checkbox, use Shadcn-Svelte `Checkbox` with right-aligned row composition according to `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
+- For Copy Button, compose readonly Input plus icon Button according to `design/forms/copy-button.md`.
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not use raw boolean attributes like `isHighlighted` or `isError`.
 - Do not invent new component specs for pending components.
-- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, and Checkbox components and do not invent detailed specs.
+- For pending components, create simple local markup only as needed; keep the focus on testing migrated Button, Dropdown, Input, Form Field, Select, Textarea, Checkbox, and Copy Button components and do not invent detailed specs.
 - Use Tailwind utilities and Shadcn-Svelte conventions.
 - Keep the design dense, dark-first, sharp, and utilitarian.
 - Use 4px radius by default (`rounded-sm`).
@@ -150,6 +163,7 @@ Follow these visual decisions from the docs:
 - Selects use the same inset shadow system as Input and the stacked up/down chevron; do not use a single down chevron.
 - Textareas use mono typography and the same inset shadow/dirty-bar system as Input.
 - Checkboxes are size-4, rounded-sm, purple checked fill, and use purple/yellow focus rings.
+- Copy Buttons compose readonly Input plus absolute icon; copied state uses a green check for 1 second.
 
 ## Deliverables
 
@@ -160,7 +174,7 @@ Preferred output format:
 1. Brief plan, maximum 5 bullets.
 2. File tree.
 3. Code blocks for each changed/created file.
-4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`.
+4. Short explanation of how the output follows `DESIGN_V2.md`, `design/forms/button.md`, `design/forms/dropdown.md`, and `design/forms/input.md`, and `design/forms/form-field.md`, and `design/forms/select.md`, and `design/forms/textarea.md`, and `design/forms/checkbox.md`, and `design/forms/copy-button.md`.
 5. Short self-review checklist showing which Button requirements are satisfied.
 
 If you are working inside a real repo, create or update files directly instead of only printing code.
@@ -193,6 +207,8 @@ mockups/shadcn-svelte-sample/
   src/lib/components/ui/checkbox/index.ts
   src/lib/components/ui/checkbox/checkbox.svelte
   src/lib/components/ui/checkbox/checkbox-row.svelte
+  src/lib/components/ui/copy-button/index.ts
+  src/lib/components/ui/copy-button/copy-button.svelte
   src/lib/utils.ts
 ```
 
@@ -211,6 +227,7 @@ The generated result is successful if:
 - It demonstrates Select default, dirty, disabled, and stacked-chevron states.
 - It demonstrates Textarea default, dirty, disabled, readonly, mono typography, and allowTab behavior.
 - It demonstrates Checkbox checked, unchecked, disabled, focus ring, and row composition.
+- It demonstrates Copy Button readonly field, secure clipboard behavior, accessible icon button, and copied state.
 - It avoids Livewire/Blade/Laravel-specific implementation details.
 - It does not introduce undocumented visual language such as gradients, large radius, or heavy shadows.
 - The screen feels compact, dark-first, utilitarian, and operational.
@@ -230,6 +247,7 @@ The generated result should be considered a design-doc failure if the AI:
 - Uses a generic select with normal borders or a single down chevron instead of the V2 select styling.
 - Uses a generic sans textarea or normal borders instead of mono + inset shadow styling.
 - Uses checkbox styling that looks like a switch, has wrong focus ring colors, or lets labels shrink the checkbox.
+- Renders Copy Button in insecure contexts, lacks copied-state feedback, or lets text overlap the copy icon.
 - Uses an eye icon for helper information instead of a circled info icon.
 - Uses purple as the general dark-mode accent outside documented exceptions.
 - Adds gradients, large rounded corners, large shadows, or decorative marketing UI.
@@ -250,5 +268,6 @@ If the output is wrong, ask:
 - Was `design/forms/select.md` too implementation-heavy or too vague?
 - Was `design/forms/textarea.md` too implementation-heavy or too vague?
 - Was `design/forms/checkbox.md` too implementation-heavy or too vague?
+- Was `design/forms/copy-button.md` too implementation-heavy or too vague?
 - Did the Button doc leave missing variant/size details?
 - Should pending components get temporary guidance before full migration?
