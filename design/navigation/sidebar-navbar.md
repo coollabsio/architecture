@@ -222,6 +222,7 @@ nav-link: flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-
 nav-link-collapsed: mx-auto size-8 justify-center gap-0 px-0 py-0
 active-link: bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning
 nav-icon: size-4 shrink-0
+settings-icon-svg: viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
 footer-link: flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning
 separator: border-neutral-200 dark:border-coolgray-200
 ```
@@ -476,6 +477,12 @@ footer-link-collapsed: size-8 justify-center px-0 py-0
 footer-icon: size-4 shrink-0
 ```
 
+Settings footer icon:
+
+- Use the shared mockup `SettingsIcon` component for every Settings icon affordance in mockup pages.
+- Keep the icon `size-4 shrink-0`, `currentColor`, `viewBox="0 0 24 24"`, and stroke-based geometry matching the approved gear reference.
+- Do not substitute simplified crosshair/plus gear paths for Settings; text-only Settings links can remain text-only.
+
 Theme switcher:
 
 - Place in the footer above Settings when the app exposes a global theme preference.
@@ -547,6 +554,7 @@ These samples must show expanded and collapsed geometry without changing the pla
 - [ ] Optional team switcher is placed below header/search and above nav, with full-width Dropdown Menu trigger expanded and centered `size-8` team-initial Dropdown trigger collapsed.
 - [ ] Search button is `h-8`, full width, `px-2.5`, `text-sm`, and uses KBD spec for shortcuts.
 - [ ] Footer/global actions use a top border, `min-h-7` expanded links, `size-8` collapsed links, and `size-4` icons.
+- [ ] Settings icon affordances use the shared approved gear icon component, inherit `currentColor`, and keep `size-4 shrink-0`.
 - [ ] Optional theme switcher is in the sidebar footer above Settings, uses `aria-label`, and keeps `size-4` icon / `size-8` collapsed row geometry.
 - [ ] Focus rings are visible: purple light/yellow dark.
 

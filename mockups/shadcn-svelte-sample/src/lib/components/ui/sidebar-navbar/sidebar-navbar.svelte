@@ -5,6 +5,7 @@
   import { cn } from "$lib/utils";
   import TeamSwitcher from "./team-switcher.svelte";
   import ThemeSwitcher from "./theme-switcher.svelte";
+  import { SettingsIcon } from "$lib/components/ui/icons/index.js";
 
   export let collapsed = false;
   export let items: SidebarNavItem[] = [
@@ -86,7 +87,7 @@
   <div class={cn("space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex flex-col items-center")}>
     <ThemeSwitcher {collapsed} />
     <a href="/components/sidebar-navbar" class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
-      <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M4 12h2m12 0h2M12 4v2m0 12v2"/></svg>
+      <SettingsIcon />
       {#if !collapsed}<span>Settings</span>{/if}
     </a>
   </div>

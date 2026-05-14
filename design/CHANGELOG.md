@@ -2,6 +2,22 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-14 — Standardize mockup Settings gear icon
+
+Affected specs/files:
+
+- `design/navigation/sidebar-navbar.md`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/icons/settings-icon.svelte`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/icons/index.ts`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/sidebar-navbar/sidebar-navbar.svelte`
+
+Agent action:
+
+- Use the shared `SettingsIcon` component for every Settings icon affordance in mockup pages.
+- Keep Settings icons at `size-4 shrink-0`, stroke-based, `currentColor`, and aligned with the approved gear reference.
+- Preserve existing footer link geometry, collapsed labels/tooltips, and light/dark hover/focus colors when swapping Settings icons.
+- Text-only Settings links may remain text-only; do not add icons where the relevant page spec does not require them.
+
 ## 2026-05-14 — Document submitted form success and error layouts
 
 Affected specs/files:
