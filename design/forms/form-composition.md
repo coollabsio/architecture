@@ -79,7 +79,7 @@ input-on-gray-panel: use design/forms/input.md context contrast rule
 textarea-on-gray-panel: use design/forms/textarea.md context contrast rule
 action-row: flex items-center justify-between border-t border-neutral-200 pt-3 dark:border-coolgray-300
 meta: text-xs text-neutral-500 dark:text-neutral-400
-submit: Button highlighted, h-8 unless auth page says h-12
+submit: Button highlighted, h-8 by default; auth pages use h-12 locally
 ```
 
 ## Exact Classes

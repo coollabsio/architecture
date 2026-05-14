@@ -2,6 +2,28 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-14 — Make auth page buttons taller
+
+Affected specs/files:
+
+- `design/forms/button.md`
+- `design/forms/form-composition.md`
+- `design/auth/login-page.md`
+- `design/auth/register-page.md`
+- `design/auth/forgot-password-page.md`
+- `design/auth/reset-password-page.md`
+- `design/auth/confirm-password-page.md`
+- `design/auth/email-verification-page.md`
+- `design/auth/totp-challenge.md`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/auth-pages/auth-primary-button.svelte`
+- Auth page mockup components and TOTP challenge mockup
+
+Agent action:
+
+- Use `h-12 w-full justify-center px-4` for primary auth submit buttons to match the taller Coolify login-page feel.
+- Use the same taller local treatment for similar full-width auth navigation/OAuth actions on auth pages.
+- Keep global Button defaults compact (`h-8`, `text-sm font-medium`); do not increase typography, radius, or global highlighted button size.
+
 ## 2026-05-14 — Migrate design tooling to Bun scripts
 
 Affected specs/files:

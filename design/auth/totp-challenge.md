@@ -31,6 +31,8 @@ rounded:
 spacing:
   digit-width: 3rem
   digit-height: 3.5rem
+  auth-submit-height: 3rem
+  auth-submit-padding-x: 1rem
 components:
   totp-page:
     backgroundColor: "{colors.appBase}"
@@ -40,6 +42,13 @@ components:
     backgroundColor: "{colors.surface}"
     textColor: "{colors.text}"
     rounded: "{rounded.sm}"
+  auth-submit-button:
+    backgroundColor: "{colors.coollabs}"
+    textColor: "{colors.surface}"
+    typography: "{typography.body}"
+    rounded: "{rounded.sm}"
+    height: "{spacing.auth-submit-height}"
+    padding: "0 {spacing.auth-submit-padding-x}"
 ---
 
 # TOTP / One-Time Token Challenge
@@ -80,7 +89,7 @@ Centered auth card
   Instruction callout
   Six digit inputs
   Recovery-code toggle
-  Primary submit button (highlighted compact auth style)
+  Primary submit button (highlighted taller auth style)
   Optional submitted/error state
   Need help divider
   Back to login link
@@ -93,10 +102,10 @@ mx-auto w-full max-w-md space-y-6 rounded-sm border border-neutral-200 bg-white 
  dark:border-coolgray-300 dark:bg-app-base
 ```
 
-Auth submit button uses the same promoted compact style as Login/Register:
+Auth submit button uses the same promoted taller auth style as Login/Register:
 
 ```txt
-w-full justify-center
+h-12 w-full justify-center px-4
 ```
 
 Digit input row:
@@ -126,8 +135,8 @@ brand: text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white
 subtitle: text-lg text-neutral-600 dark:text-neutral-400
 content-stack: space-y-6
 form: flex flex-col gap-4
-primary-auth-button: w-full justify-center
-secondary-link-button: block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
+primary-auth-button: h-12 w-full justify-center px-4
+secondary-link-button: flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
 divider-wrap: relative my-6
 divider-line: w-full border-t border-neutral-300 dark:border-coolgray-300
 divider-label: bg-gray-50 px-2 text-sm text-neutral-500 dark:bg-app-base dark:text-neutral-400
@@ -142,7 +151,7 @@ form-field-gap: flex flex-col gap-4
 info-callout: rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100
 warning-callout: rounded-sm border border-warning bg-warning/10 p-4
 success-message: rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300
-primary-submit: w-full justify-center
+primary-submit: h-12 w-full justify-center px-4
 ```
 
 ## Elevation & Depth
@@ -201,7 +210,7 @@ Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state fo
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Six digit boxes are present and centered.
-- [ ] Login submit button is highlighted and uses normal compact Button height/typography.
+- [ ] Login submit button is highlighted and uses taller auth Button height with normal Button typography.
 - [ ] Typing a digit advances focus.
 - [ ] Backspace on an empty digit moves focus backward.
 - [ ] Paste fills up to six digits and strips non-digits.

@@ -28,12 +28,17 @@ typography:
     lineHeight: 1.25rem
 rounded:
   sm: 0.25rem
+spacing:
+  auth-submit-height: 3rem
+  auth-submit-padding-x: 1rem
 components:
   auth-submit-button:
     backgroundColor: "{colors.coollabs}"
     textColor: "{colors.surface}"
     typography: "{typography.body}"
     rounded: "{rounded.sm}"
+    height: "{spacing.auth-submit-height}"
+    padding: "0 {spacing.auth-submit-padding-x}"
 ---
 
 # Register Page
@@ -55,7 +60,7 @@ The primary Create Account button uses the highlighted button variant with auth 
 - Brand: `text-5xl font-extrabold tracking-tight`.
 - Subtitle: `text-lg text-neutral-600 dark:text-neutral-400`.
 - Password rules: `text-xs` muted.
-- Auth submit button: normal Button `text-sm font-medium`; use variant and width, not larger typography, for emphasis.
+- Auth submit button: `h-12`, normal Button `text-sm font-medium`; use variant, width, and the auth-only height exception—not larger typography—for emphasis.
 
 ## Layout
 
@@ -79,7 +84,7 @@ Full page background
 Recommended auth submit button classes:
 
 ```txt
-w-full justify-center
+h-12 w-full justify-center px-4
 ```
 
 ## Exact Layout Recipe
@@ -96,8 +101,8 @@ brand: text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white
 subtitle: text-lg text-neutral-600 dark:text-neutral-400
 content-stack: space-y-6
 form: flex flex-col gap-4
-primary-auth-button: w-full justify-center
-secondary-link-button: block w-full rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
+primary-auth-button: h-12 w-full justify-center px-4
+secondary-link-button: flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning
 divider-wrap: relative my-6
 divider-line: w-full border-t border-neutral-300 dark:border-coolgray-300
 divider-label: bg-gray-50 px-2 text-sm text-neutral-500 dark:bg-app-base dark:text-neutral-400
@@ -112,7 +117,7 @@ form-field-gap: flex flex-col gap-4
 info-callout: rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100
 warning-callout: rounded-sm border border-warning bg-warning/10 p-4
 success-message: rounded-sm border border-green-200 bg-green-50 p-3 text-sm text-green-800 dark:border-green-900 dark:bg-green-950/30 dark:text-green-300
-primary-submit: w-full justify-center
+primary-submit: h-12 w-full justify-center px-4
 ```
 
 ## Elevation & Depth
@@ -147,12 +152,12 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 - Do keep the Create Account button highlighted, full width, and visually primary without increasing height or font size.
 - Do show the root-user warning when the first user is being created.
 - Do include password rule guidance near password fields.
-- Do use the compact default button height for the primary auth submit.
+- Do use the taller auth-only `h-12` button height for the primary auth submit.
 - Don't copy Laravel/Blade/Livewire implementation details into this design system.
 
 ## Implementation Notes
 
-The auth submit button style is shared with Login and TOTP challenge pages. Apply it locally as class overrides on the highlighted Button.
+The auth submit button style is shared with Login and TOTP challenge pages. Apply the `h-12 w-full justify-center px-4` treatment locally as class overrides on the highlighted Button.
 
 ## Review Checklist
 
@@ -161,7 +166,7 @@ The auth submit button style is shared with Login and TOTP challenge pages. Appl
 - [ ] Large Coolify title and create-account subtitle.
 - [ ] Root-user warning variant exists.
 - [ ] Password guidance callout is present.
-- [ ] Primary Create Account button is highlighted and uses normal compact Button height/typography.
+- [ ] Primary Create Account button is highlighted and uses taller auth Button height with normal Button typography.
 - [ ] Already-registered secondary action is less prominent.
 
 ## Claude Improvement Notes

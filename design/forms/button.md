@@ -38,6 +38,8 @@ rounded:
   sm: 0.25rem
 spacing:
   button-height: 2rem
+  auth-button-height: 3rem
+  auth-button-padding-x: 1rem
   button-padding-x: 0.5rem
   button-gap: 0.5rem
 components:
@@ -57,6 +59,13 @@ components:
   button-default-dark-hover:
     backgroundColor: "{colors.coolgray-200}"
     textColor: "{colors.white}"
+  button-auth-submit:
+    backgroundColor: "{colors.coollabs-50}"
+    textColor: "{colors.coollabs-200}"
+    typography: "{typography.label-md}"
+    rounded: "{rounded.sm}"
+    height: "{spacing.auth-button-height}"
+    padding: "0 {spacing.auth-button-padding-x}"
   button-highlighted:
     backgroundColor: "{colors.coollabs-50}"
     textColor: "{colors.coollabs-200}"
@@ -150,7 +159,7 @@ Do not use purple as the general dark-mode accent outside documented exceptions 
 
 Button labels use the `label-md` token: Geist Sans, `text-sm`, `font-medium`, `line-height: 1.25rem`.
 
-Do not add extra weights for button emphasis. Use variants, not font-weight changes, to communicate importance.
+Do not add extra weights for button emphasis. Use variants and documented layout exceptions, not font-weight changes, to communicate importance.
 
 ## Layout
 
@@ -160,6 +169,7 @@ Buttons are compact and dense:
 - Horizontal padding: `px-2` / `0.5rem`.
 - Internal gap: `gap-2` / `0.5rem`.
 - Width: `min-w-fit`; do not stretch buttons unless a specific layout requires it.
+- Auth submit exception: use `h-12 w-full justify-center px-4` only on primary auth-page submits and similar full-width auth actions; keep `text-sm font-medium`.
 - Icon-only size: prefer `size-8` for Coolify density.
 - Icons: text buttons are text-only by default. Do not add leading/trailing icons to ordinary buttons unless the button is one of the documented special cases below.
 
@@ -167,7 +177,7 @@ For navigation links styled as buttons, keep anchor semantics and apply `buttonV
 
 ## Exact Layout Recipe
 
-Buttons are compact by default, including auth submit buttons. Auth pages may make primary actions full width locally, but must not increase button typography or height.
+Buttons are compact by default. Auth pages are the documented exception: primary auth submit buttons may use a taller Coolify-login style locally while preserving normal `text-sm font-medium` typography.
 
 ```txt
 base: inline-flex min-w-fit shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-sm border-2 border-transparent bg-clip-padding px-2 text-sm font-medium normal-case outline-none transition-colors select-none
@@ -187,7 +197,7 @@ highlighted: border-coollabs bg-coollabs-50 text-coollabs-200 hover:bg-coollabs 
 destructive: border-red-300 bg-red-50 text-red-800 hover:bg-error hover:text-white dark:border-red-800 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-800 dark:hover:text-white
 ghost: border-transparent bg-transparent text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200
 link: border-transparent bg-transparent px-0 text-coollabs hover:underline dark:text-warning
-auth-submit-extension: w-full justify-center
+auth-submit-extension: h-12 w-full justify-center px-4
 loading-order: text first, spinner after text
 icon-policy: no icons on normal text buttons by default; icons only for icon-only buttons, loading spinners, external-link affordances, or rare domain-specific actions where the icon materially improves recognition
 ```
@@ -364,6 +374,7 @@ Use `buttonVariants(...)` for anchors that need button styling:
 - Do keep focus rings purple in light mode and yellow in dark mode.
 - Do use `type="button"` unless the button intentionally submits a form.
 - Do keep ordinary text buttons icon-free by default.
+- Do keep the taller `h-12` auth submit treatment local to auth pages; do not change the global default button size.
 - Do give icon-only buttons an accessible name with `aria-label` or visible text.
 - Do reserve icons for icon-only controls, loading spinners, external-link affordances, or rare domain-specific actions.
 - Don't use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific paths in button implementations.
@@ -396,6 +407,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Icon-only buttons use `size="icon*"` and have an accessible name.
 - [ ] Any icon inside a text button is justified by an allowed special case: loading spinner, external-link/navigation affordance, or rare domain-specific action.
 - [ ] Disabled/loading state remains readable in light mode.
+- [ ] Auth submit buttons use the documented local `h-12 w-full justify-center px-4` exception when needed, without changing global button defaults.
 - [ ] No undocumented radius, gradient, extra shadow, or extra font weight introduced.
 
 ## Claude Improvement Notes
