@@ -75,6 +75,7 @@ This is a page composition built from Shadcn-Svelte primitives: `Button`, `Input
 - **Nested preview/read-only blocks:** `bg-gray-50 dark:bg-app-base`.
 - **Normal actions:** default Button from `design/forms/button.md`.
 - **Primary save action:** highlighted Button from `design/forms/button.md`.
+- **Save feedback:** submitted success/error layout from `design/forms/form-composition.md`, placed inline below the relevant section or page header.
 - **Danger zone:** neutral surface with red/destructive text and destructive buttons only for final actions.
 - **Dark accent:** yellow warning only for focus/highlight states; do not use purple as the dark-mode active color.
 
@@ -125,6 +126,7 @@ section: rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-
 section-header: mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
 section-title: text-base font-bold text-black dark:text-white
 section-description: mt-1 text-sm text-neutral-600 dark:text-neutral-400
+save-feedback: use design/forms/form-composition.md submitted feedback Alert placement and semantics
 field-grid: grid gap-4 md:grid-cols-2
 field-stack: space-y-4
 readonly-row: flex items-center justify-between gap-3 rounded-sm bg-gray-50 px-3 py-2 text-sm dark:bg-app-base
@@ -151,6 +153,7 @@ input: use design/forms/input.md exact Input classes
 select: use design/forms/select.md exact Select/NativeSelect classes
 switch: use design/forms/switch.md exact SwitchRow when possible
 callout: use design/overlays/callout.md
+form-feedback: use design/forms/form-composition.md success/error Alert patterns
 badge: use design/status/badge.md
 ```
 
@@ -182,6 +185,8 @@ Use `rounded-sm` for all cards, inputs, buttons, and status blocks. Do not use p
 ### General settings
 
 Use this section for app name, public URL, default region/timezone, and support email. Use `FormField` for all labels and helper text.
+
+After save, show success/error feedback inline using the submitted feedback pattern from `design/forms/form-composition.md`. Ordinary settings saves should keep the form visible so users can continue editing.
 
 ### Access & registration
 
@@ -219,6 +224,7 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 - Do use one primary highlighted save button in the page header.
 - Do group related settings into bordered `rounded-sm` sections.
 - Do use helper text for settings with operational impact.
+- Do show successful and failed save feedback inline using the form composition submitted feedback pattern.
 - Do keep side metadata read-only and compact.
 - Do use destructive confirmation for reset/delete/rotate-secret actions.
 - Don't make every settings section a separate full page unless the app has enough settings to justify subnavigation.
@@ -235,6 +241,7 @@ Persist settings through app-specific forms/actions/API calls. This design only 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Page uses `max-w-6xl px-6 py-10` and `bg-gray-50 dark:bg-app-base` from the surrounding app shell.
 - [ ] Header has `text-3xl font-bold tracking-tight` title, `text-sm` description, Reset, and one highlighted Save button.
+- [ ] Saved/error states use the inline submitted feedback pattern from `design/forms/form-composition.md`.
 - [ ] Main content uses `grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]`.
 - [ ] Settings sections use `rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100`.
 - [ ] Inputs/selects use the exact form component specs.

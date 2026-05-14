@@ -218,6 +218,20 @@ const allSamples: ComponentSample[] = [
     status: "Migrated"
   },
   {
+    label: "Team Switcher",
+    slug: "team-switcher",
+    href: "/components/team-switcher",
+    designDoc: "design/navigation/sidebar-navbar.md",
+    status: "Migrated"
+  },
+  {
+    label: "Theme Switcher",
+    slug: "theme-switcher",
+    href: "/components/theme-switcher",
+    designDoc: "design/navigation/sidebar-navbar.md",
+    status: "Migrated"
+  },
+  {
     label: "Subsidebar",
     slug: "subsidebar",
     href: "/components/subsidebar",
@@ -291,6 +305,20 @@ const allSamples: ComponentSample[] = [
     label: "Form Composition",
     slug: "form-composition",
     href: "/components/form-composition",
+    designDoc: "design/forms/form-composition.md",
+    status: "Migrated"
+  },
+  {
+    label: "Form Success State",
+    slug: "form-composition-success",
+    href: "/components/form-composition-success",
+    designDoc: "design/forms/form-composition.md",
+    status: "Migrated"
+  },
+  {
+    label: "Form Error State",
+    slug: "form-composition-error",
+    href: "/components/form-composition-error",
     designDoc: "design/forms/form-composition.md",
     status: "Migrated"
   },

@@ -1,4 +1,6 @@
 import SidebarNavbar from "./sidebar-navbar.svelte";
+import TeamSwitcher from "./team-switcher.svelte";
+import ThemeSwitcher from "./theme-switcher.svelte";
 
 export type SidebarNavItem = {
   label: string;
@@ -7,4 +9,4 @@ export type SidebarNavItem = {
   badge?: string;
 };
 
-export { SidebarNavbar };
+export { SidebarNavbar, TeamSwitcher, ThemeSwitcher };

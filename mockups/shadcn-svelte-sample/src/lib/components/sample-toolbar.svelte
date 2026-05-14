@@ -5,7 +5,7 @@
   import { Button } from "$lib/components/ui/button/index.js";
   import { SearchableDropdown, type SearchableDropdownOption } from "$lib/components/ui/searchable-dropdown/index.js";
 
-  export let theme: "light" | "dark" = "dark";
+  export let theme: "light" | "dark" | "system" = "dark";
 
   let selectedComponentHref = "";
   let selectedPageHref = "";
@@ -28,8 +28,12 @@
   });
 
   function syncSelection(path: string) {
-    const currentComponent = componentSamples.find((sample) => path.startsWith(sample.href));
-    const currentPage = pageSamples.find((sample) => path.startsWith(sample.href));
+    const currentComponent =
+      componentSamples.find((sample) => path === sample.href) ??
+      componentSamples.find((sample) => path.startsWith(`${sample.href}/`));
+    const currentPage =
+      pageSamples.find((sample) => path === sample.href) ??
+      pageSamples.find((sample) => path.startsWith(`${sample.href}/`));
     selectedComponentHref = currentComponent?.href ?? "";
     selectedPageHref = currentPage?.href ?? "";
   }

@@ -1,9 +1,10 @@
 <script lang="ts">
   import { Kbd } from "$lib/components/ui/kbd/index.js";
   import { Badge } from "$lib/components/ui/badge/index.js";
-  import { dropdownMenuContentClass, dropdownMenuItemVariants } from "$lib/components/ui/dropdown-menu/index.js";
   import type { SidebarNavItem } from "./index.js";
   import { cn } from "$lib/utils";
+  import TeamSwitcher from "./team-switcher.svelte";
+  import ThemeSwitcher from "./theme-switcher.svelte";
 
   export let collapsed = false;
   export let items: SidebarNavItem[] = [
@@ -16,12 +17,6 @@
     { label: "Shared variables", href: "/components/sidebar-navbar", badge: "2" }
   ];
 
-  let selectedTeam = "Coolify";
-  let teamOpen = false;
-  const teams = ["Coolify", "Personal", "Acme Cloud"];
-
-  $: teamInitial = selectedTeam.slice(0, 1).toUpperCase();
-
   const iconPaths = [
     "M3 12l9-8 9 8v8a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z",
     "M12 4 4 8l8 4 8-4-8-4Zm-8 8 8 4 8-4M4 16l8 4 8-4",
@@ -32,14 +27,6 @@
     "M5 6h14M5 12h14M5 18h14"
   ];
 
-  function selectTeam(team: string) {
-    selectedTeam = team;
-    teamOpen = false;
-  }
-
-  function toggleTheme() {
-    window.dispatchEvent(new CustomEvent("component-sample-theme-toggle"));
-  }
 </script>
 
 <aside class={cn("relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400", collapsed ? "w-16" : "w-64")}>
@@ -77,42 +64,8 @@
     </div>
   {/if}
 
-  <div class={cn("px-2 pb-7", collapsed && "flex justify-center px-0 pb-4")}>
-    <div class={cn("relative", collapsed ? "mx-auto w-8" : "w-full")}>
-      {#if collapsed}
-        <button
-          type="button"
-          title={`Team: ${selectedTeam}`}
-          class="flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300"
-          aria-label={`Switch team. Current team: ${selectedTeam}`}
-          aria-haspopup="menu"
-          aria-expanded={teamOpen}
-          onclick={() => (teamOpen = !teamOpen)}
-        >{teamInitial}</button>
-      {:else}
-        <button
-          type="button"
-          class="flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-neutral-300 bg-white px-2 text-left text-sm text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:focus-visible:ring-warning"
-          aria-label={`Switch team. Current team: ${selectedTeam}`}
-          aria-haspopup="menu"
-          aria-expanded={teamOpen}
-          onclick={() => (teamOpen = !teamOpen)}
-        >
-          <span class="min-w-0 truncate">{selectedTeam}</span>
-          <svg class="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9L12 5.25 15.75 9" /></svg>
-        </button>
-      {/if}
 
-      {#if teamOpen}
-        <div role="menu" tabindex="-1" class={cn(dropdownMenuContentClass, collapsed ? "left-full top-0 ml-2 mt-0 max-h-72 min-w-48 overflow-y-auto" : "left-0 right-auto w-full min-w-full")}>
-          <div class={dropdownMenuItemVariants({ variant: "label" })}>Switch team</div>
-          {#each teams as team}
-            <button type="button" role="menuitem" class={cn(dropdownMenuItemVariants(), team === selectedTeam && "font-semibold text-coollabs dark:text-warning")} onclick={() => selectTeam(team)}>{team}</button>
-          {/each}
-        </div>
-      {/if}
-    </div>
-  </div>
+  <TeamSwitcher {collapsed} />
 
   <nav aria-label="Primary" class="flex-1 overflow-hidden">
     <ul class="flex flex-col gap-1.5">
@@ -131,17 +84,7 @@
   </nav>
 
   <div class={cn("space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex flex-col items-center")}>
-    <button
-      type="button"
-      class={cn("flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning", collapsed && "size-8 justify-center px-0 py-0")}
-      title="Toggle theme"
-      aria-label="Toggle light and dark mode"
-      onclick={toggleTheme}
-    >
-      <svg class="hidden size-4 shrink-0 dark:block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
-      <svg class="size-4 shrink-0 dark:hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
-      {#if !collapsed}<span>Theme</span>{/if}
-    </button>
+    <ThemeSwitcher {collapsed} />
     <a href="/components/sidebar-navbar" class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
       <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"/><path d="M4 12h2m12 0h2M12 4v2m0 12v2"/></svg>
       {#if !collapsed}<span>Settings</span>{/if}

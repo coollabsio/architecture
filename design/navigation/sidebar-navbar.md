@@ -479,8 +479,10 @@ footer-icon: size-4 shrink-0
 Theme switcher:
 
 - Place in the footer above Settings when the app exposes a global theme preference.
-- Expanded label is `Theme`; collapsed mode shows only the icon with `title="Toggle theme"` and `aria-label="Toggle light and dark mode"`.
-- Use `size-4 shrink-0` sun/moon icons. Prefer action icons: show the moon in light mode to indicate switching to dark, and show the sun in dark mode to indicate switching to light. The row size must not change.
+- Expanded label is `Theme`; collapsed mode shows a compact one-character state (`L`, `S`, `D`) with `title` and `aria-label`.
+- Use a compact inline 3-state icon switch with `Light`, `System default`, and `Dark` options; this should feel like the former inline two-state switch with one extra system segment, not a dropdown or large text control.
+- Mark the active option with `bg-white text-coollabs shadow-sm dark:bg-app-base dark:text-warning`.
+- Collapsed mode may cycle through Light → System default → Dark on click while preserving accessible state text.
 - Do not style the theme switcher as a primary/highlighted action.
 
 ### Section/page navbar
@@ -519,6 +521,13 @@ Active subnav link uses `text-black dark:text-white` or `dark:text-warning` when
 This spec intentionally describes Shadcn-Svelte primitives and semantic HTML composition. App-specific routing, permissions, and server-side state should be supplied by the consuming app.
 
 Collapsed state should be persisted only by the application shell, not by the primitive component itself. Use a controlled prop/store for expanded/collapsed state.
+
+The optional sidebar sub-controls should also be available as direct reusable primitive samples in the mockup chooser:
+
+- `Team Switcher` → `/components/team-switcher`
+- `Theme Switcher` → `/components/theme-switcher`
+
+These samples must show expanded and collapsed geometry without changing the placement contracts used inside the full Sidebar Navbar.
 
 ## Review Checklist
 
