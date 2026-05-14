@@ -15,7 +15,7 @@ Before any UI implementation, design-doc edit, or mockup update:
 After any UI/design change:
 
 1. Check the work against `design/REVIEW_CHECKLIST.md`.
-2. Regenerate `design/manifest.json` with `scripts/generate-design-manifest.py` if the lookup table, paths, statuses, or mock routes changed.
+2. Regenerate `design/manifest.json` with `bun run design:manifest` if the lookup table, paths, statuses, or mock routes changed.
 3. Update `design/CHANGELOG.md` with the design change and future agent action.
 4. Update matching mockups/screenshots when visual behavior changes.
 5. Report the design files read and validation commands run in the final response.

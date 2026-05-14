@@ -45,8 +45,8 @@ Signature traits worth knowing before reading:
 bunx @google/design.md lint design/forms/button.md
 bunx @google/design.md export design/forms/button.md --format tailwind > theme.json
 bunx @google/design.md export design/forms/button.md --format dtcg     > tokens.json
-scripts/generate-design-manifest.py
-scripts/design-check.sh
+bun run design:manifest
+bun run design:check
 ```
 
 Use `bunx` — `npx` chokes on the `.md` suffix in the package name. Spec is alpha; confirm flags via `bunx @google/design.md --help` before wiring into CI.

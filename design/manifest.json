@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "source": "DESIGN.md component lookup",
-  "generatedBy": "scripts/generate-design-manifest.py",
+  "generatedBy": "scripts/generate-design-manifest.js",
   "components": [
     {
       "key": "button",
@@ -290,8 +290,8 @@
       "designDoc": "design/navigation/sidebar-navbar.md",
       "basePrimitive": "Shadcn-Svelte Sidebar + app layout",
       "status": "Migrated",
-      "mockRoute": "/components/sidebar-navbar",
-      "mockSlug": "sidebar-navbar"
+      "mockRoute": "/components/theme-switcher",
+      "mockSlug": "theme-switcher"
     },
     {
       "key": "subsidebar",
@@ -450,8 +450,8 @@
       "designDoc": "design/forms/form-composition.md",
       "basePrimitive": "FormField + inputs + validation",
       "status": "Migrated",
-      "mockRoute": "/components/form-composition",
-      "mockSlug": "form-composition"
+      "mockRoute": "/components/form-composition-error",
+      "mockSlug": "form-composition-error"
     },
     {
       "key": "totp_challenge",

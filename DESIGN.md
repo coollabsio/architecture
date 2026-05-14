@@ -43,7 +43,7 @@ When changing an existing component spec, update these together:
 - the component file under `design/`,
 - this lookup table when status/path/need/base primitive changes,
 - `design/CHANGELOG.md`,
-- `design/manifest.json` via `scripts/generate-design-manifest.py`,
+- `design/manifest.json` via `bun run design:manifest`,
 - matching mockup route(s) under `mockups/shadcn-svelte-sample`,
 - relevant prompts under `prompts/` when the workflow changes.
 

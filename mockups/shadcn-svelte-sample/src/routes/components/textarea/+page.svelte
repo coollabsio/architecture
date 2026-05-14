@@ -39,6 +39,12 @@
             <Textarea id="readonly-textarea" value="Readonly text" readonly />
           </FormField>
         </div>
+
+        <FormField forId="ghost-textarea" label="Ghost textarea" description="Use only when the surrounding panel or editor shell supplies the visual boundary.">
+          <div class="p-2">
+            <Textarea id="ghost-textarea" ghost value={'# No border or background\nDEPLOYMENT_NOTES=compact'} />
+          </div>
+        </FormField>
       </div>
 
       <aside class="rounded-sm border border-neutral-200 bg-white p-3 dark:border-coolgray-300 dark:bg-coolgray-200">
@@ -49,6 +55,7 @@
           <li>Disabled and readonly states remove the inset shadow.</li>
           <li>Tab insertion is opt-in with allowTab.</li>
           <li>Password-like secrets should be a separate composition.</li>
+          <li>Ghost textareas remove background and inset shadow; parent chrome provides the boundary.</li>
         </ul>
       </aside>
     </div>

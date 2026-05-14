@@ -13,7 +13,7 @@ When design behavior changes:
 3. Keep `src/lib/component-registry.ts` aligned with `DESIGN.md` and regenerate `design/manifest.json` from the repo root with:
 
    ```bash
-   scripts/generate-design-manifest.py
+   bun run design:manifest
    ```
 
 4. Capture/review light and dark screenshots for affected routes.

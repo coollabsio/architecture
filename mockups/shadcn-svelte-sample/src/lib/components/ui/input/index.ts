@@ -10,4 +10,7 @@ export const inputShadowClass =
 export const inputStickyShadowClass =
   "[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_1px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_1px_#242424] focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_1px_#e5e5e5] dark:focus-visible:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_1px_#242424] data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_1px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_1px_#242424] disabled:[box-shadow:none] read-only:[box-shadow:none]";
 
+export const inputGhostClass =
+  "!border-0 !bg-transparent !shadow-none ![box-shadow:none] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-coollabs focus-visible:![box-shadow:none] data-[dirty=true]:![box-shadow:none] disabled:!bg-transparent read-only:!bg-transparent dark:!bg-transparent dark:focus-visible:outline-warning dark:disabled:!bg-transparent dark:read-only:!bg-transparent";
+
 export { Input, PasswordInput };

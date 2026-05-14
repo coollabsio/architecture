@@ -27,7 +27,7 @@ Use this checklist after every UI/design implementation or design-doc update.
 - [ ] Component file follows Google DESIGN.md canonical sections.
 - [ ] YAML frontmatter tokens are valid and match `design/tokens.md` where shared.
 - [ ] `DESIGN.md` component lookup is updated if paths/statuses changed.
-- [ ] `design/manifest.json` regenerated with `scripts/generate-design-manifest.py`.
+- [ ] `design/manifest.json` regenerated with `bun run design:manifest`.
 - [ ] `design/CHANGELOG.md` has an agent-action entry.
 - [ ] Mockup route and screenshots are updated when visual behavior changes.
 - [ ] `prompts/generate-sample-layout.md` and review prompts still derive components from the manifest.

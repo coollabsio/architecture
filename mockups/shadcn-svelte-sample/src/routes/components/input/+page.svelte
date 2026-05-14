@@ -53,6 +53,12 @@
         <FormField forId="sticky" label="Sticky variant" error="Example error text uses text-xs text-error below the field.">
           <Input id="sticky" value="Thin 1px simulated border" sticky />
         </FormField>
+
+        <FormField forId="ghost-input" label="Ghost input" description="Use only inside a row, toolbar, or panel that already provides the boundary.">
+          <div class="p-2">
+            <Input id="ghost-input" ghost placeholder="No border or background" />
+          </div>
+        </FormField>
       </div>
 
       <aside class="rounded-sm border border-neutral-200 bg-white p-3 dark:border-coolgray-300 dark:bg-coolgray-200">
@@ -65,6 +71,7 @@
           <li>Form labels compose required markers and circled info helper icons.</li>
           <li>Password field hides by default and toggles show/hide with eye icons.</li>
           <li>Password field reserves pr-[2.4rem] for the visibility button.</li>
+          <li>Ghost inputs remove background and inset shadow; parent chrome provides the boundary.</li>
         </ul>
       </aside>
     </div>

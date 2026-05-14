@@ -1,15 +1,17 @@
 <script lang="ts">
   import type { HTMLInputAttributes } from "svelte/elements";
   import { cn } from "$lib/utils";
-  import { inputBaseClass, inputShadowClass, inputStickyShadowClass } from "./index.js";
+  import { inputBaseClass, inputGhostClass, inputShadowClass, inputStickyShadowClass } from "./index.js";
 
   type $$Props = HTMLInputAttributes & {
     dirty?: boolean;
     sticky?: boolean;
+    ghost?: boolean;
   };
 
   export let dirty: boolean = false;
   export let sticky: boolean = false;
+  export let ghost: boolean = false;
   export let value: $$Props["value"] = undefined;
   let className: $$Props["class"] = undefined;
   let input: HTMLInputElement;
@@ -25,6 +27,7 @@
   bind:value
   data-dirty={dirty ? "true" : undefined}
   data-sticky={sticky ? "true" : undefined}
-  class={cn(inputBaseClass, sticky ? inputStickyShadowClass : inputShadowClass, className)}
+  data-ghost={ghost ? "true" : undefined}
+  class={cn(inputBaseClass, ghost ? inputGhostClass : sticky ? inputStickyShadowClass : inputShadowClass, className)}
   {...$$restProps}
 />

@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "type": "module",
+  "packageManager": "bun@1.3.5",
+  "scripts": {
+    "design:manifest": "bun scripts/generate-design-manifest.js",
+    "generate-design-manifest": "bun scripts/generate-design-manifest.js",
+    "design:check": "bun scripts/design-check.js",
+    "check:design": "bun scripts/design-check.js"
+  }
+}

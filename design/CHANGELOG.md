@@ -2,6 +2,43 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-14 — Migrate design tooling to Bun scripts
+
+Affected specs/files:
+
+- `package.json`
+- `scripts/generate-design-manifest.js`
+- `scripts/design-check.js`
+- `design/manifest.json`
+- Design workflow documentation references
+
+Agent action:
+
+- Use `bun run design:manifest` to regenerate `design/manifest.json`.
+- Use `bun run design:check` to regenerate the manifest and lint `design/**/*.md` with `@google/design.md`.
+- Do not call the removed Python/Bash entrypoints; the design tooling source of truth is now Bun/JavaScript.
+
+## 2026-05-14 — Add ghost Input and Textarea variants
+
+Affected specs/files:
+
+- `design/forms/input.md`
+- `design/forms/textarea.md`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/input/index.ts`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/input/input.svelte`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/textarea/index.ts`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/textarea/textarea.svelte`
+- `mockups/shadcn-svelte-sample/src/routes/components/input/+page.svelte`
+- `mockups/shadcn-svelte-sample/src/routes/components/textarea/+page.svelte`
+
+Agent action:
+
+- Use `ghost` only where a surrounding row, toolbar, panel, or editor shell already supplies the visual boundary.
+- Keep ghost controls transparent with no inset shadow, border chrome, or Textarea resize affordance in light and dark mode.
+- Preserve compact padding, typography, radius, placeholder colors, disabled/read-only text treatment, and accessible accent focus outlines.
+- Do not use `dirty` to draw the 4px accent bar on ghost controls; ghost stays chrome-free except for focus outline.
+- Do not replace default form-field Input/Textarea styling with ghost unless the relevant page/component spec explicitly calls for it.
+
 ## 2026-05-14 — Standardize mockup Settings gear icon
 
 Affected specs/files:

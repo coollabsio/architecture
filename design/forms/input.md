@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Input
-description: Shadcn-Svelte Input primitive with Coolify's inset shadow border and 4px dirty/focus indicator.
+description: Shadcn-Svelte Input primitive with Coolify's inset shadow border, 4px dirty/focus indicator, and optional ghost variant.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -60,6 +60,12 @@ components:
     typography: "{typography.input-text}"
     rounded: "{rounded.sm}"
     padding: "{spacing.input-padding-y} {spacing.input-padding-x}"
+  input-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.text}"
+    typography: "{typography.input-text}"
+    rounded: "{rounded.sm}"
+    padding: "{spacing.input-padding-y} {spacing.input-padding-x}"
 ---
 
 # Input
@@ -94,6 +100,7 @@ Input colors are intentionally restrained:
 - **Focus/dirty left bar:** `coollabs` purple in light mode, `warning` yellow in dark mode.
 - **Placeholder:** `neutral-300` in light mode, `neutral-700` in dark mode.
 - **Disabled/readonly:** flat muted background and muted text; no inset shadow.
+- **Ghost variant:** transparent background, no inset shadow, and no border chrome. Text and placeholder colors still follow the default input tokens.
 - **Gray/neutral panel contrast:** inputs must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` inputs directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-app-base` for the parent card, or use `dark:bg-app-base` for the input in that local gray-panel context.
 
 Do not use a normal `border` utility for the main input outline.
@@ -154,6 +161,7 @@ password-extra-padding: pr-[2.4rem]
 password-toggle: absolute inset-y-0 right-0 flex cursor-pointer items-center pr-2 text-neutral-500 hover:text-black dark:hover:text-white
 password-icon: size-6 stroke-width=1.5
 gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base when the parent is dark:bg-coolgray-100
+ghost: use only in already-delimited rows/toolbars/panels where the surrounding layout supplies the control boundary
 ```
 
 ## Exact Classes
@@ -165,6 +173,7 @@ shadow: [box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#e5e5e5] dark:[box
 focus-shadow: focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:focus-visible:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
 dirty-shadow: data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
 disabled-readonly-shadow: disabled:[box-shadow:none] read-only:[box-shadow:none]
+ghost: !border-0 !bg-transparent !shadow-none ![box-shadow:none] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-coollabs focus-visible:![box-shadow:none] data-[dirty=true]:![box-shadow:none] disabled:!bg-transparent read-only:!bg-transparent dark:!bg-transparent dark:focus-visible:outline-warning dark:disabled:!bg-transparent dark:read-only:!bg-transparent
 ```
 
 ## Elevation & Depth
@@ -202,6 +211,8 @@ box-shadow: none;
 ```
 
 Sticky inputs use the same 4px bar but a thinner 1px simulated border.
+
+Ghost inputs remove the background and inset shadow entirely. They do not show the 4px dirty/focus bar; focus uses a thin accessible outline in the same light/dark accent colors because the variant has no border chrome.
 
 ## Shapes
 
@@ -332,6 +343,22 @@ box-shadow: inset 4px 0 0 transparent, inset 0 0 0 1px #e5e5e5;
 
 Sticky focus/dirty uses the same 4px accent bar with a 1px simulated border.
 
+### Ghost input
+
+Use a `variant="ghost"` or `ghost` prop only where another surface already provides the visual boundary, such as a dense inline editor row, toolbar search slot, or compact command header.
+
+```svelte
+<Input ghost placeholder="Filter resources" />
+```
+
+Ghost class:
+
+```txt
+!border-0 !bg-transparent !shadow-none ![box-shadow:none] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-coollabs focus-visible:![box-shadow:none] data-[dirty=true]:![box-shadow:none] disabled:!bg-transparent read-only:!bg-transparent dark:!bg-transparent dark:focus-visible:outline-warning dark:disabled:!bg-transparent dark:read-only:!bg-transparent
+```
+
+Ghost inputs must not be used as the default form-field style. Do not use `dirty` to draw an accent bar on ghost inputs; the variant stays chrome-free except for the accessible focus outline.
+
 ## Do's and Don'ts
 
 - Do start from Shadcn-Svelte `Input`.
@@ -344,8 +371,10 @@ Sticky focus/dirty uses the same 4px accent bar with a 1px simulated border.
 - Do hide password values by default and provide an eye/eye-off toggle to show/hide the actual value.
 - Do keep inputs `rounded-sm`, compact, and `text-sm`.
 - Do verify inputs remain visible on gray/neutral panel backgrounds.
+- Do use ghost inputs only when the parent surface or layout already gives enough visual boundary.
 - Don't introduce framework-specific dirty directives.
 - Don't use Shadcn default ring/border styling for the primary input outline.
+- Don't use ghost inputs as the default form-control treatment.
 - Don't place inputs on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add heavy shadows, gradients, large radius, or decorative field chrome.
 
@@ -354,6 +383,7 @@ Sticky focus/dirty uses the same 4px accent bar with a 1px simulated border.
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
 - Keep the local Shadcn-Svelte input primitive small: props, class merging, `data-dirty`, and `data-sticky` are enough.
+- Add `data-ghost="true"` when the `ghost` prop is active; ghost should override sticky/default shadow classes.
 - Keep password visibility as a composed pattern around Input, not baked into every Input.
 - Select and Textarea should get separate component specs even though they share the same shadow system.
 
@@ -369,6 +399,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Password inputs reserve `pr-[2.4rem]` when a visibility toggle exists.
 - [ ] Password fields hide values by default and provide show/hide behavior with eye/eye-off icons.
 - [ ] Sticky variant uses a 1px simulated border.
+- [ ] Ghost variant has transparent background, no inset shadow/border chrome, and an accessible accent focus outline.
 - [ ] Inputs on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-app-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-app-base`).
 - [ ] No framework-specific dirty directives, gradients, large radii, or heavy shadows introduced.
 

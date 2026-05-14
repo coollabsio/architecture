@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Textarea
-description: Shadcn-Svelte Textarea primitive with Coolify's mono typography, inset shadow border, dirty bar, and optional Tab insertion behavior.
+description: Shadcn-Svelte Textarea primitive with Coolify's mono typography, inset shadow border, dirty bar, optional ghost variant, and optional Tab insertion behavior.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -55,6 +55,11 @@ components:
     textColor: "{colors.neutral-400}"
     typography: "{typography.textarea-text}"
     rounded: "{rounded.sm}"
+  textarea-ghost:
+    backgroundColor: "transparent"
+    textColor: "{colors.text}"
+    typography: "{typography.textarea-text}"
+    rounded: "{rounded.sm}"
 ---
 
 # Textarea
@@ -90,6 +95,7 @@ Textarea colors match Input:
 - **Resize handle:** accent-colored in browsers that expose `::-webkit-resizer`: purple in light mode, yellow in dark mode.
 - **Placeholder:** `neutral-300` in light mode, `neutral-700` in dark mode.
 - **Disabled/readonly:** flat muted background and muted text; no inset shadow.
+- **Ghost variant:** transparent background, no inset shadow, and no border chrome. Text and placeholder colors still follow the default textarea tokens.
 - **Gray/neutral panel contrast:** textareas must remain visibly separated from gray form panels. In dark mode, do not place default `dark:bg-coolgray-100` textareas directly on a `dark:bg-coolgray-100` panel; either use `dark:bg-app-base` for the parent card, or use `dark:bg-app-base` for the textarea in that local gray-panel context.
 
 Do not use a normal `border` utility for the main textarea outline.
@@ -140,6 +146,7 @@ textarea: block min-h-32 w-full resize-y rounded-sm border-0 px-3 py-1.5 font-mo
 resize-handle: custom background lines, smaller than browser default visual weight
 text-start: px-3 so text never touches the border
 gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base when the parent is dark:bg-coolgray-100
+ghost: use only in already-delimited panels/editors where the surrounding layout supplies the control boundary
 ```
 
 ## Exact Classes
@@ -148,6 +155,7 @@ gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base whe
 base: block min-h-32 w-full resize-y rounded-sm border-0 bg-white px-3 py-1.5 font-mono text-sm text-black placeholder:text-neutral-300 focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 read-only:bg-neutral-200 read-only:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:placeholder:text-neutral-700 dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400 dark:read-only:bg-coolgray-100/40 dark:read-only:text-neutral-500
 gray-panel-contrast: use bg-white on light gray panels; use dark:bg-app-base when the parent is dark:bg-coolgray-100
 shadow: use Input exact shadow/focus/dirty classes
+ghost: !resize-none !border-0 !bg-transparent !shadow-none ![box-shadow:none] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-coollabs focus-visible:![box-shadow:none] data-[dirty=true]:![box-shadow:none] disabled:!bg-transparent read-only:!bg-transparent dark:!bg-transparent dark:focus-visible:outline-warning dark:disabled:!bg-transparent dark:read-only:!bg-transparent
 ```
 
 ## Elevation & Depth
@@ -183,6 +191,8 @@ Disabled and readonly states remove the inset shadow entirely:
 ```css
 box-shadow: none;
 ```
+
+Ghost textareas remove the background, inset shadow, and resize affordance entirely. They do not show the 4px dirty/focus bar; focus uses a thin accessible outline in the same light/dark accent colors because the variant has no border chrome.
 
 ## Shapes
 
@@ -226,6 +236,22 @@ focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:fo
 data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424]
 disabled:[box-shadow:none] read-only:[box-shadow:none]
 ```
+
+### Ghost textarea
+
+Use a `variant="ghost"` or `ghost` prop only where another surface already provides the visual boundary, such as a compact inline editor inside a bordered panel or a log/config preview area with its own surrounding chrome.
+
+```svelte
+<Textarea ghost placeholder="Add deployment notes" />
+```
+
+Ghost class:
+
+```txt
+!resize-none !border-0 !bg-transparent !shadow-none ![box-shadow:none] focus-visible:outline focus-visible:outline-1 focus-visible:outline-offset-1 focus-visible:outline-coollabs focus-visible:![box-shadow:none] data-[dirty=true]:![box-shadow:none] disabled:!bg-transparent read-only:!bg-transparent dark:!bg-transparent dark:focus-visible:outline-warning dark:disabled:!bg-transparent dark:read-only:!bg-transparent
+```
+
+Ghost textareas must not be used as the default form-field style. Do not use `dirty` to draw an accent bar on ghost textareas; the variant stays chrome-free except for the accessible focus outline.
 
 ### Dirty-state API
 
@@ -273,7 +299,9 @@ If a multi-line secret needs hidden/revealed behavior, compose a separate `Secre
 - Do enable Tab insertion only with an explicit `allowTab` prop.
 - Do tint the native resize handle purple/yellow where `::-webkit-resizer` is supported.
 - Do verify textareas remain visible on gray/neutral panel backgrounds.
+- Do use ghost textareas only when the parent surface or layout already gives enough visual boundary.
 - Don't override Tab behavior for ordinary prose textareas.
+- Don't use ghost textareas as the default form-control treatment.
 - Don't add password visibility behavior to every Textarea.
 - Don't place textareas on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add heavy shadows, large radius, gradients, or editor chrome.
@@ -284,6 +312,7 @@ If a multi-line secret needs hidden/revealed behavior, compose a separate `Secre
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
 - Textarea should share form-control shadow constants with Input and Select when those constants are extracted.
+- Add `data-ghost="true"` when the `ghost` prop is active; ghost should override default shadow classes.
 - Monaco/code-editor usage should be a separate editor component, not an overloaded Textarea.
 
 ## Review Checklist
@@ -298,6 +327,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Optional Tab insertion is controlled by `allowTab` and inserts two spaces.
 - [ ] Resize handle is accent-tinted where browser support allows it.
 - [ ] Textareas on gray/neutral panels have a clear contrast step (`bg-white` on light gray, `dark:bg-app-base` on `dark:bg-coolgray-100`, or `dark:bg-coolgray-100` on `dark:bg-app-base`).
+- [ ] Ghost variant has transparent background, no inset shadow/border chrome, no resize affordance for Textarea, and an accessible accent focus outline.
 - [ ] No framework-specific dirty directives, gradients, large radii, or heavy shadows introduced.
 
 ## Claude Improvement Notes
