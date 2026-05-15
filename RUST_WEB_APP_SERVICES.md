@@ -2,16 +2,17 @@
 
 Opinionated stack guide for **SvelteKit-specific, web app based Rust
 services**: a Rust HTTP/API backend plus a SvelteKit frontend that uses
-shadcn-svelte for UI components, shipped as a single self-hostable binary with
-the frontend embedded into the executable. Library picks, why, and the gotchas
-that bit us.
+shadcn-svelte for UI components and TanStack Query for Rust API/server state,
+shipped as a single self-hostable binary with the frontend embedded into the
+executable. Library picks, why, and the gotchas that bit us.
 
 This is an archetype guide, not a generic Rust web-services guide, Rust style
 guide, CLI-only service template, library template, firmware guide, or non-web
-service architecture. Keep SvelteKit as the frontend assumption and
-shadcn-svelte as the UI component baseline; align all frontend UI with
-[`DESIGN.md`](./DESIGN.md) and its split `design/` component specs; adapt the
-replaceable defaults below only when a project has a concrete reason.
+service architecture. Keep SvelteKit as the frontend assumption,
+shadcn-svelte as the UI component baseline, and TanStack Query as the default
+Rust API/server-state layer; align all frontend UI with [`DESIGN.md`](./DESIGN.md)
+and its split `design/` component specs; adapt the replaceable defaults below
+only when a project has a concrete reason.
 
 ## Scope
 
@@ -28,6 +29,7 @@ This guide assumes:
 - The product ships as one self-hostable binary.
 - The Rust server owns both the HTTP API and static frontend serving.
 - The frontend is a static SvelteKit SPA embedded into the Rust binary.
+- Browser server/API state uses TanStack Query by default.
 - SQLite is the default local persistence layer.
 - Filesystem blobs are the default object storage layer.
 - Operators deploy the app behind a reverse proxy or platform ingress.
@@ -51,11 +53,13 @@ Do not start from this guide if:
 
 SvelteKit is the fixed frontend assumption for this guide. shadcn-svelte is
 the default UI component system: use it for buttons, forms, dialogs, menus,
-tables, cards, navigation, and other reusable UI primitives. The visual and
-interaction contract for those primitives comes from [`DESIGN.md`](./DESIGN.md)
-and the matching file in `design/`; treat those files as the frontend design
-SSOT. These defaults are replaceable only when the project has a concrete
-operational or product reason recorded in the feature plan or README:
+tables, cards, navigation, and other reusable UI primitives. TanStack Query is
+the default server/API state layer for browser UI that talks to the Rust API.
+The visual and interaction contract for UI primitives comes from
+[`DESIGN.md`](./DESIGN.md) and the matching file in `design/`; treat those files
+as the frontend design SSOT. These defaults are replaceable only when the
+project has a concrete operational or product reason recorded in the feature
+plan or README:
 
 | Default | Replace when | Common alternative |
 |---|---|---|
@@ -64,6 +68,7 @@ operational or product reason recorded in the feature plan or README:
 | `rust-embed` static serving | Assets should be cached globally or served outside the binary | CDN / reverse-proxy static hosting |
 | Bun | Org standardizes on Node/pnpm/npm | pnpm or npm |
 | shadcn-svelte UI components/primitives | Product has an established design system and the feature plan documents the replacement | In-house Svelte components |
+| TanStack Query for server/API state | App is tiny/static enough that direct `fetch` is clearer, or the feature plan documents another state architecture | SvelteKit `fetch`/loads/actions, custom Svelte stores |
 | `build.rs` frontend orchestration | Builds must be fully split between frontend and backend pipelines | CI-built frontend artifact copied before `cargo build` |
 | GitHub Releases | Project deploys only through containers or a platform marketplace | Container registry / platform release flow |
 
@@ -282,6 +287,9 @@ Exit code rules:
 | Styling | **Tailwind 4** | Default new apps to Tailwind 4; downgrade only if the chosen shadcn-svelte release cannot support it. |
 | Design system | **[`DESIGN.md`](./DESIGN.md) + `design/` specs** | Required frontend visual/interaction SSOT. Before implementing a page or component, open the matching design spec and apply its tokens, exact layout recipe, states, accessibility notes, and checklist. |
 | Components | **shadcn-svelte UI components/primitives** | Required UI baseline for buttons, forms, dialogs, menus, tables, cards, navigation, and reusable UI; add components with the shadcn-svelte CLI; owned-in-tree, no runtime lib; extend generated primitives according to `DESIGN.md`; verify generated components against Svelte 5 + Tailwind 4 in CI. |
+| Server/API state | **`@tanstack/svelte-query`** | Default cache, refetch, retry, mutation, optimistic-update, and invalidation layer for browser UI talking to the Rust API. |
+| Local UI state | Svelte runes/stores first; TanStack Store only when justified | Keep simple component/dialog/filter state in Svelte; add TanStack Store only for complex shared client state that needs explicit selectors/test seams. |
+| Local-first/client collections | Optional TanStack DB | Not a default; use only for documented local-first, live-query, offline-ish, or rich client collection requirements. |
 | Compiler mode | **Svelte 5 / runes-capable by default** | Use Svelte 5 defaults for new apps; disable runes only for a documented shadcn-svelte compatibility issue. |
 | Package manager + runtime | **`bun`** | Single binary handling install, run, test, bundle. Faster than pnpm/npm; lockfile is `bun.lock` (text). |
 
@@ -294,7 +302,8 @@ Exit code rules:
   accessibility requirements from the matching `design/` Markdown file.
 - Do not copy Laravel, Blade, Livewire, Alpine, or project-specific frontend
   implementation details into Rust web app frontends. The implementation stack
-  for this archetype is SvelteKit + Svelte 5 + Tailwind 4 + shadcn-svelte.
+  for this archetype is SvelteKit + Svelte 5 + Tailwind 4 + shadcn-svelte +
+  TanStack Query.
 - When a needed component is not yet listed in `DESIGN.md`, do not invent a new
   ad-hoc style. Either add the component spec first using the DESIGN.md format,
   or use only already-documented primitives and record the gap in the feature
@@ -320,6 +329,32 @@ Exit code rules:
   aligned with the shadcn-svelte version in use, and verify generated components,
   local wrappers, `svelte-check`, and the production build in CI. Downgrade to
   non-runes mode or Tailwind v3 only for a documented compatibility issue.
+
+### TanStack Query gotchas
+
+- Install and configure `@tanstack/svelte-query` by default for non-trivial
+  frontend API reads and mutations. It is the server-state layer; do not hand-roll
+  a parallel cache/invalidation system with ad-hoc Svelte stores.
+- Keep SvelteKit as the router, app shell, build tool, and adapter-static output.
+  Do not switch this archetype to TanStack Router or TanStack Start for Svelte
+  unless official Svelte support is target-fit and this guide is updated.
+- Create one app-level `QueryClient` and wrap the SvelteKit layout with
+  `QueryClientProvider`. In tests, create a fresh `QueryClient` per test and
+  disable retries unless the retry behavior itself is under test.
+- Define stable query-key factories near each API client module, e.g.
+  `projectKeys.list(filters)` and `projectKeys.detail(id)`. Never build keys
+  from mutable objects whose identity changes every render. Wrap `createQuery`,
+  `createMutation`, and other `create*` options in a function so Svelte
+  reactivity is preserved.
+- Mutations must explicitly update or invalidate every affected query key. Add a
+  component/integration test for at least one create/update/delete mutation so
+  stale list/detail views are caught early.
+- Direct SvelteKit `fetch` is still fine for tiny one-off/no-cache calls,
+  bootstrap config, file downloads, and endpoints where cache/invalidation would
+  be ceremony. Shared displayed API data should use Query.
+- Use Svelte runes/stores for simple local UI state. Add TanStack Store only for
+  complex shared client-only state; add TanStack DB only for documented
+  local-first/live collection needs.
 
 ### Embedding into the Rust binary
 
@@ -986,7 +1021,10 @@ tags are releases.
     `bunx shadcn-svelte@latest add ...`; do not introduce another component
     library or ad-hoc component system unless the feature plan documents the
     concrete product/design-system reason.
-19. **Plans before code.** One commit per task.
+19. **Default server/API state is TanStack Query.** Shared displayed Rust API
+    data and mutations go through `@tanstack/svelte-query`; direct `fetch` is
+    for one-off/no-cache calls only.
+20. **Plans before code.** One commit per task.
 
 ---
 
@@ -1247,39 +1285,43 @@ cross-platform installer/update story.
     `bunx shadcn-svelte@latest add ...` unless a documented
     product/design-system reason replaces shadcn-svelte. Use **bun** unless the
     project chooses a documented replacement.
-12. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
+12. Add `@tanstack/svelte-query`: create the app-level `QueryClientProvider`,
+    define query-key conventions next to API clients, use Query for shared Rust
+    API data/mutations, and add at least one smoke/regression test that proves a
+    mutation invalidates or updates affected list/detail queries.
+13. `build.rs` orchestrating `bun install` + `bun run build`; mtime-guarded
     re-install; existing-artifact detection; `SKIP_FRONTEND` escape hatch.
-13. Add root `package.json` + `scripts/dev.sh` so `bun run dev` starts
+14. Add root `package.json` + `scripts/dev.sh` so `bun run dev` starts
     SvelteKit HMR and the `cargo-watch` backend together.
-14. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer` + security
-   headers + static asset cache policy.
-15. Add config/secrets validation, `/healthz`, `/readyz`, graceful shutdown,
+15. axum `.fallback(rust_embed handler)` + `RequestBodyLimitLayer` + security
+    headers + static asset cache policy.
+16. Add config/secrets validation, `/healthz`, `/readyz`, graceful shutdown,
     reverse-proxy/trusted-header policy, and backup/restore notes. Test
     `/healthz` and `/readyz` separately, including unready dependencies.
-16. Add first-party browser session auth: cookie policy, server-side session or
+17. Add first-party browser session auth: cookie policy, server-side session or
     signed-cookie decision, CSRF protection for unsafe methods, CORS policy,
     password hashing, logout invalidation, and audit events.
-17. Add a `RateLimiter` trait with in-memory default plus documented Redis/DB
+18. Add a `RateLimiter` trait with in-memory default plus documented Redis/DB
     swap path. Enforce login/reset/import/export/search limits before exposing
     user accounts or public write endpoints.
-18. Add `test_support::test_app()` helper + first integration test +
+19. Add `test_support::test_app()` helper + first integration test +
     (when wire-compat) first contract test. Include auth/CSRF/rate-limit
     regression tests once those routes exist.
-19. Add `Dockerfile` + `.dockerignore`: multi-stage build, non-root runtime,
+20. Add `Dockerfile` + `.dockerignore`: multi-stage build, non-root runtime,
     `/data` volume, `/healthz` health check, and documented distroless/runtime
     base decision.
-20. Add Linux GHCR container CI: PR build/smoke-test without push, `main`
+21. Add Linux GHCR container CI: PR build/smoke-test without push, `main`
     `sha-<shortsha>` images for test deployments, and SemVer tag images for
     releases.
-21. Define upgrade policy: startup auto-migrate default, `AUTO_MIGRATE=0`
+22. Define upgrade policy: startup auto-migrate default, `AUTO_MIGRATE=0`
     escape hatch, backup-before-migrate rule, downgrade stance, and seeded old-DB
     migration tests.
-22. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`, frontend
+23. CI: rust + (optional) contract jobs, `RUSTFLAGS: "-D warnings"`, frontend
     deps installed before `cargo`.
-23. Versioning: root `[workspace.package].version`, member crates with
+24. Versioning: root `[workspace.package].version`, member crates with
     `version.workspace = true`, and clap `#[command(version)]` so
     `./app --version` works.
-24. Release workflow: `.github/workflows/release.yml` triggered by `vX.Y.Z`
+25. Release workflow: `.github/workflows/release.yml` triggered by `vX.Y.Z`
     tags, with Cargo/tag version check, release binary, checksum, and GitHub
     Release upload.
-25. Re-read "Hard rules" once a month. Grep for new violations.
+26. Re-read "Hard rules" once a month. Grep for new violations.
