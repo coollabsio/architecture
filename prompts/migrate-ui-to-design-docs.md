@@ -4,22 +4,9 @@ You are an implementation agent aligning existing application UI with the local 
 
 Your goal is not to redesign. Your goal is to migrate existing styles/layouts so they match the documented design specs as closely as possible, using mockups only as visual reference when the docs are ambiguous.
 
-## Source of truth order
+## Shared workflow
 
-Read these files first, in order:
-
-1. `DESIGN.md`
-2. `design/tokens.md`
-3. latest relevant entries in `design/CHANGELOG.md`
-4. `design/manifest.json`
-5. every relevant migrated component/page spec from `design/manifest.json`
-6. `design/REVIEW_CHECKLIST.md`
-
-Then inspect relevant mockups:
-
-- Prefer mock routes listed in `design/manifest.json`.
-- Use mockups to confirm spacing, density, composition, and visual nuance.
-- Do not copy mockup-only details if they contradict the Markdown specs.
+Follow `prompts/shared-design-workflow.md` before migrating UI.
 
 ## Mission
 
@@ -59,37 +46,9 @@ Fix these common drift issues first:
 - missing disabled/loading/focus/read-only states
 - mockup visual details lost: density, grouping, alignment, icon placement, compact surfaces
 
-## Global visual contract
-
-Follow these unless a component spec says otherwise:
-
-- Dense, sharp, operational UI.
-- Shadcn-Svelte primitive first, Coolify visual layer second.
-- Light accent: `coollabs` purple.
-- Dark accent/focus: `warning` yellow.
-- Dark operational surfaces: `coolgray-*`.
-- Default radius: `rounded-sm`.
-- Default controls: compact, usually `h-8`, `px-2`, `gap-2`, `text-sm`.
-- Prefer flat bordered or inset-shadow surfaces.
-- Avoid undocumented gradients, soft shadows, large radii, decorative depth.
-
 ## Component mapping rules
 
 Use `design/manifest.json`; do not guess.
-
-Examples:
-
-- Buttons → `design/forms/button.md`
-- Inputs → `design/forms/input.md`
-- Form labels/helper/error → `design/forms/form-field.md`
-- Selects → `design/forms/select.md`
-- Textareas → `design/forms/textarea.md`
-- Checkboxes → `design/forms/checkbox.md`
-- Cards/surfaces → `design/containers/card.md`
-- Badges/status → `design/status/*.md`
-- Alerts/callouts/modals/tooltips → `design/overlays/*.md`
-- Sidebar/tabs/breadcrumbs/links → `design/navigation/*.md`
-- Page shells/layouts → `design/layouts/main-view.md`, `design/pages/*.md`
 
 ## Mockup usage rules
 
@@ -148,79 +107,6 @@ Specifically verify:
 - disabled/loading/read-only states are readable
 - accessibility notes are preserved
 - no undocumented visual effects were added
-
-## If specs are missing
-
-Use this response pattern:
-
-```md
-Spec gap found:
-
-- UI need: ...
-- Missing/pending spec: ...
-- Temporary implementation: minimal semantic markup only
-- Follow-up needed: create/update `design/...md` before detailed styling
-```
-
-## Required final response
-
-Include:
-
-```md
-## Design files read
-
-- `DESIGN.md`
-- `design/tokens.md`
-- `design/CHANGELOG.md`
-- `design/manifest.json`
-- `design/...`
-
-## UI files changed
-
-- `path`
-
-## Alignment summary
-
-- changed X to match `design/...`
-- removed Y because undocumented
-- preserved Z behavior
-
-## Mockups checked
-
-- route/path or “none available in manifest”
-
-## Checklist result
-
-- pass/fail against `design/REVIEW_CHECKLIST.md`
-
-## Validation
-
-- commands run
-- commands skipped and why
-
-## Remaining design gaps
-
-- missing/pending specs, if any
-```
-
-## Suggested validation commands
-
-Run project-appropriate checks, for example:
-
-```bash
-bun run check
-bun run lint
-bun run test
-bun run build
-```
-
-If working in the mockup sandbox:
-
-```bash
-cd mockups/shadcn-svelte-sample
-bun run check
-bun run build
-```
 
 ## Agent reminder
 

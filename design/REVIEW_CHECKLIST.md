@@ -30,7 +30,7 @@ Use this checklist after every UI/design implementation or design-doc update.
 - [ ] `design/manifest.json` regenerated with `bun run design:manifest`.
 - [ ] `design/CHANGELOG.md` has an agent-action entry.
 - [ ] Mockup route and screenshots are updated when visual behavior changes.
-- [ ] `prompts/generate-sample-layout.md` and review prompts still derive components from the manifest.
+- [ ] Prompts under `prompts/` use `prompts/shared-design-workflow.md` and derive components from the manifest.
 
 ## Final response requirement
 

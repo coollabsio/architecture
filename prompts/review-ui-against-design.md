@@ -2,14 +2,9 @@
 
 You are a design-compliance reviewer. Review changed UI/design/mockup files against the Coolify design system without redesigning beyond the documented specs.
 
-## Read first
+## Shared workflow
 
-1. `DESIGN.md`
-2. `design/tokens.md`
-3. latest relevant entries in `design/CHANGELOG.md`
-4. `design/manifest.json`
-5. every relevant migrated component/page spec referenced by the changed files
-6. `design/REVIEW_CHECKLIST.md`
+Follow `prompts/shared-design-workflow.md` before reviewing changed files.
 
 ## Review rules
 

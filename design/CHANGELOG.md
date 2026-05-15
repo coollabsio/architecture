@@ -2,6 +2,22 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-14 — Simplify prompt workflow docs
+
+Affected specs/files:
+
+- `prompts/shared-design-workflow.md`
+- `prompts/generate-sample-layout.md`
+- `prompts/migrate-ui-to-design-docs.md`
+- `prompts/review-ui-against-design.md`
+- `design/REVIEW_CHECKLIST.md`
+
+Agent action:
+
+- Use `prompts/shared-design-workflow.md` as the shared source-of-truth workflow for prompt-driven UI generation, migration, and review.
+- Keep individual prompts scenario- or role-specific; do not duplicate hard-coded migrated component lists or repeated final-response/validation blocks.
+- Derive component requirements from `design/manifest.json` and the relevant migrated specs.
+
 ## 2026-05-14 — Make auth page buttons taller
 
 Affected specs/files:
