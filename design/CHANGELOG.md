@@ -2,6 +2,20 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-18 — Stacked hover-expanded toast notifications
+
+Affected specs/files:
+
+- `design/overlays/toast.md`
+- `mockups/shadcn-svelte-sample/src/lib/components/ui/toast/toast-preview.svelte`
+- `mockups/shadcn-svelte-sample/src/routes/components/toast/+page.svelte`
+
+Agent action:
+
+- Use Shadcn-Svelte/Sonner toasts as a collapsed bottom-right stack by default: newest toast in front, up to three visible toasts behind it, `expand={false}`, `visibleToasts={3}`, and `gap={14}`.
+- Preserve hover/focus/interact expansion so older visible toasts become readable without making the default notification area noisy.
+- Keep stacked depth subtle: overlap, scale, and z-order only; do not add heavy shadows, gradients, or a permanently expanded list unless a product context explicitly opts into `expand`.
+
 ## 2026-05-18 — Ideas comment upvote controls
 
 Affected specs/files:
