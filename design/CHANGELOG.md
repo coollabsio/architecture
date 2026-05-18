@@ -2,6 +2,36 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-18 — Ideas comment upvote controls
+
+Affected specs/files:
+
+- `design/forms/button.md`
+- `design/containers/card.md`
+- `/Users/heyandras/devel/ideas/frontend/src/lib/components/CommentSection.svelte`
+- `/Users/heyandras/devel/ideas/frontend/src/app.css`
+
+Agent action:
+
+- Keep comment upvotes as compact inline action controls inside each comment card, reusing the idea upvote arrow language at smaller button density.
+- Preserve existing comment card layout; comment upvote styling is app-specific and should not add a manifest entry unless promoted to a reusable discussion component.
+
+## 2026-05-18 — Ideas comment section implementation
+
+Affected specs/files:
+
+- `design/forms/button.md`
+- `design/forms/textarea.md`
+- `design/overlays/modal.md`
+- `design/containers/card.md`
+- `/Users/heyandras/devel/ideas/frontend/src/lib/components/CommentSection.svelte`
+- `/Users/heyandras/devel/ideas/frontend/src/app.css`
+
+Agent action:
+
+- For idea-detail discussions, keep comments inside the existing dialog with compact card rows, inset-shadow textareas, sharp 4px radii, and existing button variants.
+- Comments are app-specific composition, not a new shared design component; do not add a manifest entry unless extracting a reusable comment/thread spec later.
+
 ## 2026-05-14 — Simplify prompt workflow docs
 
 Affected specs/files:

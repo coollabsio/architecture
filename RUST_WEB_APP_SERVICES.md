@@ -157,12 +157,30 @@ So the HTTP layer can map `NotFound → 404` and everything else → 500. Any
 - `serve` auto-runs pending migrations by default (see Upgrade and migration
   policy below), and the binary also exposes manual/admin controls:
   `db migrate`, `db revert`, `db info`.
+- For single-binary products where availability is preferred over strict
+  migration immutability, use a tiny wrapper around `sqlx`'s `Migrate` trait
+  instead of calling `Migrator::run()` directly:
+  - applied migration + matching checksum: skip;
+  - applied migration + different checksum: emit a structured `tracing::warn!`
+    with version, description, stored checksum, and embedded checksum, then
+    skip;
+  - pending migration: apply normally through `conn.apply(migration)`;
+  - dirty/partially-applied migration: fail startup and require operator
+    repair.
+  This preserves bootability if an already-applied migration was edited in a
+  release, without mutating `_sqlx_migrations`. It is an intentional policy
+  choice: checksum drift must be visible in logs/monitoring, and new schema
+  changes should still be shipped as new timestamped migrations.
 
 **Gotchas (these all bit us):**
 - **SQLite < 3.35 cannot `DROP COLUMN`.** Down-migrations that removed
   columns must recreate the table (CREATE _tmp / INSERT SELECT / DROP /
   RENAME). Otherwise re-applying the up-migration fails with
   `duplicate column name`.
+- **Never silently ignore checksum drift.** If the project chooses lenient
+  checksum handling for availability, warn loudly and continue only for
+  already-successful migrations. Dirty migrations and failed pending migrations
+  still stop the process.
 - **Don't write your own runner that swallows `"already exists"` errors.**
   It hides real failures.
 - **`Migrator::undo(target)` undoes migrations newer than `target`.** To
