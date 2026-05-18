@@ -58,7 +58,7 @@ overlay-title: text-base font-bold text-black dark:text-white
 overlay-description: text-sm text-neutral-600 dark:text-neutral-400
 overlay-body: text-sm text-neutral-700 dark:text-neutral-300
 overlay-actions: flex flex-wrap justify-end gap-2
-close-button: grid size-8 place-items-center rounded-sm
+close-button: follow design/overlays/modal.md "Modal close button"; use Button variant="ghost" size="icon" type="button" aria-label="Close confirmation"
 ```
 
 ## Exact Classes
@@ -84,11 +84,15 @@ Use `rounded-sm`.
 - Shadcn-Svelte `AlertDialog` preferred.
 - `Button` default for cancel.
 - `Button` highlighted for confirm.
+- Optional header X close button follows `design/overlays/modal.md` → "Modal close button".
+- If present, use `aria-label="Close confirmation"` on the X close button.
+- The X close button is not a replacement for the visible Cancel action; keep Cancel in the action row.
 
 ## Do's and Don'ts
 
 - Do use for reversible/low-risk actions.
 - Do make confirm label action-specific.
+- Do keep the visible Cancel action even when a header X close button is present.
 - Don't require typed confirmation here.
 - Don't use red/destructive styling unless the action is destructive.
 
@@ -100,6 +104,7 @@ Focus should land on the least destructive safe action by default unless product
 
 - [ ] Action-specific title and confirm label.
 - [ ] Cancel action is present.
+- [ ] Optional header X close button follows the modal close-button contract and uses `aria-label="Close confirmation"`.
 - [ ] Confirm action is highlighted, not destructive.
 
 ## Claude Improvement Notes

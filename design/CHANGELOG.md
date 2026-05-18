@@ -2,6 +2,21 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-18 — Document modal header X close-button contract
+
+Affected specs/files:
+
+- `design/overlays/modal.md`
+- `design/overlays/confirm-modal.md`
+- `design/overlays/modal-confirmation.md`
+
+Agent action:
+
+- Implement modal header X close controls with the shared `Button` primitive: `variant="ghost"`, `size="icon"`, `type="button"`, `size-8`, `rounded-sm`, and a context-specific `aria-label`.
+- Place the X in the top-right of the modal header using the documented header flex layout; do not use raw one-off close buttons or large circular controls.
+- Keep confirmation and destructive modal Cancel actions even when an X close button is present.
+- During async destructive submit, keep X close, Cancel, backdrop, and Escape dismissal behavior consistent with the same close/lock rule.
+
 ## 2026-05-18 — Stacked hover-expanded toast notifications
 
 Affected specs/files:

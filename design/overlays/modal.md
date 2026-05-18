@@ -97,6 +97,87 @@ Use `rounded-sm`.
 - Shadcn-Svelte `Dialog` primitive.
 - Existing `Button`, `Input`, `FormField`, etc. inside content.
 
+### Modal close button
+
+Use the shared Coolify `Button` primitive for the header X close control. Do not create a raw custom close button unless the `Button` primitive is unavailable.
+
+Canonical implementation:
+
+```svelte
+<Button
+  type="button"
+  variant="ghost"
+  size="icon"
+  aria-label="Close dialog"
+  onclick={close}
+>
+  ×
+</Button>
+```
+
+Required behavior:
+
+```txt
+primitive: Button
+variant: ghost
+size: icon / size-8
+type: button
+shape: rounded-sm
+placement: top-right of modal header
+alignment: aligned to the title row with items-start
+accessible-name: context-specific aria-label
+glyph: × by default, or a size-4 X icon if the implementation already uses an icon set
+```
+
+Required header layout:
+
+```txt
+header: flex items-start justify-between gap-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200
+title-group: min-w-0
+close-button: shrink-0
+```
+
+The close button inherits all visual states from `design/forms/button.md`:
+
+```txt
+ghost: border-transparent bg-transparent text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200
+focus: focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning
+size: size-8
+radius: rounded-sm
+```
+
+Accessibility requirements:
+
+- Always provide an `aria-label`.
+- Use a context-specific label:
+  - General dialog: `aria-label="Close dialog"`
+  - Confirmation dialog: `aria-label="Close confirmation"`
+  - Destructive confirmation: `aria-label="Close destructive confirmation"`
+- The close button must be keyboard focusable.
+- Escape close behavior should match the same close action when supported by the `Dialog` primitive.
+- Do not rely on the visible `×` as the accessible name.
+
+Interaction requirements:
+
+- Clicking X closes the modal without submitting forms.
+- Set `type="button"` so the close control never submits modal forms.
+- During async submit, disable or ignore X close only when accidental dismissal would corrupt state or hide required progress.
+- If close is disabled while submitting, keep Cancel, backdrop, and Escape behavior consistent with the same rule.
+
+Do:
+
+- Do use `Button variant="ghost" size="icon"`.
+- Do keep the control `size-8`, square, and `rounded-sm`.
+- Do place it in the header's top-right corner.
+- Do keep a separate Cancel action when the modal needs explicit cancellation.
+
+Don't:
+
+- Don't use a raw `button` with one-off hover/focus classes.
+- Don't use a large circular close button.
+- Don't use absolute positioning unless the modal header layout cannot contain the button.
+- Don't remove the footer Cancel action from confirmation/destructive modals just because an X is present.
+
 ### Form control surface contrast
 
 When this spec renders `Input`, `PasswordInput`, command/search input, or `Textarea` inside gray/neutral panels, the control surface must be darker/lighter than the container so it does not blend in.
@@ -113,6 +194,7 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 
 - Do keep dialogs focused and short.
 - Do include a visible close/cancel path.
+- Do use the documented modal close button contract for header X controls.
 - Don't use dialogs for destructive confirmation; use the destructive confirmation spec.
 - Don't use large rounded corners or custom gradients.
 
@@ -125,6 +207,7 @@ Trap focus and close on Escape when using the Shadcn primitive. The mockup uses 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
 - [ ] Has title.
 - [ ] Has accessible dialog semantics.
+- [ ] Header X close button, when present, uses `Button variant="ghost" size="icon" type="button"` with a context-specific `aria-label`.
 - [ ] Footer actions are right-aligned.
 - [ ] Light and dark surfaces match Coolify style.
 

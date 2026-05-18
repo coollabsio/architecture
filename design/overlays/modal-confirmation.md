@@ -57,7 +57,7 @@ overlay-title: text-base font-bold text-black dark:text-white
 overlay-description: text-sm text-neutral-600 dark:text-neutral-400
 overlay-body: text-sm text-neutral-700 dark:text-neutral-300
 overlay-actions: flex flex-wrap justify-end gap-2
-close-button: grid size-8 place-items-center rounded-sm
+close-button: follow design/overlays/modal.md "Modal close button"; use Button variant="ghost" size="icon" type="button" aria-label="Close destructive confirmation"
 ```
 
 ## Exact Classes
@@ -83,6 +83,10 @@ Use `rounded-sm`.
 - Shadcn-Svelte `AlertDialog` or `Dialog`.
 - `Input` for typed confirmation.
 - `Button` destructive variant for final action.
+- Optional header X close button follows `design/overlays/modal.md` → "Modal close button".
+- If present, use `aria-label="Close destructive confirmation"` on the X close button.
+- The X close button may be disabled or ignored during async destructive submit if closing would hide required progress or corrupt state.
+- The X close button is not a replacement for the visible Cancel action; keep Cancel in the action row.
 
 ### Form control surface contrast
 
@@ -101,6 +105,8 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 - Do list irreversible consequences.
 - Do require typed confirmation for dangerous actions.
 - Do disable the destructive button until confirmed.
+- Do keep the visible Cancel action even when a header X close button is present.
+- Do keep X close, Cancel, backdrop, and Escape behavior consistent during async destructive submit.
 - Don't use highlighted/primary styling for destructive actions.
 - Don't hide the cancel action.
 
@@ -116,6 +122,8 @@ For the final implementation, support async loading on the destructive button an
 - [ ] Destructive action is disabled until valid.
 - [ ] Outer modal border is neutral/coolgray, not red.
 - [ ] Uses destructive button styling.
+- [ ] Optional header X close button follows the modal close-button contract and uses `aria-label="Close destructive confirmation"`.
+- [ ] During async destructive submit, all dismissal paths follow the same close/lock rule.
 
 ## Claude Improvement Notes
 
