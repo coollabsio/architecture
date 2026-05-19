@@ -2,6 +2,22 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-18 — Align Coolmail mail UI chips and neutral surfaces
+
+Affected specs/files:
+
+- `design/forms/button.md`
+- `design/status/tag.md`
+- `design/status/badge.md`
+- `design/overlays/callout.md`
+
+Agent action:
+
+- In Coolmail compose views, render attachment chips from Badge/Tag styling with keyboard-accessible close controls instead of custom button-like chips.
+- Style file-picker labels with `buttonVariants({ variant: "ghost" })` instead of one-off button classes.
+- Use `neutral-50` surfaces instead of non-token `gray-50` on settings/info panels.
+
+
 ## 2026-05-18 — Document modal header X close-button contract
 
 Affected specs/files:
