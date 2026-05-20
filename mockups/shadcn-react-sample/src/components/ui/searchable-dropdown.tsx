@@ -65,14 +65,18 @@ export function SearchableDropdown({
   }
 
   return (
-    <div ref={rootRef} className={cn("relative w-full min-w-52 max-w-sm", className)}>
+    <div
+      ref={rootRef}
+      data-slot="searchable-dropdown"
+      className={cn("relative w-full min-w-52 max-w-sm", className)}
+    >
       <Button
         className="w-full justify-between"
         aria-haspopup="listbox"
         aria-expanded={open}
         onClick={() => setOpen((v) => !v)}
       >
-        <span className={cn("truncate", !selected && "text-neutral-500 dark:text-neutral-400")}>
+        <span className={cn("truncate", !selected && "text-muted-foreground")}>
           {selected?.label ?? placeholder}
         </span>
         <svg
@@ -90,11 +94,13 @@ export function SearchableDropdown({
       </Button>
 
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100">
+        <div
+          data-slot="searchable-dropdown-content"
+          className="absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-border bg-popover p-1 text-popover-foreground shadow-sm"
+        >
           <div className="p-1">
             <Input
               ref={inputRef}
-              className="dark:bg-app-base"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder={searchPlaceholder}
@@ -102,7 +108,7 @@ export function SearchableDropdown({
           </div>
           <div className="mt-1 max-h-56 overflow-y-auto overscroll-contain" role="listbox">
             {filtered.length === 0 ? (
-              <div className="px-2 py-6 text-center text-sm text-neutral-500 dark:text-neutral-400">
+              <div className="px-2 py-6 text-center text-sm text-muted-foreground">
                 {emptyText}
               </div>
             ) : (
@@ -113,9 +119,8 @@ export function SearchableDropdown({
                   role="option"
                   aria-selected={option.value === value}
                   className={cn(
-                    "group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coollabs dark:hover:text-white",
-                    option.value === value &&
-                      "bg-neutral-100 font-semibold dark:bg-coolgray-200 dark:text-warning"
+                    "group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm text-popover-foreground hover:bg-muted",
+                    option.value === value && "bg-muted font-semibold text-primary"
                   )}
                   onClick={() => handleSelect(option)}
                 >
@@ -125,7 +130,7 @@ export function SearchableDropdown({
                   <span className="min-w-0 flex-1">
                     <span className="block truncate">{option.label}</span>
                     {option.description && (
-                      <span className="block truncate text-xs font-normal text-neutral-500 dark:text-neutral-400 dark:group-hover:text-white">
+                      <span className="block truncate text-xs font-normal text-muted-foreground">
                         {option.description}
                       </span>
                     )}

@@ -98,7 +98,7 @@ function Page() {
 
         <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_20rem]">
           <div className="space-y-4">
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <div className="mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200">
                 <h2 className="text-base font-bold text-black dark:text-white">
                   General
@@ -173,7 +173,7 @@ function Page() {
               </div>
             </section>
 
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <div className="mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200">
                 <h2 className="text-base font-bold text-black dark:text-white">
                   Access & registration
@@ -212,7 +212,7 @@ function Page() {
               </div>
             </section>
 
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <div className="mb-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200">
                 <h2 className="text-base font-bold text-black dark:text-white">
                   System notifications
@@ -256,7 +256,7 @@ function Page() {
           </div>
 
           <aside className="space-y-4">
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <div className="mb-4 flex items-center justify-between gap-3">
                 <h2 className="text-base font-bold text-black dark:text-white">
                   Instance status
@@ -270,7 +270,7 @@ function Page() {
               </dl>
             </section>
 
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <h2 className="text-base font-bold text-black dark:text-white">
                 Maintenance
               </h2>
@@ -284,7 +284,7 @@ function Page() {
               </div>
             </section>
 
-            <section className="rounded-sm border border-neutral-200 bg-white p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+            <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
               <h2 className="text-base font-bold text-red-700 dark:text-red-300">
                 Danger zone
               </h2>

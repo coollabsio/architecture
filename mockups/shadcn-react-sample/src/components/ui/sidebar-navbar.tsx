@@ -137,8 +137,9 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
 
   return (
     <aside
+      data-slot="sidebar-navbar"
       className={cn(
-        "relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400",
+        "relative flex min-h-[34rem] flex-col border-r border-border bg-background px-2 text-muted-foreground transition-all",
         collapsed ? "w-16" : "w-64"
       )}
     >
@@ -152,14 +153,14 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
           <div className="flex flex-col items-center gap-0.5">
             <Link
               to="/pages/main-view"
-              className="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
+              className="grid size-8 place-items-center rounded-sm text-lg font-bold text-foreground hover:opacity-80"
               title="Coolify"
               aria-label="Coolify"
             >
               C
             </Link>
             <p
-              className="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400"
+              className="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-muted-foreground"
               title="v4.0.0"
             >
               v4.0.0
@@ -169,18 +170,18 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
           <div className="min-w-0 flex-1">
             <Link
               to="/pages/main-view"
-              className="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white"
+              className="block truncate text-2xl font-bold tracking-tight text-foreground hover:opacity-80"
             >
               Coolify
             </Link>
-            <p className="text-[10px] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
+            <p className="text-[10px] text-muted-foreground">v4.0.0</p>
           </div>
         )}
       </div>
 
       <button
         type="button"
-        className="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-app-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning"
+        className="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-border bg-card text-foreground shadow-sm hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
         aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
         aria-expanded={!collapsed}
         title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -205,11 +206,11 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
           <button
             type="button"
             onClick={() => setCommandPaletteOpen(true)}
-            className="inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-neutral-300 bg-neutral-100 px-2.5 text-sm hover:bg-neutral-200 dark:border-coolgray-200 dark:bg-coolgray-100 dark:hover:bg-coolgray-200"
+            className="inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-border bg-card px-2.5 text-sm text-muted-foreground hover:border-primary hover:text-foreground"
           >
             <span className="inline-flex items-center gap-1.5">
               <svg
-                className="size-4 text-neutral-500"
+                className="size-4"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -239,8 +240,8 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
                   title={item.label}
                   aria-current={active ? "page" : undefined}
                   className={cn(
-                    "flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning",
-                    active && "bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning",
+                    "flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
+                    active && "bg-muted text-primary",
                     collapsed && "mx-auto size-8 justify-center gap-0 px-0 py-0"
                   )}
                 >
@@ -261,7 +262,7 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
 
       <div
         className={cn(
-          "space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200",
+          "space-y-1 border-t border-border py-3",
           collapsed && "flex flex-col items-center"
         )}
       >
@@ -270,7 +271,7 @@ export function SidebarNavbar({ items = NAV_ITEMS, children }: SidebarNavbarProp
           to="/pages/settings-page"
           title="Settings"
           className={cn(
-            "flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white",
+            "flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-muted hover:text-foreground",
             collapsed && "size-8 justify-center px-0 py-0"
           )}
         >
@@ -305,13 +306,16 @@ export function TeamSwitcher({
   };
 
   return (
-    <div className={cn("px-2 pb-7", collapsed && "flex justify-center px-0 pb-4")}>
+    <div
+      data-slot="team-switcher"
+      className={cn("px-2 pb-7", collapsed && "flex justify-center px-0 pb-4")}
+    >
       <div className={cn("relative", collapsed ? "mx-auto w-8" : "w-full")}>
         {collapsed ? (
           <button
             type="button"
             title={`Team: ${selectedTeam}`}
-            className="flex size-8 cursor-pointer items-center justify-center rounded-sm bg-neutral-100 p-0 text-sm font-semibold text-coollabs transition-colors hover:bg-neutral-200 focus-visible:ring-2 focus-visible:ring-coollabs dark:bg-coolgray-200 dark:text-warning dark:hover:bg-coolgray-300 dark:focus-visible:ring-warning"
+            className="flex size-8 cursor-pointer items-center justify-center rounded-sm bg-primary p-0 text-sm font-semibold text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring"
             aria-label={`Switch team. Current team: ${selectedTeam}`}
             aria-haspopup="menu"
             aria-expanded={open}
@@ -322,7 +326,7 @@ export function TeamSwitcher({
         ) : (
           <button
             type="button"
-            className="flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-neutral-300 bg-white px-2 text-left text-sm text-black outline-none hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:focus-visible:ring-warning"
+            className="flex h-8 w-full items-center justify-between gap-2 rounded-sm border border-border bg-card px-2 text-left text-sm text-card-foreground outline-none hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
             aria-label={`Switch team. Current team: ${selectedTeam}`}
             aria-haspopup="menu"
             aria-expanded={open}
@@ -363,7 +367,7 @@ export function TeamSwitcher({
                 role="menuitem"
                 className={cn(
                   dropdownMenuItemVariants(),
-                  team === selectedTeam && "font-semibold text-coollabs dark:text-warning"
+                  team === selectedTeam && "font-semibold text-primary"
                 )}
                 onClick={() => selectTeam(team)}
               >
@@ -388,22 +392,25 @@ export function ThemeSwitcher({ collapsed = false }: { collapsed?: boolean }) {
   };
 
   return (
-    <div className={cn("w-full", collapsed && "w-8")}>
+    <div
+      data-slot="theme-switcher"
+      className={cn("w-full", collapsed && "w-8")}
+    >
       {collapsed ? (
         <button
           type="button"
-          className="flex size-8 items-center justify-center rounded-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning"
+          className="flex size-8 items-center justify-center rounded-sm hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring"
           title={`Theme: ${current.label}. Click to change.`}
           aria-label="Cycle theme: light, system default, dark"
           onClick={cycleTheme}
         >
-          <current.icon className="size-4 text-coollabs dark:text-warning" />
+          <current.icon className="size-4 text-primary" />
         </button>
       ) : (
-        <div className="flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white">
+        <div className="flex min-h-7 w-full items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-muted hover:text-foreground">
           <span className="shrink-0">Theme</span>
           <div
-            className="ml-auto inline-grid grid-cols-3 rounded-sm border border-neutral-200 bg-neutral-100 p-0.5 dark:border-coolgray-300 dark:bg-coolgray-200"
+            className="ml-auto inline-grid grid-cols-3 rounded-sm border border-border bg-card p-0.5 text-muted-foreground"
             role="radiogroup"
             aria-label="Theme preference"
           >
@@ -418,9 +425,8 @@ export function ThemeSwitcher({ collapsed = false }: { collapsed?: boolean }) {
                   title={option.label}
                   aria-label={option.label}
                   className={cn(
-                    "grid size-6 place-items-center rounded-sm text-neutral-600 transition-colors hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning",
-                    active &&
-                      "bg-white text-coollabs shadow-sm dark:bg-app-base dark:text-warning"
+                    "grid size-6 place-items-center rounded-sm transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
+                    active && "bg-primary text-primary-foreground"
                   )}
                   onClick={() => updateAppearance(option.value)}
                 >
@@ -458,6 +464,7 @@ export function Subsidebar({
   const path = useRouterState({ select: (s) => s.location.pathname });
   return (
     <nav
+      data-slot="subsidebar"
       aria-label={ariaLabel}
       className={cn(
         orientation === "vertical"
@@ -469,9 +476,9 @@ export function Subsidebar({
         const target = item.to ?? item.href ?? "#";
         const active = item.active ?? path === target;
         const baseClass = cn(
-          "flex min-h-7 min-w-0 items-center gap-2 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-300 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning",
+          "flex min-h-7 min-w-0 items-center gap-2 truncate rounded-sm px-2 py-1 text-sm text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
           orientation === "vertical" ? "w-full" : "shrink-0",
-          active && "bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning"
+          active && "bg-muted text-primary"
         );
         const inner = (
           <>

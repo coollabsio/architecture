@@ -17,7 +17,7 @@ export function Breadcrumbs({
   className?: string;
 }) {
   return (
-    <nav aria-label="Breadcrumb" className={className}>
+    <nav aria-label="Breadcrumb" data-slot="breadcrumbs" className={className}>
       <ol className="flex flex-wrap items-center gap-1.5 text-sm font-medium">
         {items.map((item, i) => {
           const isLast = i === items.length - 1;
@@ -25,18 +25,19 @@ export function Breadcrumbs({
           return (
             <Fragment key={i}>
               <li className="inline-flex items-center gap-1.5">
-                {i > 0 && <span className="text-neutral-400">/</span>}
+                {i > 0 && <span className="text-muted-foreground">/</span>}
                 {href && !isLast ? (
                   <Link
                     to={href}
-                    className={cn(
-                      "rounded-sm text-neutral-600 hover:text-coollabs focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning"
-                    )}
+                    className="rounded-sm text-muted-foreground hover:text-primary focus-visible:ring-2 focus-visible:ring-ring"
                   >
                     {item.label}
                   </Link>
                 ) : (
-                  <span className="text-black dark:text-white" aria-current={isLast ? "page" : undefined}>
+                  <span
+                    className="text-foreground"
+                    aria-current={isLast ? "page" : undefined}
+                  >
                     {item.label}
                   </span>
                 )}

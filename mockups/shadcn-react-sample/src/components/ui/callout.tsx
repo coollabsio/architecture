@@ -8,20 +8,21 @@ interface CalloutProps extends Omit<HTMLAttributes<HTMLDivElement>, "title"> {
 export function Callout({ className, title, children, ...props }: CalloutProps) {
   return (
     <div
+      data-slot="callout"
       className={cn(
-        "grid grid-cols-[1rem_1fr] gap-2 rounded-sm border border-neutral-200 bg-white p-3 text-sm text-neutral-700 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-400",
+        "grid grid-cols-[1rem_1fr] gap-2 rounded-sm border border-border bg-card p-3 text-sm text-muted-foreground",
         className
       )}
       {...props}
     >
       <div
-        className="mt-0.5 grid size-4 place-items-center rounded-full bg-coollabs text-xs font-bold text-white dark:bg-warning dark:text-app-base"
+        className="mt-0.5 grid size-4 place-items-center rounded-full bg-primary text-xs font-bold text-primary-foreground"
         aria-hidden="true"
       >
         i
       </div>
       <div className="min-w-0 space-y-1">
-        {title && <div className="font-bold text-black dark:text-white">{title}</div>}
+        {title && <div className="font-bold text-foreground">{title}</div>}
         <div>{children}</div>
       </div>
     </div>

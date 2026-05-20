@@ -14,6 +14,7 @@ export const DialogOverlay = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Overlay
     ref={ref}
+    data-slot="dialog-overlay"
     className={cn(
       "fixed inset-0 z-50 bg-black/60 backdrop-blur-[1px] data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
@@ -36,8 +37,9 @@ export const DialogContent = forwardRef<React.ElementRef<typeof D.Content>, Dial
         <DialogOverlay />
         <D.Content
           ref={ref}
+          data-slot="dialog-content"
           className={cn(
-            "fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-sm border border-neutral-200 bg-white p-4 shadow-xl outline-none dark:border-coolgray-300 dark:bg-coolgray-100",
+            "fixed left-1/2 top-1/2 z-50 w-[calc(100vw-2rem)] -translate-x-1/2 -translate-y-1/2 rounded-sm border border-border bg-card p-4 text-card-foreground shadow-xl outline-none",
             panelWidth,
             className
           )}
@@ -66,8 +68,9 @@ DialogContent.displayName = "DialogContent";
 export function DialogHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="dialog-header"
       className={cn(
-        "flex items-start justify-between gap-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200",
+        "flex items-start justify-between gap-4 border-b border-border pb-3",
         className
       )}
       {...props}
@@ -78,7 +81,8 @@ export function DialogHeader({ className, ...props }: React.HTMLAttributes<HTMLD
 export function DialogBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("py-4 text-sm text-neutral-700 dark:text-neutral-300", className)}
+      data-slot="dialog-body"
+      className={cn("py-4 text-sm text-card-foreground", className)}
       {...props}
     />
   );
@@ -87,8 +91,9 @@ export function DialogBody({ className, ...props }: React.HTMLAttributes<HTMLDiv
 export function DialogFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="dialog-footer"
       className={cn(
-        "flex flex-wrap justify-end gap-2 border-t border-neutral-200 pt-3 dark:border-coolgray-200",
+        "flex flex-wrap justify-end gap-2 border-t border-border pt-3",
         className
       )}
       {...props}
@@ -102,7 +107,8 @@ export const DialogTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Title
     ref={ref}
-    className={cn("text-xl font-bold text-black dark:text-white", className)}
+    data-slot="dialog-title"
+    className={cn("text-xl font-bold text-foreground", className)}
     {...props}
   />
 ));
@@ -114,7 +120,8 @@ export const DialogDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Description
     ref={ref}
-    className={cn("mt-1 text-sm text-neutral-600 dark:text-neutral-400", className)}
+    data-slot="dialog-description"
+    className={cn("mt-1 text-sm text-muted-foreground", className)}
     {...props}
   />
 ));

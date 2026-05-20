@@ -7,13 +7,13 @@ export const alertVariants = tv({
   variants: {
     variant: {
       default:
-        "border-neutral-200 bg-white text-neutral-700 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-400 [&_.alert-icon]:text-coollabs dark:[&_.alert-icon]:text-warning",
+        "border-border bg-card text-muted-foreground [&_.alert-icon]:text-primary",
       success:
         "border-green-600 bg-green-50 text-green-900 dark:border-green-700 dark:bg-green-950/40 dark:text-green-200 [&_.alert-icon]:text-green-600",
       warning:
         "border-yellow-500 bg-yellow-50 text-yellow-950 dark:border-warning dark:bg-yellow-950/30 dark:text-yellow-100 [&_.alert-icon]:text-yellow-600 dark:[&_.alert-icon]:text-warning",
       destructive:
-        "border-red-600 bg-red-50 text-red-900 dark:border-red-800 dark:bg-red-950/40 dark:text-red-200 [&_.alert-icon]:text-error"
+        "border-destructive/60 bg-destructive/10 text-destructive dark:border-destructive dark:bg-destructive/20 dark:text-destructive-foreground [&_.alert-icon]:text-destructive"
     }
   },
   defaultVariants: { variant: "default" }
@@ -42,6 +42,7 @@ export function Alert({
     variant === "success" ? "✓" : variant === "warning" ? "!" : variant === "destructive" ? "×" : "!";
   return (
     <div
+      data-slot="alert"
       className={cn(alertVariants({ variant }), !showIcon && "grid-cols-1", className)}
       {...props}
     >
@@ -51,7 +52,7 @@ export function Alert({
         </div>
       )}
       <div className="min-w-0 space-y-1">
-        {title && <div className="font-bold text-black dark:text-white">{title}</div>}
+        {title && <div className="font-bold text-foreground">{title}</div>}
         <div className="text-sm">{children}</div>
       </div>
     </div>

@@ -97,9 +97,9 @@ export function TotpChallenge({
 
   return (
     <AuthCard className="space-y-6">
-      <div className="space-y-2 text-center">
-        <h2 className="text-5xl font-extrabold tracking-tight">{title}</h2>
-        <p className="text-lg text-neutral-600 dark:text-neutral-400">
+      <div data-slot="totp-challenge" className="space-y-2 text-center">
+        <h2 className="text-5xl font-extrabold tracking-tight text-foreground">{title}</h2>
+        <p className="text-lg text-muted-foreground">
           {subtitle}
         </p>
       </div>
@@ -136,7 +136,8 @@ export function TotpChallenge({
                   autoComplete={index === 0 ? "one-time-code" : "off"}
                   maxLength={1}
                   aria-label={`Digit ${index + 1}`}
-                  className="h-14 w-12 rounded-sm border-2 border-neutral-200 bg-white text-center text-2xl font-bold text-black outline-none transition-colors focus:border-coollabs disabled:cursor-not-allowed disabled:opacity-60 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:focus:border-warning"
+                  data-slot="totp-digit"
+                  className="h-14 w-12 rounded-sm bg-background text-center font-mono text-2xl text-foreground outline-none transition-[box-shadow] [box-shadow:inset_0_0_0_1px_var(--input)] focus-visible:[box-shadow:inset_4px_0_0_var(--ring),inset_0_0_0_1px_var(--input)] disabled:cursor-not-allowed disabled:opacity-60"
                   onChange={(event) => handleInput(index, event.target.value)}
                   onKeyDown={(event) => handleKeyDown(index, event)}
                 />
@@ -145,7 +146,7 @@ export function TotpChallenge({
             <button
               type="button"
               onClick={toggleRecovery}
-              className="mt-4 cursor-pointer text-sm text-neutral-600 transition-colors hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-white"
+              className="mt-4 cursor-pointer text-sm text-primary hover:underline"
             >
               Use recovery code instead
             </button>
@@ -153,7 +154,7 @@ export function TotpChallenge({
         ) : (
           <div>
             <label
-              className="mb-1 block text-sm font-medium text-black dark:text-white"
+              className="mb-1 block text-sm font-medium text-foreground"
               htmlFor="recovery-code"
             >
               Recovery code
@@ -168,7 +169,7 @@ export function TotpChallenge({
             <button
               type="button"
               onClick={toggleRecovery}
-              className="mt-2 cursor-pointer text-sm text-neutral-600 transition-colors hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-white"
+              className="mt-2 cursor-pointer text-sm text-primary hover:underline"
             >
               Use authenticator code instead
             </button>
@@ -180,7 +181,11 @@ export function TotpChallenge({
         </AuthPrimaryButton>
       </form>
 
-      {submitted && <AuthSuccess>{submitted}</AuthSuccess>}
+      {submitted && (
+        <AuthSuccess>
+          <span className="text-green-600 dark:text-green-400">{submitted}</span>
+        </AuthSuccess>
+      )}
 
       <AuthDivider>Need help?</AuthDivider>
 

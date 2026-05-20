@@ -5,7 +5,6 @@ import { Badge } from "@/components/ui/badge";
 import { Breadcrumbs } from "@/components/ui/breadcrumbs";
 import { Button } from "@/components/ui/button";
 import {
-  Card,
   CardContent,
   CardDescription,
   CardHeader,
@@ -132,7 +131,7 @@ function Page() {
 
           <div className="grid gap-4 xl:grid-cols-[minmax(0,1fr)_20rem]">
             <div className="space-y-4">
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>General configuration</CardTitle>
                   <CardDescription>
@@ -160,9 +159,9 @@ function Page() {
                     />
                   </label>
                 </CardContent>
-              </Card>
+              </section>
 
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>Deployment behavior</CardTitle>
                   <CardDescription>
@@ -190,9 +189,9 @@ function Page() {
                     description="Pause incoming deploys while operators work on the service."
                   />
                 </CardContent>
-              </Card>
+              </section>
 
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>Recent deployments</CardTitle>
                   <CardDescription>
@@ -229,9 +228,9 @@ function Page() {
                     </div>
                   ))}
                 </CardContent>
-              </Card>
+              </section>
 
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>Tail</CardTitle>
                   <CardDescription>Recent log lines.</CardDescription>
@@ -248,11 +247,11 @@ function Page() {
                           .join("\n")}
                   </pre>
                 </CardContent>
-              </Card>
+              </section>
             </div>
 
             <aside className="space-y-4">
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>Status</CardTitle>
                   <CardDescription>Runtime metadata.</CardDescription>
@@ -264,9 +263,9 @@ function Page() {
                     <DescriptionRow term="Last deploy" detail="8 min ago" />
                   </dl>
                 </CardContent>
-              </Card>
+              </section>
 
-              <Card>
+              <section className="py-4 [&:not(:last-child)]:border-b [&:not(:last-child)]:border-border">
                 <CardHeader>
                   <CardTitle>Quick actions</CardTitle>
                   <CardDescription>
@@ -282,7 +281,7 @@ function Page() {
                     </Button>
                   </div>
                 </CardContent>
-              </Card>
+              </section>
             </aside>
           </div>
         </div>

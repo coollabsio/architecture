@@ -5,6 +5,7 @@ export const Table = forwardRef<HTMLTableElement, HTMLAttributes<HTMLTableElemen
   ({ className, ...props }, ref) => (
     <table
       ref={ref}
+      data-slot="table"
       className={cn("w-full min-w-[42rem] border-collapse text-left text-sm", className)}
       {...props}
     />
@@ -15,8 +16,9 @@ Table.displayName = "Table";
 export function TableHeader({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
     <thead
+      data-slot="table-header"
       className={cn(
-        "border-b border-neutral-200 bg-neutral-100 text-xs font-bold uppercase tracking-wide text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-200 dark:text-neutral-400",
+        "border-b border-border bg-muted text-xs font-bold uppercase tracking-wide text-muted-foreground",
         className
       )}
       {...props}
@@ -27,7 +29,8 @@ export function TableHeader({ className, ...props }: HTMLAttributes<HTMLTableSec
 export function TableBody({ className, ...props }: HTMLAttributes<HTMLTableSectionElement>) {
   return (
     <tbody
-      className={cn("divide-y divide-neutral-200 dark:divide-coolgray-300", className)}
+      data-slot="table-body"
+      className={cn("divide-y divide-border", className)}
       {...props}
     />
   );
@@ -36,8 +39,9 @@ export function TableBody({ className, ...props }: HTMLAttributes<HTMLTableSecti
 export function TableRow({ className, ...props }: HTMLAttributes<HTMLTableRowElement>) {
   return (
     <tr
+      data-slot="table-row"
       className={cn(
-        "hover:bg-neutral-100 dark:hover:bg-coolgray-200 data-[state=selected]:bg-neutral-100 dark:data-[state=selected]:bg-coolgray-200",
+        "hover:bg-muted/50 data-[state=selected]:bg-muted",
         className
       )}
       {...props}
@@ -46,13 +50,20 @@ export function TableRow({ className, ...props }: HTMLAttributes<HTMLTableRowEle
 }
 
 export function TableHead({ className, ...props }: ThHTMLAttributes<HTMLTableCellElement>) {
-  return <th className={cn("px-3 py-2 align-middle", className)} {...props} />;
+  return (
+    <th
+      data-slot="table-head"
+      className={cn("px-3 py-2 align-middle", className)}
+      {...props}
+    />
+  );
 }
 
 export function TableCell({ className, ...props }: TdHTMLAttributes<HTMLTableCellElement>) {
   return (
     <td
-      className={cn("px-3 py-2 align-middle text-neutral-600 dark:text-neutral-400", className)}
+      data-slot="table-cell"
+      className={cn("px-3 py-2 align-middle text-muted-foreground", className)}
       {...props}
     />
   );

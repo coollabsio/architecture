@@ -11,16 +11,16 @@ export const DropdownMenuSub = D.Sub;
 export const DropdownMenuRadioGroup = D.RadioGroup;
 
 export const dropdownMenuContentClass =
-  "z-50 mt-1 min-w-max max-w-[calc(100vw-1rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain rounded-sm border border-neutral-300 bg-white p-1 shadow-sm outline-none dark:border-coolgray-300 dark:bg-coolgray-100";
+  "z-50 mt-1 min-w-max max-w-[calc(100vw-1rem)] max-h-[calc(100vh-5rem)] overflow-y-auto overscroll-contain rounded-sm border border-border bg-popover p-1 text-popover-foreground shadow-sm outline-none";
 
 export const dropdownMenuItemVariants = tv({
-  base: "relative flex w-full cursor-pointer select-none items-center justify-start gap-2 rounded-sm py-1 pl-2 pr-4 text-xs text-black outline-none transition-colors [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-neutral-100 focus-visible:bg-neutral-100 data-[highlighted]:bg-neutral-100 disabled:pointer-events-none disabled:opacity-50 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50 dark:text-white dark:hover:bg-coollabs dark:focus-visible:bg-coollabs dark:data-[highlighted]:bg-coollabs",
+  base: "relative flex w-full cursor-pointer select-none items-center justify-start gap-2 rounded-sm py-1 pl-2 pr-4 text-xs text-foreground outline-none transition-colors [&_svg]:size-4 [&_svg]:shrink-0 hover:bg-accent hover:text-accent-foreground focus-visible:bg-accent focus-visible:text-accent-foreground data-[highlighted]:bg-accent data-[highlighted]:text-accent-foreground disabled:pointer-events-none disabled:opacity-50 data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 data-[disabled]:pointer-events-none data-[disabled]:opacity-50",
   variants: {
     variant: {
       default: "",
-      danger: "text-error dark:text-red-300 dark:hover:text-white dark:data-[highlighted]:text-white",
+      danger: "text-destructive hover:text-destructive focus-visible:text-destructive data-[highlighted]:text-destructive",
       label:
-        "cursor-default font-bold text-neutral-500 hover:bg-transparent focus-visible:bg-transparent data-[highlighted]:bg-transparent dark:text-neutral-400 dark:hover:bg-transparent dark:focus-visible:bg-transparent dark:data-[highlighted]:bg-transparent"
+        "cursor-default font-bold text-muted-foreground hover:bg-transparent hover:text-muted-foreground focus-visible:bg-transparent focus-visible:text-muted-foreground data-[highlighted]:bg-transparent data-[highlighted]:text-muted-foreground"
     },
     size: {
       default: "",
@@ -33,7 +33,7 @@ export const dropdownMenuItemVariants = tv({
   }
 });
 
-export const dropdownMenuSeparatorClass = "my-1 h-px bg-neutral-200 dark:bg-coolgray-300";
+export const dropdownMenuSeparatorClass = "my-1 h-px bg-border";
 
 export type DropdownMenuItemVariants = VariantProps<typeof dropdownMenuItemVariants>;
 
@@ -44,6 +44,7 @@ export const DropdownMenuContent = forwardRef<
   <D.Portal>
     <D.Content
       ref={ref}
+      data-slot="dropdown-menu-content"
       sideOffset={sideOffset}
       className={cn(dropdownMenuContentClass, className)}
       {...props}
@@ -62,6 +63,7 @@ export const DropdownMenuItem = forwardRef<React.ElementRef<typeof D.Item>, Drop
   ({ className, danger, variant, size, ...props }, ref) => (
     <D.Item
       ref={ref}
+      data-slot="dropdown-menu-item"
       className={cn(
         dropdownMenuItemVariants({ variant: danger ? "danger" : variant, size }),
         className
@@ -78,6 +80,7 @@ export const DropdownMenuLabel = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Label
     ref={ref}
+    data-slot="dropdown-menu-label"
     className={cn(dropdownMenuItemVariants({ variant: "label" }), className)}
     {...props}
   />
@@ -88,6 +91,6 @@ export const DropdownMenuSeparator = forwardRef<
   React.ElementRef<typeof D.Separator>,
   React.ComponentPropsWithoutRef<typeof D.Separator>
 >(({ className, ...props }, ref) => (
-  <D.Separator ref={ref} className={cn(dropdownMenuSeparatorClass, className)} {...props} />
+  <D.Separator ref={ref} data-slot="dropdown-menu-separator" className={cn(dropdownMenuSeparatorClass, className)} {...props} />
 ));
 DropdownMenuSeparator.displayName = "DropdownMenuSeparator";

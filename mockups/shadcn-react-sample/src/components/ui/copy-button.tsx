@@ -39,13 +39,13 @@ export function CopyButton({
   }
 
   return (
-    <div className={cn("relative", className)}>
+    <div data-slot="copy-button" className={cn("relative", className)}>
       <Input value={content} readOnly className={mono ? "pr-11 font-mono" : "pr-11"} />
 
       {isSecure && (
         <button
           type="button"
-          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
+          className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-muted-foreground transition-colors hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           title={label}
           aria-label={label}
           onClick={copy}

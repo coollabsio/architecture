@@ -4,16 +4,16 @@ import { cn } from "@/lib/utils";
 const dotByVariant = {
   success: "bg-green-600",
   warning: "bg-warning",
-  error: "bg-error",
-  muted: "bg-neutral-400"
+  error: "bg-destructive",
+  muted: "bg-muted-foreground"
 } as const;
 
 const dotByStatus = {
   running: "bg-green-600",
-  stopped: "bg-neutral-400",
+  stopped: "bg-muted-foreground",
   degraded: "bg-warning",
-  deploying: "bg-coollabs animate-pulse dark:bg-warning",
-  error: "bg-error"
+  deploying: "bg-primary animate-pulse",
+  error: "bg-destructive"
 } as const;
 
 export type StatusVariant = keyof typeof dotByVariant;
@@ -44,8 +44,9 @@ export function StatusIndicator({
 
   return (
     <span
+      data-slot="status-indicator"
       className={cn(
-        "inline-flex min-w-0 items-center gap-1.5 text-sm font-medium text-black dark:text-white",
+        "inline-flex min-w-0 items-center gap-1.5 text-sm font-medium text-foreground",
         className
       )}
       {...props}
@@ -53,9 +54,7 @@ export function StatusIndicator({
       <span className={cn("size-2 shrink-0 rounded-full", dot)} aria-hidden="true" />
       {label && <span>{label}</span>}
       {detail && (
-        <span className="text-xs font-normal text-neutral-500 dark:text-neutral-400">
-          {detail}
-        </span>
+        <span className="text-xs font-normal text-muted-foreground">{detail}</span>
       )}
     </span>
   );

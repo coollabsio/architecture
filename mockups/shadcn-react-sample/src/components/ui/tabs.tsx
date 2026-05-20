@@ -50,7 +50,7 @@ export function Tabs({
 
   return (
     <TabsContext.Provider value={{ value, setValue }}>
-      <div className={cn("w-full", className)} {...rest}>
+      <div data-slot="tabs" className={cn("w-full", className)} {...rest}>
         {items && (
           <TabsList>
             {items.map((item) => (
@@ -76,8 +76,9 @@ export function TabsList({ className, ...props }: HTMLAttributes<HTMLDivElement>
   return (
     <div
       role="tablist"
+      data-slot="tabs-list"
       className={cn(
-        "inline-flex gap-1 rounded-sm border border-neutral-200 bg-white p-1 dark:border-coolgray-300 dark:bg-coolgray-100",
+        "inline-flex gap-1 rounded-sm border border-border bg-card p-1",
         className
       )}
       {...props}
@@ -98,9 +99,10 @@ export function TabsTrigger({ value, className, children, ...rest }: TabsTrigger
       role="tab"
       aria-selected={active}
       data-state={active ? "active" : "inactive"}
+      data-slot="tabs-trigger"
       onClick={() => ctx.setValue(value)}
       className={cn(
-        "inline-flex h-8 cursor-pointer items-center justify-center rounded-sm px-2 text-sm font-medium text-neutral-600 outline-none transition-colors hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs data-[state=active]:bg-white data-[state=active]:text-black data-[state=active]:shadow-sm dark:text-neutral-400 dark:hover:bg-coolgray-200 dark:hover:text-white dark:focus-visible:ring-warning dark:data-[state=active]:bg-coolgray-200 dark:data-[state=active]:text-white dark:data-[state=active]:shadow-none",
+        "inline-flex h-8 cursor-pointer items-center justify-center rounded-sm px-2 text-sm font-medium text-muted-foreground outline-none transition-colors hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring data-[state=active]:bg-background data-[state=active]:text-foreground data-[state=active]:shadow-sm dark:data-[state=active]:shadow-none",
         className
       )}
       {...rest}
@@ -120,6 +122,7 @@ export function TabsContent({ value, className, children, ...rest }: TabsContent
   return (
     <div
       role="tabpanel"
+      data-slot="tabs-content"
       className={cn("mt-3 outline-none", className)}
       {...rest}
     >

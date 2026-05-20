@@ -14,10 +14,11 @@ export const PopoverContent = forwardRef<
   <P.Portal>
     <P.Content
       ref={ref}
+      data-slot="popover-content"
       sideOffset={sideOffset}
       align={align}
       className={cn(
-        "z-20 w-72 rounded-sm border border-neutral-200 bg-white p-3 text-sm shadow-lg outline-none dark:border-coolgray-300 dark:bg-coolgray-100",
+        "z-20 w-72 rounded-sm border border-border bg-popover p-3 text-sm text-popover-foreground shadow-lg outline-none",
         className
       )}
       {...props}

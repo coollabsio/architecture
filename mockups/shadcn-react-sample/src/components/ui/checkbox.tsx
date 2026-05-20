@@ -3,16 +3,16 @@ import * as RC from "@radix-ui/react-checkbox";
 import { cn } from "@/lib/utils";
 
 export const checkboxClass =
-  "grid size-4 shrink-0 cursor-pointer place-items-center rounded-sm border border-neutral-200 bg-white text-transparent outline-none transition-colors focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:bg-neutral-200 disabled:text-neutral-700 data-[state=checked]:bg-coollabs data-[state=checked]:text-white dark:border-neutral-700 dark:data-[state=checked]:bg-warning dark:data-[state=checked]:text-black dark:bg-coolgray-100 dark:disabled:bg-app-base dark:disabled:text-neutral-400 dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base";
+  "grid size-4 shrink-0 cursor-pointer place-items-center rounded-sm border border-border bg-background text-transparent outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:cursor-not-allowed disabled:bg-muted disabled:text-muted-foreground data-[state=checked]:bg-primary data-[state=checked]:text-primary-foreground data-[state=checked]:border-primary";
 
 export const checkboxRowClass =
-  "flex max-w-full flex-row items-center gap-4 py-1 pr-2 cursor-pointer dark:hover:bg-coolgray-100";
+  "flex max-w-full flex-row items-center gap-4 py-1 pr-2 cursor-pointer hover:bg-muted";
 
 export const Checkbox = forwardRef<
   React.ElementRef<typeof RC.Root>,
   React.ComponentPropsWithoutRef<typeof RC.Root>
 >(({ className, ...props }, ref) => (
-  <RC.Root ref={ref} className={cn(checkboxClass, className)} {...props}>
+  <RC.Root ref={ref} data-slot="checkbox" className={cn(checkboxClass, className)} {...props}>
     <RC.Indicator className="flex items-center justify-center">
       <svg className="size-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" aria-hidden="true">
         <path strokeLinecap="round" strokeLinejoin="round" d="m5 12 4 4L19 6" />
@@ -50,10 +50,10 @@ export function CheckboxRow({
         className
       )}
     >
-      <span className="flex min-w-0 grow flex-col break-words text-sm text-black dark:text-white">
+      <span className="flex min-w-0 grow flex-col break-words text-sm text-foreground">
         <span>{label}</span>
         {description && (
-          <span className="text-xs text-neutral-500 dark:text-neutral-400">{description}</span>
+          <span className="text-xs text-muted-foreground">{description}</span>
         )}
       </span>
       <Checkbox

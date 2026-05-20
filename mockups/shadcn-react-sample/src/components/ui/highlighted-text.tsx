@@ -7,8 +7,9 @@ export function HighlightedText({
 }: HTMLAttributes<HTMLElement>) {
   return (
     <mark
+      data-slot="highlighted-text"
       className={cn(
-        "rounded-sm bg-coollabs-50 px-1 py-0.5 font-medium text-coollabs-200 dark:bg-warning/15 dark:text-warning",
+        "rounded-sm bg-primary/15 px-1 py-0.5 font-medium text-primary",
         className
       )}
       {...props}
@@ -20,7 +21,8 @@ export function RequiredAsterisk({ className }: { className?: string }) {
   return (
     <>
       <span
-        className={cn("font-bold text-coollabs dark:text-warning", className)}
+        data-slot="required-asterisk"
+        className={cn("font-bold text-primary", className)}
         aria-hidden="true"
       >
         *

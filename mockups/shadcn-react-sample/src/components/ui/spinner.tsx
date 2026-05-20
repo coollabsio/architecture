@@ -4,7 +4,8 @@ import { cn } from "@/lib/utils";
 export function Spinner({ className, ...props }: SVGAttributes<SVGSVGElement>) {
   return (
     <svg
-      className={cn("size-4 animate-spin dark:text-warning", className)}
+      data-slot="spinner"
+      className={cn("size-4 animate-spin text-primary", className)}
       viewBox="0 0 24 24"
       aria-hidden="true"
       role="status"

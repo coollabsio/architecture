@@ -13,9 +13,10 @@ export const TooltipContent = forwardRef<
   <T.Portal>
     <T.Content
       ref={ref}
+      data-slot="tooltip-content"
       sideOffset={sideOffset}
       className={cn(
-        "pointer-events-none z-30 max-w-xs whitespace-nowrap rounded-sm border border-neutral-200 bg-white px-2 py-1 text-xs text-neutral-700 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-300",
+        "pointer-events-none z-30 max-w-xs whitespace-nowrap rounded-sm border border-border bg-popover px-2 py-1 text-xs text-popover-foreground shadow-sm",
         className
       )}
       {...props}

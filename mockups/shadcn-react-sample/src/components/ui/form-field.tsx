@@ -34,16 +34,16 @@ export function FormField({
   const [tooltipOpen, setTooltipOpen] = useState(false);
 
   return (
-    <div className={cn("space-y-1", className)} {...props}>
+    <div data-slot="form-field" className={cn("space-y-1", className)} {...props}>
       {(label || helper || required) && (
         <div className="mb-1 flex items-center gap-1">
           {label && (
-            <label htmlFor={labelFor} className="text-sm font-medium text-black dark:text-white">
+            <label htmlFor={labelFor} className="text-sm font-medium text-foreground">
               {label}
             </label>
           )}
           {required && (
-            <span className="font-bold text-coollabs dark:text-warning" aria-hidden="true">
+            <span className="font-bold text-primary" aria-hidden="true">
               *
             </span>
           )}
@@ -51,7 +51,7 @@ export function FormField({
             <div className="relative inline-flex">
               <button
                 type="button"
-                className="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
+                className="inline-flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground outline-none hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
                 aria-label={typeof label === "string" ? `${label} help` : "Help"}
                 aria-expanded={tooltipOpen}
                 onMouseEnter={() => setTooltipOpen(true)}
@@ -65,7 +65,7 @@ export function FormField({
                 </span>
               </button>
               {tooltipOpen && (
-                <div className="absolute left-5 top-1/2 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-y-1/2 whitespace-normal rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm">
+                <div className="absolute left-5 top-1/2 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] -translate-y-1/2 whitespace-normal rounded-sm border border-border bg-popover px-2 py-1.5 text-xs leading-4 text-popover-foreground shadow-sm">
                   {helper}
                 </div>
               )}
@@ -77,11 +77,11 @@ export function FormField({
       {children}
 
       {error ? (
-        <p className="mt-1 text-xs text-error">{error}</p>
+        <p className="mt-1 text-xs text-destructive">{error}</p>
       ) : success ? (
         <p className="mt-1 text-xs text-green-600 dark:text-green-400">{success}</p>
       ) : sub ? (
-        <p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{sub}</p>
+        <p className="mt-1 text-xs text-muted-foreground">{sub}</p>
       ) : null}
     </div>
   );

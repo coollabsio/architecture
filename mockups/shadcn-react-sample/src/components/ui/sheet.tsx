@@ -14,6 +14,7 @@ export const SheetOverlay = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Overlay
     ref={ref}
+    data-slot="sheet-overlay"
     className={cn(
       "fixed inset-0 z-50 bg-black/60 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
       className
@@ -34,11 +35,12 @@ export const SheetContent = forwardRef<React.ElementRef<typeof D.Content>, Sheet
       <SheetOverlay />
       <D.Content
         ref={ref}
+        data-slot="sheet-content"
         className={cn(
-          "fixed inset-y-0 z-50 flex h-full w-full max-w-md flex-col bg-white p-4 shadow-xl outline-none dark:bg-coolgray-100",
+          "fixed inset-y-0 z-50 flex h-full w-full max-w-md flex-col bg-card p-4 text-card-foreground shadow-xl outline-none",
           side === "right"
-            ? "right-0 border-l border-neutral-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right dark:border-coolgray-300"
-            : "left-0 border-r border-neutral-200 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-left data-[state=closed]:slide-out-to-left dark:border-coolgray-300",
+            ? "right-0 border-l border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-right data-[state=closed]:slide-out-to-right"
+            : "left-0 border-r border-border data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=open]:slide-in-from-left data-[state=closed]:slide-out-to-left",
           className
         )}
         {...props}
@@ -65,8 +67,9 @@ SheetContent.displayName = "SheetContent";
 export function SheetHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="sheet-header"
       className={cn(
-        "flex items-start justify-between gap-4 border-b border-neutral-200 pb-3 dark:border-coolgray-200",
+        "flex items-start justify-between gap-4 border-b border-border pb-3",
         className
       )}
       {...props}
@@ -77,8 +80,9 @@ export function SheetHeader({ className, ...props }: React.HTMLAttributes<HTMLDi
 export function SheetBody({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
+      data-slot="sheet-body"
       className={cn(
-        "flex-1 overflow-y-auto py-4 text-sm text-neutral-700 dark:text-neutral-300",
+        "flex-1 overflow-y-auto py-4 text-sm text-card-foreground",
         className
       )}
       {...props}
@@ -89,7 +93,8 @@ export function SheetBody({ className, ...props }: React.HTMLAttributes<HTMLDivE
 export function SheetFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn("border-t border-neutral-200 pt-3 dark:border-coolgray-200", className)}
+      data-slot="sheet-footer"
+      className={cn("border-t border-border pt-3", className)}
       {...props}
     />
   );
@@ -101,7 +106,8 @@ export const SheetTitle = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Title
     ref={ref}
-    className={cn("text-xl font-bold text-black dark:text-white", className)}
+    data-slot="sheet-title"
+    className={cn("text-xl font-bold text-foreground", className)}
     {...props}
   />
 ));
@@ -113,7 +119,8 @@ export const SheetDescription = forwardRef<
 >(({ className, ...props }, ref) => (
   <D.Description
     ref={ref}
-    className={cn("mt-1 text-sm text-neutral-600 dark:text-neutral-400", className)}
+    data-slot="sheet-description"
+    className={cn("mt-1 text-sm text-muted-foreground", className)}
     {...props}
   />
 ));
