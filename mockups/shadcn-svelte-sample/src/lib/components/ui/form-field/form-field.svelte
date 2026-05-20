@@ -9,19 +9,19 @@
   let tooltipOpen = false;
 </script>
 
-<div class="space-y-1">
+<div data-slot="form-field" class="space-y-1">
   <div class="mb-1 flex items-center gap-1">
-    <label for={forId} class="text-sm font-medium text-black dark:text-white">{label}</label>
+    <label for={forId} class="text-sm font-medium text-foreground">{label}</label>
 
     {#if required}
-      <span class="font-bold text-coollabs dark:text-warning" aria-hidden="true">*</span>
+      <span class="font-bold text-primary" aria-hidden="true">*</span>
     {/if}
 
     {#if helper}
       <div class="relative inline-flex">
         <button
           type="button"
-          class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-white outline-none hover:bg-coollabs-200 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:hover:bg-warning dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
+          class="inline-flex size-4 items-center justify-center rounded-full bg-primary text-primary-foreground outline-none hover:bg-primary/90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
           aria-label={`${label} help`}
           aria-expanded={tooltipOpen}
           onmouseenter={() => (tooltipOpen = true)}
@@ -45,8 +45,8 @@
   <slot />
 
   {#if error}
-    <p class="mt-1 text-xs text-error">{error}</p>
+    <p class="mt-1 text-xs text-destructive">{error}</p>
   {:else if description}
-    <p class="mt-1 text-xs text-neutral-500 dark:text-neutral-400">{description}</p>
+    <p class="mt-1 text-xs text-muted-foreground">{description}</p>
   {/if}
 </div>

@@ -16,10 +16,10 @@
   $: canSubmit = name.length > 0 && email.length > 0 && password.length >= 8 && password === passwordConfirmation;
 </script>
 
-<section class="mx-auto w-full max-w-md space-y-8 text-black dark:text-white">
+<section data-slot="auth-pages" class="mx-auto w-full max-w-md space-y-8 text-foreground">
   <div class="space-y-2 text-center">
-    <h2 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">Coolify</h2>
-    <p class="text-lg text-neutral-600 dark:text-neutral-400">Create your account</p>
+    <h2 class="text-5xl font-extrabold tracking-tight">Coolify</h2>
+    <p class="text-lg text-muted-foreground">Create your account</p>
   </div>
 
   <div class="space-y-6">
@@ -29,7 +29,7 @@
           <span class="mt-0.5 size-5 shrink-0 text-warning" aria-hidden="true">✓</span>
           <div>
             <p class="font-bold text-warning">Root User Setup</p>
-            <p class="text-sm text-black dark:text-white">This user will be the root user with full admin access.</p>
+            <p class="text-sm text-foreground">This user will be the root user with full admin access.</p>
           </div>
         </div>
       </div>
@@ -52,8 +52,8 @@
         <PasswordInput id="register-password-confirmation" autocomplete="new-password" bind:value={passwordConfirmation} aria-invalid={!!passwordMismatch} />
       </FormField>
 
-      <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
-        <p class="text-xs text-neutral-600 dark:text-neutral-400">Your password should be min 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.</p>
+      <div class="rounded-sm border border-border bg-muted p-4">
+        <p class="text-xs text-muted-foreground">Your password should be min 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one symbol.</p>
       </div>
 
       <AuthPrimaryButton class="mt-2" type="submit" disabled={!canSubmit}>Create Account</AuthPrimaryButton>
@@ -64,10 +64,10 @@
     {/if}
 
     <div class="relative my-6">
-      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
-      <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Already have an account?</span></div>
+      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
+      <div class="relative flex justify-center text-sm"><span class="bg-background px-2 text-muted-foreground">Already have an account?</span></div>
     </div>
 
-    <a href={`${base}/pages/login-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Already registered?</a>
+    <a href={`${base}/pages/login-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-border px-4 py-3 text-center font-medium transition-colors hover:border-primary">Already registered?</a>
   </div>
 </section>

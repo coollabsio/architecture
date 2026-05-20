@@ -8,6 +8,7 @@
 </script>
 
 <nav
+  data-slot="subsidebar"
   aria-label={ariaLabel}
   class={cn(
     orientation === "vertical"
@@ -22,9 +23,9 @@
       target={item.external ? "_blank" : undefined}
       rel={item.external ? "noreferrer" : undefined}
       class={cn(
-        "flex min-h-7 min-w-0 items-center gap-2 truncate rounded-sm px-2 py-1 text-sm text-neutral-700 hover:bg-neutral-300 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning",
+        "flex min-h-7 min-w-0 items-center gap-2 truncate rounded-sm px-2 py-1 text-sm text-muted-foreground hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring",
         orientation === "vertical" ? "w-full" : "shrink-0",
-        item.active && "bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning"
+        item.active && "bg-muted text-primary"
       )}
     >
       <span class="min-w-0 flex-1 truncate">{item.label}</span>

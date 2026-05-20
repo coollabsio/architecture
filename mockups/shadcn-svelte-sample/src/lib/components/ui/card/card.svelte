@@ -6,6 +6,6 @@
   export { className as class };
 </script>
 
-<div class={cn("rounded-sm border border-neutral-200 bg-white p-4 text-sm text-neutral-600 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-neutral-400", className)} {...$$restProps}>
+<div data-slot="card" class={cn("rounded-sm border border-border bg-card p-4 text-sm text-muted-foreground", className)} {...$$restProps}>
   <slot />
 </div>

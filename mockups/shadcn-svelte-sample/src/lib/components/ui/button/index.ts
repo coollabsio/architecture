@@ -2,19 +2,19 @@ import { tv, type VariantProps } from "tailwind-variants";
 import Button from "./button.svelte";
 
 export const buttonVariants = tv({
-  base: "inline-flex min-w-fit shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-sm border-2 border-transparent bg-clip-padding px-2 text-sm font-medium normal-case outline-none transition-colors select-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-100 disabled:border-neutral-300 disabled:bg-neutral-100 disabled:text-neutral-600 dark:disabled:border-coolgray-300 dark:disabled:bg-coolgray-100/60 dark:disabled:text-neutral-400 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-coollabs dark:focus-visible:ring-warning focus-visible:ring-offset-2 dark:focus-visible:ring-offset-app-base",
+  base: "inline-flex min-w-fit shrink-0 cursor-pointer items-center justify-center gap-2 whitespace-nowrap rounded-sm border-2 border-transparent bg-clip-padding px-2 text-sm font-medium normal-case outline-none transition-colors select-none disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-60 disabled:border-border disabled:bg-muted disabled:text-muted-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background",
   variants: {
     variant: {
       default:
-        "border-neutral-200 bg-white text-black hover:bg-neutral-100 hover:text-black dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:hover:bg-coolgray-200 dark:hover:text-white",
+        "border-border bg-card text-card-foreground hover:bg-muted",
       highlighted:
-        "border-coollabs bg-coollabs-50 text-coollabs-200 hover:bg-coollabs hover:text-white dark:border-coollabs-100 dark:bg-coollabs/20 dark:text-white dark:hover:bg-coollabs-100 dark:hover:text-white",
+        "border-coollabs bg-coollabs/10 text-coollabs hover:bg-coollabs hover:text-white dark:border-coollabs-100 dark:bg-coollabs/20 dark:text-white dark:hover:bg-coollabs-100",
       destructive:
-        "border-red-300 bg-red-50 text-red-800 hover:bg-error hover:text-white dark:border-red-800 dark:bg-red-900/30 dark:text-red-300 dark:hover:bg-red-800 dark:hover:text-white",
+        "border-destructive/30 bg-destructive/10 text-destructive hover:bg-destructive hover:text-destructive-foreground",
       ghost:
-        "border-transparent bg-transparent text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coolgray-200",
+        "border-transparent bg-transparent text-foreground hover:bg-muted",
       link:
-        "border-transparent bg-transparent px-0 text-coollabs hover:underline dark:text-warning"
+        "border-transparent bg-transparent px-0 text-primary hover:underline"
     },
     size: {
       default: "h-8",

@@ -29,7 +29,7 @@
 
 <svelte:window onclick={closeFromOutside} onkeydown={handleKeydown} />
 
-<div bind:this={root} class="relative inline-block text-left">
+<div bind:this={root} data-slot="dropdown-menu" class="relative inline-block text-left">
   <Button onclick={toggle} aria-haspopup="menu" aria-expanded={open}>
     {label}
     <svg class="size-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true">

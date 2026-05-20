@@ -10,9 +10,9 @@
   let submitted = false;
 </script>
 
-<section class="mx-auto w-full max-w-md space-y-8 text-black dark:text-white">
+<section data-slot="auth-pages" class="mx-auto w-full max-w-md space-y-8 text-foreground">
   <div class="space-y-2 text-center">
-    <h2 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">Coolify</h2>
+    <h2 class="text-5xl font-extrabold tracking-tight">Coolify</h2>
   </div>
 
   <div class="space-y-6">
@@ -26,7 +26,7 @@
       </FormField>
 
       <div class="flex items-center justify-between">
-        <a href={`${base}/pages/forgot-password-page`} class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
+        <a href={`${base}/pages/forgot-password-page`} class="rounded-sm text-sm text-muted-foreground transition-colors hover:text-primary hover:underline focus-visible:ring-2 focus-visible:ring-ring">Forgot password?</a>
       </div>
 
       <AuthPrimaryButton type="submit">Login</AuthPrimaryButton>
@@ -37,15 +37,15 @@
     {/if}
 
     <div class="relative my-6">
-      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
-      <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Don't have an account?</span></div>
+      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
+      <div class="relative flex justify-center text-sm"><span class="bg-background px-2 text-muted-foreground">Don't have an account?</span></div>
     </div>
 
-    <a href={`${base}/pages/register-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Register now</a>
+    <a href={`${base}/pages/register-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-border px-4 py-3 text-center font-medium transition-colors hover:border-primary">Register now</a>
 
     <div class="relative my-6">
-      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
-      <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">or continue with</span></div>
+      <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
+      <div class="relative flex justify-center text-sm"><span class="bg-background px-2 text-muted-foreground">or continue with</span></div>
     </div>
 
     <div class="flex flex-col gap-3">

@@ -14,6 +14,7 @@
 
 <button
   {type}
+  data-slot="button"
   class={cn(buttonVariants({ variant, size }), className)}
   {...$$restProps}
 >

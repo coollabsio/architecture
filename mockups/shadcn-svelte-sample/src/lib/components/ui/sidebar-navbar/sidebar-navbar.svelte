@@ -31,24 +31,24 @@
 
 </script>
 
-<aside class={cn("relative flex min-h-[34rem] flex-col border-r border-neutral-300 bg-white px-2 text-neutral-700 transition-all dark:border-coolgray-200 dark:bg-app-base dark:text-neutral-400", collapsed ? "w-16" : "w-64")}>
+<aside data-slot="sidebar-navbar" class={cn("relative flex min-h-[34rem] flex-col border-r border-border bg-background px-2 text-muted-foreground transition-all", collapsed ? "w-16" : "w-64")}>
   <div class={cn("flex items-start gap-2 px-2 pb-4 pt-6", collapsed && "flex-col items-center px-0")}>
     {#if collapsed}
       <div class="flex flex-col items-center gap-0.5">
-        <a href={`${base}/components/sidebar-navbar`} class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white" title="Coolify" aria-label="Coolify">C</a>
-        <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400" title="v4.0.0">v4.0.0</p>
+        <a href={`${base}/components/sidebar-navbar`} class="grid size-8 place-items-center rounded-sm text-lg font-bold text-foreground hover:opacity-80" title="Coolify" aria-label="Coolify">C</a>
+        <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-muted-foreground" title="v4.0.0">v4.0.0</p>
       </div>
     {:else}
       <div class="min-w-0 flex-1">
-        <a href={`${base}/components/sidebar-navbar`} class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
-        <p class="text-[10px] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
+        <a href={`${base}/components/sidebar-navbar`} class="block truncate text-2xl font-bold tracking-tight text-foreground hover:opacity-80">Coolify</a>
+        <p class="text-[10px] text-muted-foreground">v4.0.0</p>
       </div>
     {/if}
   </div>
 
   <button
     type="button"
-    class="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-neutral-300 bg-white text-black shadow-sm hover:bg-neutral-100 focus-visible:ring-2 focus-visible:ring-coollabs dark:border-coolgray-200 dark:bg-app-base dark:text-warning dark:hover:bg-coolgray-100 dark:focus-visible:ring-warning"
+    class="absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border border-border bg-card text-foreground shadow-sm hover:bg-muted focus-visible:ring-2 focus-visible:ring-ring"
     aria-label={collapsed ? "Expand sidebar" : "Collapse sidebar"}
     aria-expanded={!collapsed}
     title={collapsed ? "Expand sidebar" : "Collapse sidebar"}
@@ -59,8 +59,8 @@
 
   {#if !collapsed}
     <div class="px-2 pb-4">
-      <button type="button" class="inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-neutral-300 bg-neutral-100 px-2.5 text-sm hover:bg-neutral-200 dark:border-coolgray-200 dark:bg-coolgray-100 dark:hover:bg-coolgray-200">
-        <span class="inline-flex items-center gap-1.5"><svg class="size-4 text-neutral-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m21 21-4.35-4.35"/><circle cx="11" cy="11" r="7"/></svg>Search</span>
+      <button type="button" class="inline-flex h-8 w-full items-center justify-between gap-1.5 rounded-sm border border-border bg-card px-2.5 text-sm text-muted-foreground hover:border-primary hover:text-foreground">
+        <span class="inline-flex items-center gap-1.5"><svg class="size-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="m21 21-4.35-4.35"/><circle cx="11" cy="11" r="7"/></svg>Search</span>
         <Kbd>/</Kbd>
       </button>
     </div>
@@ -73,7 +73,7 @@
     <ul class="flex flex-col gap-1.5">
       {#each items as item, i}
         <li>
-          <a href={item.href} title={item.label} aria-current={item.active ? "page" : undefined} class={cn("flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black focus-visible:ring-2 focus-visible:ring-coollabs dark:hover:bg-coolgray-100 dark:hover:text-white dark:focus-visible:ring-warning", item.active && "bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning", collapsed && "mx-auto size-8 justify-center gap-0 px-0 py-0")}>
+          <a href={item.href} title={item.label} aria-current={item.active ? "page" : undefined} class={cn("flex min-h-7 w-full min-w-0 items-center gap-3 truncate rounded-sm px-2 py-1 text-sm hover:bg-muted hover:text-foreground focus-visible:ring-2 focus-visible:ring-ring", item.active && "bg-muted text-primary", collapsed && "mx-auto size-8 justify-center gap-0 px-0 py-0")}>
             <svg class="size-4 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d={iconPaths[i]} /></svg>
             {#if !collapsed}
               <span class="min-w-0 flex-1 truncate">{item.label}</span>
@@ -85,9 +85,9 @@
     </ul>
   </nav>
 
-  <div class={cn("space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex flex-col items-center")}>
+  <div class={cn("space-y-1 border-t border-border py-3", collapsed && "flex flex-col items-center")}>
     <ThemeSwitcher {collapsed} />
-    <a href={`${base}/components/sidebar-navbar`} class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
+    <a href={`${base}/components/sidebar-navbar`} class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-muted hover:text-foreground", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
       <SettingsIcon />
       {#if !collapsed}<span>Settings</span>{/if}
     </a>

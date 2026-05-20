@@ -11,14 +11,14 @@
   export { className as class };
 </script>
 
-<div class={cn(alertVariants({ variant }), !showIcon && "grid-cols-1", className)} {...$$restProps}>
+<div data-slot="alert" class={cn(alertVariants({ variant }), !showIcon && "grid-cols-1", className)} {...$$restProps}>
   {#if showIcon}
     <div class="alert-icon mt-0.5 size-4 shrink-0" aria-hidden="true">
       <slot name="icon">!</slot>
     </div>
   {/if}
   <div class="min-w-0 space-y-1">
-    {#if title}<div class="font-bold text-black dark:text-white">{title}</div>{/if}
+    {#if title}<div class="font-bold text-foreground">{title}</div>{/if}
     <div class="text-sm"><slot /></div>
   </div>
 </div>

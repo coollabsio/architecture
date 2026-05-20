@@ -6,4 +6,4 @@
   export { className as class };
 </script>
 
-<p class={cn("text-sm text-neutral-600 dark:text-neutral-400", className)} {...$$restProps}><slot /></p>
+<p data-slot="card-description" class={cn("text-sm text-muted-foreground", className)} {...$$restProps}><slot /></p>

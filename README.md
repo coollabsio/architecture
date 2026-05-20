@@ -17,6 +17,7 @@ swap the project name, prune what doesn't apply.
 | File | When to use |
 |---|---|
 | [`RUST_WEB_APP_SERVICES.md`](./RUST_WEB_APP_SERVICES.md) | Rust web app services: single-binary Rust backend + embedded SvelteKit + shadcn-svelte SPA + TanStack Query for Rust API/server state. SQLite by default, S3 / Postgres swappable via traits. |
+| [`REACT_WEB_APP.md`](./REACT_WEB_APP.md) | React SPAs: React 19 + Vite + TanStack Router + TanStack Query + Tailwind 4 + shadcn/ui (Radix). Static build, deployable to any HTTP host or embeddable into a backend binary. |
 
 More stacks land here as we ship them (Node, PHP/Laravel, Go, Bun, etc.).
 Each gets its own file.
@@ -25,7 +26,7 @@ Each gets its own file.
 
 | File | Scope |
 |---|---|
-| [`DESIGN.md`](./DESIGN.md) | Coolify design system. Split component/page specs for Shadcn-Svelte + Tailwind. |
+| [`DESIGN.md`](./DESIGN.md) | Coolify design system — single router for both Svelte (shadcn-svelte) and React (shadcn/ui). Split component/page specs in `design/` are framework-agnostic. |
 | [`design/tokens.md`](./design/tokens.md) | Global Coolify tokens shared by component specs. |
 | [`design/CHANGELOG.md`](./design/CHANGELOG.md) | Latest design changes and future agent actions. |
 | [`design/REVIEW_CHECKLIST.md`](./design/REVIEW_CHECKLIST.md) | AI/human checklist for UI and design-doc changes. |

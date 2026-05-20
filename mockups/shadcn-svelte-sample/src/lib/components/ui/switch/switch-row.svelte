@@ -10,10 +10,10 @@
   export { className as class };
 </script>
 
-<label class={cn("flex max-w-full flex-row items-center gap-4 py-1 pr-2 text-sm", disabled ? "opacity-60" : "cursor-pointer dark:hover:bg-coolgray-100", className)}>
+<label data-slot="switch-row" class={cn("flex max-w-full flex-row items-center gap-4 py-1 pr-2 text-sm", disabled ? "opacity-60" : "cursor-pointer hover:bg-muted", className)}>
   <span class="min-w-0 grow">
-    <span class="block break-words text-black dark:text-white">{label}</span>
-    {#if description}<span class="block break-words text-xs text-neutral-600 dark:text-neutral-400">{description}</span>{/if}
+    <span class="block break-words text-foreground">{label}</span>
+    {#if description}<span class="block break-words text-xs text-muted-foreground">{description}</span>{/if}
   </span>
   <Switch bind:checked {disabled} aria-label={label} />
 </label>

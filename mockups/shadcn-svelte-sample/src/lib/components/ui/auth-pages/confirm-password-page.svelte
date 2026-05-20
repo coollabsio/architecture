@@ -7,10 +7,10 @@
   let submitted = false;
 </script>
 
-<section class="mx-auto w-full max-w-md space-y-8 text-black dark:text-white">
-  <div class="space-y-2 text-center"><h2 class="text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white">Coolify</h2><p class="text-lg text-neutral-600 dark:text-neutral-400">Confirm Your Password</p></div>
+<section data-slot="auth-pages" class="mx-auto w-full max-w-md space-y-8 text-foreground">
+  <div class="space-y-2 text-center"><h2 class="text-5xl font-extrabold tracking-tight">Coolify</h2><p class="text-lg text-muted-foreground">Confirm Your Password</p></div>
   <div class="space-y-6">
-    <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100"><div class="flex gap-3"><span class="mt-0.5 font-bold text-coollabs dark:text-warning">i</span><p class="text-sm text-neutral-700 dark:text-neutral-400">This is a secure area. Please confirm your password before continuing.</p></div></div>
+    <div class="rounded-sm border border-border bg-muted p-4"><div class="flex gap-3"><span class="mt-0.5 font-bold text-primary">i</span><p class="text-sm text-muted-foreground">This is a secure area. Please confirm your password before continuing.</p></div></div>
     <form class="flex flex-col gap-4" onsubmit={(event) => { event.preventDefault(); submitted = true; }}>
       <FormField forId="confirm-password" label="Password" required><PasswordInput id="confirm-password" autocomplete="current-password" bind:value={password} /></FormField>
       <AuthPrimaryButton type="submit" disabled={password.length === 0}>Confirm password</AuthPrimaryButton>

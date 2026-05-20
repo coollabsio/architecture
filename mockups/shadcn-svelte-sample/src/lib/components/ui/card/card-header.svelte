@@ -6,4 +6,4 @@
   export { className as class };
 </script>
 
-<div class={cn("mb-3 space-y-1 border-b border-neutral-200 pb-3 dark:border-coolgray-200", className)} {...$$restProps}><slot /></div>
+<div data-slot="card-header" class={cn("mb-3 space-y-1 border-b border-border pb-3", className)} {...$$restProps}><slot /></div>

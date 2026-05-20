@@ -27,6 +27,7 @@
 </script>
 
 <textarea
+  data-slot="textarea"
   data-dirty={dirty ? "true" : undefined}
   data-ghost={ghost ? "true" : undefined}
   class={cn(textareaBaseClass, ghost ? textareaGhostClass : textareaShadowClass, className)}

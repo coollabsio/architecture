@@ -6,7 +6,8 @@
 </script>
 
 <svg
-  class={cn("size-4 animate-spin dark:text-warning", className)}
+  data-slot="spinner"
+  class={cn("size-4 animate-spin text-primary", className)}
   viewBox="0 0 24 24"
   aria-hidden="true"
 >

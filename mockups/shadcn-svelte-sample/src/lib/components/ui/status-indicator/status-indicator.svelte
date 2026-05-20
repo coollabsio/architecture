@@ -5,8 +5,8 @@
   export let detail: string | undefined = undefined;
   const dot = { success: "bg-green-600", warning: "bg-warning", error: "bg-error", muted: "bg-neutral-400" };
 </script>
-<span class="inline-flex min-w-0 items-center gap-1.5 text-sm font-medium text-black dark:text-white">
+<span data-slot="status-indicator" class="inline-flex min-w-0 items-center gap-1.5 text-sm font-medium text-foreground">
   <span class={cn("size-2 shrink-0 rounded-full", dot[variant])} aria-hidden="true"></span>
   <span>{label}</span>
-  {#if detail}<span class="text-xs font-normal text-neutral-500 dark:text-neutral-400">{detail}</span>{/if}
+  {#if detail}<span class="text-xs font-normal text-muted-foreground">{detail}</span>{/if}
 </span>

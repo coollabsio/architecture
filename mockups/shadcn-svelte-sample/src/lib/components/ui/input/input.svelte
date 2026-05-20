@@ -25,6 +25,7 @@
 <input
   bind:this={input}
   bind:value
+  data-slot="input"
   data-dirty={dirty ? "true" : undefined}
   data-sticky={sticky ? "true" : undefined}
   data-ghost={ghost ? "true" : undefined}

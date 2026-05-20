@@ -6,4 +6,4 @@
   export { className as class };
 </script>
 
-<h2 class={cn("text-base font-bold text-black dark:text-white", className)} {...$$restProps}><slot /></h2>
+<h2 data-slot="card-title" class={cn("text-base font-bold text-foreground", className)} {...$$restProps}><slot /></h2>

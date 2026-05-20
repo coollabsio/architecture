@@ -1,9 +1,9 @@
 import NativeSelect from "./native-select.svelte";
 
 export const selectBaseClass =
-  "block w-full appearance-none rounded-sm border-0 bg-white px-2 py-1.5 pr-10 text-sm text-black focus-visible:outline-none disabled:bg-neutral-200 disabled:text-neutral-700 dark:bg-coolgray-100 dark:text-white dark:disabled:bg-coolgray-100/40 dark:disabled:text-neutral-400";
+  "block w-full appearance-none rounded-sm border-0 bg-background px-2 py-1.5 pr-10 text-sm text-foreground transition-[box-shadow,color] focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60";
 
 export const selectShadowClass =
-  "[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#e5e5e5] dark:[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_#242424] focus-visible:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:focus-visible:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424] data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dark:data-[dirty=true]:[box-shadow:inset_4px_0_0_#fcd452,inset_0_0_0_2px_#242424] disabled:[box-shadow:none]";
+  "[box-shadow:inset_4px_0_0_transparent,inset_0_0_0_2px_var(--input)] focus-visible:[box-shadow:inset_4px_0_0_var(--ring),inset_0_0_0_2px_var(--input)] data-[dirty=true]:[box-shadow:inset_4px_0_0_var(--ring),inset_0_0_0_2px_var(--input)] disabled:[box-shadow:inset_0_0_0_2px_var(--input)] aria-invalid:[box-shadow:inset_4px_0_0_var(--destructive),inset_0_0_0_2px_var(--destructive)]";
 
 export { NativeSelect };

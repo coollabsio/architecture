@@ -7,7 +7,7 @@
   export let options: RadioOption[] = [];
 </script>
 
-<div class="space-y-1" role="radiogroup">
+<div data-slot="radio-group" class="space-y-1" role="radiogroup">
   {#each options as option}
     <RadioRow {name} bind:value optionValue={option.value} label={option.label} description={option.description} disabled={option.disabled} />
   {/each}

@@ -3,10 +3,10 @@
   export let content = "";
   let open = false;
 </script>
-<span class="relative inline-flex">
+<span data-slot="helper-tooltip" class="relative inline-flex">
   <button
     type="button"
-    class="inline-flex size-4 items-center justify-center rounded-full bg-coollabs text-[10px] font-bold leading-none text-white outline-none focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:bg-warning dark:text-app-base dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
+    class="inline-flex size-4 items-center justify-center rounded-full bg-primary text-[10px] font-bold leading-none text-primary-foreground outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background"
     aria-label="Show help"
     onclick={() => (open = !open)}
     onmouseenter={() => (open = true)}

@@ -52,32 +52,32 @@
 
 <svelte:window onclick={closeFromOutside} onkeydown={handleKeydown} />
 
-<div bind:this={root} class={cn("relative w-full min-w-52 max-w-sm", className)}>
+<div bind:this={root} data-slot="searchable-dropdown" class={cn("relative w-full min-w-52 max-w-sm", className)}>
   <Button class="w-full justify-between" aria-haspopup="listbox" aria-expanded={open} onclick={openDropdown}>
-    <span class={cn("truncate", !selected && "text-neutral-500 dark:text-neutral-400")}>{selected?.label ?? placeholder}</span>
+    <span class={cn("truncate", !selected && "text-muted-foreground")}>{selected?.label ?? placeholder}</span>
     <svg class="size-4 shrink-0" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15" /><path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9L12 5.25 15.75 9" /></svg>
   </Button>
 
   {#if open}
-    <div class="absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100">
-      <div class="p-1"><Input class="dark:bg-app-base" bind:this={searchInput} bind:value={query} placeholder={searchPlaceholder} /></div>
+    <div class="absolute left-0 top-full z-50 mt-1 w-full rounded-sm border border-border bg-popover p-1 text-popover-foreground shadow-sm">
+      <div class="p-1"><Input bind:this={searchInput} bind:value={query} placeholder={searchPlaceholder} /></div>
       <div class="mt-1 max-h-56 overflow-y-auto overscroll-contain" role="listbox">
         {#each filtered as option}
           <button
             type="button"
             role="option"
             aria-selected={option.value === value}
-            class={cn("group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm text-black hover:bg-neutral-100 dark:text-white dark:hover:bg-coollabs dark:hover:text-white", option.value === value && "bg-neutral-100 font-semibold dark:bg-coolgray-200 dark:text-warning")}
+            class={cn("group flex w-full items-start gap-2 rounded-sm px-2 py-2 text-left text-sm text-foreground hover:bg-accent hover:text-accent-foreground", option.value === value && "bg-accent text-accent-foreground font-semibold")}
             onclick={() => select(option)}
           >
             <span class="w-4 shrink-0 text-center">{option.value === value ? "✓" : ""}</span>
             <span class="min-w-0 flex-1">
               <span class="block truncate">{option.label}</span>
-              {#if option.description}<span class="block truncate text-xs font-normal text-neutral-500 dark:text-neutral-400 dark:group-hover:text-white">{option.description}</span>{/if}
+              {#if option.description}<span class="block truncate text-xs font-normal text-muted-foreground group-hover:text-accent-foreground">{option.description}</span>{/if}
             </span>
           </button>
         {:else}
-          <div class="px-2 py-6 text-center text-sm text-neutral-500 dark:text-neutral-400">{emptyText}</div>
+          <div class="px-2 py-6 text-center text-sm text-muted-foreground">{emptyText}</div>
         {/each}
       </div>
     </div>

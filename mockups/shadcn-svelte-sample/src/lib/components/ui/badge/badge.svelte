@@ -9,6 +9,6 @@
   export { className as class };
 </script>
 
-<span class={cn(badgeVariants({ variant }), className)} {...$$restProps}>
+<span data-slot="badge" class={cn(badgeVariants({ variant }), className)} {...$$restProps}>
   <slot />
 </span>

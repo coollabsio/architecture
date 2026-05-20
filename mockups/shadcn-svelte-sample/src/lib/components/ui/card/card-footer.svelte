@@ -6,4 +6,4 @@
   export { className as class };
 </script>
 
-<div class={cn("mt-3 flex flex-wrap items-center gap-2", className)} {...$$restProps}><slot /></div>
+<div data-slot="card-footer" class={cn("mt-3 flex flex-wrap items-center gap-2", className)} {...$$restProps}><slot /></div>

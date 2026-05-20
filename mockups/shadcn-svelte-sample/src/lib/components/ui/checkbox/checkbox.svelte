@@ -12,7 +12,7 @@
   export { className as class };
 </script>
 
-<span class="relative inline-grid size-4 shrink-0 place-items-center">
+<span class="relative inline-grid size-4 shrink-0 place-items-center" data-slot="checkbox">
   <input
     type="checkbox"
     bind:checked

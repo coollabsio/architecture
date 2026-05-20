@@ -12,7 +12,7 @@
   export { className as class };
 </script>
 
-<div class="relative w-full">
+<div class="relative w-full" data-slot="select">
   <select
     data-dirty={dirty ? "true" : undefined}
     class={cn(selectBaseClass, selectShadowClass, className)}
@@ -22,7 +22,7 @@
   </select>
 
   <svg
-    class="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white"
+    class="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-foreground"
     xmlns="http://www.w3.org/2000/svg"
     fill="none"
     viewBox="0 0 24 24"

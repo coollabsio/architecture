@@ -61,17 +61,17 @@
   }
 </script>
 
-<section class="mx-auto w-full max-w-md space-y-6 text-black dark:text-white">
+<section data-slot="totp-challenge" class="mx-auto w-full max-w-md space-y-6 text-foreground">
   <div class="space-y-2 text-center">
     <h2 class="text-5xl font-extrabold tracking-tight">{title}</h2>
-    <p class="text-lg text-neutral-600 dark:text-neutral-400">{subtitle}</p>
+    <p class="text-lg text-muted-foreground">{subtitle}</p>
   </div>
 
   {#if !showRecovery}
-    <div class="rounded-sm border border-neutral-200 bg-neutral-50 p-4 dark:border-coolgray-300 dark:bg-coolgray-100">
+    <div class="rounded-sm border border-border bg-muted p-4">
       <div class="flex gap-3">
-        <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full text-sm font-bold text-coollabs dark:text-warning" aria-hidden="true">i</span>
-        <p class="text-sm text-neutral-700 dark:text-neutral-400">Enter the verification code from your authenticator app to continue.</p>
+        <span class="mt-0.5 grid size-5 shrink-0 place-items-center rounded-full text-sm font-bold text-primary" aria-hidden="true">i</span>
+        <p class="text-sm text-muted-foreground">Enter the verification code from your authenticator app to continue.</p>
       </div>
     </div>
   {/if}
@@ -89,21 +89,21 @@
               autocomplete={index === 0 ? "one-time-code" : "off"}
               maxlength="1"
               aria-label={`Digit ${index + 1}`}
-              class="h-14 w-12 rounded-sm border-2 border-neutral-200 bg-white text-center text-2xl font-bold text-black outline-none transition-colors focus:border-coollabs disabled:cursor-not-allowed disabled:opacity-60 dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white dark:focus:border-warning"
+              class="h-14 w-12 rounded-sm bg-background text-center font-mono text-2xl text-foreground outline-none transition-shadow [box-shadow:inset_0_0_0_1px_var(--input)] focus-visible:[box-shadow:inset_4px_0_0_var(--ring),inset_0_0_0_1px_var(--input)] disabled:cursor-not-allowed disabled:opacity-60"
               oninput={(event) => handleInput(index, event)}
               onkeydown={(event) => handleKeydown(index, event)}
             />
           {/each}
         </div>
-        <button type="button" onclick={toggleRecovery} class="mt-4 cursor-pointer text-sm text-neutral-600 transition-colors hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-white">
+        <button type="button" onclick={toggleRecovery} class="mt-4 cursor-pointer text-sm text-primary hover:underline">
           Use recovery code instead
         </button>
       </div>
     {:else}
       <div>
-        <label class="mb-1 block text-sm font-medium text-black dark:text-white" for="recovery-code">Recovery code</label>
+        <label class="mb-1 block text-sm font-medium text-foreground" for="recovery-code">Recovery code</label>
         <Input id="recovery-code" bind:value={recoveryCode} placeholder="example-recovery-code" autocomplete="one-time-code" />
-        <button type="button" onclick={toggleRecovery} class="mt-2 cursor-pointer text-sm text-neutral-600 transition-colors hover:text-black hover:underline dark:text-neutral-400 dark:hover:text-white">
+        <button type="button" onclick={toggleRecovery} class="mt-2 cursor-pointer text-sm text-primary hover:underline">
           Use authenticator code instead
         </button>
       </div>
@@ -117,9 +117,9 @@
   {/if}
 
   <div class="relative">
-    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>
-    <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Need help?</span></div>
+    <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-border"></div></div>
+    <div class="relative flex justify-center text-sm"><span class="bg-background px-2 text-muted-foreground">Need help?</span></div>
   </div>
 
-  <a href={`${base}/pages/login-page`} class={cn("flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning")}>Back to login</a>
+  <a href={`${base}/pages/login-page`} class={cn("flex min-h-12 w-full items-center justify-center rounded-sm border border-border px-4 py-3 text-center font-medium transition-colors hover:border-primary")}>Back to login</a>
 </section>
