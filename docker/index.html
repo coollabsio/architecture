@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coolLabs: Design Sandboxes</title>
+    <style>
+      :root { color-scheme: dark; }
+      html, body { height: 100%; margin: 0; background: #101010; color: #d4d4d4; font-family: "Geist", Inter, system-ui, sans-serif; }
+      main { max-width: 36rem; margin: 0 auto; padding: 6rem 1.5rem; }
+      h1 { color: #fff; font-size: 1.75rem; margin: 0 0 0.5rem; }
+      p { color: #a3a3a3; margin: 0 0 2rem; font-size: 0.95rem; }
+      ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+      a.card {
+        display: block; padding: 1rem 1.25rem; border: 1px solid #202020; background: #181818;
+        border-radius: 4px; color: #fff; text-decoration: none; transition: border-color .15s, background .15s;
+      }
+      a.card:hover { border-color: #fcd452; background: #202020; }
+      a.card span.path { display: block; font-family: "Geist Mono", ui-monospace, monospace; color: #fcd452; font-size: 0.8rem; margin-top: 0.25rem; }
+      footer { margin-top: 3rem; font-size: 0.75rem; color: #525252; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>coolLabs Design Sandboxes</h1>
+      <p>Two parallel implementations of the Coolify design system. Pick a stack.</p>
+      <ul>
+        <li><a class="card" href="/svelte/">
+          <strong>SvelteKit sandbox</strong>
+          <span class="path">/svelte/</span>
+        </a></li>
+        <li><a class="card" href="/react/">
+          <strong>React + TanStack Router/Query sandbox</strong>
+          <span class="path">/react/</span>
+        </a></li>
+      </ul>
+      <footer>Built from <code>mockups/shadcn-svelte-sample</code> and <code>mockups/shadcn-react-sample</code>.</footer>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+**/node_modules
+**/.bun-cache
+**/.svelte-kit
+**/dist
+**/build
+**/.cache
+**/.vite
+**/.DS_Store
+.git
+.github
+.ai
+.claude
+**/coverage
+**/*.log

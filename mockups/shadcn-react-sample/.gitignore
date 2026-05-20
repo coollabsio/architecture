@@ -1,0 +1,6 @@
+node_modules
+dist
+.bun-cache
+src/routeTree.gen.ts
+*.log
+.DS_Store

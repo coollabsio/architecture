@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>coolLabs: Design (React)</title>
+    <meta property="og:title" content="coolLabs: Design (React)" />
+    <meta property="og:site_name" content="coolLabs: Design" />
+    <meta property="og:description" content="because why not...." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <script>
+      try {
+        var stored = localStorage.getItem("component-sample-react-theme") || "dark";
+        var systemDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        var dark = stored === "dark" || (stored === "system" && systemDark);
+        document.documentElement.classList.toggle("dark", dark);
+        document.documentElement.style.colorScheme = dark ? "dark" : "light";
+      } catch (_) {
+        document.documentElement.classList.add("dark");
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -7,10 +7,15 @@ export default {
     adapter: adapter({
       pages: "build",
       assets: "build",
-      fallback: "404.html"
+      fallback: "index.html"
     }),
     paths: {
       base
+    },
+    prerender: {
+      // Mockup is SPA-only; ignore base-mismatched 404s from hardcoded
+      // /components/* and /pages/* hrefs that don't include base.
+      handleHttpError: "ignore"
     }
   }
 };
