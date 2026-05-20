@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from "$app/navigation";
+  import { base } from "$app/paths";
   import { onMount } from "svelte";
   import { componentSamples, pageSamples } from "$lib/component-registry";
   import { Button } from "$lib/components/ui/button/index.js";
@@ -27,13 +28,18 @@
     syncSelection(window.location.pathname);
   });
 
+  function localPath(path: string) {
+    return base && path.startsWith(base) ? path.slice(base.length) : path;
+  }
+
   function syncSelection(path: string) {
+    const p = localPath(path);
     const currentComponent =
-      componentSamples.find((sample) => path === sample.href) ??
-      componentSamples.find((sample) => path.startsWith(`${sample.href}/`));
+      componentSamples.find((sample) => p === sample.href) ??
+      componentSamples.find((sample) => p.startsWith(`${sample.href}/`));
     const currentPage =
-      pageSamples.find((sample) => path === sample.href) ??
-      pageSamples.find((sample) => path.startsWith(`${sample.href}/`));
+      pageSamples.find((sample) => p === sample.href) ??
+      pageSamples.find((sample) => p.startsWith(`${sample.href}/`));
     selectedComponentHref = currentComponent?.href ?? "";
     selectedPageHref = currentPage?.href ?? "";
   }
@@ -45,13 +51,13 @@
   async function selectComponent(href: string) {
     selectedComponentHref = href;
     selectedPageHref = "";
-    await goto(href);
+    await goto(`${base}${href}`);
   }
 
   async function selectPage(href: string) {
     selectedPageHref = href;
     selectedComponentHref = "";
-    await goto(href);
+    await goto(`${base}${href}`);
   }
 
   function selectComponentOption(option: SearchableDropdownOption) {

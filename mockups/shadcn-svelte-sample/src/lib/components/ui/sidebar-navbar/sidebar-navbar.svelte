@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { Kbd } from "$lib/components/ui/kbd/index.js";
   import { Badge } from "$lib/components/ui/badge/index.js";
   import type { SidebarNavItem } from "./index.js";
@@ -9,13 +10,13 @@
 
   export let collapsed = false;
   export let items: SidebarNavItem[] = [
-    { label: "Dashboard", href: "/components/sidebar-navbar" },
-    { label: "Projects", href: "/components/sidebar-navbar", active: true },
-    { label: "Servers", href: "/components/sidebar-navbar" },
-    { label: "Sources", href: "/components/sidebar-navbar" },
-    { label: "Destinations", href: "/components/sidebar-navbar" },
-    { label: "S3 Storages", href: "/components/sidebar-navbar" },
-    { label: "Shared variables", href: "/components/sidebar-navbar", badge: "2" }
+    { label: "Dashboard", href: `${base}/components/sidebar-navbar` },
+    { label: "Projects", href: `${base}/components/sidebar-navbar`, active: true },
+    { label: "Servers", href: `${base}/components/sidebar-navbar` },
+    { label: "Sources", href: `${base}/components/sidebar-navbar` },
+    { label: "Destinations", href: `${base}/components/sidebar-navbar` },
+    { label: "S3 Storages", href: `${base}/components/sidebar-navbar` },
+    { label: "Shared variables", href: `${base}/components/sidebar-navbar`, badge: "2" }
   ];
 
   const iconPaths = [
@@ -34,12 +35,12 @@
   <div class={cn("flex items-start gap-2 px-2 pb-4 pt-6", collapsed && "flex-col items-center px-0")}>
     {#if collapsed}
       <div class="flex flex-col items-center gap-0.5">
-        <a href="/components/sidebar-navbar" class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white" title="Coolify" aria-label="Coolify">C</a>
+        <a href={`${base}/components/sidebar-navbar`} class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white" title="Coolify" aria-label="Coolify">C</a>
         <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400" title="v4.0.0">v4.0.0</p>
       </div>
     {:else}
       <div class="min-w-0 flex-1">
-        <a href="/components/sidebar-navbar" class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
+        <a href={`${base}/components/sidebar-navbar`} class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
         <p class="text-[10px] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
       </div>
     {/if}
@@ -86,7 +87,7 @@
 
   <div class={cn("space-y-1 border-t border-neutral-200 py-3 dark:border-coolgray-200", collapsed && "flex flex-col items-center")}>
     <ThemeSwitcher {collapsed} />
-    <a href="/components/sidebar-navbar" class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
+    <a href={`${base}/components/sidebar-navbar`} class={cn("flex min-h-7 items-center gap-3 rounded-sm px-2 py-1 text-sm hover:bg-neutral-100 hover:text-black dark:hover:bg-coolgray-100 dark:hover:text-white", collapsed && "size-8 justify-center px-0 py-0")} title="Settings">
       <SettingsIcon />
       {#if !collapsed}<span>Settings</span>{/if}
     </a>

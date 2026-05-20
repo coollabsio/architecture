@@ -1,5 +1,6 @@
 <script lang="ts">
   import { tick } from "svelte";
+  import { base } from "$app/paths";
   import AuthPrimaryButton from "$lib/components/ui/auth-pages/auth-primary-button.svelte";
   import { Input } from "$lib/components/ui/input/index.js";
   import { cn } from "$lib/utils";
@@ -120,5 +121,5 @@
     <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Need help?</span></div>
   </div>
 
-  <a href="/pages/login-page" class={cn("flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning")}>Back to login</a>
+  <a href={`${base}/pages/login-page`} class={cn("flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning")}>Back to login</a>
 </section>

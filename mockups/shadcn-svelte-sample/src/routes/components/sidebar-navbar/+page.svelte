@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { SidebarNavbar } from "$lib/components/ui/sidebar-navbar/index.js";
   import { Breadcrumbs } from "$lib/components/ui/breadcrumbs/index.js";
   import { Badge } from "$lib/components/ui/badge/index.js";
@@ -25,17 +26,17 @@
       <div class="min-w-0 p-4">
         <div class="mb-4 flex flex-col gap-4 border-b-2 border-neutral-200 pb-2 text-neutral-700 dark:border-coolgray-200 dark:text-neutral-400 md:flex-row md:items-center sm:justify-between">
           <div>
-            <Breadcrumbs items={[{ label: "Projects", href: "/components/sidebar-navbar" }, { label: "coolify-cloud", href: "/components/sidebar-navbar" }, { label: "API" }]} />
+            <Breadcrumbs items={[{ label: "Projects", href: `${base}/components/sidebar-navbar` }, { label: "coolify-cloud", href: `${base}/components/sidebar-navbar` }, { label: "API" }]} />
             <div class="mt-2 flex items-center gap-2">
               <h2 class="text-2xl font-bold text-black dark:text-white">API service</h2>
               <Badge variant="success">Running</Badge>
             </div>
           </div>
           <nav class="flex min-h-10 items-center gap-6 overflow-x-auto whitespace-nowrap pt-2 text-sm">
-            <a class="text-black dark:text-white" href="/components/sidebar-navbar" aria-current="page">Configuration</a>
-            <a class="hover:text-coollabs dark:hover:text-warning" href="/components/sidebar-navbar">Deployments</a>
-            <a class="hover:text-coollabs dark:hover:text-warning" href="/components/sidebar-navbar">Logs</a>
-            <a class="hover:text-coollabs dark:hover:text-warning" href="/components/sidebar-navbar">Terminal</a>
+            <a class="text-black dark:text-white" href={`${base}/components/sidebar-navbar`} aria-current="page">Configuration</a>
+            <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/components/sidebar-navbar`}>Deployments</a>
+            <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/components/sidebar-navbar`}>Logs</a>
+            <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/components/sidebar-navbar`}>Terminal</a>
           </nav>
         </div>
 

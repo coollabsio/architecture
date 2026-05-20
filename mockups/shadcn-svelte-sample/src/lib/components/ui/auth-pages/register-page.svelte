@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input, PasswordInput } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
@@ -67,6 +68,6 @@
       <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Already have an account?</span></div>
     </div>
 
-    <a href="/pages/login-page" class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Already registered?</a>
+    <a href={`${base}/pages/login-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Already registered?</a>
   </div>
 </section>

@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { Button } from "$lib/components/ui/button/index.js";
   import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input, PasswordInput } from "$lib/components/ui/input/index.js";
@@ -25,7 +26,7 @@
       </FormField>
 
       <div class="flex items-center justify-between">
-        <a href="/pages/forgot-password-page" class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
+        <a href={`${base}/pages/forgot-password-page`} class="rounded-sm text-sm text-neutral-600 transition-colors hover:text-coollabs hover:underline focus-visible:ring-2 focus-visible:ring-coollabs dark:text-neutral-400 dark:hover:text-warning dark:focus-visible:ring-warning">Forgot password?</a>
       </div>
 
       <AuthPrimaryButton type="submit">Login</AuthPrimaryButton>
@@ -40,7 +41,7 @@
       <div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Don't have an account?</span></div>
     </div>
 
-    <a href="/pages/register-page" class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Register now</a>
+    <a href={`${base}/pages/register-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Register now</a>
 
     <div class="relative my-6">
       <div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div>

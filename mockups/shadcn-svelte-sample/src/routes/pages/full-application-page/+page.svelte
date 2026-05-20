@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import { Badge } from "$lib/components/ui/badge/index.js";
   import { Breadcrumbs } from "$lib/components/ui/breadcrumbs/index.js";
   import { Button } from "$lib/components/ui/button/index.js";
@@ -23,7 +24,7 @@
       <header class="mb-6 flex flex-col gap-4 border-b-2 border-neutral-200 pb-4 dark:border-coolgray-200 md:flex-row md:items-end md:justify-between">
         <div class="min-w-0">
           <p class="mb-1 font-mono text-xs font-bold text-coollabs dark:text-warning">DESIGN.md → design/pages/full-application-page.md</p>
-          <Breadcrumbs items={[{ label: "Projects", href: "/pages/full-application-page" }, { label: "coolify-cloud", href: "/pages/full-application-page" }, { label: "API" }]} />
+          <Breadcrumbs items={[{ label: "Projects", href: `${base}/pages/full-application-page` }, { label: "coolify-cloud", href: `${base}/pages/full-application-page` }, { label: "API" }]} />
           <div class="mt-3 flex flex-wrap items-center gap-2">
             <h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">API service</h1>
             <Badge variant="success">Running</Badge>
@@ -40,11 +41,11 @@
       </header>
 
       <nav class="mb-4 flex min-h-10 items-center gap-6 overflow-x-auto whitespace-nowrap pt-2 text-sm text-neutral-700 dark:text-neutral-400" aria-label="Resource sections">
-        <a class="text-black dark:text-white" href="/pages/full-application-page" aria-current="page">Configuration</a>
-        <a class="hover:text-coollabs dark:hover:text-warning" href="/pages/full-application-page">Deployments</a>
-        <a class="hover:text-coollabs dark:hover:text-warning" href="/pages/full-application-page">Logs</a>
-        <a class="hover:text-coollabs dark:hover:text-warning" href="/pages/full-application-page">Terminal</a>
-        <a class="hover:text-coollabs dark:hover:text-warning" href="/pages/full-application-page">Settings</a>
+        <a class="text-black dark:text-white" href={`${base}/pages/full-application-page`} aria-current="page">Configuration</a>
+        <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/pages/full-application-page`}>Deployments</a>
+        <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/pages/full-application-page`}>Logs</a>
+        <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/pages/full-application-page`}>Terminal</a>
+        <a class="hover:text-coollabs dark:hover:text-warning" href={`${base}/pages/full-application-page`}>Settings</a>
       </nav>
 
       <div class="grid gap-4 xl:grid-cols-[minmax(0,1fr)_20rem]">

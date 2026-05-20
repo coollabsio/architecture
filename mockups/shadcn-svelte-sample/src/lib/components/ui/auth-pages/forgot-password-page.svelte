@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { base } from "$app/paths";
   import AuthPrimaryButton from "./auth-primary-button.svelte";
   import { Input } from "$lib/components/ui/input/index.js";
   import { FormField } from "$lib/components/ui/form-field/index.js";
@@ -21,6 +22,6 @@
       <div class="rounded-sm border border-warning bg-warning/10 p-4"><div class="flex gap-3"><span class="mt-0.5 text-warning">!</span><div><p class="mb-2 font-bold text-warning">Email Not Configured</p><p class="text-sm text-black dark:text-white">Transactional emails are not active on this instance. Configure email or use the manual reset documentation.</p></div></div></div>
     {/if}
     <div class="relative my-6"><div class="absolute inset-0 flex items-center"><div class="w-full border-t border-neutral-300 dark:border-coolgray-300"></div></div><div class="relative flex justify-center text-sm"><span class="bg-gray-50 px-2 text-neutral-500 dark:bg-app-base dark:text-neutral-400">Remember your password?</span></div></div>
-    <a href="/pages/login-page" class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Back to Login</a>
+    <a href={`${base}/pages/login-page`} class="flex min-h-12 w-full items-center justify-center rounded-sm border border-neutral-300 px-4 py-3 text-center font-medium transition-colors hover:border-coollabs dark:border-coolgray-300 dark:hover:border-warning">Back to Login</a>
   </div>
 </section>
