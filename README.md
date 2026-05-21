@@ -25,7 +25,7 @@ Each gets its own file.
 
 | File | Scope |
 |---|---|
-| [`DESIGN.md`](./DESIGN.md) | Coolify design system — router for the React (shadcn/ui) implementation stack. Split component/page specs in `design/` are framework-agnostic. |
+| [`DESIGN.md`](./DESIGN.md) | Coolify design system — router for the React (shadcn/ui) implementation stack. Split component/page specs live in `design/`. |
 | [`design/tokens.md`](./design/tokens.md) | Global Coolify tokens shared by component specs. |
 | [`design/CHANGELOG.md`](./design/CHANGELOG.md) | Latest design changes and future agent actions. |
 | [`design/REVIEW_CHECKLIST.md`](./design/REVIEW_CHECKLIST.md) | AI/human checklist for UI and design-doc changes. |
