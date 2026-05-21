@@ -16,8 +16,8 @@ swap the project name, prune what doesn't apply.
 
 | File | When to use |
 |---|---|
-| [`rust_svelte_webapp.md`](./rust_svelte_webapp.md) | Rust web app services: single-binary Rust backend + embedded SvelteKit + shadcn-svelte SPA + TanStack Query for Rust API/server state. SQLite by default, S3 / Postgres swappable via traits. |
-| [`rust_react_webapp.md`](./rust_react_webapp.md) | React SPAs: React 19 + Vite + TanStack Router + TanStack Query + Tailwind 4 + shadcn/ui (Radix). Static build, deployable to any HTTP host or embeddable into a backend binary. |
+| [`RUST_SVELTE_WEBAPP.md`](./RUST_SVELTE_WEBAPP.md) | Rust web app services: single-binary Rust backend + embedded SvelteKit + shadcn-svelte SPA + TanStack Query for Rust API/server state. SQLite by default, S3 / Postgres swappable via traits. |
+| [`RUST_REACT_WEBAPP.md`](./RUST_REACT_WEBAPP.md) | Rust web app services: single-binary Rust backend + embedded React 19 + Vite SPA + shadcn/ui (Radix) + TanStack Router/Query. SQLite by default, S3 / Postgres swappable via traits. |
 
 More stacks land here as we ship them (Node, PHP/Laravel, Go, Bun, etc.).
 Each gets its own file.
