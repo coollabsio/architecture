@@ -35,7 +35,7 @@ Do not use this skill for detailed UI styling or component compliance; use the C
 Before giving architecture guidance or implementation recommendations, read:
 
 1. `README.md` for repository context and stack index.
-2. `RUST_WEB_APP_SERVICES.md` for the actual Rust web app/service guidance.
+2. `rust_svelte_webapp.md` for the actual Rust web app/service guidance.
 3. Relevant design docs only if the Rust work includes UI/component behavior:
    - `DESIGN.md`
    - `design/tokens.md`
@@ -60,7 +60,7 @@ Preserve these assumptions unless the current docs say otherwise:
 
 When giving recommendations:
 
-- Mention the source file or section used, especially `RUST_WEB_APP_SERVICES.md`.
+- Mention the source file or section used, especially `rust_svelte_webapp.md`.
 - Separate hard rules from optional tradeoffs.
 - Call out scope mismatches, version-sensitive behavior, and operational consequences.
 - Prefer concrete file/module boundaries, commands, and migration paths over abstract advice.

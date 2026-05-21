@@ -9,7 +9,7 @@ no Zustand, no Redux, no provider.
 
 ## Why this exists
 
-The Rust web-app stack documented in `RUST_WEB_APP_SERVICES.md` names TanStack
+The Rust web-app stack documented in `rust_svelte_webapp.md` names TanStack
 Query as the default server-state layer. This sandbox is the React reference
 implementation of the Coolify design system: same component contract, same
 routes, working Query + Router wiring out of the box.

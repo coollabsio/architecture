@@ -389,7 +389,7 @@ public networks.
 
 For a paired backend (e.g. Rust archetype + this React SPA in the same
 repo), a root-level `scripts/dev.sh` starts both with shared lifecycle (see
-[`RUST_WEB_APP_SERVICES.md`](./RUST_WEB_APP_SERVICES.md) "One-command local
+[`rust_svelte_webapp.md`](./rust_svelte_webapp.md) "One-command local
 dev").
 
 ---
