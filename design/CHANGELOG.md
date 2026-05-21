@@ -2,6 +2,33 @@
 
 Latest first. Every design-system change that should influence future AI implementation belongs here.
 
+## 2026-05-21 — Consolidate design system on React + shadcn/ui (drop Svelte)
+
+Affected specs/files:
+
+- `DESIGN.md` (collapsed to single-stack)
+- every `design/**/*.md` component/page spec
+- `design/tokens.md`, `design/REVIEW_CHECKLIST.md`, `design/manifest.json`
+- `prompts/*.md`, `skills/coolify-design-system/SKILL.md`,
+  `skills/rust-single-binary-web-apps/SKILL.md`
+- `README.md`, `Dockerfile`, `docker/`, `jean.json`, `.dockerignore`
+
+Agent action:
+
+- The Svelte mockup (`mockups/shadcn-svelte-sample/`) and `RUST_SVELTE_WEBAPP.md`
+  were deleted. The sole implementation stack is **React + shadcn/ui** (Radix +
+  `tailwind-variants`). The reference mockup is `mockups/shadcn-react-sample/`.
+- Component specs now name shadcn/ui primitives; add with `bunx shadcn@latest
+  add <slug>`. All `bunx/pnpm dlx shadcn-svelte@latest` commands and
+  `shadcn-svelte.com` doc URLs were repointed to `shadcn@latest` / `ui.shadcn.com`.
+- Spec code samples are now `tsx` (React 19 + TypeScript). Tailwind class
+  strings and the Coolify visual contract are unchanged — only framework
+  syntax changed.
+- Mockup-reference lines point to `mockups/shadcn-react-sample/src/routes/...tsx`
+  and `src/components/ui/<name>.tsx`. Older changelog entries below still cite
+  the deleted Svelte sample paths; treat those as historical record only.
+- Do not reintroduce Svelte: implement against the React mockup and shadcn/ui.
+
 ## 2026-05-18 — Align Coolmail mail UI chips and neutral surfaces
 
 Affected specs/files:

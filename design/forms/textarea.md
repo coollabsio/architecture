@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Textarea
-description: Shadcn-Svelte Textarea primitive with Coolify's mono typography, inset shadow border, dirty bar, optional ghost variant, and optional Tab insertion behavior.
+description: shadcn/ui Textarea primitive with Coolify's mono typography, inset shadow border, dirty bar, optional ghost variant, and optional Tab insertion behavior.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -66,22 +66,20 @@ components:
 
 ## Overview
 
-The Coolify Textarea is a Shadcn-Svelte `Textarea` primitive styled like Input, but using Geist Mono for code, environment values, logs, and multi-line configuration text.
+The Coolify Textarea is a shadcn/ui `Textarea` primitive styled like Input, but using Geist Mono for code, environment values, logs, and multi-line configuration text.
 
 Textarea shares the Input inset shadow system: no normal border, a 2px simulated inset border, and a 4px left focus/dirty bar.
 
-Start from the local Shadcn-Svelte primitive:
+Start from the local shadcn/ui primitive:
 
-```svelte
-<script lang="ts">
-  import { Textarea } from "$lib/components/ui/textarea/index.js";
-</script>
+```tsx
+import { Textarea } from "@/components/ui/textarea";
 ```
 
 If the primitive is missing, add it first:
 
 ```bash
-bunx shadcn-svelte@latest add textarea
+bunx shadcn@latest add textarea
 ```
 
 ## Colors
@@ -220,7 +218,7 @@ Keep the resize mark subtle and small. Do not depend on this as the only resize 
 
 ### Base primitive extension
 
-Use Shadcn-Svelte `Textarea` as the base primitive.
+Use shadcn/ui `Textarea` as the base primitive.
 
 Recommended base class:
 
@@ -241,7 +239,7 @@ disabled:[box-shadow:none] read-only:[box-shadow:none]
 
 Use a `variant="ghost"` or `ghost` prop only where another surface already provides the visual boundary, such as a compact inline editor inside a bordered panel or a log/config preview area with its own surrounding chrome.
 
-```svelte
+```tsx
 <Textarea ghost placeholder="Add deployment notes" />
 ```
 
@@ -259,7 +257,7 @@ Use either a `dirty` prop or `data-dirty="true"` on the local textarea primitive
 
 Preferred usage:
 
-```svelte
+```tsx
 <Textarea value={envFile} dirty={envFile !== initialEnvFile} />
 ```
 
@@ -269,16 +267,19 @@ Some technical textareas should insert two spaces when the user presses Tab.
 
 Use an explicit prop such as `allowTab`:
 
-```svelte
+```tsx
 <Textarea allowTab />
 ```
 
 Tab behavior:
 
 ```ts
-if (event.key === "Tab") {
-  event.preventDefault();
-  textarea.setRangeText("  ", textarea.selectionStart, textarea.selectionEnd, "end");
+function handleKeyDown(event: KeyboardEvent<HTMLTextAreaElement>) {
+  if (allowTab && event.key === "Tab") {
+    const textarea = event.currentTarget;
+    event.preventDefault();
+    textarea.setRangeText("  ", textarea.selectionStart, textarea.selectionEnd, "end");
+  }
 }
 ```
 
@@ -290,7 +291,7 @@ If a multi-line secret needs hidden/revealed behavior, compose a separate `Secre
 
 ## Do's and Don'ts
 
-- Do start from Shadcn-Svelte `Textarea`.
+- Do start from shadcn/ui `Textarea`.
 - Do use Geist Mono / `font-mono`.
 - Do use the same inset shadow system as Input.
 - Do keep `border-0`; do not use normal borders for the main outline.
@@ -317,7 +318,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Textarea` as the base primitive.
+- [ ] Uses shadcn/ui `Textarea` as the base primitive.
 - [ ] Uses `font-mono` / Geist Mono.
 - [ ] Uses `border-0` and inset `box-shadow`, not normal borders, for the main outline.
 - [ ] Resting state has a transparent 4px left bar and 2px simulated border.
@@ -342,7 +343,7 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/textarea/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/textarea.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Textarea docs: `https://www.shadcn-svelte.com/docs/components/textarea`.
+- shadcn/ui Textarea docs: `https://ui.shadcn.com/docs/components/textarea`.

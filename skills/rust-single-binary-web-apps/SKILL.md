@@ -1,6 +1,6 @@
 ---
 name: rust-single-binary-web-apps
-description: Use for self-hostable Rust web app/service architecture with one deployable binary, Axum, SQLx, SQLite, embedded SvelteKit/Shadcn-Svelte frontend assets, filesystem blobs, swappable Postgres/S3 traits, TanStack Query, and operational CLI/admin patterns. Before relying on guidance, use the latest https://github.com/coollabsio/architecture content.
+description: Use for self-hostable Rust web app/service architecture with one deployable binary, Axum, SQLx, SQLite, embedded React/shadcn frontend assets, filesystem blobs, swappable Postgres/S3 traits, TanStack Query, and operational CLI/admin patterns. Before relying on guidance, use the latest https://github.com/coollabsio/architecture content.
 ---
 
 # Rust Single-Binary Web Apps
@@ -22,7 +22,7 @@ Use this skill for:
 - Rust web app/service architecture decisions.
 - Single-binary self-hostable product design.
 - `axum`, `sqlx`, SQLite, migrations, embedded frontend assets, and static serving.
-- SvelteKit SPA integration when discussed as part of Rust service architecture.
+- React SPA integration when discussed as part of Rust service architecture.
 - TanStack Query patterns for Rust-owned API/server state.
 - Filesystem blob storage by default, with S3/Postgres swappable behind traits when justified.
 - Operational CLI/admin/maintenance subcommands in the same Rust binary.
@@ -35,7 +35,7 @@ Do not use this skill for detailed UI styling or component compliance; use the C
 Before giving architecture guidance or implementation recommendations, read:
 
 1. `README.md` for repository context and stack index.
-2. `RUST_SVELTE_WEBAPP.md` for the actual Rust web app/service guidance.
+2. `RUST_REACT_WEBAPP.md` for the actual Rust web app/service guidance.
 3. Relevant design docs only if the Rust work includes UI/component behavior:
    - `DESIGN.md`
    - `design/tokens.md`
@@ -50,7 +50,7 @@ Preserve these assumptions unless the current docs say otherwise:
 
 - One self-hostable Rust binary.
 - Rust server owns HTTP API and static frontend serving.
-- SvelteKit SPA can be embedded into the binary.
+- React SPA can be embedded into the binary.
 - SQLite and filesystem blobs are defaults.
 - Postgres/S3 are swappable via traits when justified.
 - Admin and maintenance actions live as CLI subcommands in the same binary.
@@ -60,7 +60,7 @@ Preserve these assumptions unless the current docs say otherwise:
 
 When giving recommendations:
 
-- Mention the source file or section used, especially `RUST_SVELTE_WEBAPP.md`.
+- Mention the source file or section used, especially `RUST_REACT_WEBAPP.md`.
 - Separate hard rules from optional tradeoffs.
 - Call out scope mismatches, version-sensitive behavior, and operational consequences.
 - Prefer concrete file/module boundaries, commands, and migration paths over abstract advice.

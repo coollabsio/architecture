@@ -28,7 +28,7 @@ Treat local docs as source of truth over memory, generated output, or older snip
 Follow these unless a component spec says otherwise:
 
 - Dense, sharp, operational UI.
-- Shadcn-Svelte primitive first, Coolify visual layer second.
+- shadcn/ui primitive first, Coolify visual layer second.
 - Light accent: `coollabs` purple.
 - Dark accent/focus: `warning` yellow.
 - Dark operational surfaces: `coolgray-*`.
@@ -50,9 +50,9 @@ Do not:
 
 - redesign beyond documented specs;
 - create undocumented variants or one-off style systems;
-- use raw booleans where documented Shadcn-Svelte-style variants or states exist;
+- use raw booleans where documented shadcn/ui-style variants or states exist;
 - copy mockup-only details that contradict Markdown specs;
-- introduce Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific details into Shadcn-Svelte specs.
+- introduce Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific details into shadcn/ui specs.
 
 ## Spec gap response
 
@@ -129,7 +129,7 @@ bun run design:check
 For the mockup sandbox, run:
 
 ```bash
-cd mockups/shadcn-svelte-sample
-bun run check
+cd mockups/shadcn-react-sample
+bun run typecheck
 bun run build
 ```

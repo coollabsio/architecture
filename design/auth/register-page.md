@@ -47,7 +47,7 @@ components:
 
 The Register Page is a page-level auth composition inspired by Coolify's current registration screen: centered auth column, large Coolify title, `Create your account` subtitle, optional root-user warning, name/email/password fields, password rules callout, highlighted Create Account button, and already-registered divider/link.
 
-Use Shadcn-Svelte primitives as the base: `Button`, `Input`, `PasswordInput`, and `FormField`.
+Use shadcn/ui primitives as the base: `Button`, `Input`, `PasswordInput`, and `FormField`.
 
 ## Colors
 
@@ -175,7 +175,7 @@ Consider extracting shared auth dividers and auth secondary links after forgot/r
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/register-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/register-page.tsx`
 
 - `DESIGN.md`
 - Coolify current register page reviewed for layout and interaction hierarchy.

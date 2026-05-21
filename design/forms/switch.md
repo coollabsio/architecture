@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Switch
-description: Shadcn-Svelte Switch primitive for immediate on/off settings.
+description: shadcn/ui Switch primitive for immediate on/off settings.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -44,7 +44,7 @@ components:
 
 ## Overview
 
-The Coolify Switch is a compact Shadcn-Svelte `Switch` primitive for immediate boolean settings such as enabling auto-deploy, previews, or maintenance mode.
+The Coolify Switch is a compact shadcn/ui `Switch` primitive for immediate boolean settings such as enabling auto-deploy, previews, or maintenance mode.
 
 Use Checkbox for form-submission booleans and Switch for instant preference/state toggles.
 
@@ -104,10 +104,10 @@ Track and thumb are fully rounded. The track is compact: about `w-8 h-4`; thumb 
 
 ### Switch primitive
 
-Start from Shadcn-Svelte `Switch`:
+Start from shadcn/ui `Switch`:
 
 ```bash
-bunx shadcn-svelte@latest add switch
+bunx shadcn@latest add switch
 ```
 
 Recommended track classes:
@@ -150,8 +150,8 @@ Future documentation can define a loading switch state for async server toggles.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/switch/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/switch.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Switch primitive
+- shadcn/ui Switch primitive
 - Existing Checkbox row composition

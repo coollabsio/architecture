@@ -1,6 +1,6 @@
 ---
 name: coolify-design-system
-description: Use for Coolify UI/design-system guidance, Shadcn-Svelte components, Tailwind styling, design.md component specs, mockups, tokens, light/dark theme behavior, and AI UI/design review. Before relying on guidance, use the latest https://github.com/coollabsio/architecture content.
+description: Use for Coolify UI/design-system guidance, shadcn/ui (React) components, Tailwind styling, design.md component specs, mockups, tokens, light/dark theme behavior, and AI UI/design review. Before relying on guidance, use the latest https://github.com/coollabsio/architecture content.
 ---
 
 # Coolify Design System
@@ -20,7 +20,7 @@ Before applying guidance, ensure repository content is current:
 Use this skill for:
 
 - Coolify visual language and product UI decisions.
-- Shadcn-Svelte + Tailwind component implementation.
+- shadcn/ui (React) + Tailwind component implementation.
 - Design-doc edits, migrations, reviews, and mockup updates.
 - Component/page specs following `google-labs-code/design.md`.
 - Light/dark theme behavior, tokens, spacing, radius, density, focus, loading, empty, disabled, and error states.
@@ -51,7 +51,7 @@ Preserve these traits unless the current docs say otherwise:
 - Sharp 4px radii by default.
 - Compact controls, usually `h-8`, `px-2`, `gap-2`, `text-sm`.
 - Inset box-shadow inputs with a 4px dirty/focus bar where specified.
-- Prefer Shadcn-Svelte primitives first, Coolify visual layer second.
+- Prefer shadcn/ui primitives first, Coolify visual layer second.
 - Avoid undocumented gradients, large radii, glossy effects, marketing spacing, and decorative shadows.
 
 ## After UI/design changes

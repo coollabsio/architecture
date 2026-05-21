@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Input
-description: Shadcn-Svelte Input primitive with Coolify's inset shadow border, 4px dirty/focus indicator, and optional ghost variant.
+description: shadcn/ui Input primitive with Coolify's inset shadow border, 4px dirty/focus indicator, and optional ghost variant.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -72,22 +72,20 @@ components:
 
 ## Overview
 
-The Coolify Input is a compact Shadcn-Svelte `Input` primitive extended with a distinctive inset `box-shadow` border and a 4px left-side dirty/focus bar.
+The Coolify Input is a compact shadcn/ui `Input` primitive extended with a distinctive inset `box-shadow` border and a 4px left-side dirty/focus bar.
 
 Inputs do not use CSS borders for their main outline. Instead, the resting outline and focus/dirty indicator are both drawn with layered inset shadows. This keeps form controls sharp, dense, and visually consistent with the operator UI.
 
-Start from the local Shadcn-Svelte primitive:
+Start from the local shadcn/ui primitive:
 
-```svelte
-<script lang="ts">
-  import { Input } from "$lib/components/ui/input/index.js";
-</script>
+```tsx
+import { Input } from "@/components/ui/input";
 ```
 
 If the primitive is missing, add it first:
 
 ```bash
-bunx shadcn-svelte@latest add input
+bunx shadcn@latest add input
 ```
 
 ## Colors
@@ -224,7 +222,7 @@ Do not mix input radius with larger form-control radii in the same view.
 
 ### Base primitive extension
 
-Use Shadcn-Svelte `Input` as the base primitive. Extend the local primitive with Coolify input variants and a `dirty` state.
+Use shadcn/ui `Input` as the base primitive. Extend the local primitive with Coolify input variants and a `dirty` state.
 
 Recommended base class:
 
@@ -262,7 +260,7 @@ Use either a `dirty` prop or `data-dirty="true"` on the local input primitive.
 
 Preferred usage:
 
-```svelte
+```tsx
 <Input value={name} dirty={name !== initialName} />
 ```
 
@@ -276,28 +274,28 @@ Do not use framework-specific dirty directives in design docs or implementations
 
 ### Default input
 
-```svelte
+```tsx
 <Input placeholder="Application name" />
 ```
 
 ### Dirty input
 
-```svelte
-<Input value="api-production" dirty />
+```tsx
+<Input defaultValue="api-production" dirty />
 ```
 
 ### Disabled input
 
-```svelte
-<Input value="Disabled value" disabled />
+```tsx
+<Input defaultValue="Disabled value" disabled />
 ```
 
 Disabled inputs are flat, muted, and have no inset shadow.
 
 ### Readonly input
 
-```svelte
-<Input value="Readonly value" readonly />
+```tsx
+<Input defaultValue="Readonly value" readOnly />
 ```
 
 Readonly inputs are flat, muted, and have no inset shadow.
@@ -306,27 +304,34 @@ Readonly inputs are flat, muted, and have no inset shadow.
 
 Password fields hide the value by default and expose a trailing visibility toggle. The raw `Input` stays generic; use a `PasswordInput` composition for behavior.
 
-```svelte
+```tsx
 <PasswordInput value={secret} />
 ```
 
 Composition requirements:
 
-```svelte
-<script lang="ts">
-  let visible = false;
-</script>
+```tsx
+import { useState } from "react";
+import { Input } from "@/components/ui/input";
+import { Eye, EyeOff } from "lucide-react";
 
-<div class="relative">
-  <Input type={visible ? "text" : "password"} class="pr-[2.4rem]" />
-  <button type="button" class="absolute inset-y-0 right-0 flex items-center pr-2" aria-label={visible ? "Hide password" : "Show password"}>
-    {#if visible}
-      <EyeOffIcon class="size-6" />
-    {:else}
-      <EyeIcon class="size-6" />
-    {/if}
-  </button>
-</div>
+export function PasswordInput(props: React.ComponentProps<typeof Input>) {
+  const [visible, setVisible] = useState(false);
+
+  return (
+    <div className="relative">
+      <Input type={visible ? "text" : "password"} className="pr-[2.4rem]" {...props} />
+      <button
+        type="button"
+        className="absolute inset-y-0 right-0 flex items-center pr-2"
+        aria-label={visible ? "Hide password" : "Show password"}
+        onClick={() => setVisible((v) => !v)}
+      >
+        {visible ? <EyeOff className="size-6" /> : <Eye className="size-6" />}
+      </button>
+    </div>
+  );
+}
 ```
 
 The toggle uses an eye/eye-off icon. Do not use the helper info icon for password visibility. Password fields must hide the value by default and let the user toggle between hidden and visible text.
@@ -347,7 +352,7 @@ Sticky focus/dirty uses the same 4px accent bar with a 1px simulated border.
 
 Use a `variant="ghost"` or `ghost` prop only where another surface already provides the visual boundary, such as a dense inline editor row, toolbar search slot, or compact command header.
 
-```svelte
+```tsx
 <Input ghost placeholder="Filter resources" />
 ```
 
@@ -361,7 +366,7 @@ Ghost inputs must not be used as the default form-field style. Do not use `dirty
 
 ## Do's and Don'ts
 
-- Do start from Shadcn-Svelte `Input`.
+- Do start from shadcn/ui `Input`.
 - Do use inset `box-shadow` for the input outline and left indicator.
 - Do keep `border-0`; do not use normal border utilities for the main outline.
 - Do use `data-dirty="true"` or a `dirty` prop for dirty state.
@@ -373,7 +378,7 @@ Ghost inputs must not be used as the default form-field style. Do not use `dirty
 - Do verify inputs remain visible on gray/neutral panel backgrounds.
 - Do use ghost inputs only when the parent surface or layout already gives enough visual boundary.
 - Don't introduce framework-specific dirty directives.
-- Don't use Shadcn default ring/border styling for the primary input outline.
+- Don't use shadcn default ring/border styling for the primary input outline.
 - Don't use ghost inputs as the default form-control treatment.
 - Don't place inputs on a same-color dark panel where `dark:bg-coolgray-100` blends into `dark:bg-coolgray-100`.
 - Don't add heavy shadows, gradients, large radius, or decorative field chrome.
@@ -382,14 +387,14 @@ Ghost inputs must not be used as the default form-field style. Do not use `dirty
 
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
-- Keep the local Shadcn-Svelte input primitive small: props, class merging, `data-dirty`, and `data-sticky` are enough.
+- Keep the local shadcn/ui input primitive small: props, class merging, `data-dirty`, and `data-sticky` are enough.
 - Add `data-ghost="true"` when the `ghost` prop is active; ghost should override sticky/default shadow classes.
 - Keep password visibility as a composed pattern around Input, not baked into every Input.
 - Select and Textarea should get separate component specs even though they share the same shadow system.
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Input` as the base primitive.
+- [ ] Uses shadcn/ui `Input` as the base primitive.
 - [ ] Uses `border-0` and inset `box-shadow`, not normal borders, for the main outline.
 - [ ] Resting state has a transparent 4px left bar and 2px simulated border.
 - [ ] Focus state uses a 4px left bar: purple in light mode, yellow in dark mode.
@@ -416,7 +421,7 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/input/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/input.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Input docs: `https://www.shadcn-svelte.com/docs/components/input`.
+- shadcn/ui Input docs: `https://ui.shadcn.com/docs/components/input`.

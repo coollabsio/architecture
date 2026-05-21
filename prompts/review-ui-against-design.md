@@ -13,7 +13,7 @@ Follow `prompts/shared-design-workflow.md` before reviewing changed files.
 - If a needed component is pending/missing, mark it as a spec gap; do not invent detailed styling.
 - Check both light and dark behavior when colors/focus/surfaces are touched.
 - Prefer violations and concrete fixes over praise.
-- Do not suggest Laravel/Blade/Livewire/PHP implementation details for Shadcn-Svelte specs.
+- Do not suggest Laravel/Blade/Livewire/PHP implementation details for shadcn/ui specs.
 
 ## Output format
 

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Button
-description: Shadcn-Svelte Button primitive styled to match Coolify's dense, sharp, utilitarian action controls.
+description: shadcn/ui Button primitive styled to match Coolify's dense, sharp, utilitarian action controls.
 colors:
   # Brand / accents
   primary: "#6b16ed"
@@ -124,22 +124,20 @@ components:
 
 ## Overview
 
-The Coolify Button is a compact Shadcn-Svelte `Button` primitive extended with Coolify's dense, dark-first operator UI. It defines the Coolify button style while using the Shadcn-Svelte implementation model.
+The Coolify Button is a compact shadcn/ui `Button` primitive extended with Coolify's dense, dark-first operator UI. It defines the Coolify button style while using the shadcn/ui implementation model.
 
 Buttons feel flat, sharp, and operational. They are not soft marketing CTAs. The default height is 2rem, the radius is 4px, and state changes use borders, tonal fills, and focus rings instead of shadows or gradients.
 
-Start from the local Shadcn-Svelte primitive:
+Start from the local shadcn/ui primitive:
 
-```svelte
-<script lang="ts">
-  import { Button } from "$lib/components/ui/button/index.js";
-</script>
+```tsx
+import { Button } from "@/components/ui/button";
 ```
 
 If the primitive is missing, add it first:
 
 ```bash
-pnpm dlx shadcn-svelte@latest add button
+bunx shadcn@latest add button
 ```
 
 ## Colors
@@ -226,7 +224,7 @@ Icon-only buttons remain square with the same 4px radius unless another componen
 
 ### Base primitive extension
 
-Use Shadcn-Svelte's `buttonVariants` as the single source for button variants and sizes.
+Use shadcn/ui's `buttonVariants` as the single source for button variants and sizes.
 
 Recommended Coolify base override:
 
@@ -261,7 +259,7 @@ export const buttonVariants = tv({
 
 Use for normal actions.
 
-```svelte
+```tsx
 <Button>Save</Button>
 ```
 
@@ -276,7 +274,7 @@ border-neutral-200 bg-white text-black hover:bg-neutral-100 hover:text-black
 
 Use for the primary/promoted action on a surface.
 
-```svelte
+```tsx
 <Button variant="highlighted">Deploy</Button>
 ```
 
@@ -291,7 +289,7 @@ border-coollabs bg-coollabs-50 text-coollabs-200 hover:bg-coollabs hover:text-wh
 
 Use for dangerous or irreversible actions.
 
-```svelte
+```tsx
 <Button variant="destructive">Delete</Button>
 ```
 
@@ -312,9 +310,9 @@ Required disabled styling:
 disabled:pointer-events-none disabled:cursor-not-allowed disabled:opacity-100 disabled:border-neutral-300 disabled:bg-neutral-100 disabled:text-neutral-600 dark:disabled:border-coolgray-300 dark:disabled:bg-coolgray-100/60 dark:disabled:text-neutral-400
 ```
 
-Use Shadcn-Svelte `Spinner` inside `Button` for loading state: keep the text label first and put the spinner after the text:
+Use the shadcn/ui `Spinner` inside `Button` for loading state: keep the text label first and put the spinner after the text:
 
-```svelte
+```tsx
 <Button disabled aria-busy="true">
   Saving
   <Spinner />
@@ -331,11 +329,11 @@ The spinner has no light-mode color override; it inherits the button text color 
 
 ### Icon-only button
 
-Icon-only buttons use Shadcn-Svelte icon sizes and must have an accessible name.
+Icon-only buttons use shadcn/ui icon sizes and must have an accessible name.
 
-```svelte
+```tsx
 <Button variant="default" size="icon" aria-label="Refresh">
-  <RefreshCwIcon />
+  <RefreshCw />
 </Button>
 ```
 
@@ -360,13 +358,15 @@ Disallowed by default:
 
 Use `buttonVariants(...)` for anchors that need button styling:
 
-```svelte
-<a href="/deployments" class={buttonVariants({ variant: "link" })}>View deployments</a>
+```tsx
+<a href="/deployments" className={buttonVariants({ variant: "link" })}>
+  View deployments
+</a>
 ```
 
 ## Do's and Don'ts
 
-- Do start from Shadcn-Svelte `Button` or `buttonVariants(...)`.
+- Do start from shadcn/ui `Button` or `buttonVariants(...)`.
 - Do keep enabled buttons `cursor-pointer` and disabled buttons `disabled:cursor-not-allowed`.
 - Do use `variant="highlighted"` for promoted actions.
 - Do use `variant="destructive"` for dangerous actions.
@@ -389,19 +389,19 @@ Use `buttonVariants(...)` for anchors that need button styling:
 
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
-- Keep Button variants co-located with the generated local Shadcn-Svelte primitive.
+- Keep Button variants co-located with the generated local shadcn/ui primitive.
 - Keep pending changes as explicit review decisions; do not silently drift from this component spec.
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Button` or `buttonVariants(...)` as the base.
+- [ ] Uses shadcn/ui `Button` or `buttonVariants(...)` as the base.
 - [ ] Base button includes `h-8`, `px-2`, `gap-2`, `text-sm`, `font-medium`, `rounded-sm`, `cursor-pointer`.
 - [ ] Base button uses `border-2` with explicit light/dark border colors.
 - [ ] Default dark mode uses `dark:bg-coolgray-100`, `dark:text-white`, `dark:hover:bg-coolgray-200`.
 - [ ] `variant="highlighted"` applies the documented highlighted styles.
 - [ ] `variant="destructive"` applies the documented destructive styles.
 - [ ] Focus ring follows `ring-coollabs` light / `dark:ring-warning` dark with `ring-offset-2`.
-- [ ] Loading state uses Shadcn-Svelte `Spinner` inside `Button`.
+- [ ] Loading state uses shadcn/ui `Spinner` inside `Button`.
 - [ ] Button spinner has no light-mode color override and inherits text color.
 - [ ] Normal text buttons are icon-free by default.
 - [ ] Icon-only buttons use `size="icon*"` and have an accessible name.
@@ -415,15 +415,15 @@ This section is intentionally outside the core DESIGN.md section list and should
 Potential cleanup ideas for a later implementation pass:
 
 1. Decide whether the promoted variant should stay `highlighted` or become `primary`.
-2. Decide globally whether the design system keeps Coolify's `h-8` density everywhere or accepts Shadcn defaults in less dense apps.
+2. Decide globally whether the design system keeps Coolify's `h-8` density everywhere or accepts shadcn defaults in less dense apps.
 3. Confirm whether default icon button size should always be `size-8`.
-4. If adjacent buttons are common, migrate a separate `button-group.md` using Shadcn-Svelte Button Group.
+4. If adjacent buttons are common, migrate a separate `button-group.md` using a shadcn/ui Button Group.
 
 Do not apply these improvements automatically while migrating. Preserve visual intent first, then change after explicit review.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/buttons/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/buttons.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Button docs: `https://www.shadcn-svelte.com/docs/components/button`.
+- shadcn/ui Button docs: `https://ui.shadcn.com/docs/components/button`.

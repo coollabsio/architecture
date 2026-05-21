@@ -65,7 +65,7 @@ components:
 
 These tokens are the shared Coolify design primitives. Component files under `design/` may redeclare the subset they need for local lint/export, but must not contradict this file.
 
-The design is dense, sharp, dark-first, and operational. Use Shadcn-Svelte primitives as the implementation base, then apply these Coolify visual decisions.
+The design is dense, sharp, dark-first, and operational. Use shadcn/ui primitives as the implementation base, then apply these Coolify visual decisions.
 
 ## Colors
 

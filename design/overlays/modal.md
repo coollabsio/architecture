@@ -36,7 +36,7 @@ components:
 
 ## Overview
 
-Dialog Modal is the general overlay for focused tasks: create/edit forms, details, and short workflows. Use Shadcn-Svelte `Dialog` as the implementation base where available; local wrappers should preserve this visual spec.
+Dialog Modal is the general overlay for focused tasks: create/edit forms, details, and short workflows. Use shadcn/ui `Dialog` as the implementation base where available; local wrappers should preserve this visual spec.
 
 ## Colors
 
@@ -94,7 +94,7 @@ Use `rounded-sm`.
 
 ## Components
 
-- Shadcn-Svelte `Dialog` primitive.
+- shadcn/ui `Dialog` primitive.
 - Existing `Button`, `Input`, `FormField`, etc. inside content.
 
 ### Modal close button
@@ -103,13 +103,13 @@ Use the shared Coolify `Button` primitive for the header X close control. Do not
 
 Canonical implementation:
 
-```svelte
+```tsx
 <Button
   type="button"
   variant="ghost"
   size="icon"
   aria-label="Close dialog"
-  onclick={close}
+  onClick={close}
 >
   ×
 </Button>
@@ -217,7 +217,7 @@ Add form-specific variants after modal input is finalized.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/dialog/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/dialog.tsx`
 
 - `design/forms/button.md`
 - `design/forms/input.md`

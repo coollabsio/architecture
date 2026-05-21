@@ -75,9 +75,9 @@ Use `rounded-sm`, not pills.
 
 ## Components
 
-Build from Shadcn-Svelte `Badge` / local `Badge`:
+Build from shadcn/ui `Badge` / local `Badge`:
 
-```svelte
+```tsx
 <Badge variant="warning">Deprecated</Badge>
 ```
 
@@ -103,7 +103,7 @@ A future lifecycle badge set may include `Beta`, `Preview`, and `Experimental`.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/deprecated-badge/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/deprecated-badge.tsx`
 
 - `DESIGN.md`
 - `design/status/badge.md`

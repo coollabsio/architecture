@@ -9,7 +9,7 @@ const ROOT = resolve(dirname(__filename), "..");
 const DESIGN = resolve(ROOT, "DESIGN.md");
 const REGISTRY = resolve(
   ROOT,
-  "mockups/shadcn-svelte-sample/src/lib/component-registry.ts",
+  "mockups/shadcn-react-sample/src/lib/component-registry.ts",
 );
 const MANIFEST = resolve(ROOT, "design/manifest.json");
 

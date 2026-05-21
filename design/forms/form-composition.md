@@ -116,7 +116,7 @@ Use `design/overlays/alert.md` for saved and failed submit states.
 
 Success:
 
-```svelte
+```tsx
 <Alert variant="success" title="Settings saved" aria-live="polite" showIcon={false}>
   Your settings were saved. Keep the form in place and confirm the saved state inline.
 </Alert>
@@ -124,7 +124,7 @@ Success:
 
 Error/server failure:
 
-```svelte
+```tsx
 <Alert variant="destructive" title="Could not save settings" role="alert" showIcon={false}>
   Fix the highlighted fields below, then save again.
 </Alert>
@@ -149,7 +149,7 @@ Use the success alert after a successful save. Use a destructive alert when the 
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 Mockups must show submitted feedback as separate visible examples, not only as an interactive state hidden behind a submit action. The form-composition mock route should include:
 
@@ -191,6 +191,6 @@ Add async/loading progress examples after product usage is clearer.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/form-composition/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/form-composition.tsx`
 
 - `DESIGN.md`

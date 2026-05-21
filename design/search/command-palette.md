@@ -98,7 +98,7 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
@@ -114,6 +114,6 @@ Add async/loading and server-error variants after product usage is clearer.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/command-palette/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/command-palette.tsx`
 
 - `DESIGN.md`

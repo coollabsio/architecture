@@ -93,7 +93,7 @@ grid gap-4 sm:grid-cols-2 xl:grid-cols-3
 
 Use this when the page is one self-contained resource detail view, not a grid and not a list/detail split. The reference shape is a single bordered section containing resource title/environment, metadata, actions, a Subsidebar for section navigation, and a visual/content canvas.
 
-This layout may reference Laravel Cloud as visual inspiration for a resource/topology workspace: compact resource header, environment metadata, side section navigation, and connected service/database-style cards in one canvas. Treat this as inspiration only; implementation must still use Coolify tokens and Shadcn-Svelte primitives.
+This layout may reference Laravel Cloud as visual inspiration for a resource/topology workspace: compact resource header, environment metadata, side section navigation, and connected service/database-style cards in one canvas. Treat this as inspiration only; implementation must still use Coolify tokens and shadcn/ui primitives.
 
 ```txt
 [ resource title + environment                   actions ]
@@ -226,7 +226,7 @@ Main views are layouts, not primitives. They should compose existing components 
 - [ ] Resource grid uses Coolbox/Card sections.
 - [ ] Split view has two clear panels with independent scroll/list/detail areas.
 - [ ] Single-section view has resource header, metadata, actions, Subsidebar when needed, and one primary workspace.
-- [ ] Single-section topology samples may mention Laravel Cloud as visual inspiration, but still use Coolify tokens and Shadcn-Svelte primitives.
+- [ ] Single-section topology samples may mention Laravel Cloud as visual inspiration, but still use Coolify tokens and shadcn/ui primitives.
 - [ ] Uses borders, not heavy shadows.
 
 ## Claude Improvement Notes
@@ -235,7 +235,7 @@ Future specs can add dashboard metrics, command-center, or log-view layouts if n
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/main-view/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/main-view.tsx`
 
 - `DESIGN.md`
 - `design/containers/coolbox.md`

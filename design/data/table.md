@@ -32,7 +32,7 @@ components:
 
 ## Overview
 
-Use Shadcn-Svelte Table/Data Table as base. Compact rows, neutral borders, hover row background, sticky/scroll overflow where needed. Actions go right; statuses use Badge/Status Indicator.
+Use shadcn/ui Table/Data Table as base. Compact rows, neutral borders, hover row background, sticky/scroll overflow where needed. Actions go right; statuses use Badge/Status Indicator.
 
 ## Colors
 
@@ -44,7 +44,7 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 ## Layout
 
-Use Shadcn-Svelte Table/Data Table as base. Compact rows, neutral borders, hover row background, sticky/scroll overflow where needed. Actions go right; statuses use Badge/Status Indicator.
+Use shadcn/ui Table/Data Table as base. Compact rows, neutral borders, hover row background, sticky/scroll overflow where needed. Actions go right; statuses use Badge/Status Indicator.
 
 ## Exact Layout Recipe
 
@@ -96,12 +96,12 @@ Do use horizontal overflow on small screens. Do keep rows dense. Don't use large
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
-- [ ] Uses Shadcn-Svelte `Table` / Data Table primitives as the base, not a custom div-grid for tabular data.
+- [ ] Uses shadcn/ui `Table` / Data Table primitives as the base, not a custom div-grid for tabular data.
 - [ ] Wrapper allows horizontal overflow on small screens: `w-full overflow-x-auto`.
 - [ ] Table keeps dense operational spacing: `text-sm`, header `text-xs`, cells `px-3 py-2`.
 - [ ] Header is uppercase, bold, muted, and separated by a neutral/coolgray border.
@@ -118,6 +118,6 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/table/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/table.tsx`
 
 - `DESIGN.md`

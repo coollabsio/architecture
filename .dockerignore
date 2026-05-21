@@ -1,6 +1,5 @@
 **/node_modules
 **/.bun-cache
-**/.svelte-kit
 **/dist
 **/build
 **/.cache

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Checkbox
-description: Shadcn-Svelte Checkbox primitive styled as a compact, sharp, right-aligned form toggle with Coolify focus rings.
+description: shadcn/ui Checkbox primitive styled as a compact, sharp, right-aligned form toggle with Coolify focus rings.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -70,22 +70,20 @@ components:
 
 ## Overview
 
-The Coolify Checkbox is a compact Shadcn-Svelte `Checkbox` primitive used for boolean settings and option rows.
+The Coolify Checkbox is a compact shadcn/ui `Checkbox` primitive used for boolean settings and option rows.
 
 The common layout is a full row with label/helper content on the left and the checkbox control on the right. The row is dense, clickable, and dark-hoverable when enabled.
 
-Start from the local Shadcn-Svelte primitive:
+Start from the local shadcn/ui primitive:
 
-```svelte
-<script lang="ts">
-  import { Checkbox } from "$lib/components/ui/checkbox/index.js";
-</script>
+```tsx
+import { Checkbox } from "@/components/ui/checkbox";
 ```
 
 If the primitive is missing, add it first:
 
 ```bash
-bunx shadcn-svelte@latest add checkbox
+bunx shadcn@latest add checkbox
 ```
 
 ## Colors
@@ -193,9 +191,9 @@ If the local primitive uses a native checkbox rather than a fully custom control
 
 Recommended row composition:
 
-```svelte
-<label class="flex max-w-full cursor-pointer flex-row items-center gap-4 py-1 pr-2 dark:hover:bg-coolgray-100">
-  <span class="flex min-w-0 grow gap-2 break-words">Enable previews</span>
+```tsx
+<label className="flex max-w-full cursor-pointer flex-row items-center gap-4 py-1 pr-2 dark:hover:bg-coolgray-100">
+  <span className="flex min-w-0 grow gap-2 break-words">Enable previews</span>
   <Checkbox />
 </label>
 ```
@@ -218,7 +216,7 @@ If supported by the primitive, indeterminate state uses the same purple fill and
 
 ## Do's and Don'ts
 
-- Do start from Shadcn-Svelte `Checkbox`.
+- Do start from shadcn/ui `Checkbox`.
 - Do keep checkbox controls `size-4`, `rounded-sm`, and `shrink-0`.
 - Do use purple checked fill with white glyph in light mode.
 - Do use yellow checked fill with black glyph in dark mode.
@@ -234,12 +232,12 @@ If supported by the primitive, indeterminate state uses the same purple fill and
 
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
-- A custom Shadcn-style button control can represent checked state visually while a hidden/native input owns form semantics.
-- For production, prefer the actual Shadcn-Svelte Checkbox primitive so keyboard and ARIA state behavior are handled correctly.
+- A custom shadcn-style button control can represent checked state visually while a hidden/native input owns form semantics.
+- For production, prefer the actual shadcn/ui Checkbox primitive so keyboard and ARIA state behavior are handled correctly.
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Checkbox` as the base primitive.
+- [ ] Uses shadcn/ui `Checkbox` as the base primitive.
 - [ ] Checkbox is `size-4`, `rounded-sm`, `shrink-0`.
 - [ ] Checked state uses purple/white in light mode and yellow/black in dark mode.
 - [ ] Focus-visible ring uses `ring-coollabs` light / `dark:ring-warning` dark with `ring-offset-2`.
@@ -255,13 +253,13 @@ Potential cleanup ideas for a later implementation pass:
 
 1. Decide if the design system needs a separate `switch.md` for toggle-like settings.
 2. Add a richer checkbox group pattern if grouped options appear frequently.
-3. Confirm indeterminate state visuals after integrating the real Shadcn-Svelte primitive.
+3. Confirm indeterminate state visuals after integrating the real shadcn/ui primitive.
 
 Do not apply these improvements automatically while migrating. Preserve this component spec first, then change after explicit review.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/checkbox/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/checkbox.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Checkbox docs: `https://www.shadcn-svelte.com/docs/components/checkbox`.
+- shadcn/ui Checkbox docs: `https://ui.shadcn.com/docs/components/checkbox`.

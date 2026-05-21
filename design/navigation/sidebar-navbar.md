@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Sidebar Navbar
-description: Shadcn-Svelte Sidebar plus app navigation layout for dense dashboard navigation.
+description: shadcn/ui Sidebar plus app navigation layout for dense dashboard navigation.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -89,7 +89,7 @@ components:
 
 Sidebar Navbar is the main application navigation shell for dense operator dashboards. It combines a persistent left sidebar, brand/search/team controls, grouped navigation links, optional collapsed icon-only mode, and page-level content to the right.
 
-Use Shadcn-Svelte `Sidebar` as the implementation base when available. If an app does not need the full primitive, compose semantic `nav`, `ul`, `li`, and anchor/button elements with the classes below.
+Use shadcn/ui `Sidebar` as the implementation base when available. If an app does not need the full primitive, compose semantic `nav`, `ul`, `li`, and anchor/button elements with the classes below.
 
 ## Colors
 
@@ -239,12 +239,12 @@ Use `rounded-sm` for nav items and controls. Do not use pill navigation.
 
 ## Components
 
-### Shadcn-Svelte primitive
+### shadcn/ui primitive
 
-Start from Shadcn-Svelte Sidebar for production app shells:
+Start from shadcn/ui Sidebar for production app shells:
 
 ```bash
-bunx shadcn-svelte@latest add sidebar
+bunx shadcn@latest add sidebar
 ```
 
 Map Coolify classes onto:
@@ -264,26 +264,36 @@ Map Coolify classes onto:
 
 Expanded brand block:
 
-```svelte
-<div class="min-w-0 flex-1">
-  <a href="/" class="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white">Coolify</a>
-  <p class="text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
+```tsx
+<div className="min-w-0 flex-1">
+  <Link
+    to="/"
+    className="block truncate text-2xl font-bold tracking-tight text-black hover:opacity-80 dark:text-white"
+  >
+    Coolify
+  </Link>
+  <p className="text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400">v4.0.0</p>
 </div>
 ```
 
 Collapsed brand block:
 
-```svelte
-<div class="flex flex-col items-center gap-0.5">
-  <a
-    href="/"
-    class="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
+```tsx
+<div className="flex flex-col items-center gap-0.5">
+  <Link
+    to="/"
+    className="grid size-8 place-items-center rounded-sm text-lg font-bold text-black hover:opacity-80 dark:text-white"
     title="Coolify"
     aria-label="Coolify"
   >
     C
-  </a>
-  <p class="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400" title="v4.0.0">v4.0.0</p>
+  </Link>
+  <p
+    className="max-w-12 truncate text-center text-[10px] leading-[0.875rem] text-neutral-500 dark:text-neutral-400"
+    title="v4.0.0"
+  >
+    v4.0.0
+  </p>
 </div>
 ```
 
@@ -306,15 +316,15 @@ absolute -right-3 top-8 z-10 grid size-6 place-items-center rounded-full border 
 
 Exact icon:
 
-```svelte
+```tsx
 <svg
-  class={cn("size-3.5 transition-transform", collapsed && "rotate-180")}
+  className={cn("size-3.5 transition-transform", collapsed && "rotate-180")}
   viewBox="0 0 24 24"
   fill="none"
   stroke="currentColor"
-  stroke-width="2.2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
+  strokeWidth="2.2"
+  strokeLinecap="round"
+  strokeLinejoin="round"
   aria-hidden="true"
 >
   <path d="M15 18 9 12l6-6" />
@@ -328,16 +338,16 @@ Requirements:
 - Keep it visible in both expanded and collapsed modes.
 - Position it halfway over the sidebar/main border with `absolute -right-3`.
 - Use a small rounded chevron control (`size-6 rounded-full`), not a square header button.
-- Use the exact chevron path above, `size-3.5`, and `stroke-width="2.2"`.
+- Use the exact chevron path above, `size-3.5`, and `strokeWidth="2.2"`.
 - Rotate the chevron `180deg` when collapsed; do not swap to a different icon.
 - Ensure the sidebar container is `relative` and the shell does not clip the trigger.
-- Do not use the default Shadcn-Svelte `SidebarTrigger` visual without these classes.
+- Do not use the default shadcn/ui `SidebarTrigger` visual without these classes.
 
 ### Optional team switcher
 
 If a team/workspace switcher is required, place it directly below the header/search area and above the primary navigation list, matching Coolify's current placement. It is optional; do not reserve this space for apps without teams.
 
-Use Shadcn-Svelte `Dropdown Menu` for both expanded and collapsed states. Do not use a native select for the team switcher: the team switcher is navigation/context switching, not an ordinary form field.
+Use shadcn/ui `Dropdown Menu` for both expanded and collapsed states. Do not use a native select for the team switcher: the team switcher is navigation/context switching, not an ordinary form field.
 
 #### Expanded navbar team switcher
 
@@ -378,7 +388,7 @@ Expanded dropdown placement:
 left-0 right-auto top-full mt-1 w-full min-w-full
 ```
 
-When using the Shadcn-Svelte `DropdownMenuContent` primitive, the equivalent placement is `side="bottom" align="start"` with a menu width at least matching the trigger.
+When using the shadcn/ui `DropdownMenuContent` primitive, the equivalent placement is `side="bottom" align="start"` with a menu width at least matching the trigger.
 
 #### Collapsed navbar team switcher
 
@@ -419,7 +429,7 @@ Collapsed dropdown placement classes:
 absolute left-full top-0 z-[100] ml-2 mt-0 min-w-48 max-h-72 overflow-y-auto rounded-sm border border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100
 ```
 
-When using the Shadcn-Svelte `DropdownMenuContent` primitive, the equivalent placement is `side="right" align="start"`.
+When using the shadcn/ui `DropdownMenuContent` primitive, the equivalent placement is `side="right" align="start"`.
 
 #### Team switcher menu items
 
@@ -446,17 +456,21 @@ Optional shortcut hint uses KBD spec.
 
 ### Main nav item
 
-```svelte
-<a href="/projects" aria-current="page" class="... bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning">
-  <Icon class="size-4 shrink-0" aria-hidden="true" />
-  <span class="min-w-0 flex-1 truncate">Projects</span>
-</a>
+```tsx
+<Link
+  to="/projects"
+  aria-current="page"
+  className="... bg-neutral-200 text-black dark:bg-coolgray-200 dark:text-warning"
+>
+  <Icon className="size-4 shrink-0" aria-hidden="true" />
+  <span className="min-w-0 flex-1 truncate">Projects</span>
+</Link>
 ```
 
 Expanded item contract:
 
 - Wrapper: `min-h-7`, `px-2 py-1`, `gap-3`, `rounded-sm`, `text-sm`.
-- Icon: `size-4 shrink-0`, stroke-based icons should use `stroke-width` around `1.7` unless the icon set requires otherwise.
+- Icon: `size-4 shrink-0`, stroke-based icons should use `strokeWidth` around `1.7` unless the icon set requires otherwise.
 - Label: `min-w-0 flex-1 truncate`.
 - Badge/count: trailing item only, use `design/status/badge.md`.
 
@@ -525,9 +539,9 @@ Active subnav link uses `text-black dark:text-white` or `dark:text-warning` when
 
 ## Implementation Notes
 
-This spec intentionally describes Shadcn-Svelte primitives and semantic HTML composition. App-specific routing, permissions, and server-side state should be supplied by the consuming app.
+This spec intentionally describes shadcn/ui primitives and semantic HTML composition. App-specific routing, permissions, and server-side state should be supplied by the consuming app.
 
-Collapsed state should be persisted only by the application shell, not by the primitive component itself. Use a controlled prop/store for expanded/collapsed state.
+Collapsed state should be persisted only by the application shell, not by the primitive component itself. Use a controlled prop or React context/hook for expanded/collapsed state.
 
 The optional sidebar sub-controls should also be available as direct reusable primitive samples in the mockup chooser:
 
@@ -538,7 +552,7 @@ These samples must show expanded and collapsed geometry without changing the pla
 
 ## Review Checklist
 
-- [ ] Sidebar uses Shadcn-Svelte Sidebar or semantic `nav` composition.
+- [ ] Sidebar uses shadcn/ui Sidebar or semantic `nav` composition.
 - [ ] Sidebar container is `relative`, `w-64` expanded / `w-16` collapsed, border-separated, and has no heavy shadow.
 - [ ] Parent shell does not clip the border collapse trigger; verify no problematic `overflow-hidden` at the sidebar/main border.
 - [ ] Brand block uses `text-2xl font-bold tracking-tight`, truncates to one line, and places version/build metadata directly below at `text-[10px] leading-[0.875rem]`.
@@ -548,7 +562,7 @@ These samples must show expanded and collapsed geometry without changing the pla
 - [ ] Active light item uses neutral fill with black text; active dark item uses `dark:bg-coolgray-200 dark:text-warning`.
 - [ ] Collapsed mode hides visible labels/badges but keeps accessible labels/tooltips.
 - [ ] Sidebar has an internal collapse/expand trigger with `aria-expanded`, `aria-label`, `absolute -right-3 top-8`, `size-6`, `rounded-full`, and `shadow-sm`.
-- [ ] Collapse chevron uses exact path `M15 18 9 12l6-6`, `size-3.5`, `stroke-width="2.2"`, and `rotate-180` when collapsed.
+- [ ] Collapse chevron uses exact path `M15 18 9 12l6-6`, `size-3.5`, `strokeWidth="2.2"`, and `rotate-180` when collapsed.
 - [ ] Collapse trigger is not the default square/inline Shadcn trigger; it is the rounded border control.
 - [ ] Page subnav uses horizontal scroll when needed.
 - [ ] Optional team switcher is placed below header/search and above nav, with full-width Dropdown Menu trigger expanded and centered `size-8` team-initial Dropdown trigger collapsed.
@@ -564,8 +578,8 @@ Future specs can split app sidebar, resource subnav, and mobile sheet navigation
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/sidebar-navbar/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/sidebar-navbar.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Sidebar primitive
+- shadcn/ui Sidebar primitive
 - Coolify current sidebar/navbar visual pattern: dense rows, active dark yellow, border-separated shell

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Form Field
-description: Label, required marker, helper icon, description, error text, and input-control composition for Shadcn-Svelte forms.
+description: Label, required marker, helper icon, description, error text, and input-control composition for shadcn/ui forms.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -78,14 +78,14 @@ components:
 
 The Coolify Form Field is the composition around a form control: label, required marker, helper/info icon, optional description, optional error text, and the input/select/textarea control itself.
 
-This pattern should not be baked into the raw `Input` primitive. Keep `Input` focused on field chrome and state. Compose labels and helper behavior around controls using Shadcn-Svelte primitives.
+This pattern should not be baked into the raw `Input` primitive. Keep `Input` focused on field chrome and state. Compose labels and helper behavior around controls using shadcn/ui primitives.
 
-Recommended Shadcn-Svelte primitives:
+Recommended shadcn/ui primitives:
 
 - `Label` for accessible label text.
 - `Tooltip` for short helper content.
 - `Hover Card` only for richer helper content that needs links or structured text.
-- `Form` primitives if the application uses a Shadcn/formsnap-style form abstraction.
+- `Form` primitives if the application uses a `react-hook-form`-based form abstraction.
 
 ## Colors
 
@@ -179,19 +179,21 @@ Helper icons and tooltip surfaces remain sharp and compact:
 
 ### Base composition
 
-```svelte
-<div class="space-y-1">
-  <div class="mb-1 flex items-center gap-1">
-    <Label for="direction" class="text-sm font-medium text-black dark:text-white">Direction</Label>
-    <span class="font-bold text-coollabs dark:text-warning">*</span>
-    <Tooltip.Root>
-      <Tooltip.Trigger class="inline-flex size-4 items-center justify-center text-coollabs dark:text-warning">
-        <InfoIcon class="size-4" />
-      </Tooltip.Trigger>
-      <Tooltip.Content class="rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs text-white shadow-sm">
+```tsx
+<div className="space-y-1">
+  <div className="mb-1 flex items-center gap-1">
+    <Label htmlFor="direction" className="text-sm font-medium text-black dark:text-white">
+      Direction
+    </Label>
+    <span className="font-bold text-coollabs dark:text-warning">*</span>
+    <Tooltip>
+      <TooltipTrigger className="inline-flex size-4 items-center justify-center text-coollabs dark:text-warning">
+        <Info className="size-4" />
+      </TooltipTrigger>
+      <TooltipContent className="rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs text-white shadow-sm">
         Choose how incoming domains are normalized.
-      </Tooltip.Content>
-    </Tooltip.Root>
+      </TooltipContent>
+    </Tooltip>
   </div>
 
   <Input id="direction" />
@@ -238,16 +240,18 @@ If content includes multiple paragraphs, links, or actions, use a Hover Card spe
 
 ### Description text
 
-```svelte
-<p class="mt-1 text-xs text-neutral-500 dark:text-neutral-400">Used as the public service name.</p>
+```tsx
+<p className="mt-1 text-xs text-neutral-500 dark:text-neutral-400">
+  Used as the public service name.
+</p>
 ```
 
 Description text explains the field but does not replace helper tooltip content.
 
 ### Error text
 
-```svelte
-<p class="mt-1 text-xs text-error">Application name is required.</p>
+```tsx
+<p className="mt-1 text-xs text-error">Application name is required.</p>
 ```
 
 Error text appears below the control and should be visible without opening a tooltip.
@@ -282,13 +286,13 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 - Don't put long documentation inside a tooltip.
 - Don't add visible background pills or boxes around label helper icons.
 - Don't bake helper icon behavior into every Input primitive.
-- Don't introduce Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
+- Don't introduce unrelated project-specific implementation details.
 
 ## Implementation Notes
 
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
-- If the app uses Shadcn-Svelte Form primitives, wrap this pattern in the local form-field component.
+- If the app uses shadcn/ui Form primitives, wrap this pattern in the local form-field component.
 - If no form abstraction exists, a simple local `Field`, `FieldLabel`, `FieldDescription`, and `FieldError` composition is acceptable.
 - The Tooltip primitive should own accessibility behavior: trigger/focus/escape/positioning.
 
@@ -319,9 +323,9 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/lib/components/ui/form-field/form-field.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/components/ui/form-field.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Label docs: `https://www.shadcn-svelte.com/docs/components/label`.
-- Shadcn-Svelte Tooltip docs: `https://www.shadcn-svelte.com/docs/components/tooltip`.
-- Shadcn-Svelte Form docs: `https://www.shadcn-svelte.com/docs/components/form`.
+- shadcn/ui Label docs: `https://ui.shadcn.com/docs/components/label`.
+- shadcn/ui Tooltip docs: `https://ui.shadcn.com/docs/components/tooltip`.
+- shadcn/ui Form docs: `https://ui.shadcn.com/docs/components/form`.

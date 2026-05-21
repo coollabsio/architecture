@@ -33,7 +33,7 @@ components:
 
 ## Overview
 
-Searchable Dropdown is a combobox-style selector for longer option lists where native select is not enough. Use Shadcn-Svelte `Command` + `Popover`/`Combobox` as the production base, extended with Coolify density and colors.
+Searchable Dropdown is a combobox-style selector for longer option lists where native select is not enough. Use shadcn/ui `Command` + `Popover`/`Combobox` as the production base, extended with Coolify density and colors.
 
 ## Colors
 
@@ -135,7 +135,7 @@ Future variant can add async loading and grouped options.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/searchable-dropdown/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/searchable-dropdown.tsx`
 
 - `design/forms/dropdown.md`
 - `design/forms/input.md`

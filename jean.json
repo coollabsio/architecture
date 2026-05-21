@@ -1,8 +1,8 @@
 {
   "scripts": {
-    "setup": "cd mockups/shadcn-svelte-sample && bun i",
+    "setup": "cd mockups/shadcn-react-sample && bun i",
     "teardown": null,
-    "run": "cd mockups/shadcn-svelte-sample && bun dev"
+    "run": "cd mockups/shadcn-react-sample && bun dev"
   },
   "ports": [
     {

@@ -49,7 +49,7 @@ This page-level auth composition is inspired by Coolify's current auth screens. 
 
 Instruction text, password/password-again fields, password rules callout, highlighted submit button, and Back to Login link.
 
-Use Shadcn-Svelte primitives as the base: `Button`, `Input`/`PasswordInput` where needed, and `FormField` where labels are required.
+Use shadcn/ui primitives as the base: `Button`, `Input`/`PasswordInput` where needed, and `FormField` where labels are required.
 
 ## Colors
 
@@ -160,7 +160,7 @@ Consider extracting shared `AuthShell`, `AuthSubmitButton`, and auth divider com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/reset-password-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/reset-password-page.tsx`
 
 - `DESIGN.md`
 - Coolify current auth views reviewed for layout and interaction hierarchy.

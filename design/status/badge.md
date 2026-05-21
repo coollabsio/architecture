@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Badge
-description: Shadcn-Svelte Badge primitive for compact status, metadata, and severity labels.
+description: shadcn/ui Badge primitive for compact status, metadata, and severity labels.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -52,7 +52,7 @@ components:
 
 ## Overview
 
-The Coolify Badge is a compact Shadcn-Svelte `Badge` primitive for statuses, tags, version labels, and short metadata. It should feel dense and utilitarian, not pill-like or decorative.
+The Coolify Badge is a compact shadcn/ui `Badge` primitive for statuses, tags, version labels, and short metadata. It should feel dense and utilitarian, not pill-like or decorative.
 
 ## Colors
 
@@ -102,10 +102,10 @@ Use `rounded-sm`, not large pills. Badges are labels, not buttons.
 
 ### Badge primitive
 
-Start from Shadcn-Svelte `Badge`:
+Start from shadcn/ui `Badge`:
 
 ```bash
-bunx shadcn-svelte@latest add badge
+bunx shadcn@latest add badge
 ```
 
 Base classes:
@@ -146,7 +146,7 @@ A later `status-indicator.md` can define dot + badge + timestamp patterns.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/badge/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/badge.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Badge primitive
+- shadcn/ui Badge primitive

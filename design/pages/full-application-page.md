@@ -50,7 +50,7 @@ components:
 
 The Full Application Page is the production-style application shell: persistent sidebar navbar on the left and a full-height main content region on the right. Use this when showing a complete app screen instead of a small component demo card.
 
-Base composition: `design/navigation/sidebar-navbar.md` for the sidebar, `design/layouts/main-view.md` for main content structure, and Shadcn-Svelte `Button`, `Badge`, `Card`, `Breadcrumb`, and form primitives inside the content region.
+Base composition: `design/navigation/sidebar-navbar.md` for the sidebar, `design/layouts/main-view.md` for main content structure, and shadcn/ui `Button`, `Badge`, `Card`, `Breadcrumb`, and form primitives inside the content region.
 
 ## Colors
 
@@ -167,11 +167,11 @@ In the mockup app, the shared top selector remains visible above every page. Rea
 
 ## Claude Improvement Notes
 
-If the app requires a mobile drawer, reuse the same sidebar navbar visual contract inside a Shadcn-Svelte Sheet.
+If the app requires a mobile drawer, reuse the same sidebar navbar visual contract inside a shadcn/ui Sheet.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/full-application-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/full-application-page.tsx`
 
 - `DESIGN.md`
 - `design/navigation/sidebar-navbar.md`

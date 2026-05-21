@@ -2,7 +2,7 @@
 
 You are an implementation agent testing whether the design-system Markdown files are clear enough to build from.
 
-Your job is to read the local design docs and generate a sample Shadcn-Svelte mockup that demonstrates the documented design system without inventing undocumented styling.
+Your job is to read the local design docs and generate a sample React + shadcn/ui mockup that demonstrates the documented design system without inventing undocumented styling.
 
 ## Shared workflow
 
@@ -10,7 +10,7 @@ Follow `prompts/shared-design-workflow.md` before generating code.
 
 ## Goal
 
-Create a small sample application screen that shows how an upcoming Shadcn-Svelte project should look if it follows the design docs.
+Create a small sample application screen that shows how an upcoming React + shadcn/ui project should look if it follows the design docs.
 
 The sample should be a realistic operator/dashboard UI, not a generic component gallery.
 
@@ -42,15 +42,15 @@ Use `design/manifest.json`; do not hard-code component docs in this prompt.
 
 ## Implementation rules
 
-- Use Shadcn-Svelte primitives as the base.
-- Use Tailwind utilities and Shadcn-Svelte conventions.
+- Use shadcn/ui primitives as the base.
+- Use Tailwind utilities and shadcn/ui conventions.
 - Apply exact visual rules from the mapped specs, not from this prompt.
 - Do not use Laravel, Blade, Livewire, Alpine, PHP, or unrelated project-specific implementation details.
 - Do not invent new component specs for pending components.
 
 ## Deliverables
 
-Produce code for a minimal local Shadcn-Svelte implementation. Use Bun for the mockup sandbox commands and lockfile.
+Produce code for a minimal local React + shadcn/ui implementation. Use Bun for the mockup sandbox commands and lockfile.
 
 Preferred output format:
 
@@ -67,35 +67,28 @@ If you are working inside a real repo, create or update files directly instead o
 If no app exists yet, create a small mockup sandbox under this shape. Add only component folders required by the manifest-mapped specs you use:
 
 ```txt
-mockups/shadcn-svelte-sample/
+mockups/shadcn-react-sample/
   README.md
   package.json
   bun.lock
-  src/routes/+page.svelte
-  src/lib/components/ui/button/index.ts
-  src/lib/components/ui/button/button.svelte
-  src/lib/components/ui/spinner/index.ts
-  src/lib/components/ui/spinner/spinner.svelte
-  src/lib/components/ui/dropdown-menu/index.ts
-  src/lib/components/ui/dropdown-menu/dropdown-menu.svelte
-  src/lib/components/ui/input/index.ts
-  src/lib/components/ui/input/input.svelte
-  src/lib/components/ui/input/password-input.svelte
-  src/lib/components/ui/form-field/index.ts
-  src/lib/components/ui/form-field/form-field.svelte
-  src/lib/components/ui/select/index.ts
-  src/lib/components/ui/select/native-select.svelte
-  src/lib/components/ui/textarea/index.ts
-  src/lib/components/ui/textarea/textarea.svelte
-  src/lib/components/ui/checkbox/index.ts
-  src/lib/components/ui/checkbox/checkbox.svelte
-  src/lib/components/ui/checkbox/checkbox-row.svelte
-  src/lib/components/ui/copy-button/index.ts
-  src/lib/components/ui/copy-button/copy-button.svelte
+  vite.config.ts
+  src/main.tsx
+  src/app.css
   src/lib/utils.ts
+  src/components/ui/button.tsx
+  src/components/ui/spinner.tsx
+  src/components/ui/dropdown-menu.tsx
+  src/components/ui/input.tsx
+  src/components/ui/form-field.tsx
+  src/components/ui/select.tsx
+  src/components/ui/textarea.tsx
+  src/components/ui/checkbox.tsx
+  src/components/ui/copy-button.tsx
+  src/routes/__root.tsx
+  src/routes/index.tsx
 ```
 
-The exact structure may vary if the existing project already has a SvelteKit/Shadcn-Svelte layout.
+The exact structure may vary if the existing project already has a React + Vite + shadcn/ui layout.
 
 ## Acceptance criteria
 
@@ -115,7 +108,7 @@ The generated result should be considered a design-doc failure if the AI:
 
 - Ignores `DESIGN.md`, `design/tokens.md`, `design/manifest.json`, or mapped component specs.
 - Uses raw one-off booleans/classes instead of documented variants and states.
-- Builds a generic Shadcn default UI without Coolify density/colors.
+- Builds a generic shadcn/ui default UI without Coolify density/colors.
 - Misses required variants, states, density, radius, color, focus, or accessibility notes from mapped specs.
 - Uses purple as the general dark-mode accent outside documented exceptions.
 - Adds gradients, large rounded corners, large shadows, or decorative marketing UI.

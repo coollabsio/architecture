@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Alert
-description: Shadcn-Svelte Alert primitive for compact notices, warnings, errors, and operational callouts.
+description: shadcn/ui Alert primitive for compact notices, warnings, errors, and operational callouts.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -53,7 +53,7 @@ components:
 
 ## Overview
 
-The Coolify Alert is a compact Shadcn-Svelte `Alert` primitive for contextual information, warnings, errors, and success messages. It replaces generic callout boxes for migrated design-system screens.
+The Coolify Alert is a compact shadcn/ui `Alert` primitive for contextual information, warnings, errors, and success messages. It replaces generic callout boxes for migrated design-system screens.
 
 ## Colors
 
@@ -104,10 +104,10 @@ Use `rounded-sm`. Avoid large rounded marketing callouts.
 
 ### Alert primitive
 
-Start from Shadcn-Svelte `Alert`:
+Start from shadcn/ui `Alert`:
 
 ```bash
-bunx shadcn-svelte@latest add alert
+bunx shadcn@latest add alert
 ```
 
 Base classes:
@@ -146,7 +146,7 @@ Future specs can split Toast/Sonner from inline Alert behavior.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/alert/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/alert.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Alert primitive
+- shadcn/ui Alert primitive

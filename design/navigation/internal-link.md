@@ -86,7 +86,7 @@ inline-flex items-center gap-1 rounded-sm text-coollabs hover:underline focus-vi
 
 ## Implementation Notes
 
-In SvelteKit, use normal `<a href="/route">` unless a routing helper is required.
+In React, use the TanStack Router `<Link to="/route">` component for app-local navigation; fall back to a plain `<a href="/route">` only for non-routed targets.
 
 ## Review Checklist
 
@@ -100,6 +100,6 @@ A sidebar link variant can be documented with Sidebar/Navbar.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/internal-link/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/internal-link.tsx`
 
 - `DESIGN.md`

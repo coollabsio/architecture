@@ -74,7 +74,7 @@ Use `rounded-sm`, not pill keys.
 
 ## Components
 
-Start from Shadcn-Svelte `Kbd` if available, or a semantic `<kbd>` element:
+Start from shadcn/ui `Kbd` if available, or a semantic `<kbd>` element:
 
 ```txt
 inline-flex h-5 items-center rounded-sm border border-neutral-200 bg-white px-1.5 font-mono text-xs font-medium text-black dark:border-coolgray-300 dark:bg-coolgray-100 dark:text-white
@@ -102,6 +102,6 @@ A future command palette spec can define shortcut alignment in menus.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/kbd/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/kbd.tsx`
 
 - `DESIGN.md`

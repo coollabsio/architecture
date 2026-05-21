@@ -29,7 +29,7 @@ components:
 
 ## Overview
 
-Destructive Confirmation Modal is for irreversible actions: delete environment, delete server, wipe data, or remove production resources. Use Shadcn-Svelte `AlertDialog` or `Dialog` as the base and require typed confirmation for high-risk actions.
+Destructive Confirmation Modal is for irreversible actions: delete environment, delete server, wipe data, or remove production resources. Use shadcn/ui `AlertDialog` or `Dialog` as the base and require typed confirmation for high-risk actions.
 
 ## Colors
 
@@ -80,7 +80,7 @@ Use `rounded-sm`.
 
 ## Components
 
-- Shadcn-Svelte `AlertDialog` or `Dialog`.
+- shadcn/ui `AlertDialog` or `Dialog`.
 - `Input` for typed confirmation.
 - `Button` destructive variant for final action.
 - Optional header X close button follows `design/overlays/modal.md` → "Modal close button".
@@ -131,7 +131,7 @@ Future variant can support checkbox-confirmation for medium-risk actions.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/destructive-confirmation/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/destructive-confirmation.tsx`
 
 - `design/forms/button.md`
 - `design/forms/input.md`

@@ -134,7 +134,7 @@ A future Box spec can define non-ring variants. Coolbox should stay the ring-hov
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/lib/components/ui/coolbox/coolbox.svelte`
+- Mockup reference: no dedicated React mock route yet. The Coolbox pattern is currently shown inline inside `mockups/shadcn-react-sample/src/routes/pages/main-view.tsx` (resource grid `Coolbox` helper).
 
 - `DESIGN.md`
 - Coolify current `coolbox` utility visual pattern

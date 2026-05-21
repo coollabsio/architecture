@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Tabs
-description: Shadcn-Svelte Tabs primitive for compact section navigation inside pages or cards.
+description: shadcn/ui Tabs primitive for compact section navigation inside pages or cards.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -40,7 +40,7 @@ components:
 
 ## Overview
 
-The Coolify Tabs component is a Shadcn-Svelte `Tabs` primitive for switching between related sections within the same page, card, or settings panel.
+The Coolify Tabs component is a shadcn/ui `Tabs` primitive for switching between related sections within the same page, card, or settings panel.
 
 ## Colors
 
@@ -87,10 +87,10 @@ Use `rounded-sm` for list and triggers.
 
 ### Tabs primitive
 
-Start from Shadcn-Svelte `Tabs`:
+Start from shadcn/ui `Tabs`:
 
 ```bash
-bunx shadcn-svelte@latest add tabs
+bunx shadcn@latest add tabs
 ```
 
 Trigger classes:
@@ -122,7 +122,7 @@ A separate top-level navigation spec can define sidebar and page nav patterns.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/tabs/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/tabs.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Tabs primitive
+- shadcn/ui Tabs primitive

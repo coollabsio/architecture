@@ -8,7 +8,7 @@
       "need": "Action button, submit button, destructive button, highlighted button",
       "label": "design/forms/button.md",
       "designDoc": "design/forms/button.md",
-      "basePrimitive": "Shadcn-Svelte Button",
+      "basePrimitive": "button",
       "status": "Migrated",
       "mockRoute": "/components/buttons",
       "mockSlug": "buttons"
@@ -18,7 +18,7 @@
       "need": "Text input",
       "label": "design/forms/input.md",
       "designDoc": "design/forms/input.md",
-      "basePrimitive": "Shadcn-Svelte Input",
+      "basePrimitive": "input",
       "status": "Migrated",
       "mockRoute": "/components/input",
       "mockSlug": "input"
@@ -28,7 +28,7 @@
       "need": "Form label, required marker, helper icon, field description/error",
       "label": "design/forms/form-field.md",
       "designDoc": "design/forms/form-field.md",
-      "basePrimitive": "Shadcn-Svelte Label + Tooltip composition",
+      "basePrimitive": "label + Radix Tooltip composition",
       "status": "Migrated",
       "mockRoute": null,
       "mockSlug": null
@@ -38,7 +38,7 @@
       "need": "Select",
       "label": "design/forms/select.md",
       "designDoc": "design/forms/select.md",
-      "basePrimitive": "Shadcn-Svelte Select or Native Select",
+      "basePrimitive": "select or native <select> wrapper",
       "status": "Migrated",
       "mockRoute": "/components/select",
       "mockSlug": "select"
@@ -48,7 +48,7 @@
       "need": "Checkbox",
       "label": "design/forms/checkbox.md",
       "designDoc": "design/forms/checkbox.md",
-      "basePrimitive": "Shadcn-Svelte Checkbox",
+      "basePrimitive": "checkbox (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/checkbox",
       "mockSlug": "checkbox"
@@ -58,7 +58,7 @@
       "need": "Textarea",
       "label": "design/forms/textarea.md",
       "designDoc": "design/forms/textarea.md",
-      "basePrimitive": "Shadcn-Svelte Textarea",
+      "basePrimitive": "textarea",
       "status": "Migrated",
       "mockRoute": "/components/textarea",
       "mockSlug": "textarea"
@@ -68,7 +68,7 @@
       "need": "Copy button",
       "label": "design/forms/copy-button.md",
       "designDoc": "design/forms/copy-button.md",
-      "basePrimitive": "Shadcn-Svelte Button + Input composition",
+      "basePrimitive": "button + input composition",
       "status": "Migrated",
       "mockRoute": "/components/copy-button",
       "mockSlug": "copy-button"
@@ -78,7 +78,7 @@
       "need": "Radio group",
       "label": "design/forms/radio-group.md",
       "designDoc": "design/forms/radio-group.md",
-      "basePrimitive": "Shadcn-Svelte Radio Group",
+      "basePrimitive": "radio-group (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/radio-group",
       "mockSlug": "radio-group"
@@ -88,7 +88,7 @@
       "need": "Switch",
       "label": "design/forms/switch.md",
       "designDoc": "design/forms/switch.md",
-      "basePrimitive": "Shadcn-Svelte Switch",
+      "basePrimitive": "switch (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/switch",
       "mockSlug": "switch"
@@ -98,7 +98,7 @@
       "need": "Card, panel, operational surface",
       "label": "design/containers/card.md",
       "designDoc": "design/containers/card.md",
-      "basePrimitive": "Shadcn-Svelte Card",
+      "basePrimitive": "card",
       "status": "Migrated",
       "mockRoute": "/components/card",
       "mockSlug": "card"
@@ -108,7 +108,7 @@
       "need": "Box/card link",
       "label": "design/containers/box.md",
       "designDoc": "design/containers/box.md",
-      "basePrimitive": "Shadcn-Svelte Card or custom wrapper",
+      "basePrimitive": "card or custom anchor wrapper",
       "status": "Pending",
       "mockRoute": null,
       "mockSlug": null
@@ -118,7 +118,7 @@
       "need": "Coolbox/card with ring hover",
       "label": "design/containers/coolbox.md",
       "designDoc": "design/containers/coolbox.md",
-      "basePrimitive": "Shadcn-Svelte Card or anchor/button wrapper",
+      "basePrimitive": "card or anchor/button wrapper",
       "status": "Migrated",
       "mockRoute": null,
       "mockSlug": null
@@ -128,7 +128,7 @@
       "need": "Badge",
       "label": "design/status/badge.md",
       "designDoc": "design/status/badge.md",
-      "basePrimitive": "Shadcn-Svelte Badge",
+      "basePrimitive": "badge",
       "status": "Migrated",
       "mockRoute": "/components/badge",
       "mockSlug": "badge"
@@ -138,7 +138,7 @@
       "need": "Status indicator",
       "label": "design/status/status-indicator.md",
       "designDoc": "design/status/status-indicator.md",
-      "basePrimitive": "Badge + text composition",
+      "basePrimitive": "Dot + text composition",
       "status": "Migrated",
       "mockRoute": "/components/status-indicator",
       "mockSlug": "status-indicator"
@@ -148,7 +148,7 @@
       "need": "Deprecated badge",
       "label": "design/status/deprecated-badge.md",
       "designDoc": "design/status/deprecated-badge.md",
-      "basePrimitive": "Shadcn-Svelte Badge",
+      "basePrimitive": "badge variant",
       "status": "Migrated",
       "mockRoute": "/components/deprecated-badge",
       "mockSlug": "deprecated-badge"
@@ -158,7 +158,7 @@
       "need": "Tag",
       "label": "design/status/tag.md",
       "designDoc": "design/status/tag.md",
-      "basePrimitive": "Shadcn-Svelte Badge or custom tag",
+      "basePrimitive": "badge or custom tag",
       "status": "Migrated",
       "mockRoute": "/components/tag",
       "mockSlug": "tag"
@@ -168,7 +168,7 @@
       "need": "Alert / inline callout",
       "label": "design/overlays/alert.md",
       "designDoc": "design/overlays/alert.md",
-      "basePrimitive": "Shadcn-Svelte Alert",
+      "basePrimitive": "alert",
       "status": "Migrated",
       "mockRoute": "/components/alert",
       "mockSlug": "alert"
@@ -178,7 +178,7 @@
       "need": "Callout",
       "label": "design/overlays/callout.md",
       "designDoc": "design/overlays/callout.md",
-      "basePrimitive": "Shadcn-Svelte Alert",
+      "basePrimitive": "alert variant",
       "status": "Migrated",
       "mockRoute": "/components/callout",
       "mockSlug": "callout"
@@ -188,7 +188,7 @@
       "need": "Modal / dialog",
       "label": "design/overlays/modal.md",
       "designDoc": "design/overlays/modal.md",
-      "basePrimitive": "Shadcn-Svelte Dialog",
+      "basePrimitive": "dialog (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/dialog",
       "mockSlug": "dialog"
@@ -198,7 +198,7 @@
       "need": "Destructive modal confirmation",
       "label": "design/overlays/modal-confirmation.md",
       "designDoc": "design/overlays/modal-confirmation.md",
-      "basePrimitive": "Shadcn-Svelte Alert Dialog or Dialog",
+      "basePrimitive": "alert-dialog or dialog",
       "status": "Migrated",
       "mockRoute": "/components/destructive-confirmation",
       "mockSlug": "destructive-confirmation"
@@ -208,7 +208,7 @@
       "need": "Confirm modal",
       "label": "design/overlays/confirm-modal.md",
       "designDoc": "design/overlays/confirm-modal.md",
-      "basePrimitive": "Shadcn-Svelte Alert Dialog",
+      "basePrimitive": "alert-dialog",
       "status": "Migrated",
       "mockRoute": "/components/confirm-modal",
       "mockSlug": "confirm-modal"
@@ -218,7 +218,7 @@
       "need": "Popup / popup small",
       "label": "design/overlays/popup.md",
       "designDoc": "design/overlays/popup.md",
-      "basePrimitive": "Shadcn-Svelte Popover/Dialog as appropriate",
+      "basePrimitive": "popover / dialog",
       "status": "Migrated",
       "mockRoute": "/components/popover",
       "mockSlug": "popover"
@@ -228,7 +228,7 @@
       "need": "Slide-over",
       "label": "design/overlays/slide-over.md",
       "designDoc": "design/overlays/slide-over.md",
-      "basePrimitive": "Shadcn-Svelte Sheet",
+      "basePrimitive": "sheet (Radix Dialog w/ side anim)",
       "status": "Migrated",
       "mockRoute": "/components/slide-over",
       "mockSlug": "slide-over"
@@ -238,7 +238,7 @@
       "need": "Toast",
       "label": "design/overlays/toast.md",
       "designDoc": "design/overlays/toast.md",
-      "basePrimitive": "Shadcn-Svelte Sonner",
+      "basePrimitive": "sonner",
       "status": "Migrated",
       "mockRoute": "/components/toast",
       "mockSlug": "toast"
@@ -248,7 +248,7 @@
       "need": "Helper tooltip",
       "label": "design/overlays/helper-tooltip.md",
       "designDoc": "design/overlays/helper-tooltip.md",
-      "basePrimitive": "Shadcn-Svelte Tooltip or Hover Card",
+      "basePrimitive": "tooltip (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/helper-tooltip",
       "mockSlug": "helper-tooltip"
@@ -268,7 +268,7 @@
       "need": "Application settings page",
       "label": "design/pages/settings-page.md",
       "designDoc": "design/pages/settings-page.md",
-      "basePrimitive": "Settings page composition with Shadcn-Svelte Button, Input, FormField, Select, Switch, Badge, Callout",
+      "basePrimitive": "Settings composition with button, input, FormField, select, switch, badge, callout",
       "status": "Migrated",
       "mockRoute": "/pages/settings-page",
       "mockSlug": "settings-page"
@@ -288,7 +288,7 @@
       "need": "Sidebar / navbar",
       "label": "design/navigation/sidebar-navbar.md",
       "designDoc": "design/navigation/sidebar-navbar.md",
-      "basePrimitive": "Shadcn-Svelte Sidebar + app layout",
+      "basePrimitive": "Custom composition (uses useSidebar/useCommandPalette/useAppearance hooks)",
       "status": "Migrated",
       "mockRoute": "/components/theme-switcher",
       "mockSlug": "theme-switcher"
@@ -308,7 +308,7 @@
       "need": "Tabs",
       "label": "design/navigation/tabs.md",
       "designDoc": "design/navigation/tabs.md",
-      "basePrimitive": "Shadcn-Svelte Tabs",
+      "basePrimitive": "tabs (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/tabs",
       "mockSlug": "tabs"
@@ -318,7 +318,7 @@
       "need": "Breadcrumbs",
       "label": "design/navigation/breadcrumbs.md",
       "designDoc": "design/navigation/breadcrumbs.md",
-      "basePrimitive": "Shadcn-Svelte Breadcrumb",
+      "basePrimitive": "breadcrumb",
       "status": "Migrated",
       "mockRoute": "/components/breadcrumbs",
       "mockSlug": "breadcrumbs"
@@ -328,7 +328,7 @@
       "need": "External link",
       "label": "design/navigation/external-link.md",
       "designDoc": "design/navigation/external-link.md",
-      "basePrimitive": "Anchor + icon composition",
+      "basePrimitive": "Anchor + lucide icon composition",
       "status": "Migrated",
       "mockRoute": "/components/external-link",
       "mockSlug": "external-link"
@@ -338,7 +338,7 @@
       "need": "Internal link",
       "label": "design/navigation/internal-link.md",
       "designDoc": "design/navigation/internal-link.md",
-      "basePrimitive": "Anchor + icon composition",
+      "basePrimitive": "TanStack Router <Link> + Coolify accent",
       "status": "Migrated",
       "mockRoute": "/components/internal-link",
       "mockSlug": "internal-link"
@@ -358,7 +358,7 @@
       "need": "Loading spinner",
       "label": "design/feedback/loading-spinner.md",
       "designDoc": "design/feedback/loading-spinner.md",
-      "basePrimitive": "Shadcn-Svelte Spinner",
+      "basePrimitive": "Lucide Loader2 + animate-spin",
       "status": "Migrated",
       "mockRoute": "/components/loading-spinner",
       "mockSlug": "loading-spinner"
@@ -368,7 +368,7 @@
       "need": "Loading on button",
       "label": "design/feedback/loading-on-button.md",
       "designDoc": "design/feedback/loading-on-button.md",
-      "basePrimitive": "Shadcn-Svelte Spinner inside Button",
+      "basePrimitive": "Spinner inside button",
       "status": "Migrated",
       "mockRoute": "/components/loading-on-button",
       "mockSlug": "loading-on-button"
@@ -378,7 +378,7 @@
       "need": "Page loading",
       "label": "design/feedback/page-loading.md",
       "designDoc": "design/feedback/page-loading.md",
-      "basePrimitive": "Custom overlay + Spinner",
+      "basePrimitive": "Spinner + skeleton",
       "status": "Migrated",
       "mockRoute": "/components/page-loading",
       "mockSlug": "page-loading"
@@ -398,7 +398,7 @@
       "need": "Keyboard hint",
       "label": "design/text/kbd.md",
       "designDoc": "design/text/kbd.md",
-      "basePrimitive": "Shadcn-Svelte Kbd",
+      "basePrimitive": "<kbd> + Tailwind utilities",
       "status": "Migrated",
       "mockRoute": "/components/kbd",
       "mockSlug": "kbd"
@@ -408,7 +408,7 @@
       "need": "Scrollbar",
       "label": "design/utilities/scrollbar.md",
       "designDoc": "design/utilities/scrollbar.md",
-      "basePrimitive": "CSS utility",
+      "basePrimitive": "CSS utility (::-webkit-scrollbar-*)",
       "status": "Migrated",
       "mockRoute": "/components/scrollbar",
       "mockSlug": "scrollbar"
@@ -418,7 +418,7 @@
       "need": "Table",
       "label": "design/data/table.md",
       "designDoc": "design/data/table.md",
-      "basePrimitive": "Shadcn-Svelte Table or Data Table",
+      "basePrimitive": "table",
       "status": "Migrated",
       "mockRoute": "/components/table",
       "mockSlug": "table"
@@ -428,7 +428,7 @@
       "need": "Dropdown",
       "label": "design/forms/dropdown.md",
       "designDoc": "design/forms/dropdown.md",
-      "basePrimitive": "Shadcn-Svelte Dropdown Menu",
+      "basePrimitive": "dropdown-menu (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/dropdown",
       "mockSlug": "dropdown"
@@ -438,7 +438,7 @@
       "need": "Searchable dropdown",
       "label": "design/forms/searchable-dropdown.md",
       "designDoc": "design/forms/searchable-dropdown.md",
-      "basePrimitive": "Shadcn-Svelte Command + Popover / Combobox",
+      "basePrimitive": "command + popover (cmdk combobox)",
       "status": "Migrated",
       "mockRoute": "/components/searchable-dropdown",
       "mockSlug": "searchable-dropdown"
@@ -448,7 +448,7 @@
       "need": "Form composition / validation",
       "label": "design/forms/form-composition.md",
       "designDoc": "design/forms/form-composition.md",
-      "basePrimitive": "FormField + inputs + validation",
+      "basePrimitive": "FormField + inputs + validation (optional react-hook-form + zod)",
       "status": "Migrated",
       "mockRoute": "/components/form-composition-error",
       "mockSlug": "form-composition-error"
@@ -458,7 +458,7 @@
       "need": "TOTP / one-time token challenge",
       "label": "design/auth/totp-challenge.md",
       "designDoc": "design/auth/totp-challenge.md",
-      "basePrimitive": "Shadcn-Svelte Button + Input + local OTP composition",
+      "basePrimitive": "Local OTP composition using input ring pattern",
       "status": "Migrated",
       "mockRoute": "/pages/totp-challenge",
       "mockSlug": "totp-challenge"
@@ -468,7 +468,7 @@
       "need": "Login page",
       "label": "design/auth/login-page.md",
       "designDoc": "design/auth/login-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "basePrimitive": "Auth composition with button, input, FormField, AuthShell",
       "status": "Migrated",
       "mockRoute": "/pages/login-page",
       "mockSlug": "login-page"
@@ -478,7 +478,7 @@
       "need": "Register page",
       "label": "design/auth/register-page.md",
       "designDoc": "design/auth/register-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "basePrimitive": "Auth composition with button, input, FormField",
       "status": "Migrated",
       "mockRoute": "/pages/register-page",
       "mockSlug": "register-page"
@@ -488,7 +488,7 @@
       "need": "Forgot password page",
       "label": "design/auth/forgot-password-page.md",
       "designDoc": "design/auth/forgot-password-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, Input, FormField",
+      "basePrimitive": "Auth composition with button, input, FormField",
       "status": "Migrated",
       "mockRoute": "/pages/forgot-password-page",
       "mockSlug": "forgot-password-page"
@@ -498,7 +498,7 @@
       "need": "Reset password page",
       "label": "design/auth/reset-password-page.md",
       "designDoc": "design/auth/reset-password-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, PasswordInput, FormField",
+      "basePrimitive": "Auth composition with button, PasswordInput, FormField",
       "status": "Migrated",
       "mockRoute": "/pages/reset-password-page",
       "mockSlug": "reset-password-page"
@@ -508,7 +508,7 @@
       "need": "Confirm password page",
       "label": "design/auth/confirm-password-page.md",
       "designDoc": "design/auth/confirm-password-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button, PasswordInput, FormField",
+      "basePrimitive": "Auth composition with button, PasswordInput, FormField",
       "status": "Migrated",
       "mockRoute": "/pages/confirm-password-page",
       "mockSlug": "confirm-password-page"
@@ -518,7 +518,7 @@
       "need": "Email verification page",
       "label": "design/auth/email-verification-page.md",
       "designDoc": "design/auth/email-verification-page.md",
-      "basePrimitive": "Auth page composition with Shadcn-Svelte Button",
+      "basePrimitive": "Auth composition with button",
       "status": "Migrated",
       "mockRoute": "/pages/email-verification-page",
       "mockSlug": "email-verification-page"
@@ -528,7 +528,7 @@
       "need": "Command palette / global search",
       "label": "design/search/command-palette.md",
       "designDoc": "design/search/command-palette.md",
-      "basePrimitive": "Shadcn-Svelte Command + Dialog",
+      "basePrimitive": "command + dialog (cmdk)",
       "status": "Migrated",
       "mockRoute": "/components/command-palette",
       "mockSlug": "command-palette"
@@ -538,7 +538,7 @@
       "need": "Tooltip variants",
       "label": "design/overlays/tooltip.md",
       "designDoc": "design/overlays/tooltip.md",
-      "basePrimitive": "Shadcn-Svelte Tooltip",
+      "basePrimitive": "tooltip (Radix)",
       "status": "Migrated",
       "mockRoute": "/components/tooltip",
       "mockSlug": "tooltip"

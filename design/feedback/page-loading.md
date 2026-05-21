@@ -83,11 +83,11 @@ Do reserve layout space with skeletons. Don't show large spinners for whole page
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Skeleton` for page/content placeholders and Spinner only for short blocking states.
+- [ ] Uses shadcn/ui `Skeleton` for page/content placeholders and Spinner only for short blocking states.
 - [ ] Skeleton blocks reserve the final layout dimensions closely enough to avoid large layout shift.
 - [ ] Skeletons use `animate-pulse rounded-sm bg-neutral-200 dark:bg-coolgray-200`.
 - [ ] Inline loading rows use `flex items-center gap-2 text-sm` and keep copy short.
@@ -104,6 +104,6 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/page-loading/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/page-loading.tsx`
 
 - `DESIGN.md`

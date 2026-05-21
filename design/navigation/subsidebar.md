@@ -130,7 +130,7 @@ Use `rounded-sm` for item backgrounds.
 
 ## Implementation Notes
 
-Base this on a local Shadcn-Svelte-compatible component. It does not need a Shadcn primitive because it is semantic navigation made from anchors.
+Base this on a local shadcn/ui-compatible component. It does not need a shadcn/ui primitive because it is semantic navigation made from anchors.
 
 ## Review Checklist
 
@@ -146,7 +146,7 @@ Future versions may add nested groups if Coolify needs deeper resource navigatio
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/subsidebar/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/subsidebar.tsx`
 
 - `design/navigation/sidebar-navbar.md`
 - Coolify `sub-menu-wrapper` / `sub-menu-item` pattern

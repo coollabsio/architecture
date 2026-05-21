@@ -32,7 +32,7 @@ components:
 
 ## Overview
 
-Use Shadcn-Svelte Popover as base. Anchored small surface with neutral border, compact padding, shadow, and no heavy decoration.
+Use shadcn/ui Popover as base. Anchored small surface with neutral border, compact padding, shadow, and no heavy decoration.
 
 ## Colors
 
@@ -44,7 +44,7 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 ## Layout
 
-Use Shadcn-Svelte Popover as base. Anchored small surface with neutral border, compact padding, shadow, and no heavy decoration.
+Use shadcn/ui Popover as base. Anchored small surface with neutral border, compact padding, shadow, and no heavy decoration.
 
 ## Exact Layout Recipe
 
@@ -97,12 +97,12 @@ Do keep content short. Don't use for complex forms or destructive confirmations.
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
-- [ ] Uses Shadcn-Svelte `Popover` for anchored contextual content; uses `Dialog` only when focus must be trapped.
+- [ ] Uses shadcn/ui `Popover` for anchored contextual content; uses `Dialog` only when focus must be trapped.
 - [ ] Surface uses `rounded-sm border bg-white dark:bg-coolgray-100` with explicit neutral/coolgray border.
 - [ ] Content width is constrained (`max-w-sm`/`max-w-md` style) and never overflows the viewport.
 - [ ] Padding stays compact (`p-3` or `p-4`) with `gap-2/gap-3`; no large modal spacing.
@@ -119,6 +119,6 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/popover/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/popover.tsx`
 
 - `DESIGN.md`

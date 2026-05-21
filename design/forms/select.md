@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Select
-description: Native/Shadcn-Svelte select control using Coolify's inset input shadow system and stacked up/down chevron.
+description: Native/shadcn/ui select control using Coolify's inset input shadow system and stacked up/down chevron.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -64,12 +64,10 @@ The Coolify Select is a compact select control that shares the Input inset shado
 
 For simple option lists, prefer a native `<select>` styled with this spec. For complex searchable menus, multi-select, async options, or rich item rendering, use a separate combobox/select primitive spec instead of overloading this one.
 
-Start from the local Shadcn-Svelte `Select` primitive when a custom select is needed:
+Start from the local shadcn/ui `Select` primitive when a custom select is needed:
 
-```svelte
-<script lang="ts">
-  import * as Select from "$lib/components/ui/select/index.js";
-</script>
+```tsx
+import { Select, NativeSelect } from "@/components/ui/select";
 ```
 
 For ordinary forms, a local `NativeSelect` wrapper around `<select>` is acceptable and often better because it preserves native semantics.
@@ -188,7 +186,7 @@ The chevron is not inside a separate pill or button surface.
 
 Recommended wrapper for simple form selects:
 
-```svelte
+```tsx
 <NativeSelect value={direction} dirty={direction !== initialDirection}>
   <option value="allow-www-and-non-www">Allow www & non-www.</option>
   <option value="redirect-to-www">Redirect to www.</option>
@@ -204,18 +202,18 @@ block w-full appearance-none rounded-sm border-0 bg-white bg-[right_0.5rem_cente
 
 Recommended chevron overlay:
 
-```svelte
+```tsx
 <svg
-  class="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white"
+  className="pointer-events-none absolute right-2 top-1/2 size-4 -translate-y-1/2 text-black dark:text-white"
   xmlns="http://www.w3.org/2000/svg"
   fill="none"
   viewBox="0 0 24 24"
-  stroke-width="1.5"
+  strokeWidth="1.5"
   stroke="currentColor"
   aria-hidden="true"
 >
-  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 15L12 18.75 15.75 15" />
-  <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 9L12 5.25 15.75 9" />
+  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 15L12 18.75 15.75 15" />
+  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 9L12 5.25 15.75 9" />
 </svg>
 ```
 
@@ -227,7 +225,7 @@ Use either a `dirty` prop or `data-dirty="true"` on the local select primitive.
 
 Preferred usage:
 
-```svelte
+```tsx
 <NativeSelect value={direction} dirty={direction !== initialDirection} />
 ```
 
@@ -248,9 +246,9 @@ data-[dirty=true]:[box-shadow:inset_4px_0_0_#6b16ed,inset_0_0_0_2px_#e5e5e5] dar
 disabled:[box-shadow:none]
 ```
 
-### Shadcn-Svelte Select
+### shadcn/ui Select
 
-If using Shadcn-Svelte `Select`, style `Select.Trigger` to visually match the native wrapper:
+If using a shadcn/ui Radix `Select`, style `SelectTrigger` to visually match the native wrapper:
 
 - no normal border outline,
 - inset shadow border,
@@ -259,7 +257,7 @@ If using Shadcn-Svelte `Select`, style `Select.Trigger` to visually match the na
 - `rounded-sm`,
 - dirty state via `data-dirty` on the trigger.
 
-Use Shadcn-Svelte content/item patterns only for complex selects. Do not make ordinary native selects behave like action dropdown menus.
+Use shadcn/ui content/item patterns only for complex selects. Do not make ordinary native selects behave like action dropdown menus.
 
 ## Do's and Don'ts
 
@@ -287,7 +285,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 
 ## Review Checklist
 
-- [ ] Uses native `<select>` wrapper or Shadcn-Svelte `Select` as the base.
+- [ ] Uses native `<select>` wrapper or shadcn/ui `Select` as the base.
 - [ ] Uses `border-0` and inset `box-shadow`, not normal borders, for the main outline.
 - [ ] Resting state has a transparent 4px left bar and 2px simulated border.
 - [ ] Focus state uses a 4px left bar: purple in light mode, yellow in dark mode.
@@ -310,7 +308,7 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/select/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/select.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Select docs: `https://www.shadcn-svelte.com/docs/components/select`.
+- shadcn/ui Select docs: `https://ui.shadcn.com/docs/components/select`.

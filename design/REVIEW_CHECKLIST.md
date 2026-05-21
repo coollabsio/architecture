@@ -12,7 +12,7 @@ Use this checklist after every UI/design implementation or design-doc update.
 
 ## Implementation checks
 
-- [ ] Starts from the documented Shadcn-Svelte primitive or documented composition.
+- [ ] Starts from the documented shadcn/ui primitive or documented composition.
 - [ ] Uses documented variants/states instead of raw one-off booleans/classes.
 - [ ] Keeps default controls compact: `h-8`, `px-2`, `gap-2`, `text-sm` unless the spec says otherwise.
 - [ ] Keeps default radius at 4px / `rounded-sm` unless the spec says otherwise.

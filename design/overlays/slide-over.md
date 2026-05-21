@@ -32,7 +32,7 @@ components:
 
 ## Overview
 
-Use Shadcn-Svelte Sheet as base. Right side panel, neutral/coolgray border, title/description, close button, scrollable body, footer actions.
+Use shadcn/ui Sheet as base. Right side panel, neutral/coolgray border, title/description, close button, scrollable body, footer actions.
 
 ## Colors
 
@@ -44,7 +44,7 @@ Use compact `text-sm` body text. Titles, where present, use bold Coolify heading
 
 ## Layout
 
-Use Shadcn-Svelte Sheet as base. Right side panel, neutral/coolgray border, title/description, close button, scrollable body, footer actions.
+Use shadcn/ui Sheet as base. Right side panel, neutral/coolgray border, title/description, close button, scrollable body, footer actions.
 
 ## Exact Layout Recipe
 
@@ -97,12 +97,12 @@ Do use for secondary context. Don't replace destructive confirmation or full-pag
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
 - [ ] Any input/search/textarea controls on gray or coolgray panels have a visible contrast step; no same-color control-on-panel pairing.
-- [ ] Uses Shadcn-Svelte `Sheet` as the base and opens from the right.
+- [ ] Uses shadcn/ui `Sheet` as the base and opens from the right.
 - [ ] Panel uses `fixed inset-y-0 right-0`, `w-screen`, `max-w-xl`, and a left border.
 - [ ] Surface is `bg-neutral-50 dark:bg-app-base` or the current mockup-equivalent sheet surface, not a floating card background.
 - [ ] Header contains title `text-base font-bold text-black dark:text-white`, optional muted description, and an accessible close button.
@@ -119,6 +119,6 @@ Future variants can be added after real product screens expose more states.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/slide-over/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/slide-over.tsx`
 
 - `DESIGN.md`

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Breadcrumbs
-description: Compact Shadcn-Svelte Breadcrumb navigation for dashboard hierarchy.
+description: Compact shadcn/ui Breadcrumb navigation for dashboard hierarchy.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -30,7 +30,7 @@ components:
 
 ## Overview
 
-Breadcrumbs show page hierarchy in compact dashboard screens. Use Shadcn-Svelte `Breadcrumb` semantics or ordered-list markup.
+Breadcrumbs show page hierarchy in compact dashboard screens. Use shadcn/ui `Breadcrumb` semantics or ordered-list markup.
 
 ## Colors
 
@@ -77,10 +77,10 @@ Focusable crumb links use `rounded-sm` for focus ring only.
 
 ## Components
 
-Start from Shadcn-Svelte `Breadcrumb`:
+Start from shadcn/ui `Breadcrumb`:
 
 ```bash
-bunx shadcn-svelte@latest add breadcrumb
+bunx shadcn@latest add breadcrumb
 ```
 
 Link class:
@@ -111,7 +111,7 @@ Sidebar integration can define when breadcrumbs are hidden on narrow pages.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/breadcrumbs/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/breadcrumbs.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Breadcrumb primitive
+- shadcn/ui Breadcrumb primitive

@@ -135,29 +135,30 @@ The copy button has no visible background by default; its hit target can use `ro
 
 ### Base composition
 
-```svelte
+```tsx
 <CopyButton text={token} />
 ```
 
 Recommended implementation shape:
 
-```svelte
-<div class="relative">
-  <Input value={text} readonly class="pr-11" />
-  {#if isSecure}
+```tsx
+<div className="relative">
+  <Input value={text} readOnly className="pr-11" />
+  {isSecure && (
     <button
       type="button"
-      class="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
+      className="absolute right-2 top-1/2 -translate-y-1/2 rounded-sm p-1.5 text-neutral-500 transition-colors hover:text-neutral-700 focus-visible:ring-2 focus-visible:ring-coollabs focus-visible:ring-offset-2 dark:text-neutral-400 dark:hover:text-white dark:focus-visible:ring-warning dark:focus-visible:ring-offset-app-base"
       title="Copy to clipboard"
       aria-label="Copy to clipboard"
+      onClick={copy}
     >
-      {#if copied}
-        <CheckIcon class="size-5 text-green-500" />
-      {:else}
-        <CopyIcon class="size-5" />
-      {/if}
+      {copied ? (
+        <Check className="size-5 text-green-500" />
+      ) : (
+        <Copy className="size-5" />
+      )}
     </button>
-  {/if}
+  )}
 </div>
 ```
 
@@ -166,15 +167,18 @@ Recommended implementation shape:
 Only render the copy button if clipboard access is available:
 
 ```ts
-const isSecure = window.isSecureContext && !!navigator.clipboard;
+const isSecure =
+  typeof window !== "undefined" && window.isSecureContext && !!navigator.clipboard;
 ```
 
 Copy action:
 
 ```ts
-await navigator.clipboard.writeText(text);
-copied = true;
-setTimeout(() => (copied = false), 1000);
+async function copy() {
+  await navigator.clipboard.writeText(text);
+  setCopied(true);
+  setTimeout(() => setCopied(false), 1000);
+}
 ```
 
 The copied state lasts 1 second.
@@ -246,8 +250,8 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/copy-button/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/copy-button.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Button docs: `https://www.shadcn-svelte.com/docs/components/button`.
-- Shadcn-Svelte Input docs: `https://www.shadcn-svelte.com/docs/components/input`.
+- shadcn/ui Button docs: `https://ui.shadcn.com/docs/components/button`.
+- shadcn/ui Input docs: `https://ui.shadcn.com/docs/components/input`.

@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Dropdown Menu
-description: Shadcn-Svelte Dropdown Menu primitive styled for compact operator actions, dense menus, and dark-first command surfaces.
+description: shadcn/ui Dropdown Menu primitive styled for compact operator actions, dense menus, and dark-first command surfaces.
 colors:
   primary: "#6b16ed"
   coollabs: "#6b16ed"
@@ -85,22 +85,26 @@ components:
 
 ## Overview
 
-The Coolify Dropdown Menu is a compact Shadcn-Svelte `Dropdown Menu` primitive for contextual actions, overflow menus, settings menus, and command lists.
+The Coolify Dropdown Menu is a compact shadcn/ui `Dropdown Menu` primitive for contextual actions, overflow menus, settings menus, and command lists.
 
 Dropdowns are utilitarian and dense. The menu surface is flat with a thin border and minimal shadow. Items are short, left-aligned action rows with small text, 4px radius, and clear hover/focus states.
 
-Start from the local Shadcn-Svelte primitive:
+Start from the local shadcn/ui primitive:
 
-```svelte
-<script lang="ts">
-  import * as DropdownMenu from "$lib/components/ui/dropdown-menu/index.js";
-</script>
+```tsx
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger
+} from "@/components/ui/dropdown-menu";
 ```
 
 If the primitive is missing, add it first:
 
 ```bash
-pnpm dlx shadcn-svelte@latest add dropdown-menu
+bunx shadcn@latest add dropdown-menu
 ```
 
 ## Colors
@@ -184,7 +188,7 @@ Do not use pill-shaped or large-radius dropdown menus. Sharp geometry should mat
 
 ### Base primitive extension
 
-Use Shadcn-Svelte `Dropdown Menu` as the interaction primitive. Extend its local components with these classes.
+Use shadcn/ui `Dropdown Menu` as the interaction primitive. Extend its local components with these classes.
 
 Recommended content class:
 
@@ -212,16 +216,18 @@ Recommended trigger rule:
 
 ### Standard action menu
 
-```svelte
-<DropdownMenu.Root>
-  <DropdownMenu.Trigger>Actions</DropdownMenu.Trigger>
-  <DropdownMenu.Content align="end">
-    <DropdownMenu.Item>Restart</DropdownMenu.Item>
-    <DropdownMenu.Item>Redeploy</DropdownMenu.Item>
-    <DropdownMenu.Separator />
-    <DropdownMenu.Item variant="danger">Stop service</DropdownMenu.Item>
-  </DropdownMenu.Content>
-</DropdownMenu.Root>
+```tsx
+<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button aria-haspopup="menu">Actions</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent align="end">
+    <DropdownMenuItem>Restart</DropdownMenuItem>
+    <DropdownMenuItem>Redeploy</DropdownMenuItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuItem danger>Stop service</DropdownMenuItem>
+  </DropdownMenuContent>
+</DropdownMenu>
 ```
 
 ### Settings menu
@@ -230,7 +236,7 @@ Use for theme, density, account, and product settings. Keep settings menus compa
 
 ### Disabled item
 
-Disabled items use Shadcn's disabled state and must be visibly disabled without changing layout:
+Disabled items use shadcn/ui's disabled state and must be visibly disabled without changing layout:
 
 ```txt
 data-[disabled]:pointer-events-none data-[disabled]:opacity-50
@@ -238,7 +244,7 @@ data-[disabled]:pointer-events-none data-[disabled]:opacity-50
 
 ### Keyboard and focus behavior
 
-Use the Shadcn-Svelte primitive behavior for:
+Use the shadcn/ui primitive behavior for:
 
 - Escape to close.
 - Outside click to close.
@@ -250,14 +256,14 @@ Do not reimplement this behavior manually unless the primitive cannot support th
 
 ## Do's and Don'ts
 
-- Do start from Shadcn-Svelte `Dropdown Menu`.
+- Do start from shadcn/ui `Dropdown Menu`.
 - Do style `Content`, `Item`, `Separator`, `Label`, and `Trigger` locally instead of using global selectors.
 - Do use `Button` for dropdown triggers when the trigger is an action button, with the stacked up/down chevron icon when the trigger indicates a menu/select.
 - Do keep content `p-1`, bordered, and `shadow-sm`.
 - Do keep default items `text-xs` with `py-1 pr-4 pl-2`.
 - Do use `min-h-10 px-3 py-2 text-sm` for touch-oriented menus.
 - Do keep dark item hover/focus purple as the documented dropdown exception.
-- Do preserve Shadcn-Svelte keyboard/focus behavior.
+- Do preserve shadcn/ui keyboard/focus behavior.
 - Don't use large rounded corners, gradients, large shadows, or glass effects.
 - Don't make every dropdown item look like a button.
 - Don't use purple as the general dark-mode accent outside the documented item hover/focus behavior.
@@ -267,14 +273,14 @@ Do not reimplement this behavior manually unless the primitive cannot support th
 
 This section is intentionally outside the core DESIGN.md section list and should be preserved by tools that follow the Google `design.md` consumer behavior for unknown sections.
 
-- Prefer a local `dropdown-menu` primitive that wraps Shadcn-Svelte's generated files.
+- Prefer a local `dropdown-menu` primitive that wraps shadcn/ui's generated files.
 - Expose item variants only when needed: default, danger, touch.
 - Keep item styling on the item primitive so keyboard-highlight and pointer-hover states stay aligned.
 - If a menu needs search/filtering, migrate that as a separate combobox/select pattern instead of overloading Dropdown Menu.
 
 ## Review Checklist
 
-- [ ] Uses Shadcn-Svelte `Dropdown Menu` as the base primitive.
+- [ ] Uses shadcn/ui `Dropdown Menu` as the base primitive.
 - [ ] Content uses `border-neutral-300 bg-white p-1 shadow-sm dark:border-coolgray-300 dark:bg-coolgray-100`.
 - [ ] Content and items use `rounded-sm`.
 - [ ] Default items use `text-xs`, `py-1`, `pl-2`, `pr-4`, `gap-2`, `cursor-pointer`, `select-none`.
@@ -284,7 +290,7 @@ This section is intentionally outside the core DESIGN.md section list and should
 - [ ] Dark hover/focus uses `bg-coollabs` and white text.
 - [ ] Disabled items use `data-[disabled]:pointer-events-none` and `data-[disabled]:opacity-50`.
 - [ ] Trigger chevron uses the stacked up/down Coolify icon, not a single down chevron.
-- [ ] Keyboard navigation and close behavior come from the Shadcn-Svelte primitive.
+- [ ] Keyboard navigation and close behavior come from the shadcn/ui primitive.
 - [ ] No undocumented radius, gradient, heavy shadow, or decorative styling introduced.
 
 ## Claude Improvement Notes
@@ -300,7 +306,7 @@ Do not apply these improvements automatically while migrating. Preserve this com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/dropdown/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/dropdown.tsx`
 
 - Google DESIGN.md spec: `https://github.com/google-labs-code/design.md`.
-- Shadcn-Svelte Dropdown Menu docs: `https://www.shadcn-svelte.com/docs/components/dropdown-menu`.
+- shadcn/ui Dropdown Menu docs: `https://ui.shadcn.com/docs/components/dropdown-menu`.

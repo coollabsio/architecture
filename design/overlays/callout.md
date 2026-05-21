@@ -79,7 +79,7 @@ Use `rounded-sm`.
 
 ## Components
 
-Start from Shadcn-Svelte `Alert` or local Alert styles, but keep semantics non-urgent.
+Start from shadcn/ui `Alert` or local Alert styles, but keep semantics non-urgent.
 
 ```txt
 grid grid-cols-[1rem_1fr] gap-2 rounded-sm border border-neutral-200 bg-white p-3 text-sm dark:border-coolgray-300 dark:bg-coolgray-100
@@ -108,7 +108,7 @@ Future variants can define docs, tip, and note callouts separately.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/callout/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/callout.tsx`
 
 - `DESIGN.md`
 - `design/overlays/alert.md`

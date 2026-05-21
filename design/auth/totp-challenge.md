@@ -57,7 +57,7 @@ components:
 
 The TOTP Challenge is the auth-page component used after password login when two-factor authentication is required. It is inspired by Coolify's current 2FA challenge: centered auth page, product title, short instruction panel, six separate digit inputs, recovery-code fallback, primary login button, help divider, and back-to-login link.
 
-Use Shadcn-Svelte primitives as the base where possible:
+Use shadcn/ui primitives as the base where possible:
 
 - `Button` with `variant="highlighted"` and auth layout sizing for Login submit and navigation-style actions.
 - `Input` for recovery-code mode.
@@ -204,7 +204,7 @@ Follow the exact context-contrast rule from `design/forms/input.md` and `design/
 
 ## Implementation Notes
 
-Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state for the digit array, paste handling, focus movement, and recovery-code toggle. In production, wire submit to the app's auth endpoint or action.
+Use shadcn/ui `Button` and `Input` as primitives, with local React state for the digit array, paste handling, focus movement, and recovery-code toggle. In production, wire submit to the app's auth endpoint or action.
 
 ## Review Checklist
 
@@ -218,7 +218,7 @@ Use Shadcn-Svelte `Button` and `Input` as primitives, with local Svelte state fo
 - [ ] Submit is disabled until the current mode is valid.
 - [ ] Light focus uses purple; dark focus uses yellow.
 - [ ] Dark card/input contrast is visible.
-- [ ] Uses Shadcn-Svelte primitives where applicable.
+- [ ] Uses shadcn/ui primitives where applicable.
 
 ## Claude Improvement Notes
 
@@ -226,7 +226,7 @@ Consider adding a setup variant later for QR code enrollment, secret-key reveal/
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/totp-challenge/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/totp-challenge.tsx`
 
 - `DESIGN.md`
 - Coolify current two-factor challenge behavior reviewed for interaction patterns.

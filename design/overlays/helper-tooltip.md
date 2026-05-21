@@ -75,7 +75,7 @@ Use `rounded-full` trigger and `rounded-sm` tooltip.
 
 ## Components
 
-Start from Shadcn-Svelte `Tooltip`; use `Hover Card` only for rich content.
+Start from shadcn/ui `Tooltip`; use `Hover Card` only for rich content.
 
 ```txt
 z-50 min-w-max max-w-[min(20rem,calc(100vw-2rem))] whitespace-normal rounded-sm bg-coolgray-400 px-2 py-1.5 text-xs leading-4 text-white shadow-sm
@@ -104,7 +104,7 @@ A rich helper hover-card variant can be documented later.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/helper-tooltip/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/helper-tooltip.tsx`
 
 - `DESIGN.md`
 - `design/forms/form-field.md`

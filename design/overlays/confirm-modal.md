@@ -81,7 +81,7 @@ Use `rounded-sm`.
 
 ## Components
 
-- Shadcn-Svelte `AlertDialog` preferred.
+- shadcn/ui `AlertDialog` preferred.
 - `Button` default for cancel.
 - `Button` highlighted for confirm.
 - Optional header X close button follows `design/overlays/modal.md` → "Modal close button".
@@ -113,7 +113,7 @@ Consider adding loading state support for async confirmations.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/confirm-modal/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/confirm-modal.tsx`
 
 - `design/forms/button.md`
 - `design/overlays/modal.md`

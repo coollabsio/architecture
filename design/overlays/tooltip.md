@@ -33,7 +33,7 @@ components:
 
 ## Overview
 
-Use Shadcn-Svelte Tooltip/Hover Card as base. Action tooltips are compact hover/focus labels. Helper tooltips explain form labels and use the visible info icon pattern.
+Use shadcn/ui Tooltip/Hover Card as base. Action tooltips are compact hover/focus labels. Helper tooltips explain form labels and use the visible info icon pattern.
 
 ## Colors
 
@@ -89,7 +89,7 @@ Compose existing design primitives: Button, Input, FormField, HelperTooltip, Req
 
 ## Implementation Notes
 
-Prefer the closest Shadcn-Svelte primitive and extend locally for Coolify density/colors.
+Prefer the closest shadcn/ui primitive and extend locally for Coolify density/colors.
 
 ## Review Checklist
 
@@ -104,6 +104,6 @@ Add async/loading and server-error variants after product usage is clearer.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/tooltip/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/tooltip.tsx`
 
 - `DESIGN.md`

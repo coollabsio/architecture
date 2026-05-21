@@ -76,7 +76,7 @@ Same as Button: `rounded-sm`.
 
 ## Components
 
-```svelte
+```tsx
 <Button disabled aria-busy="true">
   Saving
   <Spinner />
@@ -108,7 +108,7 @@ Future async button patterns can distinguish optimistic vs blocking loading.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/loading-on-button/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/loading-on-button.tsx`
 
 - `DESIGN.md`
 - `design/forms/button.md`

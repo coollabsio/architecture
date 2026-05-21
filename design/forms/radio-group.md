@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Radio Group
-description: Shadcn-Svelte Radio Group primitive for compact single-choice settings rows.
+description: shadcn/ui Radio Group primitive for compact single-choice settings rows.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -46,7 +46,7 @@ components:
 
 ## Overview
 
-The Coolify Radio Group is a compact Shadcn-Svelte `Radio Group` primitive for mutually exclusive choices in settings screens.
+The Coolify Radio Group is a compact shadcn/ui `Radio Group` primitive for mutually exclusive choices in settings screens.
 
 Use it when exactly one option should be selected. If several options can be enabled independently, use Checkbox instead.
 
@@ -106,10 +106,10 @@ Radio controls are fully rounded circles. Do not make them square or switch-like
 
 ### Radio Group primitive
 
-Start from Shadcn-Svelte `Radio Group`:
+Start from shadcn/ui `Radio Group`:
 
 ```bash
-bunx shadcn-svelte@latest add radio-group
+bunx shadcn@latest add radio-group
 ```
 
 Recommended control classes:
@@ -135,7 +135,7 @@ size-2 rounded-full bg-coollabs dark:bg-warning
 
 ## Implementation Notes
 
-Use Shadcn-Svelte primitives for ARIA and keyboard behavior. Native radio inputs are acceptable in small forms if they preserve `name`, `checked`, and keyboard behavior.
+Use shadcn/ui primitives for ARIA and keyboard behavior. Native radio inputs are acceptable in small forms if they preserve `name`, `checked`, and keyboard behavior.
 
 ## Review Checklist
 
@@ -150,8 +150,8 @@ A future variant could document selectable card rows for larger plan choices, bu
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/radio-group/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/radio-group.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Radio Group primitive
+- shadcn/ui Radio Group primitive
 - Existing Checkbox row composition

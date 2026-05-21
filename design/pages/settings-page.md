@@ -66,7 +66,7 @@ components:
 
 The Application Settings Page is the main product-level configuration page for a self-hosted application. Use it for instance identity, public URL, registration policy, telemetry/update toggles, email/system settings, maintenance metadata, and destructive application actions.
 
-This is a page composition built from Shadcn-Svelte primitives: `Button`, `Input`, `FormField`, `NativeSelect`/`Select`, `Switch`, `Badge`, `Callout`, `Tabs`/subnavigation when needed, and destructive confirmation modals for dangerous actions.
+This is a page composition built from shadcn/ui primitives: `Button`, `Input`, `FormField`, `NativeSelect`/`Select`, `Switch`, `Badge`, `Callout`, `Tabs`/subnavigation when needed, and destructive confirmation modals for dangerous actions.
 
 ## Colors
 
@@ -169,13 +169,13 @@ Use `rounded-sm` for all cards, inputs, buttons, and status blocks. Do not use p
 
 ### Header
 
-```svelte
-<header class="mb-6 flex flex-col gap-4 border-b border-neutral-200 pb-4 dark:border-coolgray-200 md:flex-row md:items-start md:justify-between">
+```tsx
+<header className="mb-6 flex flex-col gap-4 border-b border-neutral-200 pb-4 dark:border-coolgray-200 md:flex-row md:items-start md:justify-between">
   <div>
-    <h1 class="text-3xl font-bold tracking-tight text-black dark:text-white">Application settings</h1>
-    <p class="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Configure instance identity, access policy, and operational behavior.</p>
+    <h1 className="text-3xl font-bold tracking-tight text-black dark:text-white">Application settings</h1>
+    <p className="mt-1 max-w-2xl text-sm text-neutral-600 dark:text-neutral-400">Configure instance identity, access policy, and operational behavior.</p>
   </div>
-  <div class="flex flex-wrap gap-2">
+  <div className="flex flex-wrap gap-2">
     <Button>Reset</Button>
     <Button variant="highlighted">Save changes</Button>
   </div>
@@ -257,7 +257,7 @@ If a project has many settings, split this page into an application settings she
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/settings-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/settings-page.tsx`
 
 - `DESIGN.md`
 - `design/forms/button.md`

@@ -325,10 +325,9 @@ Exit code rules:
 
 ### Frontend design contract
 
-- Use [`DESIGN.md`](./DESIGN.md) as the router for all frontend UI. It is the
-  single consolidated design doc covering both the React and SvelteKit stacks,
-  and it points to the component/page spec that must be followed before writing
-  React/TSX markup.
+- Use [`DESIGN.md`](./DESIGN.md) as the router for all frontend UI. It points
+  to the component/page spec that must be followed before writing React/TSX
+  markup.
 - Start each reusable UI element from the closest shadcn/ui primitive, then
   apply the Coolify visual decisions, variants, spacing, typography, states, and
   accessibility requirements from the matching `design/` Markdown file.

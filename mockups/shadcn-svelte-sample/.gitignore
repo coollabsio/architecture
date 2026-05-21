@@ -1,8 +1,0 @@
-node_modules
-.bun-cache
-.svelte-kit
-build
-.DS_Store
-.env
-.env.*
-!.env.example

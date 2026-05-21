@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Toast
-description: Shadcn-Svelte Sonner toast styling for short non-blocking feedback.
+description: shadcn/ui Sonner toast styling for short non-blocking feedback.
 colors:
   success: "#16a34a"
   warning: "#fcd452"
@@ -34,7 +34,7 @@ components:
 
 ## Overview
 
-Toast is a short non-blocking notification using Shadcn-Svelte `Sonner`. Use it for saved, copied, queued, failed, or completed feedback.
+Toast is a short non-blocking notification using shadcn/ui `Sonner`. Use it for saved, copied, queued, failed, or completed feedback.
 
 ## Colors
 
@@ -80,7 +80,7 @@ close: absolute right-2 top-2 grid size-5 place-items-center rounded-sm text-xs 
 
 Use the Sonner stack model for production notifications:
 
-```svelte
+```tsx
 <Toaster
   position="bottom-right"
   closeButton
@@ -112,10 +112,10 @@ Use `rounded-sm`.
 
 ## Components
 
-Start from Shadcn-Svelte Sonner:
+Start from shadcn/ui Sonner:
 
 ```bash
-bunx shadcn-svelte@latest add sonner
+bunx shadcn@latest add sonner
 ```
 
 Recommended toast class:
@@ -148,7 +148,7 @@ closeButton: true
 
 Toasts should auto-dismiss unless they contain an action. Destructive failures should remain long enough to read.
 
-If using `svelte-sonner`, prefer its built-in stack behavior instead of recreating transforms manually in app code. The mockup route may recreate the behavior for static documentation, but production apps should use the Shadcn-Svelte/Sonner primitive.
+If using `sonner`, prefer its built-in stack behavior instead of recreating transforms manually in app code. The mockup route may recreate the behavior for static documentation, but production apps should use the shadcn/ui Sonner primitive.
 
 ## Review Checklist
 
@@ -165,7 +165,7 @@ A future spec can define product-specific variants for always-expanded stacks, l
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/toast/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/toast.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Sonner primitive
+- shadcn/ui Sonner primitive

@@ -49,7 +49,7 @@ This page-level auth composition is inspired by Coolify's current auth screens. 
 
 Verification email sent message, instruction callout, highlighted resend button, and Back to Login link.
 
-Use Shadcn-Svelte primitives as the base: `Button`, `Input`/`PasswordInput` where needed, and `FormField` where labels are required.
+Use shadcn/ui primitives as the base: `Button`, `Input`/`PasswordInput` where needed, and `FormField` where labels are required.
 
 ## Colors
 
@@ -160,7 +160,7 @@ Consider extracting shared `AuthShell`, `AuthSubmitButton`, and auth divider com
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/email-verification-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/email-verification-page.tsx`
 
 - `DESIGN.md`
 - Coolify current auth views reviewed for layout and interaction hierarchy.

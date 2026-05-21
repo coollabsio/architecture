@@ -45,7 +45,7 @@ components:
 
 The Login Page is a page-level auth composition inspired by Coolify's current login screen: centered `max-w-md` auth column, large Coolify wordmark, email/password fields, forgot-password link, highlighted login button, registration divider/link, and optional OAuth buttons.
 
-Use Shadcn-Svelte primitives as the base: `Button`, `Input`, `PasswordInput`, and `FormField`.
+Use shadcn/ui primitives as the base: `Button`, `Input`, `PasswordInput`, and `FormField`.
 
 ## Colors
 
@@ -170,7 +170,7 @@ Consider a shared `AuthShell` and `AuthSubmitButton` composition if more auth pa
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/pages/login-page/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/pages/login-page.tsx`
 
 - `DESIGN.md`
 - Coolify current login page reviewed for layout and interaction hierarchy.

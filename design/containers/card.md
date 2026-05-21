@@ -1,7 +1,7 @@
 ---
 version: alpha
 name: Coolify Card
-description: Shadcn-Svelte Card primitive for compact operational surfaces and settings panels.
+description: shadcn/ui Card primitive for compact operational surfaces and settings panels.
 colors:
   primary: "#6b16ed"
   warning: "#fcd452"
@@ -46,7 +46,7 @@ components:
 
 ## Overview
 
-The Coolify Card is a Shadcn-Svelte `Card` primitive for grouping operational content, settings, metrics, and action rows. It should remain dense, sharp, and functional.
+The Coolify Card is a shadcn/ui `Card` primitive for grouping operational content, settings, metrics, and action rows. It should remain dense, sharp, and functional.
 
 ## Colors
 
@@ -100,10 +100,10 @@ Use `rounded-sm` consistently. Do not use large rounded dashboard cards.
 
 ### Card primitive
 
-Start from Shadcn-Svelte `Card`:
+Start from shadcn/ui `Card`:
 
 ```bash
-bunx shadcn-svelte@latest add card
+bunx shadcn@latest add card
 ```
 
 Base classes:
@@ -142,7 +142,7 @@ A later `coolbox.md` can document interactive hover/ring card links separately.
 
 ## Source References
 
-- Mockup reference: `mockups/shadcn-svelte-sample/src/routes/components/card/+page.svelte`
+- Mockup reference: `mockups/shadcn-react-sample/src/routes/components/card.tsx`
 
 - `DESIGN.md`
-- Shadcn-Svelte Card primitive
+- shadcn/ui Card primitive

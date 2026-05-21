@@ -72,7 +72,7 @@ But:
 
 Do:
 
-- use documented Shadcn-Svelte primitives/compositions
+- use documented shadcn/ui primitives/compositions
 - use documented variants/states
 - keep behavior and accessibility intact
 - make minimal diffs
